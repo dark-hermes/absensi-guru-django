@@ -1,0 +1,173 @@
+<?php
+   // Cek session user 
+session_start();
+if (!isset($_SESSION["login-button"]) ) {
+   header("Location: login");
+   exit();
+}
+
+// Panggil seluruh fungsi php
+require_once "../php/fungsi.php";
+
+$username = $_SESSION['username'];
+$now_date = date("Y-m-d");
+
+$isi = take("SELECT * FROM laporan_ilmiah WHERE username='$username' ORDER BY tanggal DESC");
+
+if(isset($_GET['filter'])){
+   $isi = take_data("laporan_ilmiah",$_GET['filter'],'', 'ORDER BY tanggal DESC', $now_date);
+} else{
+    $_GET['filter'] = 'no-filter';
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Header Link -->
+   <?php include '../php/header.php'; ?>
+
+   <title>LaporanKu | SMKN 1 CIBINONG</title>
+</head>
+<body>
+
+<!-- Panggil navbar -->
+<?php 
+
+    if($_SESSION['role'] == 'super'){
+        include '../php/navbar-super.php';
+    } else{
+        include '../php/navbar.php';
+    } ?>
+
+
+<div class="container" id="container">
+<h2>Publikasi Ilmiah <?= $_SESSION["full_name"] ?></h2>
+
+<form action="" method="get">
+	
+    <div class="button-group">
+         <div class="button">
+             <button class="button" id="" name="filter" value="hari_ini">Hari Ini <i class='bx bx-search' style='color:#ffffff' ></i></button>
+         </div>
+
+         <div class="button">
+             <button class="button" id="" name="filter" value="bulan_ini">Bulan Ini <i class='bx bx-search' style='color:#ffffff' ></i></button>
+         </div>
+
+         <div class="button">
+             <button class="button" id="" name="filter"value="tahun_ini" >Tahun Ini <i class='bx bx-search' style='color:#ffffff' ></i></button>
+         </div>
+
+         <div class="button">
+             <button class="button" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="" >Custom <i class='bx bx-customize'></i></button>
+
+             <div class="modal fade " id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg modal-dialog-centered">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="staticBackdropLabel">Kustomisasi Tanggal</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   </div>
+
+                    
+                           <div class="modal-body">
+                                 <div class="date">
+                                     <label for="from-date">Dari</label>
+                                     <input type="date" name="from-date" id="from-date">
+                                 </div>
+
+                                 <div class="date">
+                                     <label for="to-date">Sampai</label>
+                                     <input type="date" name="to-date" id="to-date">
+                                 </div>
+                           </div>
+
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                             <button type="button" name='custom-filter' value='custom' id='custom-filter' class="btn btn-primary" data-bs-dismiss="modal">Kirim</button>
+                           </div>
+                     
+
+                 </div>
+               </div>
+             </div>
+         </div>
+
+     </div>
+
+</form>
+   
+   <div id="table-pdf">
+      <div class="table-laporan">
+          <table class="table table-bordered table-striped table-responsive-sm" id="tableOne">
+             <thead class="thead-dark">
+                <tr>
+                   <th>Tanggal</th>
+                   <th>Karya</th>
+                   <th>Laporan</th>
+                   <th>Dokumentasi</th>
+                </tr>
+             </thead>
+             <tbody>
+             
+             <?php if(!empty($isi)): ?>
+                <?php foreach( $isi as $isian) :?>   
+                <tr>
+                   <?php $new_date = date_formatter($isian["tanggal"]) ?>
+                   <td><?= $new_date;?></td>
+                   <td><?= $isian['karya'] ?></td>
+                   <td><?= $isian["laporan"];?></td>
+                   <td><a href="../image/bukti/<?= $isian['dokumentasi'] ?>" target="_blank" ><img src="../image/bukti/<?= $isian['dokumentasi'] ?>" alt="<?= $isian['dokumentasi'] ?>" width='100'></a> </td>
+                </tr>
+                <?php endforeach; ?> 
+                
+             <?php else: ?>
+                <tr>
+                   <td colspan="4" align="center">Data tidak tersedia.</td>
+                </tr>
+             <?php endif; ?>
+             
+             </tbody>
+          </table>
+      </div>
+
+      <div class="button-print">
+            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Print <i class='bx bxs-printer'></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Print Absensi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="pdf">
+                                <a class="pdf" href=<?= "../php/pdf/pdf_laporan_ilmiah.php?filter=".$_GET['filter']."&name=".explode(".",str_replace("-","_",explode("_", basename($_SERVER['PHP_SELF']))[1]))[0] ?>> PDF <i class='bx bxs-file-pdf' style='color:#ffffff'  ></i></a>
+                            </div>
+
+                            <div class="excel">
+                            <a  class="excel" href=<?= "../php/excel/excel_laporan.php?filter=".$_GET['filter']."&name=".explode(".",str_replace("-","_",explode("_", basename($_SERVER['PHP_SELF']))[1]))[0]?>> Excel <i class='bx bxs-file' style='color:#ffffff'  ></i></a>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Selesai</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+   
+</div>
+
+<?php require_once '../php/footer.php' ?>
+
+
+</body>
+</html>

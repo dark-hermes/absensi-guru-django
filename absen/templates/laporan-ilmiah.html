@@ -1,0 +1,106 @@
+<?php
+	// Cek session user 
+	session_start();
+	if (!isset($_SESSION["login-button"]) ) {
+		header("Location: login");
+		exit();
+	}
+
+	// Panggil seluruh fungsi php
+	require_once "../php/fungsi.php";
+
+	if (isset($_POST["submit-laporan"])){
+		if(add_laporan_ilmiah($_POST) > 0){
+			echo "
+			<script>
+				alert('Laporan Berhasil Dibuat');
+				document.location.href = 'tampil_laporan-ilmiah';
+			</script>";
+		} else{
+			echo "
+			<script>
+				alert('Laporan Gagal Dibuat');
+			</script>";
+		}
+	
+	}
+	
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Header Link -->
+	<?php include '../php/header.php'; ?>
+
+	<title>Laporan Karya Ilmiah | SMKN 1 CIBINONG</title>
+</head>
+
+<body>
+
+	<!-- Panggil navbar -->
+	<?php 
+
+    if($_SESSION['role'] == 'super'){
+        include '../php/navbar-super.php';
+    } else{
+        include '../php/navbar.php';
+    } ?>
+
+	<div class="container-laporan-karya">
+		<form action="" method="post" enctype="multipart/form-data">
+			<h1 class="head">Laporan Karya Ilmiah</h1>
+			<div class="input-box">
+				<div class="input-radio">
+					<h1>Pilih Karya Ilmiah</h1>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Best Practice">
+					  <label class="form-check-label" for="inlineRadio1">Best Practice</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Buku Teks Pelajaran">
+					  <label class="form-check-label" for="inlineRadio2">Buku Teks Pelajaran</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Modul">
+					  <label class="form-check-label" for="inlineRadio3">Modul</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Diktat">
+					  <label class="form-check-label" for="inlineRadio4">Diklat</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="Buku Pedoman Guru">
+					  <label class="form-check-label" for="inlineRadio5">Buku Pedoman Guru</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="Penilaian Tindakan Kelas">
+					  <label class="form-check-label" for="inlineRadio6">Penilaian Tindakan Kelas</label>
+					</div>
+				</div>
+
+				<div class="input-text">
+					<textarea placeholder="Ketikan Laporan Disini" id="laporan" name="laporan" required></textarea>
+				</div>
+
+				<div class="file">
+					<div class="file-button mb-3">
+						<label for="formFileMultiple" class="form-label">Upload Dokumentasi Karya Ilmiah</label>
+						<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple required > 
+					</div>
+
+					<div class="button">
+						<button class="submit" name="submit-laporan">Submit</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+
+
+	<!-- Aset Footer berupa javascript -->
+	<?php include '../php/footer.php' ?>
+</body>
+</html>	

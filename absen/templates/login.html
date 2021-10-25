@@ -1,0 +1,78 @@
+<?php 
+session_start();
+
+	if (isset($_SESSION["login-button"]) ) {
+		header("Location: absen");
+		exit();
+	}
+
+require_once "../php/fungsi.php";
+
+	if ( isset($_POST["login-button"]) ) {
+		login();
+	}
+
+
+	$lama = 1; // lama data 
+ 
+	// proses penghapusan sesi data absen yang lebih dari 1 hari
+	$query_masuk = "DELETE FROM masuk
+	          WHERE DATEDIFF(CURDATE(), tanggal) >= $lama";
+	$hasil = mysqli_query($conn,$query_masuk);
+
+	// proses penghapusan sesi data absen yang lebih dari 1 ha
+	$query_keluar = "DELETE FROM keluar
+	          WHERE DATEDIFF(CURDATE(), tanggal) >= $lama";
+	$hasil = mysqli_query($conn,$query_keluar);
+
+	
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Header Link -->
+	<?php include '../php/header.php'; ?>
+
+	<title>Login | SMKN 1 CIBINONG</title>
+</head>
+<body>
+	<div class="container-login">
+		<div class="box">
+			<div class="login-box">
+				<div class="image">
+					<img src="../image/logokampak.png">
+				</div>
+
+				<div class="form">
+					<form action="" method="post">
+						<input type="text" name="username" id="username" placeholder="Username" required>
+						<br>
+						<input type="password" name="password" id="password" placeholder="Password" required>
+						<br>
+						<div class="button">
+							<button type="submit" class="submit" name="login-button" id="login">Login</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="image-slider">
+				<div class="image">
+					<img src="../image/bg3.svg">
+				</div>
+				<div class="bottom-text">
+					<div class="head">
+						Portal Absensi Pegawai
+					</div>
+					<div class="body">
+						<p>SMKN 1 CIBINONG</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php require_once '../php/footer.php' ?>
+</body>
+</html>
