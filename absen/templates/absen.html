@@ -10,17 +10,24 @@
 
 	<!-- Absen -->
 	<div class="absen" id='absen'>
+
 		<div class="head">
 			{% if distance > 1e3 %}
-				<h1>{{ dist_message }}</h1>
+				{% autoescape off %}
+				    <h1>{{ dist_message }}</h1>
+				{% endautoescape %}	
 			{% endif %}
 
-			<p style="display: inline-block;"></p><b>{{ today }}</b>
-			<span id="jamServer" style="font-weight: bold;">{{ time }}</span>
+			<div class="time">
+				<p style="display: inline-block;">{{ today }}</p>
+				<span>
+					<span id="jamServer">{{ time }} </span>
+					<span class="greetings">{{ greetings }}</span>
+				</span>
+			</div>
 		</div>
 		
-			<div class="button-absen">
-
+		<div class="button-absen">
 				<!-- Absen Masuk -->
 				<div class="masuk">
 					
@@ -56,7 +63,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>				
 		
 				
@@ -70,29 +76,29 @@
 					<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">Izin Karena Apa</h5>
-							</div>
+								<div class="modal-header">
+									<h5 class="modal-title" id="staticBackdropLabel">Izin Karena Apa</h5>
+								</div>
 
-							<form id='absen-form' action="" method="post" enctype="multipart/form-data">
-									<div class="modal-body">
-											<select class="form-select" aria-label="Default select example" name='alasan' id='alasan'>
-											<option selected="selected" disabled="disabled">Pilih Alasan Izin</option>
-											<option value="izin">Izin</option>
-											<option value="sakit">Sakit</option>
-											<option value="dinas">Dinas Ke Luar</option>
-											</select>
+								<form id='absen-form' action="" method="post" enctype="multipart/form-data">
+										<div class="modal-body">
+												<select class="form-select" aria-label="Default select example" name='alasan' id='alasan'>
+												<option selected="selected" disabled="disabled">Pilih Alasan Izin</option>
+												<option value="izin">Izin</option>
+												<option value="sakit">Sakit</option>
+												<option value="dinas">Dinas Ke Luar</option>
+												</select>
 
-											<div class="file-button mb-3">
-												<label for="formFileMultiple" class="form-label">Upload bukti</label>
-												<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple>
-											</div>
-									</div>
+												<div class="file-button mb-3">
+													<label for="formFileMultiple" class="form-label">Upload bukti</label>
+													<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple>
+												</div>
+										</div>
 
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-										<button type="submit" onclick='form_submit()' class="btn btn-primary" data-bs-dismiss="modal" name='send-izin' id='send-izin'>Kirim</button>
-									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+											<button type="submit" onclick='form_submit()' class="btn btn-primary" data-bs-dismiss="modal" name='send-izin' id='send-izin'>Kirim</button>
+										</div>
 								</form>	
 							</div>
 						</div>
@@ -102,37 +108,84 @@
 
 				<!-- Absen Keluar -->
 				<div class="keluar">
-				<button id="keluar"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame('CheckoutRecord')" data-bs-target="#staticBackdrop1">Presensi Keluar</button>
+					<button id="keluar"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame('CheckoutRecord')" data-bs-target="#staticBackdrop1">Presensi Keluar</button>
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog modal-xl">
 							<div class="modal-content">
-
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">Arahkan Wajah Ke Kamera</h5>
-							</div>
-
-							<div class="modal-body">
-								<div class="canvas">	
-									<canvas width=640 height=350></canvas>
+								<div class="modal-header">
+									<h5 class="modal-title" id="staticBackdropLabel">Arahkan Wajah Ke Kamera</h5>
 								</div>
-								<div class="button">
-									<button type="button" id="camera" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
-								</div>
-							</div>
 
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick='location.reload();'>Tutup</button>
-							</div>
+								<div class="modal-body">
+									<div class="canvas">	
+										<canvas width=640 height=350></canvas>
+									</div>
+									<div class="button">
+										<button type="button" id="camera" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick='location.reload();'>Tutup</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>		
+		</div>
 			
 
+		<section class="content-slider">
+			<h1 class="heading">Akses Cepat Web Sekolah Lainya</h1>
+			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+				    <div class="slider carousel-item active">
+				      	<div class="card" style="width: 18rem;">
+						  <div class="card-image">
+						  	<img src="../../static/image/LMS.svg" class="card-img-top" alt="...">
+						  </div>
+						  <div class="card-body">
+						    <a href="https://learning.smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">LMS</a>
+						  </div>
+						</div>
+				    </div>
+				    <div class="slider carousel-item">
+				      	<div class="card" style="width: 18rem;">
+						  <div class="card-image">
+						  	<img src="../../static/image/Web Sekolah.svg" class="card-img-top" alt="...">
+						  </div>
+						  <div class="card-body">
+						    <a href="https://smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">Web Sekolah</a>
+						  </div>
+						</div>
+				    </div>
+				    <div class="slider carousel-item">
+				      	<div class="card" style="width: 18rem;">
+						  <div class="card-image">
+						  	<img src="../../static/image/LSP.svg" class="card-img-top" alt="...">
+						  </div>
+						  <div class="card-body">
+						    <a href="http://lsp.smkn1cibinong.sch.id/lsp_login.php" target="_blank" class="btn btn-primary">LSP</a>
+						  </div>
+						</div>
+				    </div>
+				</div>
+				
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+
 			</div>
-		</form>	
+		</section>
+
 	</div>
+
+
 
 <img src="{{image}}">
 	
@@ -143,7 +196,30 @@
 	<script type="text/javascript">
 	function form_submit() {
 		document.getElementById("absen-form").submit();
-	}    
+	}
+
+	width = screen.width;
+	height = screen.height;
+	slider = document.getElementsByClassName("slider");
+
+	(function($) {
+	    let $window = $(window)
+
+	    function resize() {
+	        if ($window.width() < 514) {
+	            for (let i = 0; i < slider.length; i++) {
+				  slider[i].classList.add("carousel-item")
+				}
+	        }
+	        else{
+	        	for (let i = 0; i < slider.length; i++) {
+				  slider[i].classList.remove("carousel-item")
+				}
+	        }
+	    }
+	    $window.resize(resize).trigger('resize');
+	})(jQuery);
+
 	</script>
 	<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/faceDetection.js'%}"></script>

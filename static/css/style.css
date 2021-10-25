@@ -726,12 +726,23 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 }
 
 .absen .head h1{
-    font-size: 20px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.absen .head h1 span,
+.absen .time span.greetings{
+    color: #3B86FF;
 }
 
 .absen .head i{
     font-size: 24px;
 } 
+
+.absen .time{
+    font-weight: 600;
+    padding: 0 30px;
+}
 
 .absen .button-absen{
     width: 60%;
@@ -892,6 +903,57 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 }
 
 
+
+.absen section.content-slider{
+    padding-top: 100px;
+    text-align: center;
+}
+
+.absen section.content-slider h1.heading{
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.absen section.content-slider .carousel{
+    padding-top: 30px;
+}
+
+.absen section.content-slider .carousel .carousel-inner{
+    display: flex;
+    justify-content: space-around;
+}
+
+.absen section.content-slider .carousel .carousel-inner:after{
+    content: unset;
+}
+
+.absen section.content-slider .carousel .carousel-inner .slider .card{
+    height: 100%;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-image{
+    width: 100%;
+    height: 90%;
+    background-color: red;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body{
+    background-color: blue;
+    height: 20%;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body h5{
+    padding: 20px 0;
+}
+
+.absen section.content-slider .carousel button{
+    display: none;
+}
 
 
 

@@ -70,7 +70,7 @@ def absen(request):
                 meters = int(kilometers * 1000)
                 
                 # Message for absen page
-                dist_message = f"Anda berada {meters}m di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada {kilometers}km di luar jangkauan sekolah" 
+                dist_message = f"Anda berada <p>pppp</p> {kilometers}km  di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada {kilometers}km di luar jangkauan sekolah" 
                 
                 return meters, dist_message
         else:
@@ -102,11 +102,24 @@ def absen(request):
             
     distance, dist_message = calculate_distance()
     
+    HOUR = int(TODAY.strftime('%H'))
+
+    if HOUR >= 3 and HOUR < 12:
+        GREETINGS = ("Selamat Pagi")
+    elif HOUR >= 12 and HOUR < 16:
+        GREETINGS = ("Selamat Siang")
+    elif HOUR >= 16 and HOUR < 19:
+        GREETINGS = ("Selamat Sore")
+    else:
+        GREETINGS = ("Selamat Malam")
+
+
     context = {
         'distance': distance,
         'dist_message': dist_message,
         'today': f"{INDONESIAN_FORMAT['day'][TODAY.strftime('%A')]}, {TODAY.day} {INDONESIAN_FORMAT['month'][TODAY.month]} {TODAY.year}",
         'time': TODAY.strftime('%X'),
+        'greetings': GREETINGS
     }
     
     response = render(request, 'absen.html', context)
