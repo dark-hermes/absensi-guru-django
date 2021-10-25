@@ -37,9 +37,6 @@ INDONESIAN_FORMAT = {
     }
 }
 
-
-
-
 @csrf_exempt
 def absen(request):
 
@@ -92,7 +89,17 @@ def absen(request):
             
             w_percent = (base_width / float(image.size[0]))
             h_size = int((float(image.size[1]) * float(w_percent)))    
-            image = image.resize((base_width, h_size))
+            image = image.resize((base_width, h_size), Image.ANTIALIAS)
+            
+            image.save(image_io, format=_extension)
+            
+            file = ContentFile( image_io.getvalue(), name=f"{_filename}.{_extension}" )
+            
+        return file, (_filename, _extension)
+    
+    def save_temp_image():
+        employee = TempImage.objects.filter()
+            
     distance, dist_message = calculate_distance()
     
     context = {
@@ -100,7 +107,6 @@ def absen(request):
         'dist_message': dist_message,
         'today': f"{INDONESIAN_FORMAT['day'][TODAY.strftime('%A')]}, {TODAY.day} {INDONESIAN_FORMAT['month'][TODAY.month]} {TODAY.year}",
         'time': TODAY.strftime('%X'),
-        'image': image
     }
     
     response = render(request, 'absen.html', context)
