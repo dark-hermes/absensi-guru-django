@@ -44,10 +44,10 @@
             </div>
 
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+            <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.first_name }} {{user.last_name}}</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
                 <li><a class="dropdown-item" href="change_password">Ganti Password</a></li>
-                <li><a class="dropdown-item" href="../php/logout">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
             </ul>
             </li>
         </ul>

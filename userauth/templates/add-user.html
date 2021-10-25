@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Tambah pengguna | SMKN 1 CIBINONG</title>
+{% endblock  %}
+
+{% block content %}
+<div class="container-edit">
+    <div class="input-box">
+        <div class="head">
+            <h2>Tambah <span>Pengguna</span></h2>
+        </div>
+
+        <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
+
+        <div class="form">
+        <form action="{% url 'add-user'%}" method="post">
+            {% csrf_token %}
+            <div class="input-data">
+                {% comment %} <label for="username">Username</label><br>
+                <input type="text" name="username" id="username" required>
+                <br>
+
+                <label for="full_name">Nama Lengkap</label><br>
+                <input type="text" name="full_name" id="full_name" required>
+                <br>
+
+                <label for="nip">NIP</label><br>
+                <input type="text" name="nip" id="nip" required minlength="18" maxlength="18">
+                <br>
+
+                <label for="jabatan">Jabatan</label><br>
+                <input type="text" name="jabatan" id="jabatan"required >
+                <br>
+
+                <label for="new_pass">Password Pengguna</label><br>
+                <input type="password" name="password" id="password" required >
+                <br> {% endcomment %}
+                {{form}}
+
+            </div>
+
+            <div class="role">
+                <h1>Role</h1>
+                    <input type="radio" id="<?= $role ?>" value="<?= $role ?>" name="role">
+                    <label for="<?= $role ?>"><?= $role ?></label>
+            </div>
+
+            <div class="day-check">
+                <h1>Pilih Hari Kerja</h1>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox1" value="senin">
+                    <label class="form-check-label" for="inlineCheckbox1">senin</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox2" value="selasa">
+                    <label class="form-check-label" for="inlineCheckbox2">selasa</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox3" value="rabu">
+                    <label class="form-check-label" for="inlineCheckbox3">rabu</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox4" value="kamis">
+                    <label class="form-check-label" for="inlineCheckbox4">kamis</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox5" value="jumat">
+                    <label class="form-check-label" for="inlineCheckbox5">jumat</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox6" value="sabtu">
+                    <label class="form-check-label" for="inlineCheckbox6">sabtu</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox7" value="minggu">
+                    <label class="form-check-label" for="inlineCheckbox7">minggu</label>
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="submit" name="submit-change">Submit</button>
+                <a href="<?=$fileName ?>" class="back">Kembali</a>
+            </div>
+        </form>
+        </div>
+        
+        
+    </div>
+    
+
+    
+</div>
+    
+{% endblock  %}

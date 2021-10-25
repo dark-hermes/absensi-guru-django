@@ -1,14 +1,6 @@
 from django.db import models
+from userauth.models import Employee
 
-from django.contrib.auth.models import User
-
-class Employee(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    nip = models.CharField(max_length=18, null=True, blank=True)
-        
-class Role(models.Model):
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    role = models.CharField(max_length=20)
     
 class Days(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
