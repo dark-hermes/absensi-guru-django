@@ -192,6 +192,7 @@
 	
 {% endblock %}
 
+<<<<<<< HEAD
 	{% block opt_script %}
 	<script type="text/javascript">
 	function form_submit() {
@@ -224,3 +225,14 @@
 	<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/faceDetection.js'%}"></script>
 	{% endblock  %}
+=======
+{% block opt_script %}
+<script type="text/javascript">
+function form_submit() {
+	document.getElementById("absen-form").submit();
+}    
+</script>
+<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/faceDetection.js'%}"></script>
+{% endblock  %}
+>>>>>>> 39ca77f47ec56cdf9cdcf55e54ad199ae8240e47

@@ -3,10 +3,12 @@ from django.conf import settings
 from math import sin, cos, sqrt, atan2, radians, acos, degrees
 import datetime
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 import base64, secrets, io
 from django.core.files.base import ContentFile
 from PIL import Image
 from absen.models import TempImage
+
 
 
 TODAY = datetime.datetime.now()
@@ -37,6 +39,7 @@ INDONESIAN_FORMAT = {
     }
 }
 
+@login_required
 @csrf_exempt
 def absen(request):
 
