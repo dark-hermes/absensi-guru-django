@@ -929,6 +929,10 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     content: unset;
 }
 
+.absen section.content-slider .carousel .carousel-inner .slider .card{
+    width: 28vw;
+}
+
 .absen section.content-slider .carousel.dekstop .carousel-inner .slider .card{
     height: 100%;
 }
@@ -1116,6 +1120,14 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
         height: 95%;
     }
 }
+
+
+/* Responsive Slider Absen Page */
+/*@media screen and (min-width: 761px) and (max-width: 1000px){
+    .absen section.content-slider .carousel .carousel-inner .slider .card{
+        width: 13rem;
+    }
+*/}
 
 
 
