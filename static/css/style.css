@@ -727,12 +727,16 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 .absen .head h1{
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .absen .head h1 span,
 .absen .time span.greetings{
     color: #3B86FF;
+}
+
+.absen .time span.greetings{
+    font-weight: 700;
 }
 
 .absen .head i{
@@ -1015,6 +1019,10 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 /* Responsive Table Absen | Absen Page */
 @media screen and (min-width: 300px) and (max-width:  570px){
+    .absen .head h1{
+        padding: 0 20px 5px;
+    }
+
     .absen .button-absen{
         width: 100%;
         flex-wrap: wrap;
@@ -1030,7 +1038,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     .absen .button-absen .masuk button#masuk,
     .absen .button-absen .keluar button#keluar,
     .absen .button-absen .izin button#izin{
-        width: 50%;       
+        width: 60%;       
     }
 
     .absen .button-absen .masuk .modal .modal-header h5{
@@ -1058,7 +1066,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     }
 
     .absen section.content-slider{
-        padding-top: 0;
+        padding-top: 20px;
     }
 
     .absen section.content-slider .carousel{
@@ -1067,6 +1075,10 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
     .absen section.content-slider .carousel button{
         display: unset;
+    }
+
+    .absen section.content-slider .heading{
+        padding: 0 20px;
     }
 }
 
