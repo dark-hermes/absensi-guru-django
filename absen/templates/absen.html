@@ -171,11 +171,11 @@
 				    </div>
 				</div>
 				
-			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			  <button class="carousel-control-prev carousel-control" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
 			    <span class="bi bi-caret-left-fill" aria-hidden="true"></span>
 			    <span class="visually-hidden">Previous</span>
 			  </button>
-			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			  <button class="carousel-control-next carousel-control" id="p" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
 			    <span class="bi bi-caret-right-fill" aria-hidden="true"></span>
 			    <span class="visually-hidden">Next</span>
 			  </button>
@@ -194,37 +194,12 @@
 
 	{% block opt_script %}
 	<script type="text/javascript">
+
 	function form_submit() {
 		document.getElementById("absen-form").submit();
 	}
 
-	width = screen.width;
-	height = screen.height;
-	slider = document.getElementsByClassName("slider");
-
-	(function($) {
-	    let $window = $(window)
-
-	    function resize() {
-	        if ($window.width() >= 320 && $window.width() <= 760) {
-	            for (let i = 0; i < slider.length; i++) {
-				  slider[i].classList.add("carousel-item")
-				}
-
-				slider[0].parentElement.classList.add("mobile")
-				slider[0].parentElement.classList.remove("dekstop")
-	        }
-	        else{
-	        	for (let i = 0; i < slider.length; i++) {
-				  slider[i].classList.remove("carousel-item")
-				}
-
-				slider[0].parentElement.classList.remove("mobile")
-				slider[0].parentElement.classList.add("dekstop")
-	        }
-	    }
-	    $window.resize(resize).trigger('resize');
-	})(jQuery);
+	responsiveSlider();
 
 	</script>
 	<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
