@@ -918,7 +918,9 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     padding-top: 30px;
 }
 
-
+.absen section.content-slider .carousel .carousel-inner .slider .card{
+    width: 28vw;
+}
 
 .absen section.content-slider .carousel.dekstop .carousel-inner{
     display: flex;
@@ -927,10 +929,6 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 .absen section.content-slider .carousel.dekstop .carousel-inner:after{
     content: unset;
-}
-
-.absen section.content-slider .carousel .carousel-inner .slider .card{
-    width: 28vw;
 }
 
 .absen section.content-slider .carousel.dekstop .carousel-inner .slider .card{
@@ -957,6 +955,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 .absen section.content-slider .carousel.mobile .carousel-inner .slider .card{
     height: 100%;
     margin: 0 auto;
+    width: 18rem;
 }
 
 .absen section.content-slider .carousel.mobile .carousel-inner .card .card-image{
@@ -1122,12 +1121,6 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 }
 
 
-/* Responsive Slider Absen Page */
-/*@media screen and (min-width: 761px) and (max-width: 1000px){
-    .absen section.content-slider .carousel .carousel-inner .slider .card{
-        width: 13rem;
-    }
-*/}
 
 
 
