@@ -142,7 +142,7 @@
 				    <div class="slider carousel-item active">
 				      	<div class="card" style="width: 18rem;">
 						  <div class="card-image">
-						  	<img src="../../static/image/LMS.svg" class="card-img-top" alt="...">
+						  	<img src="../../static/image/LMS.png" class="card-img-top" alt="...">
 						  </div>
 						  <div class="card-body">
 						    <a href="https://learning.smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">LMS</a>
@@ -152,7 +152,7 @@
 				    <div class="slider carousel-item">
 				      	<div class="card" style="width: 18rem;">
 						  <div class="card-image">
-						  	<img src="../../static/image/Web Sekolah.svg" class="card-img-top" alt="...">
+						  	<img src="../../static/image/Web Sekolah.png" class="card-img-top" alt="...">
 						  </div>
 						  <div class="card-body">
 						    <a href="https://smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">Web Sekolah</a>
@@ -162,7 +162,7 @@
 				    <div class="slider carousel-item">
 				      	<div class="card" style="width: 18rem;">
 						  <div class="card-image">
-						  	<img src="../../static/image/LSP.svg" class="card-img-top" alt="...">
+						  	<img src="../../static/image/LSP.png" class="card-img-top" alt="...">
 						  </div>
 						  <div class="card-body">
 						    <a href="http://lsp.smkn1cibinong.sch.id/lsp_login.php" target="_blank" class="btn btn-primary">LSP</a>
@@ -172,11 +172,11 @@
 				</div>
 				
 			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="bi bi-caret-left-fill" aria-hidden="true"></span>
 			    <span class="visually-hidden">Previous</span>
 			  </button>
 			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="bi bi-caret-right-fill" aria-hidden="true"></span>
 			    <span class="visually-hidden">Next</span>
 			  </button>
 
@@ -192,7 +192,6 @@
 	
 {% endblock %}
 
-<<<<<<< HEAD
 	{% block opt_script %}
 	<script type="text/javascript">
 	function form_submit() {
@@ -207,15 +206,21 @@
 	    let $window = $(window)
 
 	    function resize() {
-	        if ($window.width() < 514) {
+	        if ($window.width() >= 320 && $window.width() <= 760) {
 	            for (let i = 0; i < slider.length; i++) {
 				  slider[i].classList.add("carousel-item")
 				}
+
+				slider[0].parentElement.classList.add("mobile")
+				slider[0].parentElement.classList.remove("dekstop")
 	        }
 	        else{
 	        	for (let i = 0; i < slider.length; i++) {
 				  slider[i].classList.remove("carousel-item")
 				}
+
+				slider[0].parentElement.classList.remove("mobile")
+				slider[0].parentElement.classList.add("dekstop")
 	        }
 	    }
 	    $window.resize(resize).trigger('resize');
@@ -225,14 +230,4 @@
 	<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/faceDetection.js'%}"></script>
 	{% endblock  %}
-=======
-{% block opt_script %}
-<script type="text/javascript">
-function form_submit() {
-	document.getElementById("absen-form").submit();
-}    
-</script>
-<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
-<script type="text/javascript" src="{% static 'js/faceDetection.js'%}"></script>
-{% endblock  %}
->>>>>>> 39ca77f47ec56cdf9cdcf55e54ad199ae8240e47
+

@@ -918,43 +918,89 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     padding-top: 30px;
 }
 
-.absen section.content-slider .carousel .carousel-inner{
+
+
+.absen section.content-slider .carousel .carousel-inner.dekstop{
     display: flex;
     justify-content: space-around;
 }
 
-.absen section.content-slider .carousel .carousel-inner:after{
+.absen section.content-slider .carousel .carousel-inner.dekstop:after{
     content: unset;
 }
 
-.absen section.content-slider .carousel .carousel-inner .slider .card{
+.absen section.content-slider .carousel .carousel-inner.dekstop .slider .card{
     height: 100%;
 }
 
-.absen section.content-slider .carousel .carousel-inner .card .card-image{
+.absen section.content-slider .carousel .carousel-inner.dekstop .card .card-image{
     width: 100%;
-    height: 90%;
-    background-color: red;
+    height: 70%;
 }
 
-.absen section.content-slider .carousel .carousel-inner .card .card-image img{
+.absen section.content-slider .carousel .carousel-inner.dekstop .card .card-image img{
     width: 100%;
     height: 100%;
 }
 
-.absen section.content-slider .carousel .carousel-inner .card .card-body{
-    background-color: blue;
-    height: 20%;
+.absen section.content-slider .carousel .carousel-inner.mobile .slider .card{
+    height: 100%;
+    margin: 0 auto;
 }
 
-.absen section.content-slider .carousel .carousel-inner .card .card-body h5{
-    padding: 20px 0;
+.absen section.content-slider .carousel .carousel-inner.mobile .card .card-image{
+    width: 100%;
+    height: 200px;
+}
+
+.absen section.content-slider .carousel .carousel-inner.mobile .card .card-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.absen section.content-slider .carousel .carousel-inner.mobile .card .card-body{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.absen section.content-slider .carousel .carousel-inner.dekstop .card .card-body{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body a{
+    padding: 10px 0;
+    width: 80%;
+    display: inline-block;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: unset;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body a:hover{
+    text-decoration: none;
+    font-weight: 900;
 }
 
 .absen section.content-slider .carousel button{
     display: none;
 }
 
+.carousel-control-prev,
+.carousel-control-next{
+    width: unset;
+}
+
+.carousel-control-prev span.bi,
+.carousel-control-next span.bi{
+    color: #8e8e8f;
+    font-size: 2em;
+    font-weight: 900;
+}
 
 
 
@@ -1002,6 +1048,17 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
         height: 80%;
     }
 
+    .absen section.content-slider{
+        padding-top: 0;
+    }
+
+    .absen section.content-slider .carousel{
+        padding-top: 20px;
+    }
+
+    .absen section.content-slider .carousel button{
+        display: unset;
+    }
 }
 
 /* Responsive Absen Page */
@@ -1052,8 +1109,6 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
         width: 95%;
         height: 95%;
     }
-
-
 }
 
 
