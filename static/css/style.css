@@ -50,7 +50,6 @@ nav.navbar .navbar-nav .nav-item .nav-link{
 nav.navbar .navbar-nav .nav-item .nav-link:hover{
     color: white !important;
     background-color: #3b86ff;
-    font-weight: 600;
 }
 
 
@@ -909,7 +908,8 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 
 .absen section.content-slider{
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
 }
 
