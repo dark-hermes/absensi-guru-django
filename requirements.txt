@@ -1,5 +1,6 @@
 asgiref==3.4.1
 Django==3.2.8
+django-crispy-forms==1.13.0
 geographiclib==1.52
 geopy==2.2.0
 numpy==1.21.3
