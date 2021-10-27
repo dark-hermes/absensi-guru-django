@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     <title>Tambah pengguna | SMKN 1 CIBINONG</title>
@@ -12,7 +13,9 @@
             <h2>Tambah <span>Pengguna</span></h2>
         </div>
 
-        <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
+        {% if message %}
+        <div class="message">{{message}}</div>
+        {% endif %}
 
         <div class="form">
         <form action="{% url 'add-user'%}" method="post">
@@ -37,17 +40,24 @@
                 <label for="new_pass">Password Pengguna</label><br>
                 <input type="password" name="password" id="password" required >
                 <br> {% endcomment %}
-                {{form}}
+                {{credential_form.username | as_crispy_field}}
+                {{employee_form.full_name | as_crispy_field}}
+                {{employee_form.nip | as_crispy_field}}
+                {{employee_form.position | as_crispy_field}}
+                {{credential_form.password1 | as_crispy_field}}
+                {{credential_form.password2 | as_crispy_field}}
+                {{employee_form.group | as_crispy_field}}
+                {{days_form}}
 
             </div>
 
-            <div class="role">
+            {% comment %} <div class="role">
                 <h1>Role</h1>
                     <input type="radio" id="<?= $role ?>" value="<?= $role ?>" name="role">
                     <label for="<?= $role ?>"><?= $role ?></label>
-            </div>
+            </div> {% endcomment %}
 
-            <div class="day-check">
+            {% comment %} <div class="day-check">
                 <h1>Pilih Hari Kerja</h1>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox1" value="senin">
@@ -77,11 +87,11 @@
                     <input class="form-check-input" name="hari_kerja[]" type="checkbox" id="inlineCheckbox7" value="minggu">
                     <label class="form-check-label" for="inlineCheckbox7">minggu</label>
                 </div>
-            </div>
+            </div> {% endcomment %}
 
             <div class="button">
-                <button type="submit" name="submit-change">Submit</button>
-                <a href="<?=$fileName ?>" class="back">Kembali</a>
+                <button type="submit">Submit</button>
+                <a href="{% url 'index'%}" class="back">Kembali</a>
             </div>
         </form>
         </div>

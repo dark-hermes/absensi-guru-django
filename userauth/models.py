@@ -5,6 +5,13 @@ class Employee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     nip = models.CharField(max_length=18, null=True, blank=True)
     full_name = models.CharField(max_length=255,null=True)
+    position = models.CharField(max_length=100,null=True)
     
-    def __str__(self):
-        return self.user.last_name
+
+class Days(models.Model):
+    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    monday = models.BooleanField(default=False)
+    tuesday = models.BooleanField(default=False)
+    wednesday = models.BooleanField(default=False)
+    thursday = models.BooleanField(default=False)
+    friday = models.BooleanField(default=False)

@@ -2,16 +2,6 @@ from django.db import models
 from userauth.models import Employee
 
     
-class Days(models.Model):
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    monday = models.BooleanField(default=False)
-    tuesday = models.BooleanField(default=False)
-    wednesday = models.BooleanField(default=False)
-    thursday = models.BooleanField(default=False)
-    friday = models.BooleanField(default=False)
-    saturday = models.BooleanField(default=False)
-    sunday = models.BooleanField(default=False)
-    
 class Presence(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
     presence_date = models.DateField(blank=True)
