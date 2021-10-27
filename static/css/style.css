@@ -50,7 +50,6 @@ nav.navbar .navbar-nav .nav-item .nav-link{
 nav.navbar .navbar-nav .nav-item .nav-link:hover{
     color: white !important;
     background-color: #3b86ff;
-    font-weight: 600;
 }
 
 
@@ -727,12 +726,16 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 .absen .head h1{
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .absen .head h1 span,
 .absen .time span.greetings{
     color: #3B86FF;
+}
+
+.absen .time span.greetings{
+    font-weight: 700;
 }
 
 .absen .head i{
@@ -905,7 +908,8 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 
 .absen section.content-slider{
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
 }
 
@@ -918,59 +922,64 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     padding-top: 30px;
 }
 
+.absen section.content-slider .carousel .carousel-inner .slider .card{
+    width: 28vw;
+}
 
-
-.absen section.content-slider .carousel .carousel-inner.dekstop{
+.absen section.content-slider .carousel.dekstop .carousel-inner{
     display: flex;
     justify-content: space-around;
 }
 
-.absen section.content-slider .carousel .carousel-inner.dekstop:after{
+.absen section.content-slider .carousel.dekstop .carousel-inner:after{
     content: unset;
 }
 
-.absen section.content-slider .carousel .carousel-inner.dekstop .slider .card{
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card{
     height: 100%;
 }
 
-.absen section.content-slider .carousel .carousel-inner.dekstop .card .card-image{
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image{
     width: 100%;
     height: 70%;
 }
 
-.absen section.content-slider .carousel .carousel-inner.dekstop .card .card-image img{
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image img{
     width: 100%;
     height: 100%;
 }
 
-.absen section.content-slider .carousel .carousel-inner.mobile .slider .card{
-    height: 100%;
-    margin: 0 auto;
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-body{
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.absen section.content-slider .carousel .carousel-inner.mobile .card .card-image{
+.absen section.content-slider .carousel.mobile .carousel-inner .slider .card{
+    height: 100%;
+    margin: 0 auto;
+    width: 18rem;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image{
     width: 100%;
     height: 200px;
 }
 
-.absen section.content-slider .carousel .carousel-inner.mobile .card .card-image img{
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image img{
     width: 100%;
     height: 100%;
 }
 
-.absen section.content-slider .carousel .carousel-inner.mobile .card .card-body{
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-body{
     height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.absen section.content-slider .carousel .carousel-inner.dekstop .card .card-body{
-    height: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .absen section.content-slider .carousel .carousel-inner .card .card-body a{
     padding: 10px 0;
@@ -986,19 +995,23 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     font-weight: 900;
 }
 
-.absen section.content-slider .carousel button{
+.absen section.content-slider .carousel.dekstop button{
     display: none;
+}
+
+.absen section.content-slider .carousel.mobile button{
+    display: unset;
 }
 
 .carousel-control-prev,
 .carousel-control-next{
-    width: unset;
+    width: 10vw;
 }
 
 .carousel-control-prev span.bi,
 .carousel-control-next span.bi{
     color: #8e8e8f;
-    font-size: 2em;
+    font-size: min(60px, 10vw);
     font-weight: 900;
 }
 
@@ -1006,6 +1019,10 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 /* Responsive Table Absen | Absen Page */
 @media screen and (min-width: 300px) and (max-width:  570px){
+    .absen .head h1{
+        padding: 0 20px 5px;
+    }
+
     .absen .button-absen{
         width: 100%;
         flex-wrap: wrap;
@@ -1021,7 +1038,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     .absen .button-absen .masuk button#masuk,
     .absen .button-absen .keluar button#keluar,
     .absen .button-absen .izin button#izin{
-        width: 50%;       
+        width: 60%;       
     }
 
     .absen .button-absen .masuk .modal .modal-header h5{
@@ -1049,7 +1066,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     }
 
     .absen section.content-slider{
-        padding-top: 0;
+        padding-top: 20px;
     }
 
     .absen section.content-slider .carousel{
@@ -1058,6 +1075,10 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
     .absen section.content-slider .carousel button{
         display: unset;
+    }
+
+    .absen section.content-slider .heading{
+        padding: 0 20px;
     }
 }
 
@@ -1110,6 +1131,8 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
         height: 95%;
     }
 }
+
+
 
 
 
