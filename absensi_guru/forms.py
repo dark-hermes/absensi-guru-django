@@ -1,16 +1,46 @@
-from django.forms import ModelForm, widgets
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User, Group
+from userauth.models import Employee, Days
 from django import forms
-from userauth.models import Employee
-
-class AddUser(ModelForm):
+class CredentialForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ["username", "password1", "password2"]
+        labels = {
+            'username': 'Username',
+            'password1': 'Password',
+            'password2': 'Confirm Password'
+        }
+        
+class EmployeeForm(forms.ModelForm):
+    
+    CHOICES = [
+        ('admin', 'Admin'),
+        ('supervisor', 'Supervisor'),
+        ('user', 'User')
+    ]
+    
+    group = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+    
     class Meta:
         model = Employee
-        fields = '__all__'
+        fields = ["full_name", "nip", 'position', "group"]
+        labels = {
+            "full_name": "Nama Lengkap",
+            "nip": "NIP",
+            "position": "Posisi",
+            "group": "Role"
+        }
         
-        # widgets = {
-        #     'judul': forms.TextInput({'class':'form-control'}),
-        #     'penulis': forms.TextInput({'class':'form-control'}),
-        #     'penerbit': forms.TextInput({'class':'form-control'}),
-        #     'jumlah': forms.NumberInput({'class':'form-control'}),
-        #     'kelompok_id': forms.Select({'class':'form-control'}),
-        # }
+class DaysForm(forms.ModelForm):
+    class Meta:
+        model = Days
+        fields = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+        labels = {
+            "monday": "Senin",
+            "tuesday": "Selasa",
+            "wednesday": "Rabu",
+            "thursday": "Kamis",
+            "friday": "Jumat"
+        }
+
