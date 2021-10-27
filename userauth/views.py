@@ -32,10 +32,17 @@ def add_user(request):
         days_form = forms.DaysForm(request.POST)
         
         if credential_form.is_valid() and employee_form.is_valid() and days_form.is_valid():
-            credential_form.save()
+            credential_form_f = credential_form.save(commit=False)
+            credential_form_f.first_name = request.POST.get('full_name').split()[0]
+            if request.POST.get('group') == "admin":
+                credential_form_f.is_staff = True
+                credential_form.is_superuser = True
+            credential_form_f.save()
+            
             employee_form_f = employee_form.save(commit=False)
             employee_form_f.user_id = User.objects.latest('id').id
             employee_form_f.save()
+            
             days_form_f = days_form.save(commit=False)
             days_form_f.employee_id = Employee.objects.latest('id')
             days_form_f.save()
@@ -58,15 +65,25 @@ def add_user(request):
             
             return render(request, 'add-user.html', context)
         
-        # else:
-        #     context = {
-        #         'credential_form': forms.CredentialForm(),
-        #         'employee_form': forms.EmployeeForm(),
-        #         'days_form': forms.DaysForm(),
-        #         'message': "Gagal menambahkan pengguna, pastikan data terisi dengan benar"
-        #     }
+        elif not credential_form.is_valid():
+            context = {
+                'credential_form': forms.CredentialForm(),
+                'employee_form': forms.EmployeeForm(),
+                'days_form': forms.DaysForm(),
+                'message': "Gagal menambah pengguna, username atau password tidak tersedia"
+            }
         
-        #     return render(request, 'add-user.html', context)
+            return render(request, 'add-user.html', context)
+        
+        else:
+            context = {
+                'credential_form': forms.CredentialForm(),
+                'employee_form': forms.EmployeeForm(),
+                'days_form': forms.DaysForm(),
+                'message': "Gagal menambah pengguna, pastikan data terisi dengan benar"
+            }
+        
+            return render(request, 'add-user.html', context)
             
             
     else:
