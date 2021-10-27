@@ -20,7 +20,7 @@ class EmployeeForm(forms.ModelForm):
         ('user', 'User')
     ]
     
-    group = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+    group = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect, label='')
     
     class Meta:
         model = Employee
@@ -43,4 +43,3 @@ class DaysForm(forms.ModelForm):
             "thursday": "Kamis",
             "friday": "Jumat"
         }
-
