@@ -73,7 +73,7 @@ def absen(request):
                 meters = int(kilometers * 1000)
                 
                 # Message for absen page
-                dist_message = f"Anda berada <p>pppp</p> {kilometers}km  di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada {kilometers}km di luar jangkauan sekolah" 
+                dist_message = f"Anda berada <span>{meters}m</span>  di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada <span>{kilometers}km</span> di luar jangkauan sekolah" 
                 
                 return meters, dist_message
         else:
