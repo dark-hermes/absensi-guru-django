@@ -34,19 +34,19 @@ def add_user(request):
         if credential_form.is_valid() and employee_form.is_valid() and days_form.is_valid():
             credential_form.save()
             employee_form_f = employee_form.save(commit=False)
-            employee_form_f.user_id = User.objects.latest('id')
+            employee_form_f.user_id = User.objects.latest('id').id
             employee_form_f.save()
             days_form_f = days_form.save(commit=False)
             days_form_f.employee_id = Employee.objects.latest('id')
             days_form_f.save()
             
+            group = Group.objects.get(name=request.POST.get('group'))
+            group.user_set.add(User.objects.latest('id'))
+            
             credential_form = forms.CredentialForm()
             employee_form = forms.EmployeeForm()
             days_form = forms.DaysForm()
             
-            
-            group = Group.objects.get(name=request.POST.get('group'))
-            group.user_set.add(User.objects.latest('id'))
             
             message = "Berhasil menambahkan pengguna"
             context = {
@@ -82,5 +82,5 @@ def delete_user(request, id_user):
     user = User.objects.get(id=id_user)
     user.delete()
     
-    return redirect('/index')
+    return redirect('index')
             
