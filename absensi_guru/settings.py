@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'absen',
     'face_detection',
-    'userauth'
+    'userauth',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
