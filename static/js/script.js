@@ -55,4 +55,45 @@ function responsiveSlider(){
     })(jQuery);
 }
 
+alertTemplate = {
+
+    alert() {
+        swal({
+            title: "Judul Template Sukses",
+            text: "Body Text",
+            icon: "info",
+            button: "Tulisan button",
+        });
+    },
+
+    // valueicon warning,info,success,error
+
+    confirm() {
+        swal({
+                title: "Anda Yakin?",
+                text: "Sekali dihapus anda tidak bisa mengembalikanya lagi",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal({
+                        title: "Item dihapus",
+                        icon: "success",
+                        button: "Tulisan button",
+                    });
+                } else {
+                    swal({
+                        title: "Item tidak jadi dihapus",
+                        icon: "info",
+                        button: "Tulisan button",
+                    });
+                }
+            });
+    }
+
+}
+
 
