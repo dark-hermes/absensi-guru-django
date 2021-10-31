@@ -6,6 +6,7 @@ class Employee(models.Model):
     nip = models.CharField(max_length=18, null=True, blank=True)
     full_name = models.CharField(max_length=255,null=True)
     position = models.CharField(max_length=100,null=True)
+    # photo = models.ImageField(upload_to='profile/', null=True)
     
 
 class Days(models.Model):

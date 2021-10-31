@@ -139,3 +139,11 @@ LANDMARK_COORDINATES = (
 LOGIN_REDIRECT_URL = '/absen'
 
 LOGIN_URL = '/login'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = Path(BASE_DIR, 'media')
+
+MEDIA_ABS_PATH = "D:/Project/absensi-guru-django"
+
+API_SERVER = "http://localhost:8000/face_detection/detect/"

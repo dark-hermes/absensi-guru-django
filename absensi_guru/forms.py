@@ -29,7 +29,7 @@ class EmployeeForm(forms.ModelForm):
             "full_name": "Nama Lengkap",
             "nip": "NIP",
             "position": "Posisi",
-            "group": "Role"
+            "group": "Role",
         }
         
 class DaysForm(forms.ModelForm):

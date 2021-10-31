@@ -19,6 +19,7 @@ from absen.views import *
 from face_detection.views import *
 from django.contrib.auth.views import LoginView, LogoutView
 from userauth.views import add_user, delete_user
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +31,6 @@ urlpatterns = [
     path('add-user/', add_user, name='add-user'),
     path('delete-user/<int:id_user>',delete_user, name='delete_user')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
