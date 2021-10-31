@@ -34,13 +34,15 @@ click_button.addEventListener('click', function(){
     .then(data => {
         alertTemplate.alert(data.title, data.text, data.icon, data.button);
         if (data.status == "success"){
+            let swalButton = document.getElementsByClassName("swal-button")[0];
             const mediaStream = video.srcObject;
             const tracks = mediaStream.getTracks();
             tracks[0].stop();
+
+            swalButton.addEventListener("click", function() {
+                document.getElementsByClassName("btn-presence")[0].click();
+            });
+            
         }
     })
-
-
-
-
 });
