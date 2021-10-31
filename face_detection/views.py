@@ -31,9 +31,9 @@ def detect(request):
 		# convert the image to grayscale, load the face cascade detector,
 		# and detect faces in the image
 		image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		rects = face_cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5)
+		faces = face_cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5)
 		# construct a list of bounding boxes from the detection
-		rects = [(int(x), int(y), int(x + w), int(y + h)) for (x, y, w, h) in rects]
+		rects = [(int(x), int(y), int(x + w), int(y + h)) for (x, y, w, h) in faces]
 		# update the data dictionary with the faces detected
 		data.update({"num_faces": len(rects), "faces": rects, "success": "True"})
 	# return a JSON response

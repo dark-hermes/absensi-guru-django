@@ -18,7 +18,7 @@
         {% endif %}
 
         <div class="form">
-        <form action="{% url 'add-user'%}" method="post">
+        <form action="{% url 'add-user'%}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="input-data">
                 {% comment %} <label for="username">Username</label><br>
@@ -63,6 +63,8 @@
                 <button type="submit">Submit</button>
                 <a href="{% url 'index'%}" class="back">Kembali</a>
             </div>
+
+            
         </form>
         </div>
         

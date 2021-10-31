@@ -36,7 +36,7 @@ function responsiveSlider(){
         function resize() {
             if ($window.width() >= 300 && $window.width() <= 760) {
                 for (let i = 0; i < slider.length; i++) {
-                  slider[i].classList.add("carousel-item")
+                    slider[i].classList.add("carousel-item")
                 }
 
                 slider[0].parentElement.parentElement.classList.add("mobile")
@@ -44,7 +44,7 @@ function responsiveSlider(){
             }
             else{
                 for (let i = 0; i < slider.length; i++) {
-                  slider[i].classList.remove("carousel-item")
+                    slider[i].classList.remove("carousel-item")
                 }
 
                 slider[0].parentElement.parentElement.classList.remove("mobile")
@@ -57,12 +57,12 @@ function responsiveSlider(){
 
 alertTemplate = {
 
-    alert() {
+    alert(title, text, icon, button) {
         swal({
-            title: "Judul Template Sukses",
-            text: "Body Text",
-            icon: "info",
-            button: "Tulisan button",
+            title: title,
+            text: text,
+            icon: icon,
+            button: button,
         });
     },
 

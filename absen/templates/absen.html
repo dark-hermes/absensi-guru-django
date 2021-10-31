@@ -45,8 +45,10 @@
 							<div class="modal-body">
 								<div class="canvas">	
 									{% for message in messages %}
-										{% if message %}
-											<div class="alert alert-success"> {{ message }}</div>
+										{% if message.success %}
+											<div class="alert alert-success"> {{ message }} </div>
+										{% else %}
+											<div class="alert alert-danger"> {{ message }} </div>
 										{% endif %}
 									{% endfor %}
 									<video id="video" width="480" height="360" autoplay></video>
@@ -134,51 +136,55 @@
 				</div>		
 		</div>
 			
-
+{% for message in messages %}
+	{% if message %}
+		{{ message }}
+	{% endif %}
+{% endfor %}
 		<section class="content-slider">
 			<h1 class="heading">Akses Cepat Web Sekolah Lainya</h1>
 			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner">
-				    <div class="slider carousel-item active">
-				      	<div class="card">
-						  <div class="card-image">
-						  	<img src="../../static/image/LMS.png" class="card-img-top" alt="...">
-						  </div>
-						  <div class="card-body">
-						    <a href="https://learning.smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">LMS</a>
-						  </div>
+					<div class="slider carousel-item active">
+						<div class="card">
+						<div class="card-image">
+							<img src="../../static/image/LMS.png" class="card-img-top" alt="...">
 						</div>
-				    </div>
-				    <div class="slider carousel-item">
-				      	<div class="card">
-						  <div class="card-image">
-						  	<img src="../../static/image/Web Sekolah.png" class="card-img-top" alt="...">
-						  </div>
-						  <div class="card-body">
-						    <a href="https://smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">Web Sekolah</a>
-						  </div>
+						<div class="card-body">
+							<a href="https://learning.smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">LMS</a>
 						</div>
-				    </div>
-				    <div class="slider carousel-item">
-				      	<div class="card">
-						  <div class="card-image">
-						  	<img src="../../static/image/LSP.png" class="card-img-top" alt="...">
-						  </div>
-						  <div class="card-body">
-						    <a href="http://lsp.smkn1cibinong.sch.id/lsp_login.php" target="_blank" class="btn btn-primary">LSP</a>
-						  </div>
 						</div>
-				    </div>
+					</div>
+					<div class="slider carousel-item">
+						<div class="card">
+						<div class="card-image">
+							<img src="../../static/image/Web Sekolah.png" class="card-img-top" alt="...">
+						</div>
+						<div class="card-body">
+							<a href="https://smkn1cibinong.sch.id/" target="_blank" class="btn btn-primary">Web Sekolah</a>
+						</div>
+						</div>
+					</div>
+					<div class="slider carousel-item">
+						<div class="card">
+						<div class="card-image">
+							<img src="../../static/image/LSP.png" class="card-img-top" alt="...">
+						</div>
+						<div class="card-body">
+							<a href="http://lsp.smkn1cibinong.sch.id/lsp_login.php" target="_blank" class="btn btn-primary">LSP</a>
+						</div>
+						</div>
+					</div>
 				</div>
 				
-			  <button class="carousel-control-prev carousel-control" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-			    <span class="bi bi-caret-left-fill" aria-hidden="true"></span>
-			    <span class="visually-hidden">Previous</span>
-			  </button>
-			  <button class="carousel-control-next carousel-control" id="p" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-			    <span class="bi bi-caret-right-fill" aria-hidden="true"></span>
-			    <span class="visually-hidden">Next</span>
-			  </button>
+			<button class="carousel-control-prev carousel-control" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="bi bi-caret-left-fill" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next carousel-control" id="p" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="bi bi-caret-right-fill" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 
 			</div>
 		</section>
@@ -202,6 +208,7 @@
 	responsiveSlider();
 
 	</script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/geolocation.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/faceDetection.js'%}"></script>
 	{% endblock  %}
