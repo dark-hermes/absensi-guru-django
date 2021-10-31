@@ -8,7 +8,7 @@ import base64, secrets, io
 from userauth.models import Employee
 from django.core.files.base import ContentFile
 from PIL import Image
-from absen.models import TempImage
+from absen.models import Presence, CheckinRecord, CheckoutRecord
 from django.contrib import messages
 import json
 import logging
@@ -51,7 +51,13 @@ INDONESIAN_FORMAT = {
 @login_required
 @csrf_exempt
 def absen(request):
-
+    nowDate = datetime.datetime.now()
+    current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
+    try:
+        Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+    except:
+        presence_now = Presence(employee_id=current_user, presence_date = nowDate.strftime("%Y-%m-%d"))
+        presence_now.save()
     # Location and Distance
     def get_real_location(request=request):
         # Retrieve latitude and longitude coordinates from cookies that have been set using javascript in geolocation.js
@@ -105,16 +111,24 @@ def absen(request):
             return "Selamat Malam"
         
     # Get base64 encoded image from XHRHttpRequest post
-    def get_image(data_url, name=None):
+    def get_image(data_url, name):
         # Decode base64 string image
         _format, _img_str = data_url.split(';base64,')
         _name, ext = _format.split('/')
         data = ContentFile(base64.b64decode(_img_str),name=f"{TODAY.strftime('%c')}-{request.user.username}.{ext}")
         
         # Get logged in user to save temporary image
-        current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
+
         # Save image to TempImage model with foreign key identified by logged in user / current user
-        tmp_image = TempImage(employee_id=current_user, tmp_image=data)
+        nowDate = datetime.datetime.now()
+        tmp_image = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+        if name == "checkin":
+            tmp_image.checkin_time = nowDate.strftime("%X")
+            tmp_image.checkin_img = data
+            
+        elif name == "checkout":
+            tmp_image.checkout_time = nowDate.strftime("%X")
+            tmp_image.checkout_img = data
         tmp_image.save()
 
     def detect_image(img_name):
@@ -132,16 +146,7 @@ def absen(request):
         # Detect image with preserved API with curl and assign the result in a variable
         detect_process = subprocess.getoutput(f'curl -X POST -F image=@{settings.MEDIA_ABS_PATH}{img_name} "{settings.API_SERVER}"')
         
-        result = eval(detect_process.split('\n')[-1])
-        is_success = bool(result["success"])
-        
-        # Delete data and temporary image if no faces detected
-        if is_success and result["num_faces"] < 1:
-            tmp_image.delete()
-            os.remove(settings.MEDIA_ABS_PATH + img_name)
-            logging.info("Gagal Absen")
-        else:
-            logging.info("Berhasil Absen")
+        result = eval(detect_process.split('\n')[-1])            
         
         return result
         
@@ -149,18 +154,23 @@ def absen(request):
     if request.headers.get('x-requested-with') == "XMLHttpRequest":
         json_request = json.loads(request.body)
         data_url = json_request['image']
-
+        presence_type = json_request['name']
+        nowDate = datetime.datetime.now()
         
-        get_image(data_url=data_url)
+        get_image(data_url,presence_type)
         
-        tmp_image = TempImage.objects.filter(employee_id__user_id=request.user.id)[0]
-        img_name = tmp_image.tmp_image.url
+        tmp_image = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+        img_name = eval(f"tmp_image.{presence_type}_img.url")
         
         detect_result = detect_image(img_name=img_name)
         
         logging.info(detect_result)
-
-        if detect_result['num_faces'] > 0:
+        
+        is_success = bool(detect_result["success"])
+        
+        # Delete data and temporary image if no faces detected
+        if is_success and detect_result["num_faces"] > 0:
+            
             context = {
                 "title" : "Presensi Berhasil",
                 "text" : "Selamat bekerja dan mengajar",
@@ -168,7 +178,15 @@ def absen(request):
                 "button" : "OK",
                 "status" : "success"
             }
+            
         else:
+            if presence_type == "checkin":
+                tmp_image.checkin_time = None
+                tmp_image.checkin_img = None
+            elif presence_type == "checkout":
+                tmp_image.checkout_time = None
+                tmp_image.checkout_img = None
+            os.remove(settings.MEDIA_ABS_PATH + img_name)
             context = {
                 "title" : "Presensi Gagal",
                 "text" : "Pastikan wajah terlihat di kamera dengan jelas",
@@ -176,6 +194,7 @@ def absen(request):
                 "button" : "Ulangi",
                 "status" : "failed"
             }
+            
         return JsonResponse(context)
         
     
