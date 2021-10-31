@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-#alkzuck5xssxo_7*xphj0(tn$9!va7!^)z92yxr#h6-h8n94v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.8.102', '127.0.0.1', 'localhost']
-
+ALLOWED_HOSTS = ['192.168.8.100', '127.0.0.1', 'localhost']
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'absen',
     'face_detection',
     'userauth',
-    'crispy_forms'
+    'crispy_forms',
+    'sslserver'
 ]
 
 MIDDLEWARE = [

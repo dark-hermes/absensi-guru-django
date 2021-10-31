@@ -42,7 +42,7 @@ INDONESIAN_FORMAT = {
 @login_required
 @csrf_exempt
 def absen(request):
-
+    TODAY = datetime.datetime.now()
     # Location and Distance
     def get_real_location(request=request):
         # Retrieve latitude and longitude coordinates from cookies that have been set using javascript in geolocation.js
@@ -73,7 +73,7 @@ def absen(request):
                 meters = int(kilometers * 1000)
                 
                 # Message for absen page
-                dist_message = f"Anda berada <span>{meters}m</span>  di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada <span>{kilometers}km</span> di luar jangkauan sekolah" 
+                dist_message = f"Anda berada <span>{meters} M</span>  di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada <span>{kilometers} KM</span> di luar jangkauan sekolah" 
                 
                 return meters, dist_message
         else:
