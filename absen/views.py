@@ -153,7 +153,7 @@ def absen(request):
         logging.info(img_name)
         
         # Detect image with preserved API with curl and assign the result in a variable
-        detect_process = subprocess.getoutput(f'curl -X POST -F image=@{settings.MEDIA_ABS_PATH}{img_name} "{settings.API_SERVER}"')
+        detect_process = subprocess.getoutput(f'curl -X POST -F image=@{settings.MEDIA_ABS_PATH}{img_name} {settings.API_SERVER}')
         
         result = eval(detect_process.split('\n')[-1])            
         
@@ -195,6 +195,7 @@ def absen(request):
             elif presence_type == "checkout":
                 tmp_image.checkout_time = None
                 tmp_image.checkout_img = None
+            tmp_image.save()
             os.remove(settings.MEDIA_ABS_PATH + img_name)
             context = {
                 "title" : "Presensi Gagal",
