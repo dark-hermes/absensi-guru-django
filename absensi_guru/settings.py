@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'face_detection',
     'userauth',
     'crispy_forms',
-    'sslserver'
+    'sslserver',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

@@ -220,3 +220,6 @@ def absen(request):
         response = render(request, 'absen.html', context)
         
         return response
+    
+def show_absen(request):
+    return render(request, 'tampil_absen.html')
