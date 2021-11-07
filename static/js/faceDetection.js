@@ -20,7 +20,6 @@ function capture_frame(presenceType){
 checkinButtonCamera.addEventListener('click', function(){
     checkinCanvas.getContext("2d").drawImage(checkinVideo, 0, 0, checkinCanvas.width, checkinCanvas.height);
     let image_data_url = checkinCanvas.toDataURL();
-    console.log(image_data_url);
 
     fetch('', {
         method: "POST",
@@ -54,7 +53,6 @@ checkinButtonCamera.addEventListener('click', function(){
 checkoutButtonCamera.addEventListener('click', function(){
     checkoutCanvas.getContext("2d").drawImage(checkoutVideo, 0, 0, checkoutCanvas.width, checkoutCanvas.height);
     let image_data_url = checkoutCanvas.toDataURL();
-    console.log(image_data_url);
 
     fetch('', {
         method: "POST",
