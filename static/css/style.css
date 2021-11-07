@@ -47,6 +47,11 @@ nav.navbar .navbar-nav .nav-item .nav-link{
     width: 150px;
 }
 
+nav.navbar .navbar-nav .nav-item .nav-link.active{
+    color: white !important;
+    background-color: #3b86ff;
+}
+
 nav.navbar .navbar-nav .nav-item .nav-link:hover{
     color: white !important;
     background-color: #3b86ff;

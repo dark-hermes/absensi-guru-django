@@ -1,4 +1,5 @@
 {% load static %}
+{% load active_link_tags %}
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -13,7 +14,7 @@
             <ul class="navbar-nav">
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle btn {% active_link 'absen' 'active' %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Absensi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">

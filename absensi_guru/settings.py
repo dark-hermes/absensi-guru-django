@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'userauth',
     'crispy_forms',
     'sslserver',
-    'rest_framework'
+    'rest_framework',
+    'active_link'
 ]
 
 MIDDLEWARE = [
