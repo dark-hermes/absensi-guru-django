@@ -145,6 +145,6 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = Path(BASE_DIR, 'media')
 
-MEDIA_ABS_PATH = "D:/Project/absensi-guru-django"
+MEDIA_ABS_PATH = "D:/absensi-guru-django"
 
 API_SERVER = "https://localhost:8000/face_detection/detect/ -k"

@@ -575,10 +575,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 
 
 @media screen and (min-width: 300px) and (max-width: 575px){
-    body{
-        background-color: #0087ff;
-        background-image: linear-gradient(43deg, #0087ff 25%, #009fff 50%, #00e4ff 100%);
-    }
+
 
     .container-login{
         display: flex;
@@ -811,11 +808,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     height: 90%;
 }
 
-.absen .button-absen .masuk .modal .modal-body .canvas canvas{
-    width: 60%;
+.absen .button-absen .masuk .modal .modal-body .canvas video{
+    width: 100%;
     height: 95%;
     transform: scaleX(-1);
     filter: FlipH;
+    aspect-ratio: 1 / 1;
 }
 
 .absen .button-absen .masuk .modal .modal-body .button{
@@ -886,6 +884,58 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
     background-color: transparent !important;
     color: #c64b3b;
     outline: 5px solid rgba(198, 75, 59, .4);
+}
+
+.absen .button-absen .keluar .modal .modal-header{
+    display: flex;
+    justify-content: center;
+}
+
+.absen .button-absen .keluar .modal .modal-body{
+    height: 70vh;
+}
+
+.absen .button-absen .keluar .modal .modal-body .canvas{
+    width: 100%;
+    height: 90%;
+}
+
+.absen .button-absen .keluar .modal .modal-body .canvas video{
+    width: 100%;
+    height: 95%;
+    transform: scaleX(-1);
+    filter: FlipH;
+    aspect-ratio: 1 / 1;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button button{
+    background-color: #297ffd;
+    color: white;
+    border: none;
+    outline: none;
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: unset;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button button:hover{
+    font-weight: 700;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button i{
+    font-size: 26px;
+    margin-left: 10px;
 }
 
 
