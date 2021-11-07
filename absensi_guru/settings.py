@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from os.path import abspath
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,6 +146,6 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = Path(BASE_DIR, 'media')
 
-MEDIA_ABS_PATH = "D:/Project/absensi-guru-django"
+MEDIA_ABS_PATH = abspath('settings.py').replace("\\", "/").strip("/absensi_guru/settings.py")
 
 API_SERVER = "https://localhost:8000/face_detection/detect/ -k"
