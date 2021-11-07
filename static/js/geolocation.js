@@ -1,7 +1,6 @@
 var path = window.location.pathname;
 // var page = path.split("/").pop().replace('tampil', 'ajax');
 // var suffix = page.split("_");
-console.log(path)
 // suffix = suffix[suffix.length - 1];
 
 if (path == "/absen/"){
