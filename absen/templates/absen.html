@@ -31,7 +31,7 @@
 				<!-- Absen Masuk -->
 				<div class="masuk">
 					
-					<button id="masuk"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame()" data-bs-target="#staticBackdrop1">Presensi Masuk</button>
+					<button id="masuk"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame('checkin')" data-bs-target="#staticBackdrop1">Presensi Masuk</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -44,8 +44,8 @@
 
 							<div class="modal-body">
 								<div class="canvas">	
-									<video id="video" width="480" height="360" autoplay></video>
-									<canvas id="canvas" width="480" height="360" style="display:none"></canvas>
+									<video id="video-masuk" width="480" height="360" autoplay></video>
+									<canvas id="canvas-masuk" width="480" height="360" style="display:none"></canvas>
 								</div>
 								<div class="button">
 									<button type="button" id="camera-masuk" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
@@ -103,7 +103,7 @@
 
 				<!-- Absen Keluar -->
 				<div class="keluar">
-					<button id="keluar"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame()" data-bs-target="#staticBackdrop3">Presensi Keluar</button>
+					<button id="keluar"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame('checkout')" data-bs-target="#staticBackdrop3">Presensi Keluar</button>
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog modal-xl">
@@ -114,8 +114,8 @@
 
 								<div class="modal-body">
 									<div class="canvas">	
-										<video id="video" width="480" height="360" autoplay></video>
-										<canvas id="canvas" width="480" height="360" style="display:none"></canvas>
+										<video id="video-keluar" width="480" height="360" autoplay></video>
+										<canvas id="canvas-keluar" width="480" height="360" style="display:none"></canvas>
 									</div>
 									<div class="button">
 										<button type="button" id="camera-keluar" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>

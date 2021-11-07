@@ -2,13 +2,15 @@ let checkinButton =  document.querySelector("#masuk");
 let checkinButtonCamera = document.querySelector("#camera-masuk");
 let checkoutButton =  document.querySelector("#keluar")
 let checkoutButtonCamera = document.querySelector("#camera-keluar");
-let video = document.querySelector("#video");
-let canvas = document.querySelector("#canvas");
+let checkinVideo = document.querySelector("#video-masuk");
+let checkinCanvas = document.querySelector("#canvas-masuk");
+let checkoutVideo = document.querySelector("#video-keluar");
+let checkoutCanvas = document.querySelector("#canvas-keluar");
 
-function capture_frame(){
+function capture_frame(presenceType){
     navigator.mediaDevices.getUserMedia({video: true, audio: false})
     .then(stream => {
-        video.srcObject = stream
+        eval(`${presenceType}Video.srcObject = stream`);
     })
     .catch(error => {
         console.error(error);
@@ -16,8 +18,8 @@ function capture_frame(){
 };
 
 checkinButtonCamera.addEventListener('click', function(){
-    canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-    let image_data_url = canvas.toDataURL();
+    checkinCanvas.getContext("2d").drawImage(checkinVideo, 0, 0, checkinCanvas.width, checkinCanvas.height);
+    let image_data_url = checkinCanvas.toDataURL();
     console.log(image_data_url);
 
     fetch('', {
@@ -37,7 +39,7 @@ checkinButtonCamera.addEventListener('click', function(){
         alertTemplate.alert(data.title, data.text, data.icon, data.button);
         if (data.status == "success"){
             let swalButton = document.getElementsByClassName("swal-button")[0];
-            const mediaStream = video.srcObject;
+            const mediaStream = checkinVideo.srcObject;
             const tracks = mediaStream.getTracks();
             tracks[0].stop();
 
@@ -50,8 +52,8 @@ checkinButtonCamera.addEventListener('click', function(){
 });
 
 checkoutButtonCamera.addEventListener('click', function(){
-    canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-    let image_data_url = canvas.toDataURL();
+    checkoutCanvas.getContext("2d").drawImage(checkoutVideo, 0, 0, checkoutCanvas.width, checkoutCanvas.height);
+    let image_data_url = checkoutCanvas.toDataURL();
     console.log(image_data_url);
 
     fetch('', {
@@ -71,7 +73,7 @@ checkoutButtonCamera.addEventListener('click', function(){
         alertTemplate.alert(data.title, data.text, data.icon, data.button);
         if (data.status == "success"){
             let swalButton = document.getElementsByClassName("swal-button")[0];
-            const mediaStream = video.srcObject;
+            const mediaStream = checkoutVideo.srcObject;
             const tracks = mediaStream.getTracks();
             tracks[0].stop();
 

@@ -4,12 +4,10 @@ from math import sin, cos, radians, acos, degrees
 import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-import base64, secrets, io
+import base64
 from userauth.models import Employee
 from django.core.files.base import ContentFile
-from PIL import Image
 from absen.models import Presence, CheckinRecord, CheckoutRecord
-from django.contrib import messages
 import json
 import logging
 import os
@@ -130,15 +128,15 @@ def absen(request):
 
         # Save image to TempImage model with foreign key identified by logged in user / current user
         nowDate = datetime.datetime.now()
-        tmp_image = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+        presence_img = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
         if name == "checkin":
-            tmp_image.checkin_time = nowDate.strftime("%X")
-            tmp_image.checkin_img = data
+            presence_img.checkin_time = nowDate.strftime("%X")
+            presence_img.checkin_img = data
             
         elif name == "checkout":
-            tmp_image.checkout_time = nowDate.strftime("%X")
-            tmp_image.checkout_img = data
-        tmp_image.save()
+            presence_img.checkout_time = nowDate.strftime("%X")
+            presence_img.checkout_img = data
+        presence_img.save()
 
     def detect_image(img_name):
         """Take a temporary image from database for face detection
@@ -155,29 +153,40 @@ def absen(request):
         # Detect image with preserved API with curl and assign the result in a variable
         detect_process = subprocess.getoutput(f'curl -X POST -F image=@{settings.MEDIA_ABS_PATH}{img_name} {settings.API_SERVER}')
         
+        # Drop curl proccess
         result = eval(detect_process.split('\n')[-1])            
         
         return result
         
-        
+    
+    # Condition when user clicked the presence button    
     if request.headers.get('x-requested-with') == "XMLHttpRequest":
+        # Data has presemted in a json
         json_request = json.loads(request.body)
+        
+        # Get attribute of XHR post which is represented in json
         data_url = json_request['image']
         presence_type = json_request['name']
+        
+        # Initiate now time
         nowDate = datetime.datetime.now()
         
+        # Get image from XHR post (the image is in base64 string, get_image function will convert it to png format)
         get_image(data_url,presence_type)
         
-        tmp_image = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
-        img_name = eval(f"tmp_image.{presence_type}_img.url")
+        # Get current user presence record
+        presence_img = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+        img_name = eval(f"presence_img.{presence_type}_img.url")
         
+        # Result of detection is on dictionary format {success, num_faces, faces_rect_coordinates}
         detect_result = detect_image(img_name=img_name)
         
+        # Loggin the result in terminal
         logging.info(detect_result)
         
         is_success = bool(detect_result["success"])
         
-        # Delete data and temporary image if no faces detected
+        # Save image if faces detected
         if is_success and detect_result["num_faces"] > 0:
             
             context = {
@@ -187,15 +196,17 @@ def absen(request):
                 "button" : "OK",
                 "status" : "success"
             }
-            
+        
+        # Delete data and temporary image if no faces detected
         else:
             if presence_type == "checkin":
-                tmp_image.checkin_time = None
-                tmp_image.checkin_img = None
+                presence_img.checkin_time = None
+                presence_img.checkin_img = None
             elif presence_type == "checkout":
-                tmp_image.checkout_time = None
-                tmp_image.checkout_img = None
-            tmp_image.save()
+                presence_img.checkout_time = None
+                presence_img.checkout_img = None
+            presence_img.save()
+            # The image file also deleted
             os.remove(settings.MEDIA_ABS_PATH + img_name)
             context = {
                 "title" : "Presensi Gagal",
@@ -205,9 +216,10 @@ def absen(request):
                 "status" : "failed"
             }
             
-        return JsonResponse(context)
+        # Return JSON Response to fetch in javascript
+        response = JsonResponse(context)
+        return response
         
-    
     else:
         distance, dist_message = calculate_distance()
         context = {
@@ -217,9 +229,11 @@ def absen(request):
             'time': TODAY.strftime('%X'),
             'greetings': greetings(TODAY),
         }
+        
         response = render(request, 'absen.html', context)
         
         return response
     
 def show_absen(request):
     return render(request, 'tampil_absen.html')
+
