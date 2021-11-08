@@ -13,11 +13,11 @@ class Presence(models.Model):
     
 class CheckinRecord(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    time = models.DateTimeField(blank=True, null=True)
     is_checked = models.BooleanField(default=False)
     
 class CheckoutRecord(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    time = models.DateTimeField(blank=True, null=True)
     is_checked = models.BooleanField(default=False)
     

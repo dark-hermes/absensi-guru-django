@@ -60,6 +60,15 @@ def absen(request):
         presence_now = Presence(employee_id=current_user, presence_date = nowDate.strftime("%Y-%m-%d"))
         presence_now.save()
 
+    def check_record(request=request):
+        try:
+            checkin_record = CheckinRecord.objects.filter(employee_id=current_user)[0]
+            checkout_record = CheckoutRecord.objects.filter(employee_id=current_user)[0]
+            return checkin_record, checkout_record
+        except:
+            CheckinRecord.objects.create(employee_id=current_user)
+            CheckoutRecord.objects.create(employee_id=current_user)
+            return False
         
     # Location and Distance
     def get_real_location(request=request):
@@ -190,6 +199,15 @@ def absen(request):
         # Save image if faces detected
         if is_success and detect_result["num_faces"] > 0:
             
+            if presence_type == "checkin":
+                record_type = "CheckinRecord"
+            elif presence_type == "checkout":
+                record_type = "CheckoutRecord"
+            
+            presence_record = eval(f"{record_type}.objects.filter(employee_id=current_user)[0]")
+            presence_record.time = datetime.datetime.now()
+            presence_record.save()
+            
             context = {
                 "title" : "Presensi Berhasil",
                 "text" : "Selamat bekerja dan mengajar",
@@ -222,6 +240,7 @@ def absen(request):
         return response
         
     else:
+        check_record()
         distance, dist_message = calculate_distance()
         context = {
             'distance': distance,
