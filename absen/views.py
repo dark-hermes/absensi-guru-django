@@ -60,6 +60,7 @@ def absen(request):
         presence_now = Presence(employee_id=current_user, presence_date = nowDate.strftime("%Y-%m-%d"))
         presence_now.save()
 
+        
     # Location and Distance
     def get_real_location(request=request):
         # Retrieve latitude and longitude coordinates from cookies that have been set using javascript in geolocation.js
@@ -234,6 +235,7 @@ def absen(request):
         
         return response
     
+@login_required
 def show_absen(request):
     return render(request, 'tampil_absen.html')
 

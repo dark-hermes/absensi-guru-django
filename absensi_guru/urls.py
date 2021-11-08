@@ -36,7 +36,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='/login'), name='logout'),
     path('add-user/', add_user, name='add-user'),
     path('delete-user/<int:id_user>',delete_user, name='delete_user'),
-    path('absen/show/', show_absen, name="show_absen")
+    path('absen/show/', show_absen, name="show_absen"),
 ]
 
 if settings.DEBUG:

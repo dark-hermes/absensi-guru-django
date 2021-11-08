@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = 'absensi_guru.urls'
@@ -146,6 +148,8 @@ LOGIN_URL = '/login'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = Path(BASE_DIR, 'media')
+
+SESSION_EXPIRE_SECONDS = 60 * 30
 
 
 MEDIA_ABS_PATH = "D:/absensi-guru-django"
