@@ -14,6 +14,7 @@ import os
 from django.conf import settings
 import subprocess
 from django.http import JsonResponse, HttpResponse
+from django.utils import timezone
 
 
 # Get current date and time
@@ -101,7 +102,6 @@ def absen(request):
                 meters = int(kilometers * 1000)
                 
                 # Message for absen page
-
                 dist_message = f"Anda berada <span>{meters} M</span>  di luar jangkauan sekolah" if meters < 1e3 else f"Anda berada <span>{kilometers} KM</span> di luar jangkauan sekolah" 
                 
 
@@ -205,7 +205,8 @@ def absen(request):
                 record_type = "CheckoutRecord"
             
             presence_record = eval(f"{record_type}.objects.filter(employee_id=current_user)[0]")
-            presence_record.time = datetime.datetime.now()
+            presence_record.time = timezone.now()
+            presence_record.is_checked = True
             presence_record.save()
             
             context = {
@@ -240,7 +241,7 @@ def absen(request):
         return response
         
     else:
-        check_record()
+        checkin_record, checkout_record = check_record()
         distance, dist_message = calculate_distance()
         context = {
             'distance': distance,
@@ -248,6 +249,8 @@ def absen(request):
             'today': f"{INDONESIAN_FORMAT['day'][TODAY.strftime('%A')]}, {TODAY.day} {INDONESIAN_FORMAT['month'][TODAY.month]} {TODAY.year}",
             'time': TODAY.strftime('%X'),
             'greetings': greetings(TODAY),
+            'checkin_record': checkin_record,
+            'checkout_record': checkout_record,
         }
         
         response = render(request, 'absen.html', context)

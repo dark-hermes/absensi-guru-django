@@ -96,7 +96,7 @@ def add_user(request):
         return render(request, 'add-user.html', context)
     
 def delete_user(request, id_user):
-    user = User.objects.get(id=id_user)
+    user = User.objects.get(employee__id=id_user)
     user.delete()
     
     return redirect('index')
