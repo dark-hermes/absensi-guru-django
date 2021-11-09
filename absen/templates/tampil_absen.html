@@ -23,7 +23,10 @@
                 </thead>
                 <tbody>
                     <div>[[ this.dataAbsen.employee_id ]]</div>
-                    <tr  v-for="(data) in dataAbsen">
+                    <tr v-if="dataAbsen.length === 0">
+                        <td colspan="7" align="center">Data tidak tersedia.</td>
+                    </tr>
+                    <tr v-else v-for="(data) in dataAbsen" >
                         <td>[[ data.presence_date]]</td>
                         <td>[[ data.checkin_time ]]</td>
                         <td><a v-bind:href="data.checkin_img" target="_blank"><img src="" alt="" width='100'>Lihat Bukti</a> </td>
@@ -32,9 +35,6 @@
                         Lihat Bukti</a> </td>
                         <td>[[ data.checkin_desc ]]</td>
                         <td>[[ data.checkout_desc ]]</td>
-                    </tr>
-                    <tr>
-                        <td colspan="7" align="center">Data tidak tersedia.</td>
                     </tr>
                 </tbody>
             </table>

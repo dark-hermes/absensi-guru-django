@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'absensi_guru.urls'
@@ -148,6 +149,12 @@ LOGIN_URL = '/login'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = Path(BASE_DIR, 'media')
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'https://localhost:8000',
+)
 
 SESSION_EXPIRE_SECONDS = 60 * 30
 
