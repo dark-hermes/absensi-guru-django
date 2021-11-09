@@ -17,7 +17,8 @@
                         <th>Bukti Masuk</th>
                         <th>Jam Keluar</th>
                         <th>Bukti Keluar</th>
-                        <th>Keterangan</th>
+                        <th>Keterangan Masuk</th>
+                        <th>Keterangan Keluar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,9 +31,10 @@
                         <td><a v-bind:href="data.checkout_img" target="_blank"><img src="" alt="" width='100'>
                         Lihat Bukti</a> </td>
                         <td>[[ data.checkin_desc ]]</td>
+                        <td>[[ data.checkout_desc ]]</td>
                     </tr>
                     <tr>
-                        <td colspan="5">Data tidak tersedia.</td>
+                        <td colspan="7" align="center">Data tidak tersedia.</td>
                     </tr>
                 </tbody>
             </table>
