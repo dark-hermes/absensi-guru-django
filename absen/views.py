@@ -256,5 +256,5 @@ def absen(request):
     
 @login_required
 def show_absen(request):
-    return render(request, 'tampil_absen.html')
+    return render(request, 'tampil_absen.html', { "id": request.user.id} )
 
