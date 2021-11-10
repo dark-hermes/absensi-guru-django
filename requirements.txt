@@ -1,6 +1,7 @@
 asgiref==3.4.1
 Django==3.2.8
 django-active-link==0.1.8
+django-cors-headers==3.10.0
 django-crispy-forms==1.13.0
 django-session-timeout==0.1.0
 django-sslserver==0.22
