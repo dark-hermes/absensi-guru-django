@@ -24,7 +24,7 @@ from absen.viewset_api import *
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('showabsen', PresenceViewset)
+router.register('showabsen', PresenceViewset, basename='Presence')
 
 urlpatterns = [
     path('api/', include(router.urls)),
