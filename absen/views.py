@@ -16,7 +16,6 @@ import subprocess
 from django.http import JsonResponse, HttpResponse
 from django.utils import timezone
 
-
 # Get current date and time
 TODAY = datetime.datetime.now()
 
@@ -69,7 +68,9 @@ def absen(request):
         except:
             CheckinRecord.objects.create(employee_id=current_user)
             CheckoutRecord.objects.create(employee_id=current_user)
-            return False
+            checkin_record = CheckinRecord.objects.filter(employee_id=current_user)[0]
+            checkout_record = CheckoutRecord.objects.filter(employee_id=current_user)[0]
+            return checkin_record, checkout_record
         
     # Location and Distance
     def get_real_location(request=request):
