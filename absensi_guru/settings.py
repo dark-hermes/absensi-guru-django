@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'absen',
     'face_detection',
     'userauth',
+    'laporan',
     'crispy_forms',
     'sslserver',
     'rest_framework',

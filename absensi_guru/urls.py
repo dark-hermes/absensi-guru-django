@@ -17,14 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from absen.views import *
 from face_detection.views import *
+from laporan.views import *
 from django.contrib.auth.views import LoginView, LogoutView
 from userauth.views import add_user, delete_user
 from django.conf.urls.static import static
 from absen.viewset_api import *
+from laporan.viewset_api import *
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('showabsen', PresenceViewset, basename='Presence')
+router.register('subjects', SubjectViewset)
+
 
 urlpatterns = [
     path('api/', include(router.urls)),
@@ -37,6 +41,7 @@ urlpatterns = [
     path('add-user/', add_user, name='add-user'),
     path('delete-user/<int:id_user>',delete_user, name='delete_user'),
     path('absen/show/', show_absen, name="show_absen"),
+    path('laporan/belajar/', study_report, name='study_report')
 ]
 
 if settings.DEBUG:

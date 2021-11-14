@@ -6,3 +6,5 @@ class PresenceSerializer(serializers.ModelSerializer):
         model = Presence
         fields = '__all__'
         
+
+        
