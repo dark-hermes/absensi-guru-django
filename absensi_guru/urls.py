@@ -27,7 +27,12 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('showabsen', PresenceViewset, basename='Presence')
-router.register('subjects', SubjectViewset)
+router.register('subjects', SubjectViewset),
+router.register('laporan/bimbingan', GuidanceReportViewset, basename='GuidanceReport'),
+router.register('laporan/pengembangan', HumanDevelopmentReportViewset, basename='HumanDevelopmentReport'),
+router.register('laporan/karya-inovatif', InnovativeWorkReportViewset, basename='InnovativeWorkReport'),
+router.register('laporan/karya-ilmiah', ScientificWorkReportViewset, basename='ScientificWorkReport'),
+router.register('laporan/tugas-lainnya', DutyReportViewset, basename='DutyReport')
 
 
 urlpatterns = [
