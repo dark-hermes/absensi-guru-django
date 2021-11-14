@@ -1,5 +1,5 @@
-from laporan.models import SubjectName, GuidanceReport, ScientificWorkReport, InnovativeWorkReport, HumanDevelopmentReport, DutyReport
-from laporan.serializers import SubjectSerializers, GuidanceReportSerializers, ScientificWorkReportSerializers, InnovativeWorkReportSerializers, HumanDevelopmentReportSerializers, DutyReportSerializers
+from laporan.models import SubjectName, StudyReport, GuidanceReport, ScientificWorkReport, InnovativeWorkReport, HumanDevelopmentReport, DutyReport
+from laporan.serializers import SubjectSerializers, StudyReportSerializer,GuidanceReportSerializers, ScientificWorkReportSerializers, InnovativeWorkReportSerializers, HumanDevelopmentReportSerializers, DutyReportSerializers
 from rest_framework import viewsets
 
 class SubjectViewset(viewsets.ModelViewSet):
@@ -7,6 +7,17 @@ class SubjectViewset(viewsets.ModelViewSet):
     
     queryset = SubjectName.objects.all()
     
+    
+class StudyReportViewset(viewsets.ModelViewSet):
+    serializer_class = StudyReportSerializer
+    
+    def get_queryset(self):
+        """
+        This view should return a list of all the presence records
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        return StudyReport.objects.filter(employee_id__user=user)   
 class GuidanceReportViewset(viewsets.ModelViewSet):
     serializer_class = GuidanceReportSerializers
     
