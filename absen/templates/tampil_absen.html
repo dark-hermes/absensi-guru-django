@@ -22,19 +22,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <div>[[ this.dataAbsen.employee_id ]]</div>
                     <tr v-if="dataAbsen.length === 0">
                         <td colspan="7" align="center">Data tidak tersedia.</td>
                     </tr>
-                    <tr v-for="(data) in dataAbsen" >
-                        <td>[[ data.presence_date]]</td>
-                        <td>[[ data.checkin_time ]]</td>
-                        <td><a v-bind:href="data.checkin_img" target="_blank"><img src="" alt="" width='100'>Lihat Bukti</a> </td>
-                        <td>[[ data.checkout_time ]]</td>
-                        <td><a v-bind:href="data.checkout_img" target="_blank"><img src="" alt="" width='100'>
+                    <tr v-for="(totalData) in dataAbsen" >
+                        <td>[[ totalData.presence_date]]</td>
+                        <td>[[  ]]</td>
+                        <td><a v-bind:href="totalData.checkin_img" target="_blank"><img src="" alt="" width='100'>Lihat Bukti</a> </td>
+                        <td>[[ totalData.checkout_time ]]</td>
+                        <td><a v-bind:href="totalData.checkout_img" target="_blank"><img src="" alt="" width='100'>
                         Lihat Bukti</a> </td>
-                        <td>[[ data.checkin_desc ]]</td>
-                        <td>[[ data.checkout_desc ]]</td>
+                        <td>[[ totalData.checkin_desc ]]</td>
+                        <td>[[ totalData.checkout_desc ]]</td>
                     </tr>
                 </tbody>
             </table>
