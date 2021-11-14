@@ -40,7 +40,7 @@ function showDataAbsen(){
 
 
 
-function showMapel(){
+function studyReport(){
     var app = new Vue({
         el: '#mapel-form',
         delimiters: ['[[', ']]'],
@@ -61,6 +61,8 @@ function showMapel(){
         methods:{
             onChange(event) {
                 value = event.target.value;
+
+                document.getElementById("select-mapel").removeAttribute("disabled");
 
                 if (value == 2) {
                     this.dataKelas = this.resetData
