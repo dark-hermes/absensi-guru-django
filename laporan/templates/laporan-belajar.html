@@ -9,7 +9,7 @@
 
 
 	<div class="container-laporan-guru">
-		<form action="/study_report" method="post" enctype="multipart/form-data" id="mapel-form">
+		<form action="/study_report" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak>
 			{% csrf_token %}
 			<h1 class="head">Laporan Belajar</h1>
 			<div class="top-input-group">
@@ -25,6 +25,7 @@
 
 			<div class="select-button">
 				<select @change="onChange" class="form-select form-select-lg" aria-label=".form-select-md example">
+					<option>askfjas</option>
 					<option value="1">na</option>
 					<option value="2">prod</option>
 				</select>
@@ -33,7 +34,7 @@
 			
 			<div class="select-button" id="select-mapel"  >
 				<select class="form-select form-select-lg" aria-label=".form-select-md example">
-					<option v-for="(mapel) in dataKelas" value="[[ mapel.subject_name ]]">[[ mapel.subject_name ]]</option>
+					<option v-for="(mapel) in dataKelas" :value="mapel.subject_name">[[ mapel.subject_name ]]</option>
 				</select>
 			</div>
 			

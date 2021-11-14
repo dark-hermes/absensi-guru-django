@@ -46,7 +46,7 @@ function showMapel(){
         delimiters: ['[[', ']]'],
         data: {
             dataKelas:'',
-            parseData:'',
+            resetData:'',
         },
 
         mounted(){
@@ -54,25 +54,28 @@ function showMapel(){
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{this.dataKelas = data;
+                    this.resetData = data
             });
         },
 
         methods:{
            onChange(event) {
               value = event.target.value;
+              console.log(this.resetData)
 
               if (value == 2) {
+                    this.dataKelas = this.resetData
                     let produktif = this.dataKelas.filter(x => x.category == 2);
                     this.dataKelas = produktif;
-              };
+              }
 
               else if (value == 1) {
+                    this.dataKelas = this.resetData
                     let mapelWajib = this.dataKelas.filter(x => x.category == 1);
                     this.dataKelas = mapelWajib;
-              };
-
+              }
               
-            };
+            }
         },
     });
 };

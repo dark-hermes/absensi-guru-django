@@ -25,6 +25,10 @@ p{
     margin-bottom: 0;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 
 /*  Navbar */
 nav.navbar .navbar-collapse .navbar-nav{
