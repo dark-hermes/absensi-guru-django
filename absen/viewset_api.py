@@ -12,3 +12,6 @@ class PresenceViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         return Presence.objects.filter(employee_id__user=user)
+    
+    
+    

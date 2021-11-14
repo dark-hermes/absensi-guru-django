@@ -1,159 +1,76 @@
-<?php
-	// Cek session user 
-	session_start();
-
-	$role = $_SESSION['role'];
-	
-	if (!isset($_SESSION["login-button"]) ) {
-		header("Location: login");
-		exit();
-	}
-
-	if ($role == 'admin'){
-		header("Location: ../view-$role/$role");
-	}
-		
-
-	// Panggil seluruh fungsi php
-	require_once "../php/fungsi.php";
-
-  
-
-    if (isset($_POST['submit-laporan'])){
-		$media_str  = "";
-		foreach($_POST['media_pmb'] as $md){
-			$media_str .= "$md,";
-		}
-
-		$_POST['media'] = rtrim($media_str, ",");
-    
-      
-        if(add_laporan_belajar($_POST) > 0){
-            
-            echo sprintf( "
-            <script>
-                confirm('Berhasil membuat laporan');
-                document.location.href =  '../view/tampil_laporan-belajar';
-            </script>");
-        } 
-        else{
-            echo "
-            <script>
-                confirm('Gagal membuat laporan');
-            </script>";
-        }
-    }
-
-	$mapel_list = take("SELECT * FROM mapel ORDER BY id DESC");
-
-	$kelas_list = ["X BKP 1","X BKP 2","X TKR 1","X TKR 2","X TKR 3","X TOI 1","X TOI 2","X TP 1","X TP 2","X RPL 1","X RPL 2","X MM 1","X MM 2","X MM 3","X TFLM","X TKJ 1","X TKJ 2","X SIJA","X DPIB 1","X DPIB 2","XI DPIB 1","XI DPIB 2","XI TOI 1","XI TOI 2","XI TKR 1","XI TKR 2","XI TKR 3","XI RPL 1","XI RPL 2","XI TP","XI TFLM 1","XI TFLM 2","XI SIJA 1","XI SIJA 2","XI MM 1","XI MM 2","XI MM 3","XI TKJ","XI BKP 1","XI BKP 2","XII BKP 1","XII BKP 2","XII DPIB 1","XII DPIB 2","XII RPL 1","XII RPL 2","XII TKJ 1","XII TKJ 2","XII TOI 1","XII TOI 2","XII TKR 1","XII TKR 2","XII TKR 3","XII SIJA","XII MM 1","XII MM 2","XII MM 3","XII TP 1","XII TP 2","XII TFLM","XIII TOI 1","XIII TOI 2","XIII TFLM","XIII SIJA"];
-
-?>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- Header Link -->
-	<?php include '../php/header.php'; ?>
-	
-
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
 	<title>Laporan Belajar | SMKN 1 CIBINONG</title>
-</head>
-<body>
+{% endblock  %}
 
-	<!-- Panggil navbar -->
-	<?php 
-
-    if($_SESSION['role'] == 'super'){
-        include '../php/navbar-super.php';
-    } else{
-        include '../php/navbar.php';
-    } ?>
+{% block content %}
+	{% include 'navbar.html' %}
 
 
 	<div class="container-laporan-guru">
-		<form action="" method="post" enctype="multipart/form-data">
+		<form action="/study_report" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
 			<h1 class="head">Laporan Belajar</h1>
 			<div class="top-input-group">
 				<div class="form-floating mb-3">
-				  <input type="text" class="form-control" name="nama_guru" id="floatingInput" placeholder="name@example.com" value="<?= $_SESSION['full_name'] ?>" list="kelas" required>
-				  <label for="floatingInput1">Nama Guru</label>
-				</div>
-				<div class="form-floating mb-3">
-				  <input type="text" class="form-control" name="kelas" id="floatingInput" placeholder="name@example.com" required list="kelas">
-				  <label for="floatingInput">Kelas KBM (Ex: XII SIJA, X TKJ)</label>
-
-				  <datalist id="kelas">
-				  	<?php foreach( $kelas_list as $kelas ): ?>
-				  		<option value="<?= $kelas ?>"><?= $kelas ?></option>
-				  	<?php endforeach; ?>
-				</datalist>
-
+					{{form.employee_id.as_hidden}}
 				</div>
 			</div>
 
 			<div class="select-button">
-				<select class="form-select form-select-lg" aria-label=".form-select-md example" name="selectJenis" id="selectJenis">
-				  <option selected="selected" id="defaultSelect" value="zero" disabled>Jenis Mapel</option>
-				  <?php foreach( $mapel_list as $mapel ): ?>
-					<?php $jurusan = explode("-", $mapel['jurusan'])[0] ?>
-					<?php if($jurusan == "NA"): ?>
-						<option value="<?= $mapel['jurusan']?>">Wajib A & B</option>
-					<!-- < // ?php else: ?>
-					<option value="< // ?= $mapel['jurusan']?>">Produktif < //?= $jurusan?> </option>-->
-					<?php endif; ?> 
-				  <?php endforeach; ?>
-				  
-				</select>
+				{{form.class_name}}
 			</div>
+
+			{% comment %} CATEGORY FIELD HERE {% endcomment %}
+
+			{% comment %} <div class="select-button">
+				{{form.subject_category}}
+			</div> {% endcomment %}
 
 			
 			<div class="select-button" id="select-mapel">
-				<select class="form-select form-select-lg" aria-label=".form-select-md example" name="mapel" disabled id="mapel">
-				  <option selected="selected" value = "zero" disabled>Mata Pelajaran</option>			 
-				</select>
+				{{form.subject_name}}
 			</div>
 			
 
 			
-				<div class="bottom-input-group">
-					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="floatingInput" name='jml_siswa' placeholder="name@example.com" required>
-					  <label for="floatingInput">Jumlah Siswa (Ex: 12)</label>
-					</div>
-
-					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="floatingInput" name='jml_siswa_hadir' placeholder="name@example.com" required>
-					  <label for="floatingInput">Jumlah Siswa Hadir (Ex: 15)</label>
-					</div>
-
-					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="floatingInput" name='jml_siswa_absen' placeholder="name@example.com" required>
-					  <label for="floatingInput">Jumlah Siswa Tidak Hadir (Ex: 5)</label>
-					</div>
+			<div class="bottom-input-group">
+				<div class="form-floating mb-3">
+					{{form.total_student}}
+					<label for="floatingInput">Jumlah Siswa (Ex: 12)</label>
 				</div>
+
+				<div class="form-floating mb-3">
+					{{form.presence_student}}
+					<label for="floatingInput">Jumlah Siswa Hadir (Ex: 15)</label>
+				</div>
+
+				<div class="form-floating mb-3">
+					{{form.absence_student}}
+					<label for="floatingInput">Jumlah Siswa Tidak Hadir (Ex: 5)</label>
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<div class="checkgroup">
 					<h1>Media Pembelajaran</h1>
 					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" name="media_pmb[]" value="Tatap Muka Daring" id="flexCheckDefault1">
+					  <input class="form-check-input" type="checkbox" name="method[]" value="Tatap Muka Daring" id="flexCheckDefault1">
 					  <label class="form-check-label" for="flexCheckDefault1">
 					    Tatap Muka Daring
 					  </label>
 					</div>
 
 					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" name="media_pmb[]" value="Penugasan" id="flexCheckDefault2">
+					  <input class="form-check-input" type="checkbox" name="method[]" value="Penugasan" id="flexCheckDefault2">
 					  <label class="form-check-label" for="flexCheckDefault2">
 					   	Penugasan
 					  </label>
 					</div>
 
 					<div class="form-check"> 
-					  <input class="form-check-input" type="checkbox" name="media_pmb[]" value="LMS" id="flexCheckDefault3">
+					  <input class="form-check-input" type="checkbox" name="method[]" value="LMS" id="flexCheckDefault3">
 					  <label class="form-check-label" for="flexCheckDefault3">
 					   	LMS
 					  </label>
@@ -162,7 +79,7 @@
 
 				<div class="text-input">
 					<div class="form-floating">
-					  <textarea class="form-control" name="keterangan" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+					  {{form.desc}}
 					  <label for="floatingTextarea2">Keterangan</label>
 					</div>
 				</div>
@@ -170,23 +87,29 @@
 
 			<div class="file-button mb-3">
 				<label for="formFileMultiple" class="form-label">Upload Dokumentasi Belajar</label>
-				<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple required > 
+				{{form.documentation}}
 			</div>
 
 			<div class="button">
-				<button type="submit" name="submit-laporan" id="" class="submit">Submit</button>
+				<button type="submit" name="submit-report" id="" class="submit">Submit</button>
 			</div>
 		</form>
 
 	</div>
 	<!-- Aset Footer berupa javascript -->
-	<?php include '../php/footer.php' ?>
+{% endblock %}
 	
+	{% block opt_script %}
 	<script type="text/javascript">
-		 document.getElementById("selectJenis").addEventListener("input", function(){
+	
+	document.getElementsByClassName("select-button")[0].childNodes[0].nextElementSibling[0].disabled = true;
+		 {% comment %} document.getElementById("selectJenis").addEventListener("input", function(){
 		        document.getElementById("mapel").removeAttribute("disabled");
-		    })
-	</script>
+		    }) {% endcomment %}
 
+
+		
+	</script>
+	{% endblock  %}
 </body>
 </html>
