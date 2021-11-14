@@ -25,15 +25,16 @@
 
 			<div class="select-button">
 				<select @change="onChange" class="form-select form-select-lg" aria-label=".form-select-md example">
-					<option>askfjas</option>
-					<option value="1">na</option>
-					<option value="2">prod</option>
+					<option selected disabled hidden>Jenis Mata Pelajaran</option>
+					<option value="1">Wajib A & B</option>
+					<option value="2">Produktif</option>
 				</select>
 			</div>
 
 			
-			<div class="select-button" id="select-mapel"  >
-				<select class="form-select form-select-lg" aria-label=".form-select-md example">
+			<div class="select-button" id="select-mapel">
+				<select class="form-select form-select-lg" aria-label=".form-select-md example" disabled>
+					<option disabled selected hidden>Pilih Mata Pelajaran</option>
 					<option v-for="(mapel) in dataKelas" :value="mapel.subject_name">[[ mapel.subject_name ]]</option>
 				</select>
 			</div>
