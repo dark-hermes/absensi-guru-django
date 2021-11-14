@@ -35,13 +35,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LoginView.as_view(), name='index'),
     path('absen/', absen, name='absen'),
-    path('face_detection/detect/', detect),
+    path('face_detection/detect', detect),
     path('login/', LoginView.as_view(), name='login' ),
     path('logout/', LogoutView.as_view(next_page='/login'), name='logout'),
     path('add-user/', add_user, name='add-user'),
     path('delete-user/<int:id_user>',delete_user, name='delete_user'),
-    path('absen/show/', show_absen, name="show_absen"),
-    path('laporan/belajar/', study_report, name='study_report')
+    path('absen/show', show_absen, name="show_absen"),
+    path('laporan/belajar/', study_report, name='study_report'),
+    path('laporan/bimbingan', guidance_report, name='guidance_report'),
+    path('laporan/karya-ilmiah', scientific_work_report, name='scientific_work_report'),
+    path('laporan/karya-inovatif', innovative_work_report, name='innovative_work_report'),
+    path('laporan/pengembangan-diri', human_development_report, name='human_development_report'),
+    path('laporan/tugas-lainnya', duty_report, name='duty_report'),
 ]
 
 if settings.DEBUG:

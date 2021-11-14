@@ -44,8 +44,8 @@ Guidance Report
 """
 class GuidanceReport(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    documentation = models.FileField(upload_to='guidance_report/')
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    documentation = models.FileField(upload_to='guidance_report/', null=True)
     desc = models.TextField(blank=True, null=True, max_length=512)
 
 
@@ -59,9 +59,9 @@ class ScientificWorkCategory(models.Model):
     
 class ScientificWorkReport(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     category = models.ForeignKey(ScientificWorkCategory, on_delete=models.CASCADE)
-    documentation = models.FileField(upload_to='scientific_work_report/')
+    documentation = models.FileField(upload_to='scientific_work_report/', null=True, blank=True)
     desc = models.TextField(blank=True, null=True, max_length=512)
     
     
@@ -75,7 +75,7 @@ class InnovativeWorkCategory(models.Model):
     
 class InnovativeWorkReport(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     category = models.ForeignKey(InnovativeWorkCategory, on_delete=models.CASCADE)
     documentation = models.FileField(upload_to='innovative_work_report/')
     desc = models.TextField(blank=True, null=True, max_length=512)

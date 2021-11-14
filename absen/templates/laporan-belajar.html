@@ -24,9 +24,9 @@
 
 			{% comment %} CATEGORY FIELD HERE {% endcomment %}
 
-			{% comment %} <div class="select-button">
+			<div class="select-button">
 				{{form.subject_category}}
-			</div> {% endcomment %}
+			</div> 
 
 			
 			<div class="select-button" id="select-mapel">
@@ -99,17 +99,15 @@
 	<!-- Aset Footer berupa javascript -->
 {% endblock %}
 	
-	{% block opt_script %}
-	<script type="text/javascript">
+{% block opt_script %}
+<script type="text/javascript">
+
+document.getElementsByClassName("select-button")[0].childNodes[0].nextElementSibling[0].disabled = true;
+		{% comment %} document.getElementById("selectJenis").addEventListener("input", function(){
+			document.getElementById("mapel").removeAttribute("disabled");
+		}) {% endcomment %}
+
+
 	
-	document.getElementsByClassName("select-button")[0].childNodes[0].nextElementSibling[0].disabled = true;
-		 {% comment %} document.getElementById("selectJenis").addEventListener("input", function(){
-		        document.getElementById("mapel").removeAttribute("disabled");
-		    }) {% endcomment %}
-
-
-		
-	</script>
-	{% endblock  %}
-</body>
-</html>
+</script>
+{% endblock  %}

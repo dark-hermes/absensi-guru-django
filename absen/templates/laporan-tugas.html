@@ -1,84 +1,25 @@
-<?php
-	// Cek session user 
-	session_start();
-	if (!isset($_SESSION["login-button"]) ) {
-		header("Location: login");
-		exit();
-	}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+	<title>Laporan Tugas Lainnya | SMKN 1 CIBINONG</title>
+{% endblock  %}
 
-	// Panggil seluruh fungsi php
-	require_once "../php/fungsi.php";
-
-	if (isset($_POST["submit-laporan"])){
-
-		if($_POST['posisi'] == "zero"){
-			echo "
-			<script>
-				alert('Laporan Gagal Dibuat');
-				return false;
-			</script>";
-		}
-		if(add_laporan_tugas($_POST) > 0){
-			echo "
-			<script>
-				alert('Laporan Berhasil Dibuat');
-				document.location.href = 'tampil_laporan-tugas';
-			</script>";
-		} else{
-			echo "
-			<script>
-				alert('Laporan Gagal Dibuat');
-			</script>";
-		}
-	
-	}
-	
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- Header Link -->
-	<?php include '../php/header.php'; ?>
-
-	<title>Laporan Tugas | SMKN 1 CIBINONG</title>
-</head>
-
-<body>
-
-	<!-- Panggil navbar -->
-	<?php 
-
-    if($_SESSION['role'] == 'super'){
-        include '../php/navbar-super.php';
-    } else{
-        include '../php/navbar.php';
-    } ?>
-
+{% block content %}
+	{% include 'navbar.html' %}
 	<div class="container-laporan-tugas">
 		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form.employee_id.as_hidden}}
 			<h1 class="head">Laporan Tugas</h1>
 			<div class="input-box">
-				<select name='posisi' class="form-select" aria-label="Default select example" required>
-				  <option selected='selected' disabled='disabled' value='zero'>Posisi Kerja</option>
-				  <option>Kepala Sekolah</option>
-				  <option>Wakil Kepala Sekolah</option>
-				  <option>Ketua TPMPS</option>
-				  <option>Kepala Kompetensi Keahlian</option>
-				  <option>Koordinator PKG</option>
-				  <option>Ketua LSP</option>
-				  <option>Pembina OSIS</option>
-				  <option>Pembina Eskul</option>
-				  <option>Kepala Bengkel / KA. LAB</option>
-				  <option>Wali Kelas</option>
-				</select>
+				{{form.role}}
 
-				<textarea placeholder="Ketikan Laporan Disini" id="laporan" name="laporan" required></textarea>
-
+				{{form.desc}}
+				
 				<div class="file">
 					<div class="file-button mb-3">
 						<label for="formFileMultiple" class="form-label">Upload Dokumentasi Tugas</label>
-						<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple required> 
+						{{form.documentation}}
 					</div>
 
 					<div class="button">
@@ -95,7 +36,4 @@
 
 
 
-	<!-- Aset Footer berupa javascript -->
-	<?php include '../php/footer.php' ?>
-</body>
-</html>	
+{% endblock %}
