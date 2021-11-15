@@ -66,13 +66,12 @@ function showMapel(){
                     this.dataKelas = produktif;
               };
 
-              else if (value == 1) {
+              elseif (value == 1) {
                     let mapelWajib = this.dataKelas.filter(x => x.category == 1);
                     this.dataKelas = mapelWajib;
               };
-
-              
-            };
-        },
+   
+            }
+        }
     });
 };
