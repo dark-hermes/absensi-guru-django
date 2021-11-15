@@ -40,13 +40,13 @@ function showDataAbsen(){
 
 
 
-function showMapel(){
+function studyReport(){
     var app = new Vue({
         el: '#mapel-form',
         delimiters: ['[[', ']]'],
         data: {
             dataKelas:'',
-            parseData:'',
+            resetData:'',
         },
 
         mounted(){
@@ -54,24 +54,29 @@ function showMapel(){
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{this.dataKelas = data;
+                    this.resetData = data
             });
         },
 
         methods:{
-           onChange(event) {
-              value = event.target.value;
+            onChange(event) {
+                value = event.target.value;
 
-              if (value == 2) {
+                document.getElementById("select-mapel").removeAttribute("disabled");
+
+                if (value == 2) {
+                    this.dataKelas = this.resetData
                     let produktif = this.dataKelas.filter(x => x.category == 2);
                     this.dataKelas = produktif;
-              };
+                }
 
-              elseif (value == 1) {
+                else if (value == 1) {
+                    this.dataKelas = this.resetData
                     let mapelWajib = this.dataKelas.filter(x => x.category == 1);
                     this.dataKelas = mapelWajib;
-              };
-   
+                }
+              
             }
-        }
+        },
     });
 };

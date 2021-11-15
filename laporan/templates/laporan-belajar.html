@@ -9,7 +9,7 @@
 
 
 	<div class="container-laporan-guru">
-		<form action="/study_report" method="post" enctype="multipart/form-data" id="mapel-form">
+		<form action="/study_report" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak>
 			{% csrf_token %}
 			<h1 class="head">Laporan Belajar</h1>
 			<div class="top-input-group">
@@ -23,17 +23,19 @@
 			</div>
 
 
-			<div class="select-button">
+			<div class="select-button" id="select-jenis">
 				<select @change="onChange" class="form-select form-select-lg" aria-label=".form-select-md example">
-					<option value="1">na</option>
-					<option value="2">prod</option>
+					<option selected disabled hidden >Jenis Mata Pelajaran</option>
+					<option value="1">Wajib A & B</option>
+					<option value="2">Produktif</option>
 				</select>
 			</div>
 
 			
-			<div class="select-button" id="select-mapel"  >
-				<select class="form-select form-select-lg" aria-label=".form-select-md example">
-					<option v-for="(mapel) in dataKelas" value="[[ mapel.subject_name ]]">[[ mapel.subject_name ]]</option>
+			<div class="select-button">
+				<select class="form-select form-select-lg" aria-label=".form-select-md example" id="select-mapel" disabled>
+					<option disabled selected hidden>Pilih Mata Pelajaran</option>
+					<option v-for="(mapel) in dataKelas" :value="mapel.subject_name">[[ mapel.subject_name ]]</option>
 				</select>
 			</div>
 			
@@ -100,20 +102,11 @@
 		</form>
 
 	</div>
-	<!-- Aset Footer berupa javascript -->
+
+
 {% endblock %}
-	
 	{% block opt_script %}
 	<script type="text/javascript">
-	showMapel()
-
-
-	document.getElementsByClassName("select-button")[0].childNodes[0].nextElementSibling[0].disabled = true;
-		 {% comment %} document.getElementById("selectJenis").addEventListener("input", function(){
-		        document.getElementById("mapel").removeAttribute("disabled");
-		    }) {% endcomment %}
-
-
-	
-</script>
+		studyReport()
+	</script>
 {% endblock  %}
