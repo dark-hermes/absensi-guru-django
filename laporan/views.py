@@ -155,3 +155,27 @@ def duty_report(request):
         form = DutyForm(initial={'employee_id': request.user.employee})
         context = {'form': form}
         return render(request, 'laporan-tugas.html', context)
+
+@login_required
+def show_study_report(request):
+    return render(request, 'tampil_laporan-belajar.html', { "id": request.user.id} )    
+    
+@login_required
+def show_guidance_report(request):
+    return render(request, 'tampil_laporan-bimbingan.html', { "id": request.user.id} )
+
+@login_required
+def show_scientific_work_report(request):
+    return render(request, 'tampil_laporan-ilmiah.html', { "id": request.user.id} )
+
+@login_required
+def show_innovative_work_report(request):
+    return render(request, 'tampil_laporan-karya.html', { "id": request.user.id} )
+
+@login_required
+def show_human_development_report(request):
+    return render(request, 'tampil_laporan-pengemabangan.html', { "id": request.user.id} )
+
+@login_required
+def show_duty_report(request):
+    return render(request, 'tampil_laporan-tugas.html', { "id": request.user.id} )

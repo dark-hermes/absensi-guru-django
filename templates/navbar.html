@@ -42,12 +42,12 @@
                         Laporanku
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
-                        <li><a class="dropdown-item" href="tampil_laporan-belajar">Proses Pembelajaran</a></li>
-                        <li><a class="dropdown-item" href="tampil_laporan-bimbingan">Proses Bimbingan</a></li>
-                        <li><a class="dropdown-item" href="tampil_laporan-tugas">Tugas Lainnya</a></li>
-                        <li><a class="dropdown-item" href="tampil_laporan-pengembangan">Pengembangan Diri</a></li>
-                        <li><a class="dropdown-item" href="tampil_laporan-ilmiah">Publikasi Ilmiah</a></li>
-                        <li><a class="dropdown-item" href="tampil_laporan-karya">Karya Inovatif</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_study_report'%}">Proses Pembelajaran</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_guidance_report'%}">Proses Bimbingan</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_duty_report'%}">Tugas Lainnya</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_human_development_report'%}">Pengembangan Diri</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_scientific_work_report'%}">Publikasi Ilmiah</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_innovative_work_report'%}">Karya Inovatif</a></li>
                     </ul>
                 </div>
                 <li class="nav-item dropdown">
