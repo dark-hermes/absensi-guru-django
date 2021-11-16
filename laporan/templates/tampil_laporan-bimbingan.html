@@ -1,48 +1,14 @@
-<?php
-   // Cek session user 
-session_start();
-if (!isset($_SESSION["login-button"]) ) {
-   header("Location: login");
-   exit();
-}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+	<title>Rekap Laporan Bimbingan | SMKN 1 CIBINONG</title>
+{% endblock  %}
 
-// Panggil seluruh fungsi php
-require_once "../php/fungsi.php";
-
-$username = $_SESSION['username'];
-$now_date = date("Y-m-d");
-
-$isi = take("SELECT * FROM laporan_bimbingan WHERE username='$username' ORDER BY tanggal DESC");
-
-if(isset($_GET['filter'])){
-   $isi = take_data("laporan_bimbingan",$_GET['filter'],'', 'ORDER BY tanggal DESC', $now_date);
-} else{
-    $_GET['filter'] = 'no-filter';
-}
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- Header Link -->
-   <?php include '../php/header.php'; ?>
-
-   <title>LaporanKu | SMKN 1 CIBINONG</title>
-</head>
-<body>
-
-<!-- Panggil navbar -->
-<?php 
-
-    if($_SESSION['role'] == 'super'){
-        include '../php/navbar-super.php';
-    } else{
-        include '../php/navbar.php';
-    } ?>
-
+{% block content %}
+	{% include 'navbar.html' %}
 
 <div class="container" id="container">
-<h2>Laporan Bimbingan <?= $_SESSION["full_name"] ?></h2>
+<h2>Laporan Bimbingan </h2>
 
 <form action="" method="get">
 	
@@ -164,8 +130,4 @@ if(isset($_GET['filter'])){
    
 </div>
 
-<?php require_once '../php/footer.php' ?>
-
-
-</body>
-</html>
+{% endblock %}

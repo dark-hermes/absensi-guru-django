@@ -33,7 +33,7 @@ router.register('laporan/bimbingan', GuidanceReportViewset, basename='GuidanceRe
 router.register('laporan/pengembangan', HumanDevelopmentReportViewset, basename='HumanDevelopmentReport'),
 router.register('laporan/karya-inovatif', InnovativeWorkReportViewset, basename='InnovativeWorkReport'),
 router.register('laporan/karya-ilmiah', ScientificWorkReportViewset, basename='ScientificWorkReport'),
-router.register('laporan/tugas-lainnya', DutyReportViewset, basename='DutyReport')
+router.register('laporan/tugas-lainnya', DutyReportViewset, basename='DutyReport'),
 
 
 urlpatterns = [
@@ -47,12 +47,18 @@ urlpatterns = [
     path('add-user/', add_user, name='add-user'),
     path('delete-user/<int:id_user>',delete_user, name='delete_user'),
     path('absen/show', show_absen, name="show_absen"),
-    path('laporan/belajar/', study_report, name='study_report'),
+    path('laporan/belajar', study_report, name='study_report'),
     path('laporan/bimbingan', guidance_report, name='guidance_report'),
     path('laporan/karya-ilmiah', scientific_work_report, name='scientific_work_report'),
     path('laporan/karya-inovatif', innovative_work_report, name='innovative_work_report'),
     path('laporan/pengembangan-diri', human_development_report, name='human_development_report'),
     path('laporan/tugas-lainnya', duty_report, name='duty_report'),
+    path('laporan/belajar/show', show_study_report, name='show_study_report'),
+    path('laporan/bimbingan/show', show_guidance_report, name='show_guidance_report'),
+    path('laporan/karya-ilmiah/show', show_scientific_work_report, name='show_scientific_work_report'),
+    path('laporan/karya-inovatif/show', show_innovative_work_report, name='show_innovative_work_report'),
+    path('laporan/pengembangan-diri/show', show_human_development_report, name='show_human_development_report'),
+    path('laporan/tugas-lainnya/show', show_duty_report, name='show_duty_report'),
 ]
 
 if settings.DEBUG:
