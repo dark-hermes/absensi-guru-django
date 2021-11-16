@@ -9,8 +9,9 @@
 
 
 	<div class="container-laporan-guru">
-		<form action="/study_report" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak>
+		<form action="" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak>
 			{% csrf_token %}
+			{{form.employee_id.as_hidden}}
 			<h1 class="head">Laporan Belajar</h1>
 			<div class="top-input-group">
 				<div class="form-floating mb-3">
@@ -24,7 +25,7 @@
 
 
 			<div class="select-button" id="select-jenis">
-				<select @change="onChange" class="form-select form-select-lg" aria-label=".form-select-md example">
+				<select @change="onChange" name="subject_category" class="form-select form-select-lg" aria-label=".form-select-md example">
 					<option selected disabled hidden >Jenis Mata Pelajaran</option>
 					<option value="1">Wajib A & B</option>
 					<option value="2">Produktif</option>
@@ -33,9 +34,9 @@
 
 			
 			<div class="select-button">
-				<select class="form-select form-select-lg" aria-label=".form-select-md example" id="select-mapel" disabled>
+				<select class="form-select form-select-lg" name="subject_name" aria-label=".form-select-md example" id="select-mapel" disabled>
 					<option disabled selected hidden>Pilih Mata Pelajaran</option>
-					<option v-for="(mapel) in dataKelas" :value="mapel.subject_name">[[ mapel.subject_name ]]</option>
+					<option v-for="(mapel) in dataKelas" :value="mapel.id">[[ mapel.subject_name ]]</option>
 				</select>
 			</div>
 			
@@ -61,26 +62,14 @@
 			<div class="form-group">
 				<div class="checkgroup">
 					<h1>Media Pembelajaran</h1>
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" name="method[]" value="Tatap Muka Daring" id="flexCheckDefault1">
-					  <label class="form-check-label" for="flexCheckDefault1">
-					    Tatap Muka Daring
-					  </label>
+					{% for method in method_list %}
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="method" value="{{method}}" id="flexCheckDefault{{forloop.counter}}">
+							<label class="form-check-label" for="flexCheckDefault{{forloop.counter}}">
+								{{method}}
+							</label>
 					</div>
-
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" name="method[]" value="Penugasan" id="flexCheckDefault2">
-					  <label class="form-check-label" for="flexCheckDefault2">
-					   	Penugasan
-					  </label>
-					</div>
-
-					<div class="form-check"> 
-					  <input class="form-check-input" type="checkbox" name="method[]" value="LMS" id="flexCheckDefault3">
-					  <label class="form-check-label" for="flexCheckDefault3">
-					   	LMS
-					  </label>
-					</div>
+					{% endfor %}
 				</div>
 
 				<div class="text-input">

@@ -4,7 +4,7 @@ from laporan.models import *
 class StudyForm(forms.ModelForm):
     class Meta:
         model = StudyReport
-        fields = '__all__'
+        fields = ('employee_id', 'class_name','total_student', 'presence_student', 'absence_student', 'desc', 'documentation')
     
         widgets = {
             'employee_id': forms.TextInput(attrs={'class':'form-control', 'id':'floatingInput', 'readonly':True}),
@@ -18,8 +18,6 @@ class StudyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(StudyForm, self).__init__(*args, **kwargs)
         self.fields['class_name'] = forms.ModelChoiceField(queryset=ClassName.objects.all().order_by('class_name'), empty_label="Pilih Kelas", to_field_name="class_name",  widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
-        self.fields['subject_category'] = forms.ModelChoiceField(queryset=SubjectCategory.objects.all(), empty_label="Pilih Jenis Mapel", to_field_name="id",  widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
-        self.fields['subject_name'] = forms.ModelChoiceField(queryset=SubjectName.objects.values_list('subject_name', flat=True).order_by('subject_name'), empty_label="Pilih Mata Pelajaran",  widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
         
         
 class GuidanceForm(forms.ModelForm):

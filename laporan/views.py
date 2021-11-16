@@ -2,6 +2,7 @@ from django.shortcuts import render
 from laporan.forms import *
 import logging
 from django.views.decorators.csrf import csrf_exempt
+from laporan.models import Method, SubjectName, SubjectCategory
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -10,22 +11,35 @@ def study_report(request):
     if request.POST:
         form = StudyForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            form = StudyForm()
+            subject_name_obj = SubjectName.objects.filter(id=request.POST.get('subject_name'))[0]
+            subject_category_obj = SubjectCategory.objects.filter(id=request.POST.get('subject_category'))[0]
+            
+            saved_form = form.save(commit=False)
+            saved_form.subject_category = subject_category_obj
+            saved_form.subject_name = subject_name_obj
+            saved_form.method = ','.join(request.POST.getlist('method'))
+            saved_form.save()
+            
+            form = StudyForm(initial={'employee_id': request.user.employee})
+            method_list = Method.objects.values_list('method_name', flat=True)
             message = "Laporan berhasil dibuat"
             context = {
                 'form': form,
-                'msg': message
+                'msg': message,
+                'method_list': method_list
             }
     
             return render(request, 'laporan-belajar.html', context)
+        else:
+            print(form.errors)
         
     else:
-        form = StudyForm(initial={'employee_id': request.user})
+        form = StudyForm(initial={'employee_id': request.user.employee})
+        method_list = Method.objects.all()
 
-        context = {'form': form}
+        context = {'form': form, 'method_list': method_list}
 
-    return render(request, 'laporan-belajar.html', context)
+        return render(request, 'laporan-belajar.html', context)
 
 @login_required
 def guidance_report(request):
@@ -35,7 +49,7 @@ def guidance_report(request):
         form = GuidanceForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = GuidanceForm()
+            form = GuidanceForm(initial={'employee_id': request.user.employee})
             message = "Laporan berhasil dibuat"
             context = {
                 'form': form,

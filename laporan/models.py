@@ -19,6 +19,8 @@ class SubjectName(models.Model):
     class_name = models.ForeignKey(ClassName, on_delete=models.CASCADE)
     category = models.ForeignKey(SubjectCategory, on_delete=models.CASCADE)
     subject_name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.subject_name
     
 class Method(models.Model):
     method_name = models.CharField(max_length=100)
@@ -34,7 +36,7 @@ class StudyReport(models.Model):
     total_student = models.IntegerField()
     presence_student = models.IntegerField()
     absence_student = models.IntegerField()
-    method = models.ForeignKey(Method, on_delete=models.CASCADE)
+    method = models.CharField(max_length=255)
     documentation = models.FileField(upload_to='study_report/')
     desc = models.CharField(max_length=512, blank=True, null=True)
     
