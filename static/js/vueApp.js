@@ -1,3 +1,8 @@
+function absen(){
+
+}
+
+
 function showDataAbsen(){
     var app = new Vue({
         el: '#table-pdf',
@@ -80,3 +85,135 @@ function studyReport(){
         },
     });
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showStudyReport(){
+    var app = new Vue({
+        el: '#table-pdf',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataBelajar:'',
+        },
+
+        mounted(){
+            let url = 'https://localhost:8000/api/laporan/belajar/';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataBelajar = data;
+            });
+        },
+    });
+}
+
+
+function showGuidanceReport(){
+    var app = new Vue({
+        el: '#table-pdf',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataBimbingan:'',
+        },
+
+        mounted(){
+            let url = 'https://localhost:8000/api/laporan/bimbingan/';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataBimbingan = data;
+            });
+        },
+    });
+}
+
+
+function showDutyReport(){
+    var app = new Vue({
+        el: '#table-pdf',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataTugas:'',
+        },
+
+        mounted(){
+            let url = 'https://localhost:8000/api/laporan/tugas-lainnya/';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataTugas = data;
+            });
+        },
+    });
+}
+
+
+function showDevelopmentReport(){
+    var app = new Vue({
+        el: '#table-pdf',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataPengembangan:'',
+        },
+
+        mounted(){
+            let url = 'https://localhost:8000/api/laporan/pengembangan/';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataPengembangan = data;
+            });
+        },
+    });
+}
+
+
+function showScientificReport(){
+    var app = new Vue({
+        el: '#table-pdf',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataIlmiah:'',
+        },
+
+        mounted(){
+            let url = 'https://localhost:8000/api/laporan/karya-ilmiah/';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataIlmiah = data;
+            });
+        },
+    });
+}
+
+function showInnovativeReport(){
+    var app = new Vue({
+        el: '#table-pdf',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataInovatif:'',
+        },
+
+        mounted(){
+            let url = 'https://localhost:8000/api/laporan/karya-inovatif/';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataInovatif = data;
+            });
+        },
+    });
+}
