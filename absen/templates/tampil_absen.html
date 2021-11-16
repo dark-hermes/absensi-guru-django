@@ -25,9 +25,9 @@
                     <tr v-if="dataAbsen.length === 0">
                         <td colspan="7" align="center">Data tidak tersedia.</td>
                     </tr>
-                    <tr v-for="(totalData) in dataAbsen" >
+                    <tr v-for="(totalData) in dataAbsen" align="center">
                         <td>[[ totalData.presence_date]]</td>
-                        <td>[[  ]]</td>
+                        <td>[[ totalData.checkin_time ]]</td>
                         <td><a v-bind:href="totalData.checkin_img" target="_blank"><img src="" alt="" width='100'>Lihat Bukti</a> </td>
                         <td>[[ totalData.checkout_time ]]</td>
                         <td><a v-bind:href="totalData.checkout_img" target="_blank"><img src="" alt="" width='100'>
