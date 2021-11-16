@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'sslserver',
     'rest_framework',
-    'active_link'
+    'active_link',
+    'django_crontab'
 ]
 
 MIDDLEWARE = [
@@ -158,6 +159,10 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 SESSION_EXPIRE_SECONDS = 60 * 30
+
+CRONJOBS = [
+    ('10 0 * * *', 'absen.cron.reset_records')
+]
 
 
 MEDIA_ABS_PATH = "D:/absensi-guru-django"
