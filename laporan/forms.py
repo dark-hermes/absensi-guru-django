@@ -58,7 +58,8 @@ class InnovativeWorkForm(forms.ModelForm):
         widgets  = {
             'employee_id': forms.TextInput(attrs={'class':'form-control', 'id':'floatingInput', 'readonly':True}),
             'desc': forms.Textarea(attrs={'class':'laporan', 'id':'laporan', 'placeholder':'Ketikkan laporan di sini'}),
-            'documentation': forms.FileInput(attrs={'class':'form-control', 'id':'formFileMultiple', 'placeholder':'Dokumentasi'})
+            'documentation': forms.FileInput(attrs={'class':'form-control', 'id':'formFileMultiple', 'placeholder':'Dokumentasi'}),
+            
         }
         
     def __init__(self, *args, **kwargs):
@@ -67,7 +68,16 @@ class InnovativeWorkForm(forms.ModelForm):
         
 
 class HumanDevelopmentForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = HumanDevelopmentReport
+        fields = ('employee_id','duration', 'desc', 'documentation')
+        
+        widgets = {
+            'employee_id': forms.TextInput(attrs={'class':'form-control', 'id':'floatingInput', 'readonly':True}),
+            'duration': forms.NumberInput(attrs={'class':'form-control', "aria-label":"Sizing example input", "aria-describedby":"inputGroup-sizing-default", "placeholder":"Jumlah Jam Kegiatan"}),
+            'desc': forms.Textarea(attrs={'class':'laporan', 'id':'laporan', 'placeholder':'Ketikkan laporan di sini'}),
+            'documentation': forms.FileInput(attrs={'class':'form-control', 'id':'formFileMultiple', 'placeholder':'Dokumentasi'})
+        }
 
 
 class DutyForm(forms.ModelForm):

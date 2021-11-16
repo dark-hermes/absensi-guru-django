@@ -84,25 +84,16 @@ class InnovativeWorkReport(models.Model):
 """
 This block is part of human development report and its foreign key
 """
-class HumanDevelopmentCategory(models.Model):
-    category_name = models.CharField(max_length=100)
-    def __str__(self):
-        return self.category_name
-    
-class HumanDevelopmentRole(models.Model):
-    role_name = models.CharField(max_length=100)
-    def __str__(self):
-        return self.role_name
     
 class HumanDevelopmentReport(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(HumanDevelopmentCategory, on_delete=models.CASCADE)
-    role = models.ForeignKey(HumanDevelopmentRole, on_delete=models.CASCADE)
-    duration = models.DecimalField(max_digits=2, decimal_places=2)
+    category = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    duration = models.DecimalField(max_digits=4, decimal_places=2)
+    held_on = models.DateField(null=True)
     documentation = models.FileField(upload_to='human_development_report/')
     desc = models.TextField(blank=True, null=True, max_length=512)
-    
     
 """
 This block is part of duty report and its foreign key

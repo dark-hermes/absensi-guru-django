@@ -9,25 +9,29 @@
 
 	<div class="container-laporan-pengembangan">
 		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			
+			{{form.employee_id.as_hidden}}
 			<h1 class="head">Laporan Pengembangan Diri</h1>
 			<div class="input-box">
+			
 				<div class="input">
 					<h1>Jenis Kegiatan</h1>
 					<div class="input-group">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Seminar">
+						  <input class="form-check-input" type="radio" name="activity" id="inlineRadio1" value="Seminar">
 						  <label class="form-check-label" for="inlineRadio1">Seminar</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Workshop">
+						  <input class="form-check-input" type="radio" name="activity" id="inlineRadio2" value="Workshop">
 						  <label class="form-check-label" for="inlineRadio2">Workshop</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Training">
+						  <input class="form-check-input" type="radio" name="activity" id="inlineRadio3" value="Training">
 						  <label class="form-check-label" for="inlineRadio3">Training</label>
 						</div>
 						<div class="input-group-text input-radio">
-						  <input class="form-check-input mt-0" type="radio" value="custom" aria-label="Radio button for following text input" name="inlineRadioOptions" id="inlineRadio4">
+						  <input class="form-check-input mt-0" type="radio" value="custom" aria-label="Radio button for following text input" name="activity" id="inlineRadio4">
 						</div>
 						<input type="text" class="form-control" name='kegiatan-custom' aria-label="Text input with radio button" placeholder="Lainya" id="text" disabled>
 					</div>
@@ -37,19 +41,19 @@
 					<h1>Peran dalam kegiatan</h1>
 					<div class="input-group">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="Peserta">
+						  <input class="form-check-input" type="radio" name="role" id="inlineRadio5" value="Peserta">
 						  <label class="form-check-label" for="inlineRadio5">Peserta</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio6" value="Pembicara">
+						  <input class="form-check-input" type="radio" name="role" id="inlineRadio6" value="Pembicara">
 						  <label class="form-check-label" for="inlineRadio6">Pembicara</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio7" value="Panitia">
+						  <input class="form-check-input" type="radio" name="role" id="inlineRadio7" value="Panitia">
 						  <label class="form-check-label" for="inlineRadio7">Panitia</label>
 						</div>
 						<div class="input-group-text input-radio">
-						   <input class="form-check-input mt-0" type="radio" value="custom" aria-label="Radio button for following text input" name="inlineRadioOptions2" id="inlineRadio8">
+						   <input class="form-check-input mt-0" type="radio" value="custom" aria-label="Radio button for following text input" name="role" id="inlineRadio8">
 						</div>
 						<input type="text" class="form-control" name="peran-custom" aria-label="Text input with radio button" placeholder="Lainya" id="text2" disabled>   
 					</div>
@@ -57,22 +61,22 @@
 
 				<div class="bottom-input">			
 					<div class="input-group">
-					   	<input type="text" class="form-control" name="jml_jam" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Jumlah Jam Kegiatan">
+					   	{{form.duration}}
 					</div>
 					<div class="input-date">
 						<span class="input-group-text" id="inputGroup-sizing">Tanggal</span>
-					  	<input type="date" class="form-control" name="tanggal_kegiatan" aria-label="Sizing example input" aria-describedby="inputGroup-sizing">
+					  	<input type="date" class="form-control" name="held_on" aria-label="Sizing example input" aria-describedby="inputGroup-sizing">
 					</div>
 				</div>
 
 				<div class="input-text">
-					<textarea placeholder="Ketikan Laporan Disini" id="laporan" name="laporan" required></textarea>
+					{{form.desc}}
 				</div>
 
 				<div class="file">
 					<div class="file-button mb-3">
 						<label for="formFileMultiple" class="form-label">Upload Dokumentasi Bimbingan</label>
-						<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple required> 
+						{{form.documentation}} 
 					</div>
 
 					<div class="button">

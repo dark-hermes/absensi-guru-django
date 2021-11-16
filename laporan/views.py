@@ -4,7 +4,7 @@ import logging
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def study_report(request):
     logging.basicConfig(level=logging.NOTSET)
     if request.POST:
@@ -112,7 +112,12 @@ def human_development_report(request):
     if request.POST:
         form = HumanDevelopmentForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            saved_form = form.save(commit=False)
+            saved_form.activity = request.POST.get('activity')
+            saved_form.role = request.POST.get('role')
+            saved_form.held_on = request.POST.get('held_on')
+            saved_form.save()
+            
             form = HumanDevelopmentForm(initial={'employee_id': request.user.employee})
             message = "Laporan berhasil dibuat"
             context = {
@@ -126,10 +131,10 @@ def human_development_report(request):
             print(form.errors)
         
     else:
-        # form = HumanDevelopmentForm(initial={'employee_id': request.user.employee})
-        # context = {'form': form}
-        # return render(request, 'laporan-karya.html', context)
-        return render(request, 'laporan-pengembangan.html')
+        form = HumanDevelopmentForm(initial={'employee_id': request.user.employee})
+        context = {'form': form}
+        return render(request, 'laporan-pengembangan.html', context)
+        
     
 @login_required
 def duty_report(request):
