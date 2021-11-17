@@ -161,11 +161,8 @@ CORS_ORIGIN_WHITELIST = (
 SESSION_EXPIRE_SECONDS = 60 * 30
 
 CRONJOBS = [
-    ('10 0 * * *', 'absen.cron.reset_records')
+    ('15 0 * * *', 'absen.cron.reset_records')
 ]
-
-
-MEDIA_ABS_PATH = "D:/absensi-guru-django"
 
 MEDIA_ABS_PATH = abspath('settings.py').replace("\\", "/").strip("/absensi_guru/settings.py")
 
