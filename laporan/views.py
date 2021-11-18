@@ -193,7 +193,7 @@ def show_innovative_work_report(request):
 
 @login_required
 def show_human_development_report(request):
-    return render(request, 'tampil_laporan-pengemabangan.html', { "id": request.user.id} )
+    return render(request, 'tampil_laporan-pengembangan.html', { "id": request.user.id} )
 
 @login_required
 def show_duty_report(request):
