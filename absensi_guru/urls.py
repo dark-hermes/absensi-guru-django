@@ -43,7 +43,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LoginView.as_view(), name='index'),
     path('absen/', absen, name='absen'),
-    path('face_detection/detect', detect),
+    path('face_detection/detect/', detect),
     path('login/', LoginView.as_view(), name='login' ),
     path('logout/', LogoutView.as_view(next_page='/login'), name='logout'),
     path('add-user/', add_user, name='add-user'),

@@ -5,6 +5,7 @@ import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 import base64
+from face_detection.views import detect
 from userauth.models import Employee
 from django.core.files.base import ContentFile
 from absen.models import Presence, CheckinRecord, CheckoutRecord
@@ -15,6 +16,7 @@ from django.conf import settings
 import subprocess
 from django.http import JsonResponse, HttpResponse
 from django.utils import timezone
+import requests
 
 # Get current date and time
 TODAY = datetime.datetime.now()
@@ -161,11 +163,15 @@ def absen(request):
         # Logging image name to console
         logging.info(img_name)
         
-        # Detect image with preserved API with curl and assign the result in a variable
-        detect_process = subprocess.getoutput(f'curl -X POST -F image=@{settings.MEDIA_ABS_PATH}{img_name} {settings.API_SERVER}')
+        # Detect image with preserved API with curl and assign the result in a variable 
+        image_bin = {'image': open(f"{settings.MEDIA_ABS_PATH}{img_name}", 'rb')}
+        request = requests.post(settings.API_SERVER, files=image_bin, verify=False)
         
         # Drop curl proccess
-        result = eval(detect_process.split('\n')[-1])            
+    
+        result = request.json()    
+        
+        logging.info(result)
         
         return result
         
