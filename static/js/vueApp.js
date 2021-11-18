@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function showDataAbsen(){
     var app = new Vue({
         el: '#table-pdf',
@@ -81,7 +80,7 @@ function studyReport(){
         },
     });
 };
-=======
+
 function absen(){
 
 }
@@ -301,4 +300,4 @@ function showInnovativeReport(){
         },
     });
 }
->>>>>>> 16badeda6f217d97964bdaf943f2d7fde4d75781
+
