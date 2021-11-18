@@ -3,7 +3,6 @@ if (serverClock.length > 0) {
     showServerTime(serverClock, serverClock.text());
 }
 
-
 function showServerTime(obj, time) {
     var parts   = time.split(":"),
         newTime = new Date();
@@ -36,7 +35,7 @@ function showServerTime(obj, time) {
 }
 
 
-function inputCheck(){
+function inputCheck(){ // For laporan pengembangan page
     var checked = $('input[type=radio]:checked')
     $('input[type=radio]')
         .click(function() {
@@ -63,7 +62,7 @@ function inputCheck(){
 }
 
 
-function responsiveSlider(){
+function responsiveSlider(){ // for Absen Page
     width = screen.width;
     height = screen.height;
     slider = document.getElementsByClassName("slider");
@@ -92,6 +91,10 @@ function responsiveSlider(){
         $window.resize(resize).trigger('resize');
     })(jQuery);
 }
+
+
+
+
 
 alertTemplate = {
 
