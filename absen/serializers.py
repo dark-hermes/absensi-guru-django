@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from absen.models import Presence, CheckoutRecord, CheckinRecord
+from userauth.models import Days
 
 class PresenceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,3 +17,7 @@ class CheckinSerializer(serializers.ModelSerializer):
         model = CheckinRecord
         fields = '__all__'
         
+class DaysSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Days
+        fields = '__all__'

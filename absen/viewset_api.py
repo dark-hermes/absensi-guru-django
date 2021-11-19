@@ -1,5 +1,6 @@
 from absen.models import Presence, CheckoutRecord, CheckinRecord
-from absen.serializers import PresenceSerializer, CheckoutSerializer, CheckinSerializer
+from absen.serializers import PresenceSerializer, CheckoutSerializer, CheckinSerializer, DaysSerializer
+from userauth.models import Days
 from rest_framework import viewsets
 
 class PresenceViewset(viewsets.ModelViewSet):
@@ -27,6 +28,13 @@ class CheckoutViewset(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         return CheckinRecord.objects.filter(employee_id__user=user)
+    
+class DaysViewset(viewsets.ModelViewSet):
+    serializer_class = DaysSerializer
+    
+    def get_queryset(self):
+        user = self.request.user
+        return Days.objects.filter(employee_id__user=user)
     
     
     
