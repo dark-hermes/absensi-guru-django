@@ -711,12 +711,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   transition: 0.1s;
 }
 
-.absen .button-absen .masuk button#masuk.hoverActive:hover {
+.absen .button-absen .masuk button#masuk:hover {
   background-color: #13cb6e;
   font-weight: 700;
 }
 
-.absen .button-absen .masuk button#masuk.hoverActive:active {
+.absen .button-absen .masuk button#masuk:active {
   font-weight: 700;
   border: 1px solid #13cb6e;
   background-color: transparent;
@@ -727,6 +727,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 .absen .button-absen .masuk .modal .modal-header {
   display: flex;
   justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .masuk .modal .modal-header h5 span{
+  color: #3B86FF;
+  font-weight: 700;
 }
 
 .absen .button-absen .masuk .modal .modal-body {
@@ -783,12 +789,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   background-color: rgba(13, 110, 253, 0.8);
 }
 
-.absen .button-absen .izin button#izin.hoverActive:hover {
+.absen .button-absen .izin button#izin:hover {
   font-weight: 700;
   background-color: #0d6efd;
 }
 
-.absen .button-absen .izin button#izin.hoverActive:active {
+.absen .button-absen .izin button#izin:active {
   font-weight: 700;
   border: 1px solid #0d6efd;
   background-color: transparent !important;
@@ -803,12 +809,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   background-color: rgba(198, 73, 59, 0.8);
 }
 
-.absen .button-absen .keluar button#keluar.hoverActive:hover {
+.absen .button-absen .keluar button#keluar:hover {
   font-weight: 700;
   background-color: #c6493b;
 }
 
-.absen .button-absen .keluar button#keluar.hoverActive:active {
+.absen .button-absen .keluar button#keluar:active {
   font-weight: 700;
   border: 1px solid #c64b3b;
   background-color: transparent !important;
@@ -819,6 +825,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 .absen .button-absen .keluar .modal .modal-header {
   display: flex;
   justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .keluar .modal .modal-header h5 span{
+  color: #3B86FF;
+  font-weight: 700;
 }
 
 .absen .button-absen .keluar .modal .modal-body {

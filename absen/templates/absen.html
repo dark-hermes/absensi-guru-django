@@ -38,12 +38,12 @@
 					<button id="masuk"  type="button"  data-bs-toggle="modal" onclick="capture_frame('checkin')" data-bs-target="#staticBackdrop1">Presensi Masuk</button>
 
 					<!-- Modal -->
-					<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
 						<div class="modal-dialog modal-xl">
 							<div class="modal-content">
 
 							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">Arahkan Wajah Ke Kamera</h5>
+								<h5 class="modal-title" id="staticBackdropLabel1">Arahkan Wajah Ke Kamera</h5>
 							</div>
 
 							<div class="modal-body">
@@ -52,12 +52,12 @@
 									<canvas id="canvas-masuk" width="480" height="360" style="display:none"></canvas>
 								</div>
 								<div class="button">
-									<button type="button" id="camera-masuk" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
+									<button type="button" v-on:click="message" id="camera-masuk" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
 								</div>
 							</div>
 
 							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary btn-presence" data-bs-dismiss="modal" onclick='location.reload();'>Tutup</button>
+								<button type="button"  class="btn btn-secondary btn-presence" data-bs-dismiss="modal" onclick='location.reload();'>Tutup</button>
 							</div>
 							</div>
 						</div>
@@ -72,11 +72,11 @@
 					</button>
 
 					<!-- Modal Izin-->
-					<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="staticBackdropLabel">Izin Karena Apa</h5>
+									<h5 class="modal-title" id="staticBackdropLabel2">Izin Karena Apa</h5>
 								</div>
 
 								<form id='absen-form' action="" method="post" enctype="multipart/form-data">
@@ -109,11 +109,11 @@
 				<div class="keluar">
 					<button id="keluar"  type="button"  data-bs-toggle="modal" onclick="capture_frame('checkout')" data-bs-target="#staticBackdrop3">Presensi Keluar</button>
 					<!-- Modal -->
-					<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
 						<div class="modal-dialog modal-xl">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="staticBackdropLabel">Arahkan Wajah Ke Kamera</h5>
+									<h5 class="modal-title" id="staticBackdropLabel3">Arahkan Wajah Ke Kamera</h5>
 								</div>
 
 								<div class="modal-body">
@@ -122,7 +122,7 @@
 										<canvas id="canvas-keluar" width="480" height="360" style="display:none"></canvas>
 									</div>
 									<div class="button">
-										<button type="button" id="camera-keluar" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
+										<button type="button" v-on:click="message" id="camera-keluar" name='camera' class="camera">Ambil Foto<i class='bx bxs-camera' style='color:#ffffff'  ></i></button>
 									</div>
 								</div>
 								<div class="modal-footer">
