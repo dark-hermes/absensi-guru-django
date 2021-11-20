@@ -35,7 +35,7 @@
 				<!-- Absen Masuk -->
 				<div class="masuk">
 					
-					<button id="masuk"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame('checkin')" data-bs-target="#staticBackdrop1">Presensi Masuk</button>
+					<button id="masuk"  type="button"  data-bs-toggle="modal" onclick="capture_frame('checkin')" data-bs-target="#staticBackdrop1">Presensi Masuk</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -107,7 +107,7 @@
 
 				<!-- Absen Keluar -->
 				<div class="keluar">
-					<button id="keluar"  type="button" class="hoverActive" data-bs-toggle="modal" onclick="capture_frame('checkout')" data-bs-target="#staticBackdrop3">Presensi Keluar</button>
+					<button id="keluar"  type="button"  data-bs-toggle="modal" onclick="capture_frame('checkout')" data-bs-target="#staticBackdrop3">Presensi Keluar</button>
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog modal-xl">
@@ -194,6 +194,7 @@
 		document.getElementById("absen-form").submit();
 	}
 
+	absen()
 	responsiveSlider();
 
 	</script>

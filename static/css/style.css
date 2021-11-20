@@ -673,6 +673,18 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   pointer-events: auto !important;
 }
 
+.absen .button-absen .masuk button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(19, 203, 110, .3) !important;
+  border: none;
+}
+
+.absen .button-absen .keluar button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(198, 73, 59, .3) !important;
+  border: none !important;
+}
+
 .absen .button-absen .masuk,
 .absen .button-absen .keluar,
 .absen .button-absen .izin {
