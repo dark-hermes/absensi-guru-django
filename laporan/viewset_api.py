@@ -17,7 +17,8 @@ class StudyReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return StudyReport.objects.filter(employee_id__user=user)   
+        return StudyReport.objects.filter(employee_id__user=user)
+
 class GuidanceReportViewset(viewsets.ModelViewSet):
     serializer_class = GuidanceReportSerializers
     

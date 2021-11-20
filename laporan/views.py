@@ -126,10 +126,22 @@ def human_development_report(request):
     if request.POST:
         form = HumanDevelopmentForm(request.POST, request.FILES)
         if form.is_valid():
+            
+            category = request.POST.get('activity')
+            role = request.POST.get('role')
+            
+            if category == 'custom':
+                category = request.POST.get('activity-custom')
+                
+            if role == 'custom':
+                role = request.POST.get('role-custom')
+            
             saved_form = form.save(commit=False)
-            saved_form.activity = request.POST.get('activity')
-            saved_form.role = request.POST.get('role')
             saved_form.held_on = request.POST.get('held_on')
+            
+            saved_form.category = category
+            saved_form.role = role
+            
             saved_form.save()
             
             form = HumanDevelopmentForm(initial={'employee_id': request.user.employee})

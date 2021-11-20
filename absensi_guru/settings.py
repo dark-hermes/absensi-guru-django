@@ -158,7 +158,7 @@ CORS_ORIGIN_WHITELIST = (
     'https://localhost:8000',
 )
 
-SESSION_EXPIRE_SECONDS = 60 * 30
+SESSION_EXPIRE_SECONDS = 60 * 45
 
 CRONJOBS = [
     ('1 0 * * *', 'absen.cron.reset_records'),
