@@ -247,6 +247,41 @@ def absen(request):
         response = JsonResponse(context)
         return response
         
+    elif request.POST:
+        excuse = request.POST.get('excuse')
+        proof = request.FILES['proof'] 
+        now_date = timezone.now()
+        
+        excused_presence = Presence(
+                                    employee_id = request.user.employee,
+                                    presence_date = now_date.strftime("%Y-%m-%d"),
+                                    checkin_time = now_date.strftime("%X"),
+                                    checkout_time = now_date.strftime("%X"),
+                                    checkin_desc = excuse,
+                                    checkout_desc = excuse,
+                                    checkin_img = proof,
+                                    checkout_img = proof
+                                    )
+        
+        excused_presence.save()
+        
+        checkin_record, checkout_record = check_record()
+        distance, dist_message = calculate_distance()
+        context = {
+            'distance': distance,
+            'dist_message': dist_message,
+            'today': f"{INDONESIAN_FORMAT['day'][TODAY.strftime('%A')]}, {TODAY.day} {INDONESIAN_FORMAT['month'][TODAY.month]} {TODAY.year}",
+            'time': TODAY.strftime('%X'),
+            'greetings': greetings(TODAY),
+            'checkin_record': checkin_record,
+            'checkout_record': checkout_record,
+        }
+        
+        response = render(request, 'absen.html', context)
+        
+        return response
+        
+        
     else:
         checkin_record, checkout_record = check_record()
         distance, dist_message = calculate_distance()

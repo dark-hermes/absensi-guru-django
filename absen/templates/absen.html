@@ -80,17 +80,18 @@
 								</div>
 
 								<form id='absen-form' action="" method="post" enctype="multipart/form-data">
+									{% csrf_token %}
 										<div class="modal-body">
-												<select class="form-select" aria-label="Default select example" name='alasan' id='alasan'>
+												<select class="form-select" aria-label="Default select example" name='excuse' id='alasan'>
 												<option selected="selected" disabled="disabled">Pilih Alasan Izin</option>
-												<option value="izin">Izin</option>
-												<option value="sakit">Sakit</option>
-												<option value="dinas">Dinas Ke Luar</option>
+												<option value="Izin">Izin</option>
+												<option value="Sakit">Sakit</option>
+												<option value="Dinas Ke Luar">Dinas Ke Luar</option>
 												</select>
 
 												<div class="file-button mb-3">
 													<label for="formFileMultiple" class="form-label">Upload bukti</label>
-													<input name="bukti" class="form-control" type="file" id="formFileMultiple" multiple>
+													<input name="proof" class="form-control" type="file" id="formFileMultiple" multiple>
 												</div>
 										</div>
 

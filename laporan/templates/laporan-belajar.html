@@ -7,7 +7,7 @@
 {% block content %}
 	{% include 'navbar.html' %}
 
-
+	
 	<div class="container-laporan-guru">
 		<form action="" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak>
 			{% csrf_token %}
@@ -92,10 +92,21 @@
 
 	</div>
 
+	
+
 
 {% endblock %}
 	{% block opt_script %}
 	<script type="text/javascript">
 		studyReport()
 	</script>
+
+	{% if alert %}
+		<script>
+			alertTemplate.alert("Success", "Laporan berhasil dibuat", "success", "OK")
+			.then(function(){
+				window.location = window.location
+			});ndn
+		</script>
+	{% endif %}
 {% endblock  %}

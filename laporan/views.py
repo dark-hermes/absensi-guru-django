@@ -21,11 +21,13 @@ def study_report(request):
             saved_form.save()
             
             form = StudyForm(initial={'employee_id': request.user.employee})
-            method_list = Method.objects.values_list('method_name', flat=True)
-            message = "Laporan berhasil dibuat"
+            method_list = Method.objects.all()
+            
+            message = "Laporan belajar berhasil dibuat!"
             context = {
                 'form': form,
                 'msg': message,
+                'alert': True,
                 'method_list': method_list
             }
     
