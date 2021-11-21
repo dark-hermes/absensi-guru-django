@@ -141,14 +141,25 @@ def absen(request):
 
         # Save image to TempImage model with foreign key identified by logged in user / current user
         nowDate = datetime.datetime.now()
+        
+        now_time = int(nowDate.strftime("%H"))
         presence_img = Presence.objects.filter(employee_id__user_id=request.user.id, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
         if name == "checkin":
             presence_img.checkin_time = nowDate.strftime("%X")
             presence_img.checkin_img = data
+            if now_time > settings.CHECKIN_TIME:
+                presence_img.checkin_desc = "Terlambat"
+            else:
+                presence_img.checkin_desc = "Tepat Waktu"
             
         elif name == "checkout":
             presence_img.checkout_time = nowDate.strftime("%X")
             presence_img.checkout_img = data
+            if now_time > settings.CHECKOUT_TIME:
+                presence_img.checkout_desc = "Terlambat"
+
+            else:
+                presence_img.checkout_desc = "Tepat Waktu"
         presence_img.save()
 
     def detect_image(img_name):
@@ -229,9 +240,11 @@ def absen(request):
             if presence_type == "checkin":
                 presence_img.checkin_time = None
                 presence_img.checkin_img = None
+                presence_img.checkin_desc = None
             elif presence_type == "checkout":
                 presence_img.checkout_time = None
                 presence_img.checkout_img = None
+                presence_img.checkout_desc = None
             presence_img.save()
             # The image file also deleted
             os.remove(settings.MEDIA_ABS_PATH + img_name)

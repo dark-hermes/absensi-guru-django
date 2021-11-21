@@ -172,3 +172,7 @@ elif platform == "win32":
 
 
 API_SERVER = "https://localhost:8000/face_detection/detect/"
+
+CHECKIN_TIME = 7
+
+CHECKOUT_TIME = 16
