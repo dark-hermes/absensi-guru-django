@@ -1,0 +1,3618 @@
+@use 'variable';
+@use 'global';
+@use 'navbar';
+
+
+/* Sidebar */
+.flex-nowrap {
+  transition: 0.3s;
+  width: 15%;
+  margin: 0 !important;
+  background-color: #f8f9fa;
+  position: fixed;
+  left: 0;
+  transition: 0.3s;
+}
+
+.flex-nowrap * {
+  transition: 0.3s;
+}
+
+.flex-nowrap .d-flex {
+  padding: 0 1rem;
+}
+
+.flex-nowrap span.head {
+  background-color: #0d6efd !important;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+}
+
+.flex-nowrap ul .nav {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.flex-nowrap ul {
+  text-align: center;
+}
+
+.flex-nowrap ul li i, .flex-nowrap .dropdown i {
+  font-size: 1.5rem !important;
+}
+
+.flex-nowrap ul li .nav-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Sidebar */
+@media screen and (min-width: 300px) and (max-width: 575px) {
+  .flex-nowrap {
+    width: 20%;
+  }
+
+  .flex-nowrap span.head {
+    background-color: #0d6efd !important;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .flex-nowrap ul .nav {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .dropdown i {
+    font-size: 26px !important;
+  }
+
+  .flex-nowrap ul li .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .flex-nowrap {
+    width: 20%;
+  }
+
+  .flex-nowrap .d-flex {
+    padding: 0;
+  }
+
+  .flex-nowrap span.head {
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .flex-nowrap ul .nav {
+    margin: 10px 0;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav i {
+    font-size: 20px !important;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav span {
+    font-size: 12px !important;
+  }
+
+  .flex-nowrap ul li .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .flex-nowrap span.head {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .flex-nowrap .d-flex {
+    padding: 0;
+  }
+
+  .flex-nowrap ul .nav {
+    margin: 10px 0;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav i {
+    font-size: 20px !important;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav span {
+    font-size: 14px !important;
+  }
+
+  .flex-nowrap ul li .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+/* Footer */
+.copyright {
+  transition: 0.5s;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #ebebeb;
+  color: #8e8e8f;
+  text-align: center;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright * {
+  transition: 0.5s;
+}
+
+.copyright p {
+  font-size: 14px;
+}
+
+.copyright span {
+  font-weight: 700;
+}
+
+.copyright span a {
+  text-decoration: none;
+  color: #8e8e8f;
+  transition: unset;
+}
+
+.copyright span a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 300px) and (max-width: 470px) {
+  .copyright p {
+    font-size: 10px !important;
+  }
+}
+/* 404 ERROR Page */
+.container-error {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-error * {
+  transition: 0.5s;
+}
+
+.container-error .banner {
+  width: 90%;
+  height: 50%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 10%;
+}
+
+.container-error .banner img {
+  width: 50%;
+  height: 100%;
+}
+
+.container-error .banner .text-group {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container-error .banner .text-group h1 {
+  color: #40514E;
+  font-weight: 900;
+}
+
+.container-error .banner .text-group p {
+  color: #40514E;
+  font-weight: 500;
+}
+
+.container-error .banner .button {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container-error .banner .button a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #3b86ff;
+  padding: 10px 15px;
+  transition: 0.2s;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.container-error .banner .button a:hover {
+  font-weight: 800;
+}
+
+/* Responsive */
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  .container-error .banner {
+    width: 80%;
+  }
+
+  .container-error .banner img {
+    width: 80%;
+    height: 100%;
+  }
+
+  .container-error .banner .text-group {
+    width: 80%;
+    text-align: center;
+  }
+
+  .container-error .banner .text-group h1 {
+    font-size: 18px;
+  }
+
+  .container-error .banner .text-group p {
+    font-size: 12px;
+  }
+}
+/*======================= Login Page =======================*/
+.container-login {
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.container-login * {
+  transition: 0.3s;
+}
+
+.box {
+  width: 60%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.login-box {
+  width: 50%;
+  height: 100%;
+}
+
+.login-box .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+
+.login-box .image img {
+  margin-top: 20px;
+  width: 40%;
+  height: 80%;
+}
+
+/*LOGIN Form login*/
+.login-box .form {
+  height: 60%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.login-box .form input {
+  margin: 10px;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.login-box .form input:focus {
+  box-shadow: 0 0 3px 2px #478dff;
+}
+
+/*LOGIN Button Form*/
+.login-box .button {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.login-box .button .submit {
+  width: 80%;
+  padding: 8px;
+  margin: 5px 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3b86ff;
+  color: white;
+  font-size: 15px;
+  border: none;
+  font-weight: 500;
+  transition: unset;
+}
+
+.login-box .button .submit:hover {
+  color: lightblue;
+  font-weight: 700;
+}
+
+.image-banner {
+  width: 50%;
+  height: 100%;
+  background-color: #3b86ff;
+  background-image: linear-gradient(155deg, #3b86ff 53%, #0071fd 99%);
+  border-bottom-right-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.image-banner .image {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-banner .image img {
+  width: 100%;
+  padding: 10px;
+}
+
+.image-banner .bottom-text {
+  height: 50%;
+  padding-top: 30px;
+}
+
+.image-banner .bottom-text .head {
+  text-align: center;
+  font-weight: 900;
+  color: white;
+  font-size: 30px;
+}
+
+.image-banner .bottom-text .body {
+  text-align: center;
+}
+
+.image-banner .bottom-text .body p {
+  background-color: white;
+  color: #3b86ff;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 30px;
+  border-radius: 5px;
+  word-spacing: 10px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 575px) {
+  .container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 20%;
+  }
+
+  .box {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  .login-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-box .image {
+    height: 20%;
+    padding-top: 20px;
+  }
+
+  /*LOGIN Form login*/
+  .login-box .form {
+    height: 60%;
+    text-align: center;
+    padding: 30px 20px 20px;
+  }
+
+  .login-box .form input {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 3.2vw;
+  }
+
+  .login-box .button .submit {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 0;
+    font-size: 3.2vw;
+    font-weight: 700;
+  }
+
+  .box .image-banner {
+    display: none;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 1300px) {
+  .container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .box {
+    width: 80%;
+    height: auto;
+  }
+
+  .image-banner {
+    height: unset;
+  }
+
+  .image-banner .bottom-text .head {
+    font-size: 1.5rem;
+  }
+
+  .image-banner .bottom-text .body p {
+    padding: 5px;
+    font-size: 1.5;
+  }
+
+  .image-banner .bottom-text {
+    height: 50%;
+    padding-top: 30px;
+  }
+
+  .image-banner .bottom-text .head {
+    font-size: 24px;
+  }
+
+  .image-banner .bottom-text .body p {
+    font-size: 24px;
+  }
+}
+/*======================= Absen Page =======================*/
+.absen {
+  width: 100%;
+  padding-top: 100px;
+  transition: 0.5s;
+}
+
+.absen * {
+  transition: 0.5s;
+}
+
+.absen .head {
+  text-align: center;
+}
+
+.absen .head h1 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.absen .head h1 span,
+.absen .time span.greetings {
+  color: #3B86FF;
+  font-weight: 700;
+}
+
+.absen .head i {
+  font-size: 24px;
+}
+
+.absen .time {
+  font-weight: 600;
+  padding: 0 30px;
+}
+
+.absen .button-absen {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.absen .button-absen .izin button[disabled] {
+  cursor: not-allowed;
+  pointer-events: auto !important;
+}
+
+.absen .button-absen .masuk button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(19, 203, 110, .3) !important;
+  border: none;
+}
+
+.absen .button-absen .keluar button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(198, 73, 59, .3) !important;
+  border: none !important;
+}
+
+.absen .button-absen .masuk,
+.absen .button-absen .keluar,
+.absen .button-absen .izin {
+  width: 30%;
+  text-align: center;
+}
+
+.absen .button-absen .masuk button#masuk,
+.absen .button-absen .keluar button#keluar,
+.absen .button-absen .izin button#izin {
+  padding: 10px 5px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  outline: none;
+  border: none;
+}
+
+.absen .button-absen .masuk button#masuk {
+  color: #fff;
+  background-color: rgba(19, 203, 110, 0.8);
+  transition: 0.1s;
+}
+
+.absen .button-absen .masuk button#masuk:hover {
+  background-color: #13cb6e;
+  font-weight: 700;
+}
+
+.absen .button-absen .masuk button#masuk:active {
+  font-weight: 700;
+  border: 1px solid #13cb6e;
+  background-color: transparent;
+  color: #13cb6e;
+  outline: 5px solid rgba(19, 203, 110, 0.4);
+}
+
+.absen .button-absen .masuk .modal .modal-header {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .masuk .modal .modal-header h5 span{
+  color: #3B86FF;
+  font-weight: 700;
+}
+
+.absen .button-absen .masuk .modal .modal-body {
+  height: 70vh;
+}
+
+.absen .button-absen .masuk .modal .modal-body .canvas {
+  width: 100%;
+  height: 90%;
+}
+
+.absen .button-absen .masuk .modal .modal-body .canvas video {
+  width: 100%;
+  height: 95%;
+  transform: scaleX(-1);
+  filter: FlipH;
+  aspect-ratio: 1/1;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button button {
+  background-color: #297ffd;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: unset;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button button:hover {
+  font-weight: 700;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button i {
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.absen .button-absen .izin button#izin {
+  color: #fff;
+  border: 1px solid #0d6efd;
+  transition: 0.1s;
+  background-color: rgba(13, 110, 253, 0.8);
+}
+
+.absen .button-absen .izin button#izin:hover {
+  font-weight: 700;
+  background-color: #0d6efd;
+}
+
+.absen .button-absen .izin button#izin:active {
+  font-weight: 700;
+  border: 1px solid #0d6efd;
+  background-color: transparent !important;
+  color: #0d6efd;
+  outline: rgba(13, 110, 253, 0.4);
+}
+
+.absen .button-absen .keluar button#keluar {
+  color: #fff;
+  border: 1px solid #c64b3b;
+  transition: 0.1s;
+  background-color: rgba(198, 73, 59, 0.8);
+}
+
+.absen .button-absen .keluar button#keluar:hover {
+  font-weight: 700;
+  background-color: #c6493b;
+}
+
+.absen .button-absen .keluar button#keluar:active {
+  font-weight: 700;
+  border: 1px solid #c64b3b;
+  background-color: transparent !important;
+  color: #c64b3b;
+  outline: 5px solid rgba(198, 75, 59, 0.4);
+}
+
+.absen .button-absen .keluar .modal .modal-header {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .keluar .modal .modal-header h5 span{
+  color: #3B86FF;
+  font-weight: 700;
+}
+
+.absen .button-absen .keluar .modal .modal-body {
+  height: 70vh;
+}
+
+.absen .button-absen .keluar .modal .modal-body .canvas {
+  width: 100%;
+  height: 90%;
+}
+
+.absen .button-absen .keluar .modal .modal-body .canvas video {
+  width: 100%;
+  height: 95%;
+  transform: scaleX(-1);
+  filter: FlipH;
+  aspect-ratio: 1/1;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button button {
+  background-color: #297ffd;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: unset;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button button:hover {
+  font-weight: 700;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button i {
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.absen .button-absen .izin .modal .modal-body {
+  margin: 20px 0 10px;
+}
+
+.absen .button-absen .izin .modal .modal-body .file-button {
+  margin: 40px 0 10px;
+  text-align: left !important;
+}
+
+.absen section.content-slider {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.absen section.content-slider h1.heading {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.absen section.content-slider .carousel {
+  padding-top: 30px;
+}
+
+.absen section.content-slider .carousel .carousel-inner .slider .card {
+  width: 28vw;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner:after {
+  content: unset;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card {
+  height: 100%;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image {
+  width: 100%;
+  height: 70%;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-body {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .slider .card {
+  height: 100%;
+  margin: 0 auto;
+  width: 18rem;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image {
+  width: 100%;
+  height: 200px;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-body {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body a {
+  padding: 10px 0;
+  width: 80%;
+  display: inline-block;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: unset;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body a:hover {
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.absen section.content-slider .carousel.dekstop button {
+  display: none;
+}
+
+.absen section.content-slider .carousel.mobile button {
+  display: unset;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10vw;
+}
+
+.carousel-control-prev span.bi,
+.carousel-control-next span.bi {
+  color: #8e8e8f;
+  font-size: min(60px, 10vw);
+  font-weight: 900;
+}
+
+/* Responsive Table Absen | Absen Page */
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .absen .head h1 {
+    padding: 0 20px 5px;
+  }
+
+  .absen .button-absen {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .absen .button-absen .masuk,
+.absen .button-absen .keluar,
+.absen .button-absen .izin {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .absen .button-absen .masuk button#masuk,
+.absen .button-absen .keluar button#keluar,
+.absen .button-absen .izin button#izin {
+    width: 60%;
+  }
+
+  .absen .button-absen .masuk .modal .modal-header h5 {
+    font-size: 18px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body {
+    height: 50vh;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button i {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 73%;
+    height: 80%;
+  }
+
+  .absen section.content-slider {
+    padding-top: 20px;
+  }
+
+  .absen section.content-slider .carousel {
+    padding-top: 20px;
+  }
+
+  .absen section.content-slider .carousel button {
+    display: unset;
+  }
+
+  .absen section.content-slider .heading {
+    padding: 0 20px;
+  }
+}
+/* Responsive Absen Page */
+@media screen and (min-width: 571px) and (max-width: 991px) {
+  .absen .button-absen {
+    width: 90%;
+  }
+
+  .absen .button-absen .masuk button#masuk, .absen .button-absen .keluar button#keluar {
+    width: 90%;
+  }
+
+  .absen .button-absen .masuk .modal .modal-header h5 {
+    font-size: 18px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body {
+    height: 60vh;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button i {
+    font-size: 20px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 95%;
+    height: 90%;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .absen .button-absen {
+    width: 80%;
+  }
+
+  .absen .button-absen .masuk button#masuk, .absen .button-absen .keluar button#keluar {
+    width: 90%;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 95%;
+    height: 95%;
+  }
+}
+/*======================= Laporan Bimbingan Page =======================*/
+.container-laporan {
+  min-height: 100vh;
+  transition: 0.5s;
+  padding-top: 100px;
+  padding-bottom: 10%;
+}
+
+.container-laporan * {
+  transition: 0.5s;
+}
+
+.container-laporan .input-box {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+}
+
+.container-laporan h1.head {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px 0;
+  text-transform: uppercase;
+}
+
+.container-laporan .input-box textarea {
+  width: 80%;
+  height: 50vh;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.container-laporan .file-button {
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.container-laporan .file-button label {
+  font-weight: bold;
+}
+
+.container-laporan .button {
+  width: 80%;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.container-laporan .button button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #3b86ff;
+  color: white;
+  font-weight: 600;
+  transition: unset;
+  width: 150px;
+}
+
+.container-laporan .button button:hover {
+  font-weight: 800;
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan .input-box textarea {
+    height: 70vh;
+  }
+
+  .container-laporan .button {
+    width: 80%;
+    text-align: center;
+  }
+
+  .container-laporan .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan .file-button * {
+    font-size: 14px;
+  }
+}
+/*======================= Laporan Belajar Page =======================*/
+.container-laporan-guru {
+  width: 80%;
+  margin: 100px auto 0;
+  transition: 0.3s;
+  padding-bottom: 50px;
+}
+
+.container-laporan-guru * {
+  transition: 0.3s;
+}
+
+.container-laporan-guru h1.head {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.container-laporan-guru .select-button {
+  margin: 20px 0;
+}
+
+.container-laporan-guru .select-button .form-select {
+  font-size: 1rem;
+  padding-left: 12px;
+}
+
+.container-laporan-guru .bottom-input-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-laporan-guru .form-group {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+}
+
+.container-laporan-guru .form-group .checkgroup {
+  width: 40%;
+}
+
+.container-laporan-guru .form-group .checkgroup h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.container-laporan-guru .form-group .checkgroup .form-check {
+  margin: 10px 0;
+}
+
+.container-laporan-guru .form-group .text-input {
+  width: 100%;
+}
+
+.container-laporan-guru .form-group .text-input .form-floating {
+  height: 100%;
+}
+
+.container-laporan-guru .form-group .text-input .form-floating textarea {
+  height: 100%;
+}
+
+.container-laporan-guru .file-button {
+  margin-top: 50px;
+}
+
+.container-laporan-guru .file-button label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.container-laporan-guru .button {
+  text-align: right;
+}
+
+.container-laporan-guru .button button.submit {
+  width: 150px;
+  background-color: #0d6efd;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: unset;
+  outline: none;
+}
+
+.container-laporan-guru .button button.submit:hover {
+  font-weight: 700;
+}
+
+/* Reponsive Laporan Guru */
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan-guru .top-input-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating,
+.container-laporan-guru .bottom-input-group .form-floating {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input,
+.container-laporan-guru .bottom-input-group .form-floating input {
+    height: 50%;
+    font-size: 12px !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating label,
+.container-laporan-guru .bottom-input-group .form-floating label {
+    display: flex;
+    align-items: center;
+    font-size: 12px !important;
+  }
+
+  .container-laporan-guru .bottom-input-group {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 important;
+  }
+
+  .container-laporan-guru .bottom-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .select-button {
+    margin: 10px 0;
+  }
+
+  .container-laporan-guru .select-button .form-select {
+    height: 70%;
+    font-size: 12px;
+    padding-left: 12px;
+  }
+
+  .container-laporan-guru .form-group {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  .container-laporan-guru .form-group .checkgroup {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .checkgroup h1 {
+    font-size: 14px;
+  }
+
+  .container-laporan-guru .form-group .checkgroup .form-check {
+    margin: 20px 0;
+    font-size: 12px;
+  }
+
+  .container-laporan-guru .form-group .text-input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating {
+    height: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating textarea {
+    height: 300px;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating label {
+    font-size: 12px;
+  }
+
+  .container-laporan-guru .file-button {
+    margin-top: 30px;
+  }
+
+  .container-laporan-guru .file-button * {
+    font-size: 12px;
+  }
+
+  .container-laporan-guru .file-button label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .container-laporan-guru .button button.submit {
+    width: 100%;
+    font-size: 14px;
+    background-color: #0d6efd;
+    padding: 10px 10px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: unset;
+    outline: none;
+  }
+}
+@media screen and (min-width: 571px) and (max-width: 900px) {
+  .container-laporan-guru .top-input-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating,
+.container-laporan-guru .bottom-input-group .form-floating {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input,
+.container-laporan-guru .bottom-input-group .form-floating input {
+    height: 80%;
+    font-size: 16px !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating label,
+.container-laporan-guru .bottom-input-group .form-floating label {
+    display: flex;
+    align-items: center;
+    font-size: 16px !important;
+  }
+
+  .container-laporan-guru .bottom-input-group {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 important;
+  }
+
+  .container-laporan-guru .bottom-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .select-button {
+    margin: 10px 0;
+  }
+
+  .container-laporan-guru .select-button .form-select {
+    height: 80%;
+    font-size: 16px;
+    padding-left: 12px;
+  }
+
+  .container-laporan-guru .form-group {
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .container-laporan-guru .form-group .checkgroup {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .checkgroup h1 {
+    font-size: 1.2rem;
+  }
+
+  .container-laporan-guru .form-group .checkgroup .form-check {
+    margin: 20px 0;
+    font-size: 16px;
+  }
+
+  .container-laporan-guru .form-group .text-input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating {
+    height: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating textarea {
+    height: 300px;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating label {
+    font-size: 16px;
+  }
+
+  .container-laporan-guru .file-button {
+    margin-top: 30px;
+  }
+
+  .container-laporan-guru .file-button label {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+/*======================= Laporan Tugas Page =======================*/
+.container-laporan-tugas {
+  min-height: 100vh;
+  transition: 0.5s;
+  padding-top: 100px;
+  padding-bottom: 10%;
+}
+
+.container-laporan-tugas * {
+  transition: 0.5s;
+}
+
+.container-laporan-tugas h1.head {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.container-laporan-tugas .input-box {
+  width: 80%;
+  margin: 0 auto;
+  height: 80%;
+}
+
+.container-laporan-tugas .input-box textarea {
+  width: 100%;
+  height: 50vh;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  border-style: solid;
+  margin-top: 20px;
+}
+
+.container-laporan-tugas .input-box .file {
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+
+.container-laporan-tugas .input-box .file label {
+  font-weight: bold;
+}
+
+.container-laporan-tugas .input-box .file .file-button {
+  width: 100%;
+}
+
+.container-laporan-tugas .input-box .file .button {
+  width: 100%;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.container-laporan-tugas .input-box .file .button button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #3b86ff;
+  color: white;
+  font-weight: 600;
+  transition: unset;
+  width: 150px;
+}
+
+.container-laporan-tugas .input-box .file .button button:hover {
+  font-weight: 800;
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan-tugas .input-box * {
+    font-size: 12px;
+  }
+
+  .container-laporan-tugas .input-box textarea {
+    height: 70vh;
+  }
+
+  .container-laporan-tugas .input-box .file .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container-laporan-tugas .input-box .file .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan-tugas .input-box .file .file-button * {
+    font-size: 12px;
+  }
+}
+/*======================= Laporan Pengembangan Page =======================*/
+.container-laporan-pengembangan {
+  min-height: 100vh;
+  transition: 0.5s;
+  padding-bottom: 10%;
+  padding-top: 100px;
+}
+
+.container-laporan-pengembangan * {
+  transition: 0.5s;
+}
+
+.container-laporan-pengembangan form {
+  height: 50%;
+}
+
+.container-laporan-pengembangan h1.head {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.container-laporan-pengembangan .input-box {
+  width: 80%;
+  margin: 0 auto;
+  height: 80%;
+}
+
+.container-laporan-pengembangan .input-box .input {
+  margin-top: 40px;
+}
+
+.container-laporan-pengembangan .input-box .input h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.container-laporan-pengembangan .input-box .input .input-group {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.container-laporan-pengembangan .input-box .input .input-group .form-check {
+  width: 20%;
+}
+
+.container-laporan-pengembangan .input-box .input .input-group .input-group-text.input-radio {
+  width: unset;
+  background-color: transparent;
+  border: none;
+}
+
+.container-laporan-pengembangan .input-box .input .select-group {
+  margin-top: 30px;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input {
+  display: flex;
+  padding: 30px 0;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input input {
+  height: 100% !important;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input .input-group,
+.container-laporan-pengembangan .input-box .bottom-input .input-date {
+  width: 50%;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input .input-date {
+  margin-left: 20px;
+  display: flex;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input .input-date span {
+  border-radius: 0;
+  background-color: #3b86ff;
+  color: #fff;
+  font-weight: 700;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input .input-date input {
+  border: 1px solid #ced4da;
+  color: #6c757d;
+  padding: 0 20px;
+  border-radius: 0;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.container-laporan-pengembangan .input-box .input-text {
+  margin-top: 20px;
+  height: 50vh;
+}
+
+.container-laporan-pengembangan .input-box .input-text textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.container-laporan-pengembangan .input-box .bottom-input .form-floating {
+  height: 50%;
+}
+
+.container-laporan-pengembangan .input-box .file {
+  width: 100%;
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+
+.container-laporan-pengembangan .input-box .file label {
+  font-weight: bold;
+}
+
+.container-laporan-pengembangan .input-box .file .file-button {
+  width: 100%;
+}
+
+.container-laporan-pengembangan .input-box .file .button {
+  width: 100%;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.container-laporan-pengembangan .input-box .file .button button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #3b86ff;
+  color: white;
+  font-weight: 600;
+  transition: unset;
+  width: 150px;
+}
+
+.container-laporan-pengembangan .input-box .file .button button:hover {
+  font-weight: 800;
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan-pengembangan .input-box .input .input-group .form-check {
+    width: 100%;
+  }
+
+  .container-laporan-pengembangan .input-box .input .input-group .input-group-text {
+    padding: 0 !important;
+  }
+
+  .container-laporan-pengembangan .input-box .input .input-group .input-group-text,
+.container-laporan-pengembangan .input-box .input .input-group .form-control {
+    margin-top: 10px !important;
+  }
+
+  .container-laporan-pengembangan .input-box .input .input-group .input-group-text .form-check-input {
+    margin-right: 10px;
+  }
+
+  .container-laporan-pengembangan .input-box * {
+    font-size: 12px;
+  }
+
+  .container-laporan-pengembangan .input-box .bottom-input {
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  .container-laporan-pengembangan .input-box .bottom-input .input-group,
+.container-laporan-pengembangan .input-box .bottom-input .input-date {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .container-laporan-pengembangan .input-box .bottom-input .input-date {
+    margin-left: 0;
+  }
+
+  .container-laporan-pengembangan .input-box textarea {
+    height: 150%;
+  }
+
+  .container-laporan-pengembangan .input-box .file .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container-laporan-pengembangan .input-box .file .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan-pengembangan .input-box .file .file-button * {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 571px) and (max-width: 900px) {
+  .container-laporan-pengembangan .input-box .input .input-group .form-check {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .container-laporan-pengembangan .input-box .input .input-group .input-group-text {
+    padding: 0 !important;
+    margin-top: 10px !important;
+  }
+
+  .container-laporan-pengembangan .input-box .input .input-group .input-group-text,
+.container-laporan-pengembangan .input-box .input .input-group .form-control {
+    margin-top: 10px !important;
+  }
+
+  .container-laporan-pengembangan .input-box .input .input-group .input-group-text .form-check-input {
+    margin-right: 10px;
+  }
+
+  .container-laporan-pengembangan .input-box * {
+    font-size: 16px;
+  }
+
+  .container-laporan-pengembangan .input-box .bottom-input {
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  .container-laporan-pengembangan .input-box .bottom-input .input-group,
+.container-laporan-pengembangan .input-box .bottom-input .input-date {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .container-laporan-pengembangan .input-box textarea {
+    height: 150%;
+  }
+
+  .container-laporan-pengembangan .input-box .file .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container-laporan-pengembangan .input-box .file .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan-pengembangan .input-box .file .file-button * {
+    font-size: 12px;
+  }
+}
+/*======================= Laporan Karya Page =======================*/
+.container-laporan-karya {
+  min-height: 100vh;
+  transition: 0.5s;
+  padding-top: 100px;
+  padding-bottom: 10%;
+}
+
+.container-laporan-karya * {
+  transition: 0.5s;
+}
+
+.container-laporan-karya h1.head {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.container-laporan-karya .input-box {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+}
+
+.container-laporan-karya .input-box .input-radio h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.container-laporan-karya .input-box .input-radio .form-check {
+  padding: 20px;
+}
+
+.container-laporan-karya .input-box .input-text {
+  margin-top: 20px;
+  height: 50vh;
+}
+
+.container-laporan-karya .input-box .input-text textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.container-laporan-karya .input-box .file label {
+  font-weight: bold;
+}
+
+.container-laporan-karya .input-box .file .file-button {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.container-laporan-karya .input-box .file .button {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: right;
+}
+
+.container-laporan-karya .input-box .file .button button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #3b86ff;
+  color: white;
+  font-weight: 600;
+  transition: unset;
+  width: 150px;
+}
+
+.container-laporan-karya .input-box .file .button button:hover {
+  font-weight: 800;
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan-karya .input-box * {
+    font-size: 12px;
+  }
+
+  .container-laporan-karya .input-box textarea {
+    height: 150%;
+  }
+
+  .container-laporan-karya .input-box .file {
+    padding-bottom: 20%;
+  }
+
+  .container-laporan-karya .input-box .file .button {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .container-laporan-karya .input-box .file .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan-karya .input-box .file .file-button * {
+    font-size: 12px;
+  }
+}
+/*======================= Tampil Laporan and Absen Page =======================*/
+.container {
+  padding-top: 100px;
+  transition: 0.5s;
+  padding-bottom: 10%;
+}
+
+.container * {
+  transition: 0.5s;
+}
+
+.container #table-pdf .table-absen {
+  max-height: 400px;
+  overflow: auto;
+  border-collapse: collapse;
+  border: none;
+}
+
+.container #table-pdf .table-laporan {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.container .searchBar {
+  background-color: #f7f7f7;
+  display: inline-block;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.container .searchBar .search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container .searchBar .search i {
+  font-size: 30px;
+}
+
+.container .searchBar .search .cari {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  width: 100%;
+}
+
+/* Warnanya ganti biar sesuai sama palet aja */
+.container #table-pdf .table-absen .late {
+  background-color: #FFCD00;
+  color: #fff;
+}
+
+.container #table-pdf .table-absen .masuk {
+  background-color: #7CBD1E;
+  color: #fff;
+}
+
+.container #table-pdf .table-absen .izin {
+  background-color: #53ddf5;
+  color: #fff;
+}
+
+.container #table-pdf .table-absen .alpa {
+  background-color: #BE0000;
+  color: #fff;
+}
+
+.container-user #table-pdf .table-absen .late {
+  background-color: #FFCD00;
+  color: #fff;
+}
+
+.container-user #table-pdf .table-absen .masuk {
+  background-color: #7CBD1E;
+  color: #fff;
+}
+
+.container-user #table-pdf .table-absen .izin {
+  background-color: #53ddf5;
+  color: #fff;
+}
+
+.container-user #table-pdf .table-absen .alpa {
+  background-color: #BE0000;
+  color: #fff;
+}
+
+.container form .button-group {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 40px 0 20px;
+}
+
+.container form .button-group .button button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container form .button-group .button button.button:hover {
+  font-weight: 700;
+}
+
+.container form .button-group .button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container form .button-group .button .modal .modal-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container form .button-group .button .modal .modal-body .date label {
+  font-weight: 700;
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.container form .button-group .button .modal .modal-body .date input {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container #table-pdf .button-print {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.container #table-pdf .button-print button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container #table-pdf .button-print button.button:hover {
+  font-weight: 700;
+}
+
+.container #table-pdf .button-print button.button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container #table-pdf .button-print .modal .modal-body {
+  display: flex;
+}
+
+.container #table-pdf .button-print .modal .modal-body .pdf,
+.container #table-pdf .button-print .modal .modal-body .excel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container #table-pdf .button-print .modal .modal-body a {
+  text-align: center;
+  width: 100px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: #0d6efd;
+  transition: unset;
+}
+
+.container #table-pdf .button-print .modal .modal-body a:hover {
+  font-weight: 900;
+}
+
+.container #table-pdf .button-print .modal .modal-body i {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 995px) {
+  .container {
+    margin-top: 100px;
+    position: relative;
+  }
+
+  .container #table-pdf table {
+    font-size: 12px !important;
+  }
+
+  .container form .button-group {
+    width: 100%;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+
+  .container form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 15px;
+    width: 120px;
+    font-size: 12px;
+  }
+
+  .container form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .container form .button-group .button .modal .modal-body .date {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+  }
+
+  .container form .button-group .button .modal .modal-body .date label {
+    font-size: 14px;
+    width: 100px;
+    text-align: center;
+  }
+
+  .container form .button-group .button .modal .modal-body .date input {
+    font-size: 14px;
+  }
+
+  .container #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 12px;
+    width: 100px;
+  }
+
+  .container #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+/*======================= Edit,Change Password,Add Page =======================*/
+.container-edit {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  transition: 0.5s;
+}
+
+.container-edit * {
+  transition: 0.5s;
+}
+
+.container-edit .input-box {
+  height: auto;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px 0;
+}
+
+.container-edit .input-box .head {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-edit .input-box .head h2 {
+  font-weight: 500;
+}
+
+.container-edit .input-box .head span {
+  font-weight: 700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+  background-size: 200% auto;
+}
+
+.container-edit .input-box .form {
+  width: 80%;
+}
+
+.container-edit .input-box .form .input-data label {
+  margin-top: 50px;
+}
+
+.container-edit .input-box .form .input-data input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+  filter: none;
+}
+
+.container-edit .input-box .form .input-data input:focus {
+  outline: none;
+}
+
+/* Change the white to any color for chrome*/
+.container-edit .input-box .form .input-data input:-webkit-autofill,
+.container-edit .input-box .form .input-data input:-webkit-autofill:hover,
+.container-edit .input-box .form .input-data input:-webkit-autofill:focus,
+.container-edit .input-box .form .input-data input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset !important;
+}
+
+.container-edit .input-box .form .role {
+  text-align: center;
+  margin-top: 50px;
+  transition: unset;
+}
+
+.container-edit .input-box .form .role h1 {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.container-edit .input-box .form .role label {
+  cursor: pointer;
+  margin: 30px 20px 0;
+  padding: 10px 10px;
+  width: 20%;
+  border-radius: 5px;
+  transition: 0.3s all ease;
+  text-transform: capitalize;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.container-edit .input-box .form .role input {
+  display: none;
+}
+
+.container-edit .input-box .form .role input:checked + label {
+  background-color: #3b86ff;
+  color: white;
+  border-color: #3b86ff;
+  font-weight: 700;
+}
+
+.container-edit .input-box .form .day-check {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.container-edit .input-box .form .day-check h1 {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.container-edit .input-box .form .day-check .form-check {
+  margin-top: 20px;
+}
+
+.container-edit .input-box .form .day-check .form-check input {
+  transition: unset;
+}
+
+.container-edit .input-box .form .day-check .form-check label {
+  text-transform: capitalize;
+}
+
+.container-edit .input-box .form .button {
+  text-align: center;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.container-edit .input-box .form .button button {
+  width: 45%;
+  padding: 10px;
+  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.5s;
+  color: white;
+  font-weight: 900;
+  background-size: 200% auto;
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+.container-edit .input-box .form .button a {
+  width: 45%;
+  padding: 10px;
+  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.5s;
+  color: white;
+  font-weight: 900;
+  background-size: 200% auto;
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+.container-edit .input-box .form .button button:hover,
+.container-edit .input-box .form .button a:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+}
+
+/* Responsive */
+@media screen and (min-width: 300px) and (max-width: 575px) {
+  .container-edit .input-box {
+    height: auto;
+    width: 90%;
+  }
+
+  .container-edit .input-box .form * {
+    font-size: 12px !important;
+  }
+
+  .container-edit .input-box .head h2 {
+    font-size: 18px;
+  }
+
+  .container-edit .input-box .form {
+    width: 80%;
+  }
+
+  .container-edit .input-box .form .input-data label {
+    margin-top: 30px;
+  }
+
+  .container-edit .input-box .form .input-data input {
+    margin: 10px 0;
+    padding: 5px;
+  }
+
+  .container-edit .input-box .form .role label {
+    margin: 20px 0 0;
+    width: 30%;
+  }
+
+  .container-edit .input-box .form .day-check .form-check {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 800px) {
+  .container-edit .input-box {
+    height: auto;
+    width: 90%;
+  }
+
+  .container-edit .input-box .form * {
+    font-size: 16px !important;
+  }
+
+  .container-edit .input-box .head h2 {
+    font-size: 18px;
+  }
+
+  .container-edit .input-box .form {
+    width: 80%;
+  }
+
+  .container-edit .input-box .form .input-data label {
+    margin-top: 30px;
+  }
+
+  .container-edit .input-box .form .input-data input {
+    margin: 10px 0;
+    padding: 5px;
+  }
+
+  .container-edit .input-box .form .day-check .form-check {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1100px) {
+  .container-edit .input-box {
+    height: auto;
+    width: 80%;
+  }
+
+  .container-edit .input-box .form * {
+    font-size: 18px !important;
+  }
+
+  .container-edit .input-box .head h2 {
+    font-size: 24px;
+  }
+
+  .container-edit .input-box .form {
+    width: 80%;
+  }
+
+  .container-edit .input-box .form .input-data label {
+    margin-top: 30px;
+  }
+
+  .container-edit .input-box .form .input-data input {
+    margin: 10px 0;
+    padding: 5px;
+  }
+
+  .container-edit .input-box .form .day-check .form-check {
+    margin-top: 20px;
+  }
+}
+/*======================= Dashboard Admin Page =======================*/
+.container-admin {
+  display: flex;
+  padding-bottom: 100px;
+  transition: 0.5s;
+}
+
+.container-admin * {
+  transition: 0.5s;
+}
+
+.container-admin .dashboard {
+  width: 85%;
+  padding: 50px;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-admin .dashboard .dashboard-image {
+  width: 50%;
+}
+
+.container-admin .dashboard .dashboard-image .image {
+  width: 100%;
+  text-align: right;
+  height: 100%;
+}
+
+.container-admin .dashboard .dashboard-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.container-admin .dashboard .left-content {
+  width: 50%;
+}
+
+.container-admin .dashboard .card-data {
+  margin: 20px 10px;
+  width: 40%;
+  background-color: #3b86ff;
+  background-image: linear-gradient(155deg, #0071fd 53%, #3b86ff 99%);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.container-admin .dashboard .card-data p {
+  color: white;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+.container-admin .dashboard .card-data span {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  color: #0d6efd;
+  font-weight: 900;
+  margin-left: 5px;
+}
+
+/* Responsive Dashboard Admin */
+@media screen and (min-width: 300px) and (max-width: 575px) {
+  .container-admin .dashboard {
+    padding: 10px;
+    flex-wrap: wrap-reverse;
+  }
+
+  .container-admin .dashboard .dashboard-image {
+    width: 100%;
+  }
+
+  .container-admin .dashboard .dashboard-image .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .container-admin .dashboard .dashboard-image img {
+    width: 90%;
+    height: 90%;
+  }
+
+  .container-admin .dashboard .left-content {
+    width: 100%;
+  }
+
+  .container-admin .dashboard .card-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .container-admin .dashboard .card-data {
+    margin: 20px 10px;
+    width: 70%;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .container-admin .dashboard .card-data p {
+    padding-left: 20%;
+    margin-bottom: 0;
+  }
+
+  .container-admin .dashboard .card-data span {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 1000px) {
+  .container-admin .dashboard {
+    padding: 10px;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .container-admin .dashboard .dashboard-image {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .container-admin .dashboard .dashboard-image .image {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .container-admin .dashboard .left-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-admin .dashboard .card-group {
+    justify-content: center;
+  }
+
+  .container-admin .dashboard .card-data {
+    font-size: 16px;
+    height: 80px;
+  }
+
+  .container-admin .dashboard .card-data span {
+    padding: 5px;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1001px) and (max-width: 1300px) {
+  .container-admin .dashboard .card-data {
+    font-size: 12px;
+    height: 80px;
+  }
+
+  .container-admin .dashboard .card-data span {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+/*======================= Display Data User Page Admin =======================*/
+.container-user {
+  display: flex;
+  padding-bottom: 100px;
+}
+
+.container-user * {
+  transition: 0.5s;
+}
+
+.container-user .data-user {
+  width: 85%;
+  padding: 50px;
+  margin-left: auto;
+}
+
+.container-user .data-user .table .table-user {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.container-user .data-user #table-pdf .table-absen {
+  overflow-x: auto;
+  max-height: 400px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.container-user .data-user .table table.table tbody tr td .edit {
+  color: #13cb6e;
+  transition: 0.3s;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #13cb6e;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.container-user .data-user .table table.table tbody tr td .hapus {
+  color: #c64b3b;
+  border: 2px solid #c64b3b;
+  transition: 0.5s;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.container-user .data-user .table table.table tbody tr td .edit:hover {
+  background-color: #13cb6e;
+  color: #fff;
+}
+
+.container-user .data-user .table table.table tbody tr td .hapus:hover {
+  background-color: #c64b3b;
+  color: #fff;
+}
+
+.container-user .searchBar .search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.container-user .searchBar .search i {
+  font-size: 30px;
+}
+
+.container-user .searchBar .search .cari {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.container-user .data-user form .button-group {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container-user .data-user form .button-group .button button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: unset;
+}
+
+.container-user .data-user form .button-group .button button.button:hover {
+  font-weight: 700;
+}
+
+.container-user .data-user form .button-group .button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container-user .data-user form .button-group .button .modal .modal-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-user .data-user form .button-group .button .modal .modal-body .date label {
+  font-weight: 700;
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.container-user .data-user form .button-group .button .modal .modal-body .date input {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container-user .data-user .addUser {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.container-user .data-user .addUser a {
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #4891fc;
+  text-decoration: none;
+}
+
+.container-user #table-pdf .button-print {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.container-user #table-pdf .button-print button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container-user #table-pdf .button-print button.button:hover {
+  font-weight: 700;
+}
+
+.container-user #table-pdf .button-print button.button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container-user #table-pdf .button-print .modal .modal-body {
+  display: flex;
+}
+
+.container-user #table-pdf .button-print .modal .modal-body .pdf,
+.container-user #table-pdf .button-print .modal .modal-body .excel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container-user #table-pdf .button-print .modal .modal-body a {
+  text-align: center;
+  width: 100px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: #0d6efd;
+  transition: unset;
+}
+
+.container-user #table-pdf .button-print .modal .modal-body a:hover {
+  font-weight: 900;
+}
+
+.container-user #table-pdf .button-print .modal .modal-body i {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 575px) {
+  .container-user .data-user {
+    width: 80%;
+    padding: 0px;
+  }
+
+  .container-user .data-user .table {
+    overflow-y: auto;
+    max-height: 600px;
+    overflow-x: auto;
+    margin-top: 5px;
+  }
+
+  .container-user .data-user .table * {
+    font-size: 12px;
+  }
+
+  .container-user .searchBar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .container-user .searchBar .search {
+    padding: 10px;
+    width: 90%;
+    margin: 10px 0;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .container-user .searchBar .search i {
+    font-size: 20px;
+  }
+
+  .container-user .data-user form select {
+    transition: 1s ease all;
+    background-color: #3b86ff;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    transition: 1s ease all;
+    width: 150px;
+    cursor: pointer;
+  }
+
+  .container-user .data-user .addUser {
+    width: 100%;
+    margin: 0;
+  }
+
+  .container-user .data-user .addUser a {
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .container-user .data-user form .button-group {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-user .data-user form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .container-user .data-user form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container-user .data-user form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .container-user .data-user form .button-group .button .modal .modal-body .date {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+  }
+
+  .container-user .data-user form .button-group .button .modal .modal-body .date label {
+    font-size: 14px;
+    width: 100px;
+    text-align: center;
+  }
+
+  .container-user .data-user form .button-group .button .modal .modal-body .date input {
+    font-size: 14px;
+  }
+
+  .container-user #table-pdf .button-print {
+    padding-bottom: 10%;
+  }
+
+  .container-user #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 12px;
+    width: 100px;
+  }
+
+  .container-user #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container-user #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container-user #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 575px) and (max-width: 1200px) {
+  .container-user .data-user {
+    width: 80%;
+    padding: 0px;
+  }
+
+  .container-user .data-user .table {
+    overflow-y: auto;
+    max-height: 600px;
+    overflow-x: auto;
+    margin-top: 5px;
+  }
+
+  .container-user .data-user .table * {
+    font-size: 14px;
+  }
+
+  .container-user .searchBar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .container-user .searchBar .search {
+    padding: 10px;
+    width: 90%;
+    margin: 10px 0;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .container-user .searchBar .search i {
+    font-size: 20px;
+  }
+
+  .container-user .data-user form select {
+    transition: 1s ease all;
+    background-color: #3b86ff;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    transition: 1s ease all;
+    width: 150px;
+    cursor: pointer;
+  }
+
+  .container-user .data-user .addUser {
+    width: 100%;
+    margin: 0;
+  }
+
+  .container-user .data-user .addUser a {
+    padding: 10px;
+    text-align: center;
+    width: 30%;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .container-user .data-user form .button-group {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-user .data-user form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .container-user .data-user form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container-user .data-user form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .container-user .data-user #table-pdf .button-print {
+    padding-bottom: 10%;
+  }
+
+  .container-user .data-user #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 14px;
+    width: 100px;
+  }
+
+  .container-user .data-user #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container-user .data-user #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container-user .data-user #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+/*======================= Display Laporan User Page Admin =======================*/
+.container-laporan-admin {
+  width: 85%;
+  padding: 20px;
+  margin-left: auto;
+}
+
+.container-laporan-admin * {
+  transition: 0.5s;
+}
+
+.container-laporan-admin .navbar-data .nav-item {
+  width: 30%;
+  transition: unset;
+}
+
+.container-laporan-admin .navbar-data .nav-item a {
+  border: none;
+  box-sizing: border-box;
+}
+
+.container-laporan-admin .navbar-data .nav-item a:hover {
+  border: 1px solid #0d6efd;
+  box-sizing: border-box;
+}
+
+.container-laporan-admin .navbar-data .nav-item a.active {
+  border: none;
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 700;
+}
+
+.container-data-admin #table-pdf .table-laporan {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.container-data-admin .searchBar {
+  background-color: #f7f7f7;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.container-data-admin .searchBar .search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container-data-admin .searchBar .search i {
+  font-size: 30px;
+}
+
+.container-data-admin .searchBar .search .cari {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.container-data-admin form .button-group {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0 20px;
+}
+
+.container-data-admin form .button-group .button button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container-data-admin form .button-group .button button.button:hover {
+  font-weight: 700;
+}
+
+.container-data-admin form .button-group .button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container-data-admin form .button-group .button .modal .modal-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-data-admin form .button-group .button .modal .modal-body .date label {
+  font-weight: 700;
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.container-data-admin form .button-group .button .modal .modal-body .date input {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container-data-admin #table-pdf .button-print {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.container-data-admin #table-pdf .button-print button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container-data-admin #table-pdf .button-print button.button:hover {
+  font-weight: 700;
+}
+
+.container-data-admin #table-pdf .button-print button.button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container-data-admin #table-pdf .button-print .modal .modal-body {
+  display: flex;
+}
+
+.container-data-admin #table-pdf .button-print .modal .modal-body .pdf,
+.container-data-admin #table-pdf .button-print .modal .modal-body .excel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container-data-admin #table-pdf .button-print .modal .modal-body a {
+  text-align: center;
+  width: 100px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: #0d6efd;
+  transition: unset;
+}
+
+.container-data-admin #table-pdf .button-print .modal .modal-body a:hover {
+  font-weight: 900;
+}
+
+.container-data-admin #table-pdf .button-print .modal .modal-body i {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 995px) {
+  .container-laporan-admin .navbar-data .nav-item {
+    width: 100%;
+  }
+
+  .container-laporan-admin .navbar-data .nav-item a {
+    font-size: 12px;
+  }
+
+  .container-data-admin .searchBar * {
+    font-size: 12px;
+  }
+
+  .container-data-admin #table-pdf table {
+    font-size: 12px !important;
+  }
+
+  .container-data-admin form .button-group {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-data-admin form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .container-data-admin form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container-data-admin form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .container-data-admin form .button-group .button .modal .modal-body .date {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+  }
+
+  .container-data-admin form .button-group .button .modal .modal-body .date label {
+    font-size: 14px;
+    width: 100px;
+    text-align: center;
+  }
+
+  .container-data-admin form .button-group .button .modal .modal-body .date input {
+    font-size: 14px;
+  }
+
+  .container-data-admin #table-pdf .button-print {
+    padding-bottom: 10%;
+  }
+
+  .container-data-admin #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 12px;
+    width: 100px;
+  }
+
+  .container-data-admin #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container-data-admin #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container-data-admin #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 996px) and (max-width: 1300px) {
+  .container-laporan-admin .navbar-data .nav-item a {
+    font-size: 14px;
+  }
+
+  .container-data-admin .searchBar * {
+    font-size: 14px;
+  }
+
+  .container-data-admin #table-pdf table {
+    font-size: 14px !important;
+  }
+
+  .container-data-admin form .button-group {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-data-admin form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .container-data-admin form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container-data-admin form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .container-data-admin #table-pdf .button-print {
+    padding-bottom: 10%;
+  }
+
+  .container-data-admin #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 14px;
+    width: 100px;
+  }
+
+  .container-data-admin #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container-data-admin #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container-data-admin #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+/*======================= Display Laporan User Page SuperUser =======================*/
+.container-laporan-super {
+  width: 95%;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+.container-laporan-super * {
+  transition: 0.5s;
+}
+
+.container-laporan-super .navbar-data .nav-item {
+  width: 30%;
+  transition: unset;
+}
+
+.container-laporan-super .navbar-data .nav-item a {
+  border: none;
+  box-sizing: border-box;
+}
+
+.container-laporan-super .navbar-data .nav-item a:hover {
+  border: 1px solid #0d6efd;
+  box-sizing: border-box;
+}
+
+.container-laporan-super .navbar-data .nav-item a.active {
+  border: none;
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 700;
+}
+
+.container-data-super #table-pdf .table-laporan {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.container-data-super .searchBar {
+  background-color: #f7f7f7;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.container-data-super .searchBar .search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container-data-super .searchBar .search i {
+  font-size: 30px;
+}
+
+.container-data-super .searchBar .search .cari {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.container-data-super form .button-group {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0 20px;
+}
+
+.container-data-super form .button-group .button button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container-data-super form .button-group .button button.button:hover {
+  font-weight: 700;
+}
+
+.container-data-super form .button-group .button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container-data-super form .button-group .button .modal .modal-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-data-super form .button-group .button .modal .modal-body .date label {
+  font-weight: 700;
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.container-data-super form .button-group .button .modal .modal-body .date input {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container-data-super #table-pdf .button-print {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.container-data-super #table-pdf .button-print button.button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: unset;
+  align-items: center;
+}
+
+.container-data-super #table-pdf .button-print button.button:hover {
+  font-weight: 700;
+}
+
+.container-data-super #table-pdf .button-print button.button i {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.container-data-super #table-pdf .button-print .modal .modal-body {
+  display: flex;
+}
+
+.container-data-super #table-pdf .button-print .modal .modal-body .pdf,
+.container-data-super #table-pdf .button-print .modal .modal-body .excel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container-data-super #table-pdf .button-print .modal .modal-body a {
+  text-align: center;
+  width: 100px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: #0d6efd;
+  transition: unset;
+}
+
+.container-data-super #table-pdf .button-print .modal .modal-body a:hover {
+  font-weight: 900;
+}
+
+.container-data-super #table-pdf .button-print .modal .modal-body i {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 995px) {
+  .container-laporan-super .navbar-data .nav-item {
+    width: 100%;
+  }
+
+  .container-laporan-super .navbar-data .nav-item a {
+    font-size: 12px;
+  }
+
+  .container-data-super .searchBar * {
+    font-size: 12px;
+  }
+
+  .container-data-super #table-pdf table {
+    font-size: 12px !important;
+  }
+
+  .container-data-super form .button-group {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-data-super form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .container-data-super form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container-data-super form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .container-data-super form .button-group .button .modal .modal-body .date {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+  }
+
+  .container-data-super form .button-group .button .modal .modal-body .date label {
+    font-size: 14px;
+    width: 100px;
+    text-align: center;
+  }
+
+  .container-data-super form .button-group .button .modal .modal-body .date input {
+    font-size: 14px;
+  }
+
+  .container-data-super #table-pdf .button-print {
+    padding-bottom: 10%;
+  }
+
+  .container-data-super #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 12px;
+    width: 100px;
+  }
+
+  .container-data-super #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container-data-super #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container-data-super #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 996px) and (max-width: 1300px) {
+  .container-laporan-super .navbar-data .nav-item a {
+    font-size: 14px;
+  }
+
+  .container-data-super .searchBar * {
+    font-size: 14px;
+  }
+
+  .container-data-super #table-pdf table {
+    font-size: 14px !important;
+  }
+
+  .container-data-super form .button-group {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-data-super form .button-group .button button.button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .container-data-super form .button-group .button i {
+    font-size: 12px;
+  }
+
+  .container-data-super form .button-group .button .modal .modal-body {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .container-data-super #table-pdf .button-print {
+    padding-bottom: 10%;
+  }
+
+  .container-data-super #table-pdf .button-print button.button {
+    padding: 10px;
+    font-size: 14px;
+    width: 100px;
+  }
+
+  .container-data-super #table-pdf .button-print button.button i {
+    font-size: 12px;
+  }
+
+  .container-data-super #table-pdf .button-print .modal .modal-body a {
+    font-size: 12px;
+  }
+
+  .container-data-super #table-pdf .button-print .modal .modal-body i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+
+

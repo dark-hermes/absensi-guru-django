@@ -1,5 +1,5 @@
-/*Global*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +17,6 @@ body::after {
   content: "";
   display: block;
   height: 30px;
-  /* Set same as footer's height */
 }
 
 p {
@@ -29,50 +28,39 @@ p {
 }
 
 /*  Navbar */
+nav.navbar .navbar-brand {
+  margin: 0 20px;
+}
 nav.navbar .navbar-collapse .navbar-nav {
   text-align: center;
   transition: 0.3s;
 }
-
-nav.navbar .navbar-brand {
-  margin: 0 20px;
-}
-
-nav.navbar .navbar-nav .nav-item {
+nav.navbar .navbar-collapse .navbar-nav .nav-item {
   width: 100%;
   margin: 0 20px;
 }
-
-nav.navbar .navbar-nav .nav-item .nav-link {
+nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
   font-weight: 500;
   border-radius: 5px;
   width: 150px;
 }
-
-nav.navbar .navbar-nav .nav-item .nav-link.active {
+nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link.active {
   color: white !important;
   background-color: #3b86ff;
 }
-
-nav.navbar .navbar-nav .nav-item .nav-link:hover {
+nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
   color: white !important;
   background-color: #3b86ff;
 }
-
-nav.navbar .navbar-nav .nav-item .nav-link#navbarDropdownMenuLink {
+nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link#navbarDropdownMenuLink {
   width: 100%;
 }
-
-nav.navbar .navbar-nav .nav-item ul.dropdown-menu {
+nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu {
   min-width: 0;
   padding: 0;
   right: auto;
   left: 50%;
   transform: translate(-50%, 0);
-}
-
-/* actual dropdown animation */
-nav.navbar .navbar-nav .dropdown .dropdown-menu {
   transition: all 0.3s;
   max-height: 0;
   display: block;
@@ -80,8 +68,7 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu {
   opacity: 0;
   visibility: hidden;
 }
-
-nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
+nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
   max-height: 500px;
   opacity: 1;
   visibility: visible;
@@ -672,6 +659,18 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   pointer-events: auto !important;
 }
 
+.absen .button-absen .masuk button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(19, 203, 110, 0.3) !important;
+  border: none;
+}
+
+.absen .button-absen .keluar button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(198, 73, 59, 0.3) !important;
+  border: none !important;
+}
+
 .absen .button-absen .masuk,
 .absen .button-absen .keluar,
 .absen .button-absen .izin {
@@ -698,12 +697,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   transition: 0.1s;
 }
 
-.absen .button-absen .masuk button#masuk.hoverActive:hover {
+.absen .button-absen .masuk button#masuk:hover {
   background-color: #13cb6e;
   font-weight: 700;
 }
 
-.absen .button-absen .masuk button#masuk.hoverActive:active {
+.absen .button-absen .masuk button#masuk:active {
   font-weight: 700;
   border: 1px solid #13cb6e;
   background-color: transparent;
@@ -714,6 +713,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 .absen .button-absen .masuk .modal .modal-header {
   display: flex;
   justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .masuk .modal .modal-header h5 span {
+  color: #3B86FF;
+  font-weight: 700;
 }
 
 .absen .button-absen .masuk .modal .modal-body {
@@ -770,12 +775,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   background-color: rgba(13, 110, 253, 0.8);
 }
 
-.absen .button-absen .izin button#izin.hoverActive:hover {
+.absen .button-absen .izin button#izin:hover {
   font-weight: 700;
   background-color: #0d6efd;
 }
 
-.absen .button-absen .izin button#izin.hoverActive:active {
+.absen .button-absen .izin button#izin:active {
   font-weight: 700;
   border: 1px solid #0d6efd;
   background-color: transparent !important;
@@ -790,12 +795,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
   background-color: rgba(198, 73, 59, 0.8);
 }
 
-.absen .button-absen .keluar button#keluar.hoverActive:hover {
+.absen .button-absen .keluar button#keluar:hover {
   font-weight: 700;
   background-color: #c6493b;
 }
 
-.absen .button-absen .keluar button#keluar.hoverActive:active {
+.absen .button-absen .keluar button#keluar:active {
   font-weight: 700;
   border: 1px solid #c64b3b;
   background-color: transparent !important;
@@ -806,6 +811,12 @@ nav.navbar .navbar-nav .dropdown .dropdown-menu.show {
 .absen .button-absen .keluar .modal .modal-header {
   display: flex;
   justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .keluar .modal .modal-header h5 span {
+  color: #3B86FF;
+  font-weight: 700;
 }
 
 .absen .button-absen .keluar .modal .modal-body {
