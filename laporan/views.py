@@ -2,7 +2,7 @@ from django.shortcuts import render
 from laporan.forms import *
 import logging
 from django.views.decorators.csrf import csrf_exempt
-from laporan.models import Method, SubjectName, SubjectCategory
+from laporan.models import Method, SubjectName, SubjectCategory, ClassName, SubjectCategory
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -40,6 +40,7 @@ def study_report(request):
         method_list = Method.objects.all()
 
         context = {'form': form, 'method_list': method_list}
+        
 
         return render(request, 'laporan-belajar.html', context)
 
@@ -161,6 +162,8 @@ def human_development_report(request):
     else:
         form = HumanDevelopmentForm(initial={'employee_id': request.user.employee})
         context = {'form': form}
+        
+        
         return render(request, 'laporan-pengembangan.html', context)
         
     
