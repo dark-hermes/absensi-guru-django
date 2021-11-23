@@ -1,0 +1,142 @@
+@use 'variable' as v;
+@use 'global';
+
+
+
+/* Sidebar */
+.flex-nowrap {
+  transition: 0.3s;
+  width: 15%;
+  margin: 0 !important;
+  background-color: #f8f9fa;
+  position: fixed;
+  left: 0;
+  transition: 0.3s;
+}
+
+.flex-nowrap * {
+  transition: 0.3s;
+}
+
+.flex-nowrap .d-flex {
+  padding: 0 1rem;
+}
+
+.flex-nowrap span.head {
+  background-color: #0d6efd !important;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+}
+
+.flex-nowrap ul .nav {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.flex-nowrap ul {
+  text-align: center;
+}
+
+.flex-nowrap ul li i, .flex-nowrap .dropdown i {
+  font-size: 1.5rem !important;
+}
+
+.flex-nowrap ul li .nav-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Sidebar */
+@media screen and (min-width: 300px) and (max-width: 575px) {
+  .flex-nowrap {
+    width: 20%;
+  }
+
+  .flex-nowrap span.head {
+    background-color: #0d6efd !important;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .flex-nowrap ul .nav {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .dropdown i {
+    font-size: 26px !important;
+  }
+
+  .flex-nowrap ul li .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .flex-nowrap {
+    width: 20%;
+  }
+
+  .flex-nowrap .d-flex {
+    padding: 0;
+  }
+
+  .flex-nowrap span.head {
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .flex-nowrap ul .nav {
+    margin: 10px 0;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav i {
+    font-size: 20px !important;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav span {
+    font-size: 12px !important;
+  }
+
+  .flex-nowrap ul li .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .flex-nowrap span.head {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .flex-nowrap .d-flex {
+    padding: 0;
+  }
+
+  .flex-nowrap ul .nav {
+    margin: 10px 0;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav i {
+    font-size: 20px !important;
+  }
+
+  .flex-nowrap ul li i, .flex-nowrap .nav span {
+    font-size: 14px !important;
+  }
+
+  .flex-nowrap ul li .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}

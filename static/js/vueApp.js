@@ -36,8 +36,6 @@ function absen() {
                                         document.getElementById("keluar").setAttribute("disabled", "")
                                     }
 
-                            
-
                                 }
                             }
                         }

@@ -1,0 +1,310 @@
+@use '../template/variable' as v;
+@use '../template/global';
+
+
+
+/*======================= Laporan Belajar Page =======================*/
+.container-laporan-guru {
+  width: 80%;
+  margin: 100px auto 0;
+  transition: 0.3s;
+  padding-bottom: 50px;
+}
+
+.container-laporan-guru * {
+  transition: 0.3s;
+}
+
+.container-laporan-guru h1.head {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.container-laporan-guru .select-button {
+  margin: 20px 0;
+}
+
+.container-laporan-guru .select-button .form-select {
+  font-size: 1rem;
+  padding-left: 12px;
+}
+
+.container-laporan-guru .bottom-input-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-laporan-guru .form-group {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+}
+
+.container-laporan-guru .form-group .checkgroup {
+  width: 40%;
+}
+
+.container-laporan-guru .form-group .checkgroup h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.container-laporan-guru .form-group .checkgroup .form-check {
+  margin: 10px 0;
+}
+
+.container-laporan-guru .form-group .text-input {
+  width: 100%;
+}
+
+.container-laporan-guru .form-group .text-input .form-floating {
+  height: 100%;
+}
+
+.container-laporan-guru .form-group .text-input .form-floating textarea {
+  height: 100%;
+}
+
+.container-laporan-guru .file-button {
+  margin-top: 50px;
+}
+
+.container-laporan-guru .file-button label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.container-laporan-guru .button {
+  text-align: right;
+}
+
+.container-laporan-guru .button button.submit {
+  width: 150px;
+  background-color: #0d6efd;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: unset;
+  outline: none;
+}
+
+.container-laporan-guru .button button.submit:hover {
+  font-weight: 700;
+}
+
+/* Reponsive Laporan Guru */
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan-guru .top-input-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating,
+.container-laporan-guru .bottom-input-group .form-floating {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input,
+.container-laporan-guru .bottom-input-group .form-floating input {
+    height: 50%;
+    font-size: 12px !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating label,
+.container-laporan-guru .bottom-input-group .form-floating label {
+    display: flex;
+    align-items: center;
+    font-size: 12px !important;
+  }
+
+  .container-laporan-guru .bottom-input-group {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 important;
+  }
+
+  .container-laporan-guru .bottom-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .select-button {
+    margin: 10px 0;
+  }
+
+  .container-laporan-guru .select-button .form-select {
+    height: 70%;
+    font-size: 12px;
+    padding-left: 12px;
+  }
+
+  .container-laporan-guru .form-group {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  .container-laporan-guru .form-group .checkgroup {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .checkgroup h1 {
+    font-size: 14px;
+  }
+
+  .container-laporan-guru .form-group .checkgroup .form-check {
+    margin: 20px 0;
+    font-size: 12px;
+  }
+
+  .container-laporan-guru .form-group .text-input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating {
+    height: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating textarea {
+    height: 300px;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating label {
+    font-size: 12px;
+  }
+
+  .container-laporan-guru .file-button {
+    margin-top: 30px;
+  }
+
+  .container-laporan-guru .file-button * {
+    font-size: 12px;
+  }
+
+  .container-laporan-guru .file-button label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .container-laporan-guru .button button.submit {
+    width: 100%;
+    font-size: 14px;
+    background-color: #0d6efd;
+    padding: 10px 10px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: unset;
+    outline: none;
+  }
+}
+@media screen and (min-width: 571px) and (max-width: 900px) {
+  .container-laporan-guru .top-input-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating,
+.container-laporan-guru .bottom-input-group .form-floating {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating input,
+.container-laporan-guru .bottom-input-group .form-floating input {
+    height: 80%;
+    font-size: 16px !important;
+  }
+
+  .container-laporan-guru .top-input-group .form-floating label,
+.container-laporan-guru .bottom-input-group .form-floating label {
+    display: flex;
+    align-items: center;
+    font-size: 16px !important;
+  }
+
+  .container-laporan-guru .bottom-input-group {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 important;
+  }
+
+  .container-laporan-guru .bottom-input-group .form-floating {
+    width: 100%;
+  }
+
+  .container-laporan-guru .select-button {
+    margin: 10px 0;
+  }
+
+  .container-laporan-guru .select-button .form-select {
+    height: 80%;
+    font-size: 16px;
+    padding-left: 12px;
+  }
+
+  .container-laporan-guru .form-group {
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .container-laporan-guru .form-group .checkgroup {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .checkgroup h1 {
+    font-size: 1.2rem;
+  }
+
+  .container-laporan-guru .form-group .checkgroup .form-check {
+    margin: 20px 0;
+    font-size: 16px;
+  }
+
+  .container-laporan-guru .form-group .text-input {
+    width: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating {
+    height: 100%;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating textarea {
+    height: 300px;
+  }
+
+  .container-laporan-guru .form-group .text-input .form-floating label {
+    font-size: 16px;
+  }
+
+  .container-laporan-guru .file-button {
+    margin-top: 30px;
+  }
+
+  .container-laporan-guru .file-button label {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}

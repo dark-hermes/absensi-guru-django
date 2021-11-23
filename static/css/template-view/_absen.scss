@@ -1,0 +1,489 @@
+@use '../template/variable' as v;
+@use '../template/global';
+
+
+
+
+
+/*======================= Absen Page =======================*/
+.absen {
+  width: 100%;
+  padding-top: 100px;
+  transition: 0.5s;
+}
+
+.absen * {
+  transition: 0.5s;
+}
+
+.absen .head {
+  text-align: center;
+}
+
+.absen .head h1 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.absen .head h1 span,
+.absen .time span.greetings {
+  color: #3B86FF;
+  font-weight: 700;
+}
+
+.absen .head i {
+  font-size: 24px;
+}
+
+.absen .time {
+  font-weight: 600;
+  padding: 0 30px;
+}
+
+.absen .button-absen {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.absen .button-absen .izin button[disabled] {
+  cursor: not-allowed;
+  pointer-events: auto !important;
+}
+
+.absen .button-absen .masuk button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(19, 203, 110, .3) !important;
+  border: none;
+}
+
+.absen .button-absen .keluar button[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(198, 73, 59, .3) !important;
+  border: none !important;
+}
+
+.absen .button-absen .masuk,
+.absen .button-absen .keluar,
+.absen .button-absen .izin {
+  width: 30%;
+  text-align: center;
+}
+
+.absen .button-absen .masuk button#masuk,
+.absen .button-absen .keluar button#keluar,
+.absen .button-absen .izin button#izin {
+  padding: 10px 5px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  outline: none;
+  border: none;
+}
+
+.absen .button-absen .masuk button#masuk {
+  color: #fff;
+  background-color: rgba(19, 203, 110, 0.8);
+  transition: 0.1s;
+}
+
+.absen .button-absen .masuk button#masuk:hover {
+  background-color: #13cb6e;
+  font-weight: 700;
+}
+
+.absen .button-absen .masuk button#masuk:active {
+  font-weight: 700;
+  border: 1px solid #13cb6e;
+  background-color: transparent;
+  color: #13cb6e;
+  outline: 5px solid rgba(19, 203, 110, 0.4);
+}
+
+.absen .button-absen .masuk .modal .modal-header {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .masuk .modal .modal-header h5 span{
+  color: #3B86FF;
+  font-weight: 700;
+}
+
+.absen .button-absen .masuk .modal .modal-body {
+  height: 70vh;
+}
+
+.absen .button-absen .masuk .modal .modal-body .canvas {
+  width: 100%;
+  height: 90%;
+}
+
+.absen .button-absen .masuk .modal .modal-body .canvas video {
+  width: 100%;
+  height: 95%;
+  transform: scaleX(-1);
+  filter: FlipH;
+  aspect-ratio: 1/1;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button button {
+  background-color: #297ffd;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: unset;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button button:hover {
+  font-weight: 700;
+}
+
+.absen .button-absen .masuk .modal .modal-body .button i {
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.absen .button-absen .izin button#izin {
+  color: #fff;
+  border: 1px solid #0d6efd;
+  transition: 0.1s;
+  background-color: rgba(13, 110, 253, 0.8);
+}
+
+.absen .button-absen .izin button#izin:hover {
+  font-weight: 700;
+  background-color: #0d6efd;
+}
+
+.absen .button-absen .izin button#izin:active {
+  font-weight: 700;
+  border: 1px solid #0d6efd;
+  background-color: transparent !important;
+  color: #0d6efd;
+  outline: rgba(13, 110, 253, 0.4);
+}
+
+.absen .button-absen .keluar button#keluar {
+  color: #fff;
+  border: 1px solid #c64b3b;
+  transition: 0.1s;
+  background-color: rgba(198, 73, 59, 0.8);
+}
+
+.absen .button-absen .keluar button#keluar:hover {
+  font-weight: 700;
+  background-color: #c6493b;
+}
+
+.absen .button-absen .keluar button#keluar:active {
+  font-weight: 700;
+  border: 1px solid #c64b3b;
+  background-color: transparent !important;
+  color: #c64b3b;
+  outline: 5px solid rgba(198, 75, 59, 0.4);
+}
+
+.absen .button-absen .keluar .modal .modal-header {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.absen .button-absen .keluar .modal .modal-header h5 span{
+  color: #3B86FF;
+  font-weight: 700;
+}
+
+.absen .button-absen .keluar .modal .modal-body {
+  height: 70vh;
+}
+
+.absen .button-absen .keluar .modal .modal-body .canvas {
+  width: 100%;
+  height: 90%;
+}
+
+.absen .button-absen .keluar .modal .modal-body .canvas video {
+  width: 100%;
+  height: 95%;
+  transform: scaleX(-1);
+  filter: FlipH;
+  aspect-ratio: 1/1;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button button {
+  background-color: #297ffd;
+  color: white;
+  border: none;
+  outline: none;
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: unset;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button button:hover {
+  font-weight: 700;
+}
+
+.absen .button-absen .keluar .modal .modal-body .button i {
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.absen .button-absen .izin .modal .modal-body {
+  margin: 20px 0 10px;
+}
+
+.absen .button-absen .izin .modal .modal-body .file-button {
+  margin: 40px 0 10px;
+  text-align: left !important;
+}
+
+.absen section.content-slider {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.absen section.content-slider h1.heading {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.absen section.content-slider .carousel {
+  padding-top: 30px;
+}
+
+.absen section.content-slider .carousel .carousel-inner .slider .card {
+  width: 28vw;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner:after {
+  content: unset;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card {
+  height: 100%;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image {
+  width: 100%;
+  height: 70%;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-body {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .slider .card {
+  height: 100%;
+  margin: 0 auto;
+  width: 18rem;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image {
+  width: 100%;
+  height: 200px;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-body {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body a {
+  padding: 10px 0;
+  width: 80%;
+  display: inline-block;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: unset;
+}
+
+.absen section.content-slider .carousel .carousel-inner .card .card-body a:hover {
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.absen section.content-slider .carousel.dekstop button {
+  display: none;
+}
+
+.absen section.content-slider .carousel.mobile button {
+  display: unset;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10vw;
+}
+
+.carousel-control-prev span.bi,
+.carousel-control-next span.bi {
+  color: #8e8e8f;
+  font-size: min(60px, 10vw);
+  font-weight: 900;
+}
+
+/* Responsive Table Absen | Absen Page */
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .absen .head h1 {
+    padding: 0 20px 5px;
+  }
+
+  .absen .button-absen {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .absen .button-absen .masuk,
+.absen .button-absen .keluar,
+.absen .button-absen .izin {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .absen .button-absen .masuk button#masuk,
+.absen .button-absen .keluar button#keluar,
+.absen .button-absen .izin button#izin {
+    width: 60%;
+  }
+
+  .absen .button-absen .masuk .modal .modal-header h5 {
+    font-size: 18px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body {
+    height: 50vh;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button i {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 73%;
+    height: 80%;
+  }
+
+  .absen section.content-slider {
+    padding-top: 20px;
+  }
+
+  .absen section.content-slider .carousel {
+    padding-top: 20px;
+  }
+
+  .absen section.content-slider .carousel button {
+    display: unset;
+  }
+
+  .absen section.content-slider .heading {
+    padding: 0 20px;
+  }
+}
+/* Responsive Absen Page */
+@media screen and (min-width: 571px) and (max-width: 991px) {
+  .absen .button-absen {
+    width: 90%;
+  }
+
+  .absen .button-absen .masuk button#masuk, .absen .button-absen .keluar button#keluar {
+    width: 90%;
+  }
+
+  .absen .button-absen .masuk .modal .modal-header h5 {
+    font-size: 18px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body {
+    height: 60vh;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .button i {
+    font-size: 20px;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 95%;
+    height: 90%;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .absen .button-absen {
+    width: 80%;
+  }
+
+  .absen .button-absen .masuk button#masuk, .absen .button-absen .keluar button#keluar {
+    width: 90%;
+  }
+
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 95%;
+    height: 95%;
+  }
+}

@@ -1,0 +1,46 @@
+@use 'variable' as v;
+@use 'global';
+
+
+/* Footer */
+.copyright {
+  transition: 0.5s;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #ebebeb;
+  color: #8e8e8f;
+  text-align: center;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright * {
+  transition: 0.5s;
+}
+
+.copyright p {
+  font-size: 14px;
+}
+
+.copyright span {
+  font-weight: 700;
+}
+
+.copyright span a {
+  text-decoration: none;
+  color: #8e8e8f;
+  transition: unset;
+}
+
+.copyright span a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 300px) and (max-width: 470px) {
+  .copyright p {
+    font-size: 10px !important;
+  }
+}
