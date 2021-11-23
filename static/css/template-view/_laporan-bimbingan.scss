@@ -1,0 +1,91 @@
+@use '../template/variable' as v;
+@use '../template/global';
+
+
+/*======================= Laporan Bimbingan Page =======================*/
+.container-laporan {
+  min-height: 100vh;
+  transition: 0.5s;
+  padding-top: 100px;
+  padding-bottom: 10%;
+}
+
+.container-laporan * {
+  transition: 0.5s;
+}
+
+.container-laporan .input-box {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+}
+
+.container-laporan h1.head {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px 0;
+  text-transform: uppercase;
+}
+
+.container-laporan .input-box textarea {
+  width: 80%;
+  height: 50vh;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.container-laporan .file-button {
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.container-laporan .file-button label {
+  font-weight: bold;
+}
+
+.container-laporan .button {
+  width: 80%;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.container-laporan .button button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #3b86ff;
+  color: white;
+  font-weight: 600;
+  transition: unset;
+  width: 150px;
+}
+
+.container-laporan .button button:hover {
+  font-weight: 800;
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan .input-box textarea {
+    height: 70vh;
+  }
+
+  .container-laporan .button {
+    width: 80%;
+    text-align: center;
+  }
+
+  .container-laporan .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan .file-button * {
+    font-size: 14px;
+  }
+}
