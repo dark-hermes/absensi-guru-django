@@ -1,3 +1,11 @@
+let img = document.getElementsByTagName("img");
+
+for (let i = 0; i < img.length; i++) {
+  img[i].setAttribute("loading", "lazy")
+}
+
+
+
 var serverClock = jQuery("#jamServer");
 if (serverClock.length > 0) {
     showServerTime(serverClock, serverClock.text());
@@ -107,7 +115,6 @@ alertTemplate = {
         });
     },
 
-    // valueicon warning,info,success,error
 
     confirm() {
         swal({
@@ -136,5 +143,7 @@ alertTemplate = {
     }
 
 }
+
+
 
 
