@@ -252,29 +252,24 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
   text-align: center;
   height: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
-
 .copyright * {
   transition: 0.5s;
 }
-
 .copyright p {
   font-size: 14px;
 }
-
 .copyright span {
   font-weight: 700;
 }
-
 .copyright span a {
   text-decoration: none;
   color: #8e8e8f;
   transition: unset;
 }
-
-.copyright span a:hover {
+.copyright span a :hover {
   text-decoration: underline;
 }
 

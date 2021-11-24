@@ -1,5 +1,5 @@
 @use 'variable' as v;
-@use 'global';
+@use 'global' as g;
 
 
 /* Footer */
@@ -8,35 +8,36 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #ebebeb;
-  color: #8e8e8f;
+  background-color: v.$secondary-color;
+  color: v.$secondary-text-color;
   text-align: center;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  @include g.centered;
 
-.copyright * {
-  transition: 0.5s;
-}
+  * {
+    transition: 0.5s;
+  }
 
-.copyright p {
-  font-size: 14px;
-}
+  p {
+    font-size: 14px;
+  }
 
-.copyright span {
-  font-weight: 700;
-}
+  span {
+    font-weight: 700;
 
-.copyright span a {
-  text-decoration: none;
-  color: #8e8e8f;
-  transition: unset;
-}
+    a {
+      text-decoration: none;
+      color: v.$secondary-text-color;
+      transition: unset;
 
-.copyright span a:hover {
-  text-decoration: underline;
+      :hover {
+        text-decoration: underline;
+      }
+
+    }
+
+  }
+
 }
 
 @media screen and (min-width: 300px) and (max-width: 470px) {

@@ -27,3 +27,10 @@ p {
 [v-cloak] {
   display: none;
 }
+
+
+@mixin centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
