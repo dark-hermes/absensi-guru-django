@@ -28,7 +28,7 @@ nav.navbar {
                 background-color: v.$primary-color;
             }
 
-            .nav-link:hover {
+            &:hover {
                 color: white !important;
                 background-color: v.$primary-color;
             }
