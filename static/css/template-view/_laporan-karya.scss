@@ -1,0 +1,115 @@
+@use '../template/variable' as v;
+@use '../template/global';
+
+
+
+/*======================= Laporan Karya Page =======================*/
+.container-laporan-karya {
+  min-height: 100vh;
+  transition: 0.5s;
+  padding-top: 100px;
+  padding-bottom: 10%;
+}
+
+.container-laporan-karya * {
+  transition: 0.5s;
+}
+
+.container-laporan-karya h1.head {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.container-laporan-karya .input-box {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+}
+
+.container-laporan-karya .input-box .input-radio h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.container-laporan-karya .input-box .input-radio .form-check {
+  padding: 20px;
+}
+
+.container-laporan-karya .input-box .input-text {
+  margin-top: 20px;
+  height: 50vh;
+}
+
+.container-laporan-karya .input-box .input-text textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.container-laporan-karya .input-box .file label {
+  font-weight: bold;
+}
+
+.container-laporan-karya .input-box .file .file-button {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.container-laporan-karya .input-box .file .button {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: right;
+}
+
+.container-laporan-karya .input-box .file .button button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #3b86ff;
+  color: white;
+  font-weight: 600;
+  transition: unset;
+  width: 150px;
+}
+
+.container-laporan-karya .input-box .file .button button:hover {
+  font-weight: 800;
+}
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+  .container-laporan-karya .input-box * {
+    font-size: 12px;
+  }
+
+  .container-laporan-karya .input-box textarea {
+    height: 150%;
+  }
+
+  .container-laporan-karya .input-box .file {
+    padding-bottom: 20%;
+  }
+
+  .container-laporan-karya .input-box .file .button {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .container-laporan-karya .input-box .file .button button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container-laporan-karya .input-box .file .file-button * {
+    font-size: 12px;
+  }
+}
