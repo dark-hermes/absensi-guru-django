@@ -27,7 +27,7 @@ class CheckoutViewset(viewsets.ModelViewSet):
     
     def get_queryset(self):
         user = self.request.user
-        return CheckinRecord.objects.filter(employee_id__user=user)
+        return CheckoutRecord.objects.filter(employee_id__user=user)
     
 class DaysViewset(viewsets.ModelViewSet):
     serializer_class = DaysSerializer
