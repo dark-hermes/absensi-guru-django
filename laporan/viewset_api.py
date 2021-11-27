@@ -1,7 +1,12 @@
-from laporan.models import SubjectName, StudyReport, GuidanceReport, ScientificWorkReport, InnovativeWorkReport, HumanDevelopmentReport, DutyReport
-from laporan.serializers import SubjectSerializers, StudyReportSerializer,GuidanceReportSerializers, ScientificWorkReportSerializers, InnovativeWorkReportSerializers, HumanDevelopmentReportSerializers, DutyReportSerializers
+from laporan.models import ClassName, SubjectName, StudyReport, GuidanceReport, ScientificWorkReport, InnovativeWorkReport, HumanDevelopmentReport, DutyReport
+from laporan.serializers import ClassSerializer,SubjectSerializers, StudyReportSerializer,GuidanceReportSerializers, ScientificWorkReportSerializers, InnovativeWorkReportSerializers, HumanDevelopmentReportSerializers, DutyReportSerializers
 from rest_framework import viewsets
 
+
+class ClassViewset(viewsets.ModelViewSet):
+    serializer_class = ClassSerializer
+    queryset = ClassName.objects.all()
+    
 class SubjectViewset(viewsets.ModelViewSet):
     serializer_class = SubjectSerializers
     

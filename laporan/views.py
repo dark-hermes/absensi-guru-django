@@ -16,6 +16,7 @@ def study_report(request):
             
             saved_form = form.save(commit=False)
             saved_form.subject_category = subject_category_obj
+            
             saved_form.subject_name = subject_name_obj
             saved_form.method = ','.join(request.POST.getlist('method'))
             saved_form.save()
