@@ -25,7 +25,7 @@
 
 
 			<div class="select-button" id="select-jenis">
-				<select @change="onChange" name="subject_category" class="form-select form-select-lg" aria-label=".form-select-md example">
+				<select @change="onChange" name="subject_category" class="form-select form-select-lg" aria-label=".form-select-md example" id="jenis-mapel" disabled>
 					<option selected disabled hidden >Jenis Mata Pelajaran</option>
 					<option value="1">Wajib A & B</option>
 					<option value="2">Produktif</option>
@@ -36,7 +36,7 @@
 			<div class="select-button">
 				<select class="form-select form-select-lg" name="subject_name" aria-label=".form-select-md example" id="select-mapel" disabled>
 					<option disabled selected hidden>Pilih Mata Pelajaran</option>
-					<option v-for="(mapel) in dataKelas" :value="mapel.id">[[ mapel.subject_name ]]</option>
+					<option v-for="(mapel) in dataMapel" :value="mapel.id">[[ mapel.subject_name ]]</option>
 				</select>
 			</div>
 			

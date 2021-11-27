@@ -137,6 +137,7 @@ function studyReport(){
         delimiters: ['[[', ']]'],
         data: {
             dataKelas:'',
+            dataMapel:'',
             resetData:'',
         },
 
@@ -144,29 +145,65 @@ function studyReport(){
             let url = 'https://localhost:8000/api/subjects/';
             fetch(url)
                 .then(response => response.json() )
-                .then(data =>{this.dataKelas = data;
-                    this.resetData = data
+                .then(data =>{this.dataKelas = data;  
+
+                $("#id_class_name").on("change",()=>{
+
+                    let selValue = $("#id_class_name").val();
+                    let s = $("#jenis-mapel").val();
+
+                    let mapelKelas = this.dataKelas.filter(x => x.class_name == selValue);
+                    this.resetData = mapelKelas
+
+                    if (s == 2) {
+                        this.dataMapel = this.resetData
+                        let produktif = this.dataMapel.filter(x => x.category == 2);
+                        this.dataMapel = produktif;
+                        console.log(produktif)
+                    }
+
+                    else if (s == 1) {
+                        this.dataMapel = this.resetData
+                        let mapelWajib = this.dataMapel.filter(x => x.category == 1);
+                        this.dataMapel = mapelWajib;
+                        console.log(mapelWajib)
+                    }
+
+                    document.getElementById("jenis-mapel").removeAttribute("disabled");
+
+                });
+
+                
             });
+
+
+
+
+
         },
 
         // filter mapel
         methods:{
+
             onChange(event) {
                 value = event.target.value;
+                // let selValue = $("#id_class_name").val();
+                // this.dataKelas.filter(x => x.class_name == selValue);
 
-                document.getElementById("select-mapel").removeAttribute("disabled");
-
+                
                 if (value == 2) {
-                    this.dataKelas = this.resetData
-                    let produktif = this.dataKelas.filter(x => x.category == 2);
-                    this.dataKelas = produktif;
+                    this.dataMapel = this.resetData
+                    let produktif = this.dataMapel.filter(x => x.category == 2);
+                    this.dataMapel = produktif;
                 }
 
                 else if (value == 1) {
-                    this.dataKelas = this.resetData
-                    let mapelWajib = this.dataKelas.filter(x => x.category == 1);
-                    this.dataKelas = mapelWajib;
+                    this.dataMapel = this.resetData
+                    let mapelWajib = this.dataMapel.filter(x => x.category == 1);
+                    this.dataMapel = mapelWajib;
                 }
+
+                document.getElementById("select-mapel").removeAttribute("disabled");
               
             }
         },
