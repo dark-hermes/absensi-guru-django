@@ -1,47 +1,47 @@
-@use 'variable' as v;
-@use 'global' as g;
+@use 'variable'as v;
+@use 'global'as g;
 
 
 /* Footer */
 .copyright {
-  transition: 0.5s;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: v.$secondary-color;
-  color: v.$secondary-text-color;
-  text-align: center;
-  height: 30px;
-  @include g.centered;
-
-  * {
     transition: 0.5s;
-  }
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: v.$secondary-color;
+    color: v.$secondary-text-color;
+    text-align: center;
+    height: 30px;
+    @include g.centered;
 
-  p {
-    font-size: 14px;
-  }
-
-  span {
-    font-weight: 700;
-
-    a {
-      text-decoration: none;
-      color: v.$secondary-text-color;
-      transition: unset;
-
-      :hover {
-        text-decoration: underline;
-      }
-
+    * {
+        transition: 0.5s;
     }
 
-  }
+    p {
+        font-size: 14px;
+    }
+
+    span {
+        font-weight: 700;
+
+        a {
+            text-decoration: none;
+            color: v.$secondary-text-color;
+            transition: unset;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+        }
+
+    }
 
 }
 
 @media screen and (min-width: 300px) and (max-width: 470px) {
-  .copyright p {
-    font-size: 10px !important;
-  }
+    .copyright p {
+        font-size: 10px !important;
+    }
 }
