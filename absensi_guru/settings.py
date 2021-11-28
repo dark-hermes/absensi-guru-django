@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from sys import platform
 from pathlib import Path
 from os.path import abspath
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#alkzuck5xssxo_7*xphj0(tn$9!va7!^)z92yxr#h6-h8n94v'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['192.168.8.100', '127.0.0.1', 'localhost']
-SECURE_SSL_REDIRECT = True
+ALLOWED_HOSTS = ['localhost', '10.5.0.4', '*']
+SECURE_SSL_REDIRECT = int(os.environ.get('SECURE_SSL_REDIRECT'))
 
 # Application definition
 
@@ -89,11 +90,11 @@ WSGI_APPLICATION = 'absensi_guru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_absen',
-        'USER': 'postgres',
+        'NAME': 'absen_db',
+        'USER': 'absen',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': '10.5.0.2',
+        'PORT': '5432',
     }
 }
 
@@ -129,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = '/static'
 STATICFILES_DIRS = [
     Path(BASE_DIR, 'static'),
 ]

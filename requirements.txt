@@ -12,7 +12,9 @@ geopy==2.2.0
 numpy==1.21.3
 opencv-python==4.5.4.58
 Pillow==8.4.0
-psycopg2==2.9.1
+psycopg2-binary>=2.8
 pytz==2021.3
 six==1.16.0
 sqlparse==0.4.2
+gunicorn>=20.0.0
+requests
