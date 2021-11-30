@@ -23,12 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-#alkzuck5xssxo_7*xphj0(tn$9!va7!^)z92yxr#h6-h8n94v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
+# DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '10.5.0.4', '*']
 SECURE_SSL_REDIRECT = int(os.environ.get('SECURE_SSL_REDIRECT'))
+# SECURE_SSL_REDIRECT = True
 
 # Application definition
 
@@ -97,6 +100,17 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'db_absen',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': ''
+#     }
+# }
 
 
 # Password validation
@@ -177,3 +191,5 @@ API_SERVER = "https://localhost:8000/face_detection/detect/"
 CHECKIN_TIME = 7
 
 CHECKOUT_TIME = 16
+
+IS_UPDATE = True
