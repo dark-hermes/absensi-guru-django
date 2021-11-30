@@ -285,6 +285,16 @@ def absen(request):
         
         excused_presence.save()
         
+        excused_checkin = CheckinRecord(employee_id=request.user.employee,
+                                        time=now_date,
+                                        is_checked=True)
+        excused_checkin.save()
+        
+        excused_checkout = CheckoutRecord(employee_id=request.user.employee,
+                                        time=now_date,
+                                        is_checked=True)
+        excused_checkout.save()
+        
         checkin_record, checkout_record = check_record()
         distance, dist_message = calculate_distance()
         context = {
