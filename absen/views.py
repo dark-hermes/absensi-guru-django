@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 import base64
 from face_detection.views import detect
-from userauth.models import Employee
+from userauth.models import Employee, Days
 from django.core.files.base import ContentFile
 from absen.models import Presence, CheckinRecord, CheckoutRecord
 import json
@@ -59,8 +59,15 @@ def absen(request):
     try:
         Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
     except:
-        presence_now = Presence(employee_id=current_user, presence_date = nowDate.strftime("%Y-%m-%d"))
-        presence_now.save()
+        work_days = Days.objects.get(employee_id=current_user)
+        today = nowDate.strftime('%A').lower()
+        try:
+            exec(f"""if work_days.{today} == True:
+                
+                presence_now = Presence(employee_id=current_user, presence_date = nowDate.strftime('%Y-%m-%d'))
+                presence_now.save()""")
+        except:
+            pass
 
     def check_record(request=request):
         try:
@@ -298,6 +305,9 @@ def absen(request):
     else:
         checkin_record, checkout_record = check_record()
         distance, dist_message = calculate_distance()
+        
+        
+            
         context = {
             'distance': distance,
             'dist_message': dist_message,
