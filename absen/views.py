@@ -58,6 +58,7 @@ def absen(request):
     current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
     try:
         Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+        
     except:
         work_days = Days.objects.get(employee_id=current_user)
         today = nowDate.strftime('%A').lower()
