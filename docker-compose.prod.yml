@@ -5,12 +5,14 @@ services:
     container_name: app
     build:
       context: ./
-    ports:
-      - 8000:8000
+    volumes:
+      - /data/docker/static_file:/code/staticfiles
+      - /data/docker/media_file:/code/media
     env_file:
       - ./.env
     depends_on:
       - db
+      - pgadmin
     networks:
       - vpcbr
 
@@ -23,8 +25,6 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
-    ports:
-      - "5432:5432"
     networks:
       vpcbr:
         ipv4_address: 10.5.0.2
@@ -49,7 +49,7 @@ services:
 
 volumes:
   postgres_data:
-  
+
 networks:
   vpcbr:
     driver: bridge
