@@ -6,16 +6,31 @@ services:
     build:
       context: ./
     volumes:
-      - /data/docker/static_file:/code/staticfiles
-      - /data/docker/media_file:/code/media
+      - static_file:/code/staticfiles
+      - media_file:/code/media
+        #ports:
+        #- 8000:8000
     env_file:
       - ./.env
     depends_on:
       - db
       - pgadmin
     networks:
-      vpcbr:
-        - ipv4_address: 10.5.0.4
+      - vpcbr
+
+  nginx:
+    container_name: reverse_proxy
+    build:
+      context: ./nginx/
+    volumes:
+      - static_file:/static
+      - media_file:/media
+    ports:
+      - "1415:80"
+    depends_on:
+      - django_app
+    networks:
+      - vpcbr
 
   db:
     container_name: postgres_db
@@ -26,6 +41,8 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
+    ports:
+      - "5432:5432"
     networks:
       vpcbr:
         ipv4_address: 10.5.0.2
@@ -48,8 +65,11 @@ services:
       vpcbr:
         ipv4_address: 10.5.0.3
 
+
 volumes:
   postgres_data:
+  static_file:
+  media_file:
 
 networks:
   vpcbr:

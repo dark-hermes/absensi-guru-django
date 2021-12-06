@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN apt update 
 
-RUN apt install ffmpeg libsm6 libxext6 -y
+RUN apt install cron ffmpeg libsm6 libxext6 -y
 
 RUN pip install -U pip
 
