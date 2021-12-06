@@ -11,6 +11,8 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     networks:
@@ -32,7 +34,10 @@ services:
     networks:
       vpcbr:
         ipv4_address: 10.5.0.3
-  
+
+volumes:
+  postgres_data:
+
 networks:
   vpcbr:
     driver: bridge
