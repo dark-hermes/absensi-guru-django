@@ -14,7 +14,8 @@ services:
       - db
       - pgadmin
     networks:
-      - vpcbr
+      vpcbr:
+        - ipv4_address: 10.5.0.4
 
   db:
     container_name: postgres_db
