@@ -7,14 +7,12 @@ services:
     image: postgres:13-alpine
     restart: always
     environment:
-      POSTGRES_USER: absen
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: admindb
+      POSTGRES_PASSWORD: nEvt1kJu4ra
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    ports:
-      - "5432:5432"
+      - postgresdb_data:/var/lib/postgresql/data/
     networks:
       vpcbr:
         ipv4_address: 10.5.0.2
@@ -25,7 +23,7 @@ services:
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admindb@example.com
-      PGADMIN_DEFAULT_PASSWORD: smkn1cbn_0541
+      PGADMIN_DEFAULT_PASSWORD: smkn1cbn_0541#absen
       TZ: Asia/Jakarta
     ports:
       - "5050:80"

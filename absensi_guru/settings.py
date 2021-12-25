@@ -17,6 +17,8 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# Base URL settings, important!
+BASE_URL = 'https://absen.smkn1cibinong.sch.id'
 
 # Take environment variables from .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -30,14 +32,11 @@ env = environ.Env(
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-# SECRET_KEY = 'django-insecure-#alkzuck5xssxo_7*xphj0(tn$9!va7!^)z92yxr#h6-h8n94v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-#DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '10.5.0.4', '192.168.100.120', '0.0.0.0', '127.0.0.1']
-# SECURE_SSL_REDIRECT = int(os.environ.get('SECURE_SSL_REDIRECT'))
 SECURE_SSL_REDIRECT = True
 
 # Application definition
@@ -97,27 +96,27 @@ WSGI_APPLICATION = 'absensi_guru.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'absen_db',
-#         'USER': 'absen',
-#         'PASSWORD': 'root',
-#         'HOST': '10.5.0.2',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_absen',
-        'USER': 'postgres',
+        'NAME': 'absen_db',
+        'USER': 'absen',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'HOST': '10.5.0.2',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'db_absen',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
 
 
 # Password validation
@@ -146,8 +145,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+<<<<<<< HEAD
 # BASE_URL = absen.smkn1cibinong.sch.id
 
+=======
+>>>>>>> 744a3d5188ecc7f7af4a76ecc9fd28ed452e2fec
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -178,7 +180,7 @@ MEDIA_ROOT = Path(BASE_DIR, 'media')
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'https://localhost:8000',
+    BASE_URL,
 )
 
 SESSION_EXPIRE_SECONDS = 60 * 45
@@ -193,11 +195,15 @@ if platform == "linux" or platform == "linux2":
 elif platform == "win32":
     MEDIA_ABS_PATH = abspath('settings.py').replace("\\", "/").strip("/absensi_guru/settings.py")
 
-
-API_SERVER = "https://localhost:8000/face_detection/detect/"
+API_SERVER = BASE_URL + "/face_detection/detect/"
 
 CHECKIN_TIME = 7
 
 CHECKOUT_TIME = 16
 
 IS_UPDATE = True
+
+# Security Settings
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# SECURE_HSTS_SECONDS = True
