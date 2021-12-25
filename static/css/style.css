@@ -804,24 +804,20 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
   font-size: 26px;
   margin-left: 10px;
 }
-
 .absen .button-absen .izin button[disabled] {
   cursor: not-allowed;
   pointer-events: auto !important;
 }
-
 .absen .button-absen .izin button#izin {
   color: #fff;
   border: 1px solid #0d6efd;
   transition: 0.1s;
   background-color: rgba(13, 110, 253, 0.8);
 }
-
 .absen .button-absen .izin button#izin:hover {
   font-weight: 700;
   background-color: #0d6efd;
 }
-
 .absen .button-absen .izin button#izin:active {
   font-weight: 700;
   border: 1px solid #0d6efd;
@@ -829,89 +825,29 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
   color: #0d6efd;
   outline: rgba(13, 110, 253, 0.4);
 }
-
 .absen .button-absen .izin .modal .modal-body {
   margin: 20px 0 10px;
 }
-
 .absen .button-absen .izin .modal .modal-body .file-button {
   margin: 40px 0 10px;
   text-align: left !important;
 }
-
 .absen section.content-slider {
   padding-top: 50px;
   padding-bottom: 50px;
   text-align: center;
 }
-
 .absen section.content-slider h1.heading {
   font-size: 1.2em;
   font-weight: 700;
 }
-
 .absen section.content-slider .carousel {
   padding-top: 30px;
 }
-
 .absen section.content-slider .carousel .carousel-inner .slider .card {
   width: 28vw;
 }
-
-.absen section.content-slider .carousel.dekstop .carousel-inner {
-  display: flex;
-  justify-content: space-around;
-}
-
-.absen section.content-slider .carousel.dekstop .carousel-inner:after {
-  content: unset;
-}
-
-.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card {
-  height: 100%;
-}
-
-.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image {
-  width: 100%;
-  height: 70%;
-}
-
-.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-image img {
-  width: 100%;
-  height: 100%;
-}
-
-.absen section.content-slider .carousel.dekstop .carousel-inner .card .card-body {
-  height: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.absen section.content-slider .carousel.mobile .carousel-inner .slider .card {
-  height: 100%;
-  margin: 0 auto;
-  width: 18rem;
-}
-
-.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image {
-  width: 100%;
-  height: 200px;
-}
-
-.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image img {
-  width: 100%;
-  height: 100%;
-}
-
-.absen section.content-slider .carousel.mobile .carousel-inner .card .card-body {
-  height: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.absen section.content-slider .carousel .carousel-inner .card .card-body a {
+.absen section.content-slider .carousel .card .card-body a {
   padding: 10px 0;
   width: 80%;
   display: inline-block;
@@ -919,30 +855,68 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
   font-weight: 600;
   transition: unset;
 }
-
-.absen section.content-slider .carousel .carousel-inner .card .card-body a:hover {
+.absen section.content-slider .carousel .card .card-body a:hover {
   text-decoration: none;
   font-weight: 900;
 }
-
-.absen section.content-slider .carousel.dekstop button {
-  display: none;
-}
-
-.absen section.content-slider .carousel.mobile button {
-  display: unset;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
+.absen section.content-slider .carousel .carousel-control-prev,
+.absen section.content-slider .carousel .carousel-control-next {
   width: 10vw;
 }
-
-.carousel-control-prev span.bi,
-.carousel-control-next span.bi {
+.absen section.content-slider .carousel .carousel-control-prev span.bi,
+.absen section.content-slider .carousel .carousel-control-next span.bi {
   color: #8e8e8f;
   font-size: min(60px, 10vw);
   font-weight: 900;
+}
+.absen section.content-slider .carousel.dekstop .carousel-inner {
+  display: flex;
+  justify-content: space-around;
+}
+.absen section.content-slider .carousel.dekstop .carousel-inner:after {
+  content: unset;
+}
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card {
+  height: 100%;
+}
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card .card-image {
+  width: 100%;
+  height: 70%;
+}
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card .card-image img {
+  width: 100%;
+  height: 100%;
+}
+.absen section.content-slider .carousel.dekstop .carousel-inner .slider .card .card-body {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.absen section.content-slider .carousel.dekstop button {
+  display: none;
+}
+.absen section.content-slider .carousel.mobile .carousel-inner .slider .card {
+  height: 100%;
+  margin: 0 auto;
+  width: 18rem;
+}
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image {
+  width: 100%;
+  height: 200px;
+}
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-image img {
+  width: 100%;
+  height: 100%;
+}
+.absen section.content-slider .carousel.mobile .carousel-inner .card .card-body {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.absen section.content-slider .carousel.mobile button {
+  display: unset;
 }
 
 /* Responsive Table Absen | Absen Page */
@@ -950,44 +924,47 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
   .absen .head h1 {
     padding: 0 20px 5px;
   }
-
   .absen .button-absen {
     width: 100%;
     flex-wrap: wrap;
   }
-
   .absen .button-absen .masuk,
 .absen .button-absen .keluar,
 .absen .button-absen .izin {
     width: 100%;
     margin: 10px 0;
   }
-
   .absen .button-absen .masuk button#masuk,
+.absen .button-absen .masuk button#keluar,
+.absen .button-absen .masuk button#izin,
+.absen .button-absen .keluar button#masuk,
 .absen .button-absen .keluar button#keluar,
+.absen .button-absen .keluar button#izin,
+.absen .button-absen .izin button#masuk,
+.absen .button-absen .izin button#keluar,
 .absen .button-absen .izin button#izin {
     width: 60%;
   }
-
-  .absen .button-absen .masuk .modal .modal-header h5 {
+  .absen .button-absen .masuk .modal .modal-header h5,
+.absen .button-absen .keluar .modal .modal-header h5 {
     font-size: 18px;
   }
-
-  .absen .button-absen .masuk .modal .modal-body {
+  .absen .button-absen .masuk .modal .modal-body,
+.absen .button-absen .keluar .modal .modal-body {
     height: 50vh;
   }
-
-  .absen .button-absen .masuk .modal .modal-body .button button {
+  .absen .button-absen .masuk .modal .modal-body .button button,
+.absen .button-absen .keluar .modal .modal-body .button button {
     width: 100%;
     font-size: 14px;
   }
-
-  .absen .button-absen .masuk .modal .modal-body .button i {
+  .absen .button-absen .masuk .modal .modal-body .button button i,
+.absen .button-absen .keluar .modal .modal-body .button button i {
     font-size: 20px;
     margin-left: 10px;
   }
-
-  .absen .button-absen .masuk .modal .modal-body .canvas canvas {
+  .absen .button-absen .masuk .modal .modal-body .canvas canvas,
+.absen .button-absen .keluar .modal .modal-body .canvas canvas {
     background-color: rgba(0, 0, 0, 0.1);
     width: 73%;
     height: 80%;

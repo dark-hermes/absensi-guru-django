@@ -1,5 +1,7 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
+let baseUrl = 'https://localhost:8000/';
+
 function absen() {
     var app = new Vue({
         el: '#absen',
@@ -11,9 +13,11 @@ function absen() {
         },
 
         mounted(){
-            let urlMasuk = 'https://localhost:8000/api/presence/checkin/';
-            let urlKeluar = 'https://localhost:8000/api/presence/checkout/';
-            let urlKerja = 'https://localhost:8000/api/presence/days/';
+            let urlMasuk = baseUrl + 'api/presence/checkin/';
+            let urlKeluar = baseUrl + 'api/presence/checkout/';
+            let urlKerja = baseUrl + 'api/presence/days/';
+
+           
 
             fetch(urlKerja)
                 .then(response => response.json())
@@ -92,7 +96,7 @@ function showDataAbsen(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/showabsen/';
+            let url = baseUrl + 'api/showabsen/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
@@ -105,10 +109,7 @@ function showDataAbsen(){
                         year = splitDate.getFullYear();
                         date = splitDate.getDate();
                         day = splitDate.getDay();
-
-                        console.log(day)
                         
-
                         dateCreated = year+'-'+month+'-'+date+'-'+day;
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD-dddd")
                         .format('dddd DD-MM-YYYY');
@@ -142,7 +143,7 @@ function studyReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/subjects/';
+            let url = baseUrl + 'api/subjects/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{this.dataKelas = data;  
@@ -235,7 +236,7 @@ function showStudyReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/laporan/belajar/';
+            let url = baseUrl + 'api/laporan/belajar/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
@@ -269,7 +270,7 @@ function showGuidanceReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/laporan/bimbingan/';
+            let url = baseUrl + 'api/laporan/bimbingan/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
@@ -303,7 +304,7 @@ function showDutyReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/laporan/tugas-lainnya/';
+            let url = baseUrl + 'api/laporan/tugas-lainnya/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
@@ -337,7 +338,7 @@ function showDevelopmentReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/laporan/pengembangan/';
+            let url = baseUrl + 'api/laporan/pengembangan/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
@@ -371,7 +372,7 @@ function showScientificReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/laporan/karya-ilmiah/';
+            let url = baseUrl + 'api/laporan/karya-ilmiah/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
@@ -404,7 +405,7 @@ function showInnovativeReport(){
         },
 
         mounted(){
-            let url = 'https://localhost:8000/api/laporan/karya-inovatif/';
+            let url = baseUrl + 'api/laporan/karya-inovatif/';
             fetch(url)
                 .then(response => response.json() )
                 .then(data =>{
