@@ -145,11 +145,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 # BASE_URL = absen.smkn1cibinong.sch.id
 
-=======
->>>>>>> 744a3d5188ecc7f7af4a76ecc9fd28ed452e2fec
+#=======
+#>>>>>>> 744a3d5188ecc7f7af4a76ecc9fd28ed452e2fec
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
