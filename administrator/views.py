@@ -26,4 +26,4 @@ def show_users_admin(request):
 @login_required
 @staff_member_required
 def add_user_admin(request):
-    return render(request, 'users-admin.html')
+    return render(request, 'add-admin.html')
