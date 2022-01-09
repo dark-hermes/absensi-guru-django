@@ -12,7 +12,10 @@ class PresenceViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return Presence.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return Presence.objects.filter(employee_id__user=user)
+        else:
+            return Presence.objects.all()
     
 class CheckinViewset(viewsets.ModelViewSet):
     serializer_class = CheckinSerializer
@@ -20,21 +23,30 @@ class CheckinViewset(viewsets.ModelViewSet):
     
     def get_queryset(self):
         user = self.request.user
-        return CheckinRecord.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return CheckinRecord.objects.filter(employee_id__user=user)
+        else:
+            return CheckinRecord.objects.all()
     
 class CheckoutViewset(viewsets.ModelViewSet):
     serializer_class = CheckoutSerializer
     
     def get_queryset(self):
         user = self.request.user
-        return CheckoutRecord.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return CheckoutRecord.objects.filter(employee_id__user=user)
+        else:
+            return CheckoutRecord.objects.all()
     
 class DaysViewset(viewsets.ModelViewSet):
     serializer_class = DaysSerializer
     
     def get_queryset(self):
         user = self.request.user
-        return Days.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return Days.objects.filter(employee_id__user=user)
+        else:
+            return Days.objects.all()
     
     
     

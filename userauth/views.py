@@ -6,6 +6,7 @@ from django.contrib.auth.models import Group, User
 from django.contrib.auth.views import LoginView
 from userauth.models import Days, Employee
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 # def add_user(request):
 #     if request.POST:
@@ -27,6 +28,7 @@ from django.contrib.auth.decorators import login_required
 #     return render(request, 'add-user.html', context)
 
 @login_required
+@staff_member_required
 def add_user(request):
     if request.method == 'POST':
         credential_form = forms.CredentialForm(request.POST)

@@ -51,7 +51,9 @@ INDONESIAN_FORMAT = {
 @login_required
 @csrf_exempt
 def absen(request):
-
+    if request.user.is_staff:
+        return redirect('/admin/')
+    
     TODAY = datetime.datetime.now()
 
     nowDate = datetime.datetime.now()

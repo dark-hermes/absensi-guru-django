@@ -1,6 +1,4 @@
 @use 'variable' as v;
-@use 'global';
-
 
 /*  Navbar */
 nav.navbar {
@@ -9,53 +7,57 @@ nav.navbar {
         margin: 0 20px;
     }
 
-    .navbar-collapse .navbar-nav {
-        text-align: center;
-        transition: 0.3s;
+    .navbar-collapse{
+        justify-content: space-between;
 
-        .nav-item {
-            width: 100%;
-            margin: 0 20px;
-
-            .nav-link {
-                font-weight: 500;
-                border-radius: 5px;
-                width: 150px;
-            }
-
-            .nav-link.active {
-                color: white !important;
-                background-color: v.$primary-color;
-            }
-
-            &:hover {
-                color: white !important;
-                background-color: v.$primary-color;
-            }
-
-            .nav-link#navbarDropdownMenuLink {
+        .navbar-nav {
+            text-align: center;
+            transition: 0.3s;
+    
+            .nav-item {
                 width: 100%;
-            }
+                margin: 0 20px;
+    
+                .nav-link {
+                    font-weight: 500;
+                    border-radius: 5px;
+                    width: 150px;
 
-            ul.dropdown-menu {
-                min-width: 0;
-                padding: 0;
-                right: auto;
-                left: 50%;
-                transform: translate(-50%, 0);
-                transition: all 0.3s;
-                max-height: 0;
-                display: block;
-                overflow: hidden;
-                opacity: 0;
-                visibility: hidden;
+                    &:hover {
+                        color: white !important;
+                        background-color: v.$primary-color;
+                    }
+                }
+    
+                .nav-link.active {
+                    color: white !important;
+                    background-color: v.$primary-color;
+                }
+    
+                .nav-link#navbarDropdownMenuLink {
+                    width: 100%;
+                }
             }
+        }    
+        
+        ul.dropdown-menu {
+            min-width: 0;
+            padding: 0;
+            right: auto;
+            left: 50%;
+            transform: translate(-50%, 0);
+            transition: all 0.3s;
+            max-height: 0;
+            display: block;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+        }
 
-            ul.dropdown-menu.show {
-                max-height: 500px;
-                opacity: 1;
-                visibility: visible;
-            }
+        ul.dropdown-menu.show {
+            max-height: 500px;
+            opacity: 1;
+            visibility: visible;
         }
     }
 }

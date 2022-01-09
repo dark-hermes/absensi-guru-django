@@ -1,0 +1,117 @@
+{% extends 'base-admin.html' %}
+{% load static %}
+{% block title %}
+    <title>Rekap Absen</title>
+{% endblock title %}
+
+{% block content %}
+    <section class="container-dashboard-admin">
+        {% include 'sidebar-admin.html' %}
+        <section class="content">
+            <div class="action">
+                <div class="search">
+                    <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" placeholder="Cari Disini">
+                </div>
+                <div class="filter">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected hidden>Filter</option>
+                        <option value="1">Hari Ini</option>
+                        <option value="2">Bulan Ini</option>
+                        <option value="3">Tahun Ini</option>
+                        <option value="4">Custom Tanggal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Nama</th>
+                            <th>NIP</th>
+                            <th>Jam Masuk</th>
+                            <th>Bukti Masuk</th>
+                            <th>Jam Keluar</th>
+                            <th>Bukti Keluar</th>
+                            <th>Keterangan Masuk</th>
+                            <th>Keterangan Keluar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Rabu 11-Januari-2022</td>
+                            <td>Hemawan Fanreza</td>
+                            <td>01929382572384</td>
+                            <td>11:20</td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                    Lihat Bukti
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Bukti Masuk</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="logokampak.png" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Understood</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>15:90</td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                    Lihat Bukti
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Bukti Keluar</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="logokampak.png" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Understood</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Tepat Waktu</td>
+                            <td>Terlambat</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+{% endblock content%}
