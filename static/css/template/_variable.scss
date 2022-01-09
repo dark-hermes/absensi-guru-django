@@ -11,4 +11,40 @@ $secondary-text-color: #8e8e8f;
 
 
 // Font
-$primary-font: "Poppins", sans-serif;
+$primary-font: "Poppins",sans-serif;
+
+
+// Mixin property
+@mixin centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Global Property
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+body::after {
+    content: "";
+    display: block;
+    height: 30px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+[v-cloak] {
+    display: none;
+}

@@ -27,9 +27,39 @@ p {
   display: none;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 30px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+[v-cloak] {
+  display: none;
+}
+
 /*  Navbar */
 nav.navbar .navbar-brand {
   margin: 0 20px;
+}
+nav.navbar .navbar-collapse {
+  justify-content: space-between;
 }
 nav.navbar .navbar-collapse .navbar-nav {
   text-align: center;
@@ -44,18 +74,18 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
   border-radius: 5px;
   width: 150px;
 }
-nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link.active {
+nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
   color: white !important;
   background-color: #3b86ff;
 }
-nav.navbar .navbar-collapse .navbar-nav .nav-item:hover {
+nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link.active {
   color: white !important;
   background-color: #3b86ff;
 }
 nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link#navbarDropdownMenuLink {
   width: 100%;
 }
-nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu {
+nav.navbar .navbar-collapse ul.dropdown-menu {
   min-width: 0;
   padding: 0;
   right: auto;
@@ -68,7 +98,7 @@ nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu {
   opacity: 0;
   visibility: hidden;
 }
-nav.navbar .navbar-collapse .navbar-nav .nav-item ul.dropdown-menu.show {
+nav.navbar .navbar-collapse ul.dropdown-menu.show {
   max-height: 500px;
   opacity: 1;
   visibility: visible;

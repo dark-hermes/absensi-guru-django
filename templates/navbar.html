@@ -6,15 +6,16 @@
             <img src="{% static 'image/logokampak.png'%}" alt="" width="50" height="51">
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn {% active_link 'absen || show' 'active' %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle btn {% active_link 'absen || show' 'active' %}" href="#"
+                        id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Absensi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
@@ -24,40 +25,50 @@
                 </div>
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn {% active_link 'study_report || guidance_report || duty_report || human_development_report || scientific_work_report || innovative_work_report' 'active' %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle btn {% active_link 'study_report || guidance_report || duty_report || human_development_report || scientific_work_report || innovative_work_report' 'active' %}"
+                        href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         Buat Laporan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'study_report'%}">Proses Pembelajaran</a></li>
                         <li><a class="dropdown-item" href="{% url 'guidance_report'%}">Proses Bimbingan</a></li>
                         <li><a class="dropdown-item" href="{% url 'duty_report'%}">Tugas Lainnya</a></li>
-                        <li><a class="dropdown-item" href="{%url 'human_development_report'%}">Pengembangan Diri</a></li>
+                        <li><a class="dropdown-item" href="{%url 'human_development_report'%}">Pengembangan Diri</a>
+                        </li>
                         <li><a class="dropdown-item" href="{% url 'scientific_work_report'%}">Publikasi Ilmiah</a></li>
                         <li><a class="dropdown-item" href="{% url 'innovative_work_report'%}">Karya Inovatif</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn {% active_link 'show_study_report || show_guidance_report || show_duty_report || show_human_development_report || show_scientific_work_report || show_innovative_work_report' 'active' %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle btn {% active_link 'show_study_report || show_guidance_report || show_duty_report || show_human_development_report || show_scientific_work_report || show_innovative_work_report' 'active' %}"
+                        href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         Laporanku
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'show_study_report'%}">Proses Pembelajaran</a></li>
                         <li><a class="dropdown-item" href="{% url 'show_guidance_report'%}">Proses Bimbingan</a></li>
                         <li><a class="dropdown-item" href="{% url 'show_duty_report'%}">Tugas Lainnya</a></li>
-                        <li><a class="dropdown-item" href="{% url 'show_human_development_report'%}">Pengembangan Diri</a></li>
-                        <li><a class="dropdown-item" href="{% url 'show_scientific_work_report'%}">Publikasi Ilmiah</a></li>
-                        <li><a class="dropdown-item" href="{% url 'show_innovative_work_report'%}">Karya Inovatif</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_human_development_report'%}">Pengembangan
+                                Diri</a></li>
+                        <li><a class="dropdown-item" href="{% url 'show_scientific_work_report'%}">Publikasi Ilmiah</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'show_innovative_work_report'%}">Karya Inovatif</a>
+                        </li>
                     </ul>
                 </div>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.first_name }} {{ user.last_name }}</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
-                        <li><a class="dropdown-item" href="change_password">Ganti Password</a></li>
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-                    </ul>
-                </li>
+
             </ul>
+
+            <div class="nav-item dropdown profile">
+                <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.first_name }} {{ user.last_name }}</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
+                    <li><a class="dropdown-item" href="change_password">Ganti Password</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

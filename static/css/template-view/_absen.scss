@@ -1,5 +1,4 @@
 @use '../template/variable'as v;
-@use '../template/global'as g;
 
 
 @mixin disable-button {
@@ -237,6 +236,9 @@
         }
     }
 
+
+
+    
     // Slider
     section.content-slider {
         padding-top: 50px;
