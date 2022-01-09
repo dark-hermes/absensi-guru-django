@@ -66,7 +66,8 @@ urlpatterns = [
     path('admin/rekap-absen', show_absen_admin, name='show_absen_admin'),
     path('admin/rekap-laporan', show_laporan_admin, name='show_laporan_admin'),
     path('admin/user-list', show_users_admin, name='show_users_admin'),
-    path('admin/add-user', add_user_admin, name='add_user_admin'),
+    path('admin/add-user', add_user, name='add_user'),
+    path('admin/add-user-bulk', add_user_bulk, name='add_user_bulk'),
 ]
 
 # path('admin/', admin.site.urls),
