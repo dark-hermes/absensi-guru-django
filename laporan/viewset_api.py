@@ -22,7 +22,10 @@ class StudyReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return StudyReport.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return StudyReport.objects.filter(employee_id__user=user)
+        else:
+            return StudyReport.objects.all()
 
 class GuidanceReportViewset(viewsets.ModelViewSet):
     serializer_class = GuidanceReportSerializers
@@ -33,7 +36,10 @@ class GuidanceReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return GuidanceReport.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return GuidanceReport.objects.filter(employee_id__user=user)
+        else:
+            return GuidanceReport.objects.all()
     
 class ScientificWorkReportViewset(viewsets.ModelViewSet):
     serializer_class = ScientificWorkReportSerializers
@@ -44,7 +50,10 @@ class ScientificWorkReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return ScientificWorkReport.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return ScientificWorkReport.objects.filter(employee_id__user=user)
+        else:
+            return ScientificWorkReport.objects.all()
     
 class InnovativeWorkReportViewset(viewsets.ModelViewSet):
     serializer_class = InnovativeWorkReportSerializers
@@ -55,7 +64,10 @@ class InnovativeWorkReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return InnovativeWorkReport.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return InnovativeWorkReport.objects.filter(employee_id__user=user)
+        else:
+            return InnovativeWorkReport.objects.all()
     
 class HumanDevelopmentReportViewset(viewsets.ModelViewSet):
     serializer_class = HumanDevelopmentReportSerializers
@@ -66,7 +78,10 @@ class HumanDevelopmentReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return HumanDevelopmentReport.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return HumanDevelopmentReport.objects.filter(employee_id__user=user)
+        else:
+            return HumanDevelopmentReport.objects.all()
     
 class DutyReportViewset(viewsets.ModelViewSet):
     serializer_class = DutyReportSerializers
@@ -77,4 +92,7 @@ class DutyReportViewset(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        return DutyReport.objects.filter(employee_id__user=user)
+        if user.is_staff != True:
+            return DutyReport.objects.filter(employee_id__user=user)
+        else:
+            return DutyReport.objects.all()
