@@ -39,6 +39,7 @@ router.register('laporan/pengembangan', HumanDevelopmentReportViewset, basename=
 router.register('laporan/karya-inovatif', InnovativeWorkReportViewset, basename='InnovativeWorkReport')
 router.register('laporan/karya-ilmiah', ScientificWorkReportViewset, basename='ScientificWorkReport')
 router.register('laporan/tugas-lainnya', DutyReportViewset, basename='DutyReport')
+router.register('users', EmployeeViewset, basename='Users')
 
 
 urlpatterns = [

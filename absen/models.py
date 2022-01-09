@@ -21,8 +21,8 @@ class CheckoutRecord(models.Model):
     time = models.DateTimeField(blank=True, null=True)
     is_checked = models.BooleanField(default=False)
     
-class Notification(models.Model):
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50, blank=True, null=True)
-    desc = models.CharField(max_length=200, blank=True, null=True)
-    is_checked = models.BooleanField(default=False)
+# class Notification(models.Model):
+#     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
+#     title = models.CharField(max_length=50, blank=True, null=True)
+#     desc = models.CharField(max_length=200, blank=True, null=True)
+#     is_checked = models.BooleanField(default=False)
