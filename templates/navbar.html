@@ -59,10 +59,11 @@
                         </li>
                     </ul>
                 </div>
+
             </ul>
 
             <div class="nav-item dropdown profile">
-                <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.first_name }}</a>
+                <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.first_name }} {{ user.last_name }}</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
                     <li><a class="dropdown-item" href="change_password">Ganti Password</a></li>
                     <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>

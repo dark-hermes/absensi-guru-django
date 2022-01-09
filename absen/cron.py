@@ -23,8 +23,9 @@ def auto_fill_presence():
     for user_id in user_list:
         work_days = Days.objects.get(employee_id=user_id)
         
-        exec(f"""if work_days.{today} == True:
-            empty_presence = Presence(employee_id=user_id,presence_date=now_date.strftime('%Y-%m-%d'))
-            empty_presence.save()""")
+        if today != "saturday" or today != "sunday":
+            exec(f"""if work_days.{today} == True:
+                empty_presence = Presence(employee_id=user_id,presence_date=now_date.strftime('%Y-%m-%d'))
+                empty_presence.save()""")
         
         
