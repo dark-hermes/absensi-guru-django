@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import Group, User
 from userauth.models import Days, Employee
 import csv
+from django.conf import settings
 # Create your views here.
 @login_required
 @staff_member_required
@@ -34,7 +35,7 @@ def add_user_admin(request):
 @login_required
 @staff_member_required
 def add_user_bulk(request):
-    with open('D:/Project/absensi-guru-django/media/guidance_report/user_absen_sija.csv') as users:
+    with open(settings.MEDIA_ABS_PATH + '/media/guidance_report/user_absen_sija.csv') as users:
         users = csv.reader(users, delimiter=';')
         for user in users:
             name = user[2].split(' ')
