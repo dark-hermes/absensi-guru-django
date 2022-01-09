@@ -1,0 +1,19 @@
+{% load static %}
+
+<section class="sidebar">
+    <div class="brand">
+        <span>SEKAR</span>
+        <i class='bx bx-menu-alt-right'></i>
+    </div>
+    <nav>
+        <div class="nav-content">
+            <a href="{% url 'show_dashboard_admin' %}" class="active"><i class='bx bxs-grid-alt'></i> <span>Dashboard</span></a>
+            <a href="{% url 'show_laporan_admin' %}"><i class='bx bxs-report'></i><span>Lihat Laporan</span></a>
+            <a href="{% url 'show_absen_admin' %}"><i class='bx bxs-log-in'></i><span>Lihat Absensi</span></a>
+            <a href="{% url 'show_users_admin' %}"><i class='bx bxs-user-account'></i><span>Lihat User</span></a>
+        </div>
+        <div class="profile">
+            <a href=""><i class='bx bxs-user-circle'></i><span>Fanreza</span><i class='bx bx-log-out-circle'></i></a>
+        </div>
+    </nav>
+</section>

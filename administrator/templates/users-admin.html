@@ -1,0 +1,46 @@
+{% extends 'base-admin.html' %}
+{% load static %}
+{% block title %}
+    <title>Dashboard</title>
+{% endblock title %}
+
+{% block content %}
+    <section class="container-dashboard-admin">
+        {% include 'sidebar-admin.html' %}
+        <section class="content">
+            <div class="action">
+                <div class="search">
+                    <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" placeholder="Cari Disini">
+                </div>
+                <div class="add-user">
+                    <a href="add.html" class="add">Tambah User</a>
+                </div>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NIP</th>
+                            <th>Role</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Hemawan Fanreza</td>
+                            <td>01929382572384</td>
+                            <td>Admin</td>
+                            <td>
+                                <a href="" class="edit">Edit</a>
+                                <a href="" class="delete">Hapus</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+{% endblock content%}
