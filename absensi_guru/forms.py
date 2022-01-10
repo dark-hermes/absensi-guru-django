@@ -1,17 +1,31 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from userauth.models import Employee, Days
-from django import forms
+from django import forms 
+from django.contrib.auth import get_user_model
 class CredentialForm(UserCreationForm):
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ["username", "password1", "password2"]
-        labels = {
-            'username': 'Username',
-            'password1': 'Password',
-            'password2': 'Confirm Password'
-        }
+        # labels = {
+        #     'username': 'Username',
+        #     'password1': 'Password',
+        #     'password2': 'Konfirmasi Password'
+        # }
         
+        # widgets = {
+        #     "username":forms.TextInput(attrs={'class':'form-control', 'id':'floating-username', 'placeholder':'hermawan123', 'name':'username', 'required': True}),
+        #     'password1': forms.PasswordInput(attrs={'class':'form-control'}),
+        #     'password2': forms.PasswordInput(attrs={'class':'form-control', 'id':'floating-password-confirm', 'placeholder':'********', 'name':'password-confirm', 'required': True})
+        # }
+        
+        # def __init__(self, *args, **kwargs):
+        #     super(CredentialForm, self).__init__(*args, **kwargs)
+            # self.fields['password1'] = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'autocomplete':'new-password', 'required':True, 'id':'id_password1'}))
+        
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'id':'floating-username', 'placeholder':'hermawan123', 'name':'username', 'required': True}))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', "placeholder":'***********', 'autocomplete':'new-password', 'required':True, 'id':'floating-password'}))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', "placeholder":'***********', 'autocomplete':'new-password', 'required':True, 'id':'floating-password-confirm'}))
 class EmployeeForm(forms.ModelForm):
     
     CHOICES = [
@@ -20,7 +34,7 @@ class EmployeeForm(forms.ModelForm):
         ('user', 'User')
     ]
     
-    group = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect, label='')
+    group = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect(attrs={'class': 'form-check-input'}), label='')
     
     class Meta:
         model = Employee
@@ -30,6 +44,11 @@ class EmployeeForm(forms.ModelForm):
             "nip": "NIP",
             "position": "Posisi",
             "group": "Role",
+        }
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-name', 'placeholder':'Hermawan Fanreza', 'name':'fullname', 'required': True}),
+            'nip': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-nip', 'placeholder':'123456789', 'name':'nip'}),
+            'position': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-posisi', 'placeholder':'Guru Matematika', 'name':'position', 'required': True}),
         }
         
 class DaysForm(forms.ModelForm):
@@ -42,4 +61,12 @@ class DaysForm(forms.ModelForm):
             "wednesday": "Rabu",
             "thursday": "Kamis",
             "friday": "Jumat"
+        }
+        
+        widgets = {
+            'monday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_monday', 'checked': True, 'name':'monday'}),
+            'tuesday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_tuesday', 'checked': True, 'name':'tuesday'}),
+            'wednesday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_wednesday', 'checked': True, 'name':'wednesday'}),
+            'thursday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_thursday', 'checked': True, 'name':'thursday'}),
+            'friday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_friday', 'checked': True, 'name':'friday'}),
         }

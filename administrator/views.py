@@ -29,11 +29,6 @@ def show_users_admin(request):
 
 @login_required
 @staff_member_required
-def add_user_admin(request):
-    return render(request, 'add-admin.html')
-
-@login_required
-@staff_member_required
 def add_user_bulk(request):
     with open(settings.MEDIA_ABS_PATH + '/media/guidance_report/user_absen_sija.csv') as users:
         users = csv.reader(users, delimiter=';')
@@ -72,4 +67,5 @@ def add_user_bulk(request):
     #     user.delete()
             
     return render(request, 'bulk-add-users-admin.html')
+
             
