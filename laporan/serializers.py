@@ -29,6 +29,7 @@ class StudyReportSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         data['class_name'] = ClassSerializer(instance.class_name).data
         data['subject_name'] = SubjectSerializers(instance.subject_name).data
+        data['employee_id'] = EmployeeSerializer(instance.employee_id).data
         return data
     
 class GuidanceReportSerializers(serializers.ModelSerializer):
