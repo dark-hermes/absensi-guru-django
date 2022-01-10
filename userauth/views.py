@@ -37,7 +37,11 @@ def add_user(request):
         
         if credential_form.is_valid() and employee_form.is_valid() and days_form.is_valid():
             credential_form_f = credential_form.save(commit=False)
-            credential_form_f.first_name = request.POST.get('full_name').split()[0]
+            first_name = request.POST.get('full_name').split(' ')
+            first_name.pop()
+            first_name = ' '.join(first_name)
+            credential_form_f.first_name = first_name
+            credential_form_f.last_name = request.POST.get('full_name').split()[-1]
             if request.POST.get('group') == "admin":
                 credential_form_f.is_staff = True
                 credential_form.is_superuser = True
@@ -67,7 +71,7 @@ def add_user(request):
                 'message': message,
             }
             
-            return render(request, 'add-user.html', context)
+            return render(request, 'add-admin.html', context)
         
         elif not credential_form.is_valid():
             context = {
@@ -77,7 +81,7 @@ def add_user(request):
                 'message': "Gagal menambah pengguna, username atau password tidak tersedia"
             }
         
-            return render(request, 'add-user.html', context)
+            return render(request, 'add-admin.html', context)
         
         else:
             context = {
@@ -87,7 +91,7 @@ def add_user(request):
                 'message': "Gagal menambah pengguna, pastikan data terisi dengan benar"
             }
         
-            return render(request, 'add-user.html', context)
+            return render(request, 'add-admin.html', context)
             
             
     else:
@@ -96,8 +100,7 @@ def add_user(request):
                 'employee_form': forms.EmployeeForm(),
                 'days_form': forms.DaysForm(),
             }
-        
-        return render(request, 'add-user.html', context)
+        return render(request, 'add-admin.html', context)
     
 def delete_user(request, id_user):
     user = User.objects.get(employee__id=id_user)
