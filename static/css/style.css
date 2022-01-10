@@ -1962,6 +1962,19 @@ nav.navbar .navbar-collapse ul.dropdown-menu.show {
 .container-admin .content .action .search input:focus {
   outline: none;
 }
+.container-admin .content .action .add-user .add {
+  background-color: #3b86ff;
+  text-decoration: none;
+  padding: 0.5em 0.8em;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.container-admin .content .action .add-user .add:hover {
+  background-color: transparent;
+  color: #3b86ff;
+  border: 1px solid #3b86ff;
+}
 .container-admin .table {
   max-height: 500px;
   overflow: auto;

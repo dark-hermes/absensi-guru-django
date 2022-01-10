@@ -18,7 +18,7 @@ function showUsers(){
     });
 }
 
-function showStudyReportAdmin(){
+function showReportAdmin(){
     var app = new Vue({
         el: '.content',
         delimiters: ['[[', ']]'],
@@ -343,4 +343,24 @@ function showStudyReportAdmin(){
             }
         },        
     });
+}
+
+
+function showAttendAdmin(){
+    var app = new Vue({
+        el: '.content',
+        delimiters: ['[[', ']]'],
+        data: {
+            dataAttendUser: '',
+        },
+        mounted(){
+            let url = baseUrl + 'api/showabsen';
+            fetch(url)
+                .then(response => response.json() )
+                .then(data =>{
+                    this.dataAttendUser = data;
+            });
+        },
+
+    })
 }

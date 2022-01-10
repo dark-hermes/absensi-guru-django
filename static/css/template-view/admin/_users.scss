@@ -35,6 +35,23 @@
                     }
                 }
             }
+
+            .add-user {
+                .add {
+                    background-color: #3b86ff;
+                    text-decoration: none;
+                    padding: .5em .8em;
+                    color: #fff;
+                    border-radius: 5px;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: transparent;
+                        color: #3b86ff;
+                        border: 1px solid #3b86ff;
+                    }
+                }
+            }
         }
     }
 

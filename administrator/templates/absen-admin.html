@@ -39,21 +39,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rabu 11-Januari-2022</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>01929382572384</td>
-                            <td>11:20</td>
+                        <tr v-for=" (data,index) in dataAttendUser ">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.presence_date ]]</td>
+                            <td>[[ data.employee_id.full_name ]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
+                            <td>[[ data.checkin_time ]]</td>
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
+                                    :data-bs-target="' #attendIn-doc-' + index">
                                     Lihat Bukti
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                <div class="modal fade" :id= " 'attendIn-doc-' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -75,16 +75,16 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>15:90</td>
+                            <td>[[ data.checkout_time ]]</td>
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
+                                    :data-bs-target="'#attendOut-doc-' + index ">
                                     Lihat Bukti
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                <div class="modal fade" :id="'attendOut-doc-' + index " data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -106,8 +106,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>Tepat Waktu</td>
-                            <td>Terlambat</td>
+                            <td>[[ data.checkin_desc ]]</td>
+                            <td>[[ data.checkout_desc ]]</td>
                         </tr>
                     </tbody>
                 </table>
@@ -115,3 +115,10 @@
         </section>
     </section>
 {% endblock content%}
+{% block opt_script %}
+    
+    <script type="text/javascript">
+        showAttendAdmin()
+    </script>
+
+{% endblock %}
