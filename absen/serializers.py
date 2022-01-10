@@ -7,6 +7,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = '__all__'
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['groups'] = instance.groups.values_list('name', flat=True)
+        return data
 class PresenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Presence
