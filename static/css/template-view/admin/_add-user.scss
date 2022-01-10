@@ -1,0 +1,58 @@
+@use '../../template/variable'as v;
+
+
+.container-admin {
+    width: 100%;
+
+    .content {
+        width: 85%;
+        margin-left: auto;
+        padding: 3em;
+
+        form {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            background-color: #fff;
+            padding: 1em;
+            border-radius: 5px;
+
+            .form-floating {
+                margin-bottom: 1em;
+
+                .info {
+                    font-size: .8em;
+                    margin-top: .5em;
+                }
+            }
+
+            .role,
+            .day-work {
+                margin-bottom: 1em;
+
+                .input {
+                    display: flex;
+                    margin-top: 1em;
+
+                    .form-check {
+                        margin-left: 1em;
+
+                        input,
+                        label {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .submit {
+                width: 100%;
+                background-color: #3b86ff;
+                border: none;
+                outline: none;
+                color: #fff;
+                font-weight: bold;
+                padding: .8em 0;
+                border-radius: 5px;
+            }
+        }
+    }
+}

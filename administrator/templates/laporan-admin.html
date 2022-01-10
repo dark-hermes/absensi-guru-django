@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <section class="container-dashboard-admin">
+    <section class="container-admin">
         {% include 'sidebar-admin.html' %}
         <section class="content">
             <div class="action">
@@ -14,14 +14,14 @@
                     <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" placeholder="Cari Disini">
                 </div>
                 <div class="select-laporan">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected hidden>Pilih Laporan</option>
-                        <option value="">Laporan Belajar</option>
-                        <option value="">Laporan Bimbingan</option>
-                        <option value="">Laporan Pengembangan</option>
-                        <option value="">Laporan Tugas</option>
-                        <option value="">Laporan Karya</option>
-                        <option value="">Laporan Ilmiah</option>
+                    <select @change="selectReport($event)" class="form-select" aria-label="Default select example">
+                        <option selected hidden >Pilih Laporan</option>
+                        <option value="study">Laporan Belajar</option>
+                        <option value="guidance">Laporan Bimbingan</option>
+                        <option value="development">Laporan Pengembangan</option>
+                        <option value="duty">Laporan Tugas</option>
+                        <option value="inovative">Laporan Karya</option>
+                        <option value="scientific">Laporan Ilmiah</option>
                     </select>
                 </div>
                 <div class="filter">
@@ -34,7 +34,7 @@
                     </select>
                 </div>
             </div>
-            <div class="table">
+            <div class="table table-report table-study">
                 <table>
                     <thead>
                         <tr>
@@ -54,28 +54,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rabu 11-Januari-2022</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>01929382572384</td>
-                            <td>11:20</td>
-                            <td>XII SIJA</td>
-                            <td>Bindo</td>
-                            <td>2</td>
-                            <td>5</td>
-                            <td>43</td>
-                            <td>LMS</td>
+                        <tr v-for="(data,index) in dataFetchedStudy">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.created_at ]]</td>
+                            <td>[[ data.employee_id.full_name ]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
+                            <td>[[ data.hours ]]</td>
+                            <td>[[ data.class_name.class_name ]]</td>
+                            <td>[[ data.subject_name.subject_name ]]</td>
+                            <td>[[ data.total_student ]]</td>
+                            <td>[[ data.presence_student ]]</td>
+                            <td>[[ data.absence_student ]]</td>
+                            <td>[[ data.method ]]</td>
                             <td>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
-                                    data-bs-target="#report-1">
+                                    :data-bs-target=" '#desc-study' + index">
                                     Selengkapnya
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade report" id="report-1" data-bs-backdrop="static"
+                                <div class="modal fade report" :id=" 'desc-study' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -86,7 +86,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iste quas doloribus fugit animi cupiditate eius consequuntur labore expedita ratione aspernatur nisi nobis, placeat perferendis accusantium inventore, modi natus aliquam!</p>
+                                                <p>[[ data.desc ]]</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -99,12 +99,12 @@
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#doc-1">
+                                    :data-bs-target=" '#doc-study' + index">
                                     Lihat Dokumentasi
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="doc-1" data-bs-backdrop="static"
+                                <div class="modal fade" :id=" 'doc-study' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -115,7 +115,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="logokampak.png" alt="">
+                                                <img :src="data.documentation" alt="">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -129,7 +129,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table">
+            <div class="table table-report table-guidance">
                 <table>
                     <thead>
                         <tr>
@@ -142,21 +142,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rabu 11-Januari-2022</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>01929382572384</td>
+                        <tr v-for="(data,index) in dataFetchedGuidance">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.created_at ]]</td>
+                            <td>[[ data.employee_id.full_name ]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
                             <td>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
-                                    data-bs-target="#report-1">
+                                    :data-bs-target=" '#desc-guidance' + index">
                                     Selengkapnya
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade report" id="report-1" data-bs-backdrop="static"
+                                <div class="modal fade report" :id=" 'desc-guidance' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -167,7 +167,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iste quas doloribus fugit animi cupiditate eius consequuntur labore expedita ratione aspernatur nisi nobis, placeat perferendis accusantium inventore, modi natus aliquam!</p>
+                                                <p>[[ data.desc ]]</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -180,12 +180,12 @@
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#doc-1">
+                                    :data-bs-target=" '#doc-guidance' + index">
                                     Lihat Dokumentasi
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="doc-1" data-bs-backdrop="static"
+                                <div class="modal fade" :id=" 'doc-guidance' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -196,7 +196,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="logokampak.png" alt="">
+                                                <img :src="data.documentation" alt="">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -210,7 +210,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table">
+            <div class="table table-report table-duty">
                 <table>
                     <thead>
                         <tr>
@@ -224,22 +224,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rabu 11-Januari-2022</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>01929382572384</td>
-                            <td>Panitia</td>
+                        <tr v-for="(data,index) in dataFetchedDuty">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.created_at ]]</td>
+                            <td>[[ data.employee_id.full_name ]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
+                            <td>[[ data.role.role_name ]]</td>
                             <td>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
-                                    data-bs-target="#report-1">
+                                    :data-bs-target=" '#desc-duty' + index">
                                     Selengkapnya
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade report" id="report-1" data-bs-backdrop="static"
+                                <div class="modal fade report" :id=" 'desc-duty' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -250,7 +250,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iste quas doloribus fugit animi cupiditate eius consequuntur labore expedita ratione aspernatur nisi nobis, placeat perferendis accusantium inventore, modi natus aliquam!</p>
+                                                <p>[[ data.desc ]]</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -263,12 +263,12 @@
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#doc-1">
+                                    :data-bs-target=" '#doc-duty' + index">
                                     Lihat Dokumentasi
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="doc-1" data-bs-backdrop="static"
+                                <div class="modal fade" :id=" 'doc-duty' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -279,7 +279,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="logokampak.png" alt="">
+                                                <img :src="data.documentation" alt="">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -293,7 +293,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table">
+            <div class="table table-report table-development">
                 <table>
                     <thead>
                         <tr>
@@ -309,24 +309,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rabu 11-Januari-2022</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>8390423842</td>
-                            <td>Mengajar</td>
-                            <td>Pengajar</td>
-                            <td>20</td>
+                        <tr v-for="(data,index) in dataFetchedDevelopment">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.created_at ]]</td>
+                            <td>[[ data.employee_id.full_name]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
+                            <td>[[ data.category ]]</td>
+                            <td>[[ data.role ]]</td>
+                            <td>[[ data.duration ]]</td>
                             <td>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
-                                    data-bs-target="#report-1">
+                                    :data-bs-target=" '#desc-development' + index">
                                     Selengkapnya
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade report" id="report-1" data-bs-backdrop="static"
+                                <div class="modal fade report" :id=" 'desc-development' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -337,7 +337,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iste quas doloribus fugit animi cupiditate eius consequuntur labore expedita ratione aspernatur nisi nobis, placeat perferendis accusantium inventore, modi natus aliquam!</p>
+                                                <p>[[ data.desc ]]</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -350,12 +350,12 @@
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#doc-1">
+                                    :data-bs-target=" '#doc-development' + index">
                                     Lihat Dokumentasi
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="doc-1" data-bs-backdrop="static"
+                                <div class="modal fade" :id=" 'doc-development' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -366,7 +366,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="logokampak.png" alt="">
+                                                <img :src="data.documentation" alt="">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -380,7 +380,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table">
+            <div class="table table-report table-inovative">
                 <table>
                     <thead>
                         <tr>
@@ -394,22 +394,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rabu 11-Januari-2022</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>01929382572384</td>
-                            <td>Mesin Penggerak Nuklir</td>
+                        <tr v-for="(data,index) in dataFetchedInovative">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.created_at ]]</td>
+                            <td>[[ data.employee_id.full_name ]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
+                            <td>[[ data.category.category_name ]]</td>
                             <td>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
-                                    data-bs-target="#report-1">
+                                    :data-bs-target=" '#desc-inovative' + index">
                                     Selengkapnya
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade report" id="report-1" data-bs-backdrop="static"
+                                <div class="modal fade report" :id=" 'desc-inovative' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -420,7 +420,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iste quas doloribus fugit animi cupiditate eius consequuntur labore expedita ratione aspernatur nisi nobis, placeat perferendis accusantium inventore, modi natus aliquam!</p>
+                                                <p>[[ data.desc ]]</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -433,12 +433,12 @@
                             <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#doc-1">
+                                    :data-bs-target=" '#doc-inovative' + index">
                                     Lihat Dokumentasi
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="doc-1" data-bs-backdrop="static"
+                                <div class="modal fade" :id=" 'doc-inovative' + index" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
@@ -449,7 +449,90 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="logokampak.png" alt="">
+                                                <img :src="data.documentation" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table table-report table-scientific">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Nama</th>
+                            <th>NIP</th>
+                            <th>Karya</th>
+                            <th>Keterangan</th>
+                            <th>Dokumentasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data,index) in dataFetchedScientific">
+                            <td>[[ index + 1 ]]</td>
+                            <td>[[ data.created_at ]]</td>
+                            <td>[[ data.employee_id.full_name ]]</td>
+                            <td>[[ data.employee_id.nip ]]</td>
+                            <td>[[ data.category.category_name ]]</td>
+                            <td>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn report" data-bs-toggle="modal"
+                                    :data-bs-target=" '#desc-scientific' + index">
+                                    Selengkapnya
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade report" :id=" 'desc-scientific' + index" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Keterangan</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>[[ data.desc ]]</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    :data-bs-target=" '#doc-scientific' + index">
+                                    Lihat Dokumentasi
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" :id=" 'doc-scientific' + index" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img :src="data.documentation" alt="">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -466,3 +549,10 @@
         </section>
     </section>
 {% endblock content%}
+{% block opt_script %}
+    
+    <script type="text/javascript">
+        showStudyReportAdmin()
+    </script>
+
+{% endblock %}

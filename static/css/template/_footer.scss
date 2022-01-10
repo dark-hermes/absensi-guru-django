@@ -10,7 +10,7 @@
     color: v.$secondary-text-color;
     text-align: center;
     height: 30px;
-    @include g.centered;
+    @include v.centered;
 
     * {
         transition: 0.5s;

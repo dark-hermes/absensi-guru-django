@@ -1,5 +1,4 @@
 @use 'template/variable' as v;
-@use 'template/global';
 @use 'template/navbar';
 @use 'template/sidebar';
 @use 'template/footer';
@@ -13,7 +12,11 @@
 @use 'template-view/laporan-pengembangan';
 @use 'template-view/laporan-karya';
 
-@use 'template-view/admin/dashboard-admin.scss';
+@use 'template-view/admin/dashboard-admin';
+@use 'template-view/admin/add-user.scss';
+@use 'template-view/admin/laporan-admin';
+@use 'template-view/admin/users';
+
 
 
 

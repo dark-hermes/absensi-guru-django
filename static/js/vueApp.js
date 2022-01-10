@@ -153,19 +153,19 @@ function studyReport(){
                     let selValue = $("#id_class_name").val();
                     let s = $("#jenis-mapel").val();
 
-                    let mapelKelas = this.dataKelas.filter(x => x.class_name == selValue);
+                    let mapelKelas = this.dataKelas.filter(x => x.class_name.id == selValue);
                     this.resetData = mapelKelas
 
                     if (s == 2) {
                         this.dataMapel = this.resetData
-                        let produktif = this.dataMapel.filter(x => x.category == 2);
+                        let produktif = this.dataMapel.filter(x => x.category.id == 2);
                         this.dataMapel = produktif;
                         console.log(produktif)
                     }
 
                     else if (s == 1) {
                         this.dataMapel = this.resetData
-                        let mapelWajib = this.dataMapel.filter(x => x.category == 1);
+                        let mapelWajib = this.dataMapel.filter(x => x.category.id == 1);
                         this.dataMapel = mapelWajib;
                         console.log(mapelWajib)
                     }
@@ -194,13 +194,13 @@ function studyReport(){
                 
                 if (value == 2) {
                     this.dataMapel = this.resetData
-                    let produktif = this.dataMapel.filter(x => x.category == 2);
+                    let produktif = this.dataMapel.filter(x => x.category.id == 2);
                     this.dataMapel = produktif;
                 }
 
                 else if (value == 1) {
                     this.dataMapel = this.resetData
-                    let mapelWajib = this.dataMapel.filter(x => x.category == 1);
+                    let mapelWajib = this.dataMapel.filter(x => x.category.id == 1);
                     this.dataMapel = mapelWajib;
                 }
 

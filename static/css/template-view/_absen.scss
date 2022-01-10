@@ -37,7 +37,7 @@
         }
 
         .button {
-            @include g.centered;
+            @include v.centered;
             height: 10%;
 
             button {

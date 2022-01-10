@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-    <section class="container-dashboard-admin">
+    <section class="container-admin">
         {% include 'sidebar-admin.html' %}
         <section class="content">
             <div class="action">
@@ -23,16 +23,18 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>NIP</th>
+                            <th>Posisi</th>
                             <th>Role</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Hemawan Fanreza</td>
-                            <td>01929382572384</td>
-                            <td>Admin</td>
+                        <tr v-for="(data,index) in dataUsers">
+                            <td>[[ index + 1]]</td>
+                            <td>[[ data.full_name]]</td>
+                            <td>[[ data.nip ]]</td>
+                            <td>[[ data.position ]]</td>
+                            <td>[[ data.user.groups[0] ]]</td>
                             <td>
                                 <a href="" class="edit">Edit</a>
                                 <a href="" class="delete">Hapus</a>
@@ -44,3 +46,10 @@
         </section>
     </section>
 {% endblock content%}
+{% block opt_script %}
+    
+    <script type="text/javascript">
+        showUsers()
+    </script>
+
+{% endblock %}

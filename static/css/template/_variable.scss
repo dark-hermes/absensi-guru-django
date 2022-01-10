@@ -21,6 +21,41 @@ $primary-font: "Poppins",sans-serif;
     align-items: center;
 }
 
+@mixin table {
+    max-height: 500px;
+    overflow: auto;
+    margin-top: 1em;
+
+    table {
+        width: 100%;
+
+        th,
+        td {
+            padding: 1em;
+            vertical-align: top;
+        }
+
+        thead {
+            tr {
+                background-color: #f8f8f8;
+                border-bottom: 1px solid #EDF3FB;
+                position: sticky;
+                top: 0;
+
+                th{
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid #EDF3FB;
+            }
+        }
+    }
+}
+
 // Global Property
 * {
     margin: 0;
