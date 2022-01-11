@@ -15,6 +15,7 @@
 		{% autoescape off %}
 		<h1>{{ dist_message }}</h1>
 		{% endautoescape %}
+		<div distance = {{ distance }} id="distance-value"></div>
 		{% elif checkin_record.is_checked and checkout_record.is_checked %}
 		<h1>Anda sudah melakukan presensi hari ini</h1>
 		{% else %}

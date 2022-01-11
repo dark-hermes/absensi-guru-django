@@ -1,0 +1,274 @@
+@use '../template/variable' as v;
+
+/*======================= Tampil Laporan and Absen Page =======================*/
+.container {
+    padding-top: 100px;
+    transition: 0.5s;
+    padding-bottom: 10%;
+  }
+  
+  .container * {
+    transition: 0.5s;
+
+    #table-pdf{
+        @include v.table;
+    }
+  }
+  
+//   .container #table-pdf .table-absen {
+//     max-height: 400px;
+//     overflow: auto;
+//     border-collapse: collapse;
+//     border: none;
+//   }
+  
+//   .container #table-pdf .table-laporan {
+//     max-height: 400px;
+//     overflow: auto;
+//   }
+  
+//   .container .searchBar {
+//     background-color: #f7f7f7;
+//     display: inline-block;
+//     border-radius: 5px;
+//     width: 100%;
+//   }
+  
+//   .container .searchBar .search {
+//     padding: 10px;
+//     display: flex;
+//     align-items: center;
+//   }
+  
+//   .container .searchBar .search i {
+//     font-size: 30px;
+//   }
+  
+//   .container .searchBar .search .cari {
+//     border: none;
+//     outline: none;
+//     background-color: transparent;
+//     margin-left: 10px;
+//     width: 100%;
+//   }
+  
+//   /* Warnanya ganti biar sesuai sama palet aja */
+//   .container #table-pdf .table-absen .late {
+//     background-color: #FFCD00;
+//     color: #fff;
+//   }
+  
+//   .container #table-pdf .table-absen .masuk {
+//     background-color: #7CBD1E;
+//     color: #fff;
+//   }
+  
+//   .container #table-pdf .table-absen .izin {
+//     background-color: #53ddf5;
+//     color: #fff;
+//   }
+  
+//   .container #table-pdf .table-absen .alpa {
+//     background-color: #BE0000;
+//     color: #fff;
+//   }
+  
+//   .container-user #table-pdf .table-absen .late {
+//     background-color: #FFCD00;
+//     color: #fff;
+//   }
+  
+//   .container-user #table-pdf .table-absen .masuk {
+//     background-color: #7CBD1E;
+//     color: #fff;
+//   }
+  
+//   .container-user #table-pdf .table-absen .izin {
+//     background-color: #53ddf5;
+//     color: #fff;
+//   }
+  
+//   .container-user #table-pdf .table-absen .alpa {
+//     background-color: #BE0000;
+//     color: #fff;
+//   }
+  
+//   .container form .button-group {
+//     display: flex;
+//     width: 70%;
+//     justify-content: space-between;
+//     flex-wrap: wrap;
+//     margin: 40px 0 20px;
+//   }
+  
+//   .container form .button-group .button button.button {
+//     padding: 10px;
+//     border-radius: 5px;
+//     background-color: #0d6efd;
+//     color: #fff;
+//     outline: none;
+//     border: none;
+//     width: 150px;
+//     display: flex;
+//     justify-content: center;
+//     transition: unset;
+//     align-items: center;
+//   }
+  
+//   .container form .button-group .button button.button:hover {
+//     font-weight: 700;
+//   }
+  
+//   .container form .button-group .button i {
+//     font-size: 25px;
+//     margin-left: 10px;
+//   }
+  
+//   .container form .button-group .button .modal .modal-body {
+//     display: flex;
+//     justify-content: space-around;
+//   }
+  
+//   .container form .button-group .button .modal .modal-body .date label {
+//     font-weight: 700;
+//     background-color: #0d6efd;
+//     color: #fff;
+//     padding: 5px 10px;
+//   }
+  
+//   .container form .button-group .button .modal .modal-body .date input {
+//     padding: 5px 10px;
+//     box-sizing: border-box;
+//     cursor: pointer;
+//   }
+  
+//   .container #table-pdf .button-print {
+//     display: flex;
+//     justify-content: flex-end;
+//     margin-top: 10px;
+//   }
+  
+//   .container #table-pdf .button-print button.button {
+//     padding: 10px;
+//     border-radius: 5px;
+//     background-color: #0d6efd;
+//     color: #fff;
+//     outline: none;
+//     border: none;
+//     width: 150px;
+//     display: flex;
+//     justify-content: center;
+//     transition: unset;
+//     align-items: center;
+//   }
+  
+//   .container #table-pdf .button-print button.button:hover {
+//     font-weight: 700;
+//   }
+  
+//   .container #table-pdf .button-print button.button i {
+//     font-size: 25px;
+//     margin-left: 10px;
+//   }
+  
+//   .container #table-pdf .button-print .modal .modal-body {
+//     display: flex;
+//   }
+  
+//   .container #table-pdf .button-print .modal .modal-body .pdf,
+//   .container #table-pdf .button-print .modal .modal-body .excel {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 50%;
+//   }
+  
+//   .container #table-pdf .button-print .modal .modal-body a {
+//     text-align: center;
+//     width: 100px;
+//     padding: 10px 0px;
+//     border-radius: 5px;
+//     display: inline-block;
+//     color: white;
+//     text-decoration: none;
+//     background-color: #0d6efd;
+//     transition: unset;
+//   }
+  
+//   .container #table-pdf .button-print .modal .modal-body a:hover {
+//     font-weight: 900;
+//   }
+  
+//   .container #table-pdf .button-print .modal .modal-body i {
+//     margin-left: 10px;
+//     font-size: 24px;
+//   }
+  
+//   @media screen and (min-width: 300px) and (max-width: 995px) {
+//     .container {
+//       margin-top: 100px;
+//       position: relative;
+//     }
+  
+//     .container #table-pdf table {
+//       font-size: 12px !important;
+//     }
+  
+//     .container form .button-group {
+//       width: 100%;
+//       justify-content: space-around;
+//       margin: 20px 0;
+//     }
+  
+//     .container form .button-group .button button.button {
+//       padding: 10px;
+//       margin-top: 15px;
+//       width: 120px;
+//       font-size: 12px;
+//     }
+  
+//     .container form .button-group .button i {
+//       font-size: 12px;
+//     }
+  
+//     .container form .button-group .button .modal .modal-body {
+//       display: flex;
+//       justify-content: space-between;
+//       flex-wrap: wrap;
+//     }
+  
+//     .container form .button-group .button .modal .modal-body .date {
+//       width: 100%;
+//       display: flex;
+//       margin: 10px 0;
+//     }
+  
+//     .container form .button-group .button .modal .modal-body .date label {
+//       font-size: 14px;
+//       width: 100px;
+//       text-align: center;
+//     }
+  
+//     .container form .button-group .button .modal .modal-body .date input {
+//       font-size: 14px;
+//     }
+  
+//     .container #table-pdf .button-print button.button {
+//       padding: 10px;
+//       font-size: 12px;
+//       width: 100px;
+//     }
+  
+//     .container #table-pdf .button-print button.button i {
+//       font-size: 12px;
+//     }
+  
+//     .container #table-pdf .button-print .modal .modal-body a {
+//       font-size: 12px;
+//     }
+  
+//     .container #table-pdf .button-print .modal .modal-body i {
+//       margin-left: 5px;
+//       font-size: 12px;
+//     }
+//   }

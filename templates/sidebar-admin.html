@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load active_link_tags %}
 <section class="sidebar">
     <div class="brand">
         <span>SEKAR</span>
@@ -7,10 +7,10 @@
     </div>
     <nav>
         <div class="nav-content">
-            <a href="{% url 'show_dashboard_admin' %}" class="active"><i class='bx bxs-grid-alt'></i> <span>Dashboard</span></a>
-            <a href="{% url 'show_laporan_admin' %}"><i class='bx bxs-report'></i><span>Lihat Laporan</span></a>
-            <a href="{% url 'show_absen_admin' %}"><i class='bx bxs-log-in'></i><span>Lihat Absensi</span></a>
-            <a href="{% url 'show_users_admin' %}"><i class='bx bxs-user-account'></i><span>Lihat User</span></a>
+            <a href="{% url 'show_dashboard_admin' %}" class="{% active_link 'show_dashboard_admin' 'active' %}"><i class='bx bxs-grid-alt'></i> <span>Dashboard</span></a>
+            <a href="{% url 'show_laporan_admin' %}" class="{% active_link 'show_laporan_admin' 'active' %}"><i class='bx bxs-report'></i><span>Lihat Laporan</span></a>
+            <a href="{% url 'show_absen_admin' %}" class="{% active_link 'show_absen_admin' 'active' %}"><i class='bx bxs-log-in'></i><span>Lihat Absensi</span></a>
+            <a href="{% url 'show_users_admin' %}" class="{% active_link 'show_users_admin' 'active' %}"><i class='bx bxs-user-account'></i><span>Lihat User</span></a>
         </div>
         <div class="profile">
             <a href="{% url 'logout' %}"><i class='bx bxs-user-circle'></i><span>Fanreza</span><i class='bx bx-log-out-circle'></i></a>

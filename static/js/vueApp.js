@@ -34,10 +34,8 @@ function absen() {
                                     let dayName = days[day.getDay()];
 
                                     if (key == dayName) {
-                                        console.log(key)
-                                        console.log("bukan hari kerja")
-                                        document.getElementById("masuk").setAttribute("disabled", "")
-                                        document.getElementById("keluar").setAttribute("disabled", "")
+                                       $("#masuk").attr("disabled", "")
+                                       $("#keluar").attr("disabled", "")
                                     }
 
                                 }
@@ -55,7 +53,7 @@ function absen() {
                     // if checkin
                     $.each(data,function(index, value){
                         if (value.is_checked == true) {
-                            document.getElementById("masuk").setAttribute("disabled", "")
+                            $("#masuk").attr("disabled", "")
                         }
                     });
             });
@@ -68,18 +66,24 @@ function absen() {
                     // if checkin
                     $.each(data,function(index, value){
                         if (value.is_checked == true) {
-                            document.getElementById("keluar").setAttribute("disabled", "")
+                            $("#keluar").attr("disabled", "")
                         }
                     });
             });    
+            
+            distance = $('#distance-value').attr('distance');
+            if (distance > 1000) {
+                $('#keluar').attr("disabled","")
+                $('#masuk').attr("disabled","")
+            }
 
 
         },
 
         methods: {
             message: function(event) {
-                document.getElementById('staticBackdropLabel1').innerHTML= "tunggu beberapa <span>detik</span>";
-                document.getElementById('staticBackdropLabel3').innerHTML= "tunggu beberapa <span>detik</span>";
+                $('#staticBackdropLabel1').innerHTML= "tunggu beberapa <span>detik</span>";
+                $('#staticBackdropLabel3').innerHTML= "tunggu beberapa <span>detik</span>";
             }
         }
 
@@ -111,10 +115,10 @@ function showDataAbsen(){
                         day = splitDate.getDay();
                         
                         dateCreated = year+'-'+month+'-'+date+'-'+day;
-                        const dateString  = dayjs(dateCreated, "YYYY-MM-DD-dddd")
-                        .format('dddd DD-MM-YYYY');
+                        // const dateString  = dayjs(dateCreated, "YYYY-MM-DD-dddd")
+                        // .format('dddd DD-MM-YYYY');
 
-                        value.presence_date = dateString
+                        value.presence_date = dateCreated
                     });
                 });
         },
@@ -170,11 +174,19 @@ function studyReport(){
                         console.log(mapelWajib)
                     }
 
-                    document.getElementById("jenis-mapel").removeAttribute("disabled");
+                    $("#jenis-mapel").removeAttribute("disabled");
 
                 });
 
-                
+                $('.submit').click(function () {
+                    checked = $(".form-check-input:checked").length;
+
+                    if (!checked) {
+                        alertTemplate.alert("Error", "Harap pilih salah satu pilihan pada Media Pembelajaran", "error", "Tutup")
+                        return false;
+                    }
+
+                });
             });
 
 
@@ -204,7 +216,7 @@ function studyReport(){
                     this.dataMapel = mapelWajib;
                 }
 
-                document.getElementById("select-mapel").removeAttribute("disabled");
+                $("#select-mapel").removeAttribute("disabled");
               
             }
         },
@@ -252,7 +264,7 @@ function showStudyReport(){
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
-                        value.created_at = dateString
+                        value.created_at = dateCreated
 
                     });
             });
@@ -286,7 +298,7 @@ function showGuidanceReport(){
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
-                        value.created_at = dateString
+                        value.created_at = dateCreated
 
                     });
             });
@@ -320,7 +332,7 @@ function showDutyReport(){
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
-                        value.created_at = dateString
+                        value.created_at = dateCreated
 
                     });
             });
@@ -354,7 +366,7 @@ function showDevelopmentReport(){
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
-                        value.created_at = dateString
+                        value.created_at = dateCreated
 
                     });          
             });
@@ -388,7 +400,7 @@ function showScientificReport(){
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
-                        value.created_at = dateString
+                        value.created_at = dateCreated
 
                     });
             });
@@ -421,7 +433,7 @@ function showInnovativeReport(){
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
-                        value.created_at = dateString
+                        value.created_at = dateCreated
 
                     });
             });

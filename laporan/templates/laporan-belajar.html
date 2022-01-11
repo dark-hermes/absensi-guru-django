@@ -63,7 +63,7 @@
 				<div class="checkgroup">
 					<h1>Media Pembelajaran</h1>
 					{% for method in method_list %}
-						<div class="form-check">
+						<div class="form-check checkbox-required">
 							<input class="form-check-input" type="checkbox" name="method" value="{{method}}" id="flexCheckDefault{{forloop.counter}}">
 							<label class="form-check-label" for="flexCheckDefault{{forloop.counter}}">
 								{{method}}
