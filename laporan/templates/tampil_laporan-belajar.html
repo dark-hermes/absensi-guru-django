@@ -34,7 +34,7 @@
 
                     <tr v-for="(data) in dataBelajar">
                         <td>[[ data.created_at ]]</td>
-                        <td>[[ data.created_at ]]</td> 
+                        <td>[[ data.hours ]]</td> 
                         <td>[[ data.class_name.class_name ]]</td>
                         <td>[[ data.subject_name.subject_name ]]</td>
                         <td>[[ data.total_student ]]</td>
@@ -42,7 +42,7 @@
                         <td>[[ data.absence_student ]]</td>
                         <td>[[ data.method ]]</td>
                         <td>[[ data.desc ]]</td>
-                        <td><a v-bind:href="data.documentation">Lihat Bukti</a></td>
+                        <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -260,12 +260,16 @@ function showStudyReport(){
                         month = splitDate.getMonth()+1;
                         year = splitDate.getFullYear();
                         date = splitDate.getDate();
+                        hour = splitDate.getHours();
+                        minute = splitDate.getMinutes();
 
                         dateCreated = year+'-'+month+'-'+date;
+                        hourCreated = hour+':'+minute;
                         const dateString  = dayjs(dateCreated, "YYYY-MM-DD")
                         .format('DD-MM-YYYY');
 
                         value.created_at = dateCreated
+                        value.hours = hourCreated
 
                     });
             });
