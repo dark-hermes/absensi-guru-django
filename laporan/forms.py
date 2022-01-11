@@ -45,8 +45,7 @@ class ScientificWorkForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super(ScientificWorkForm, self).__init__(*args, **kwargs)
-        self.fields['category'] = forms.ModelChoiceField(queryset=ScientificWorkCategory.objects.all().order_by('category_name'),to_field_name="id", widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
-        
+        self.fields['category'] = forms.ModelChoiceField(queryset=ScientificWorkCategory.objects.all().order_by('category_name'),to_field_name="id", widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}), empty_label="Pilih Karya Ilmiah")
 
 class InnovativeWorkForm(forms.ModelForm):
     class Meta:
@@ -62,7 +61,7 @@ class InnovativeWorkForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super(InnovativeWorkForm, self).__init__(*args, **kwargs)
-        self.fields['category'] = forms.ModelChoiceField(queryset=InnovativeWorkCategory.objects.all().order_by('category_name'),to_field_name="id", widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
+        self.fields['category'] = forms.ModelChoiceField(queryset=InnovativeWorkCategory.objects.all().order_by('category_name'),to_field_name="id", empty_label="Pilih Karya Inovatif", widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
         
 
 class HumanDevelopmentForm(forms.ModelForm):
@@ -91,4 +90,4 @@ class DutyForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super(DutyForm, self).__init__(*args, **kwargs)
-        self.fields['role'] = forms.ModelChoiceField(queryset=MajorRole.objects.all().order_by('role_name'),to_field_name="id", widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
+        self.fields['role'] = forms.ModelChoiceField(queryset=MajorRole.objects.all().order_by('role_name'),empty_label="Pilih Posisi", to_field_name="id", widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
