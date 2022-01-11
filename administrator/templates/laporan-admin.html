@@ -67,7 +67,7 @@
                             <td>[[ data.absence_student ]]</td>
                             <td>[[ data.method ]]</td>
                             <td>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <p>[[ data.desc ]]</p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
                                     :data-bs-target=" '#desc-study' + index">
@@ -96,35 +96,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    :data-bs-target=" '#doc-study' + index">
-                                    Lihat Dokumentasi
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" :id=" 'doc-study' + index" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img :src="data.documentation" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -148,7 +120,7 @@
                             <td>[[ data.employee_id.full_name ]]</td>
                             <td>[[ data.employee_id.nip ]]</td>
                             <td>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <p>[[ data.desc ]]</p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
                                     :data-bs-target=" '#desc-guidance' + index">
@@ -177,35 +149,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    :data-bs-target=" '#doc-guidance' + index">
-                                    Lihat Dokumentasi
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" :id=" 'doc-guidance' + index" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img :src="data.documentation" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -231,7 +175,7 @@
                             <td>[[ data.employee_id.nip ]]</td>
                             <td>[[ data.role.role_name ]]</td>
                             <td>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <p>[[ data.desc ]]</p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
                                     :data-bs-target=" '#desc-duty' + index">
@@ -260,35 +204,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    :data-bs-target=" '#doc-duty' + index">
-                                    Lihat Dokumentasi
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" :id=" 'doc-duty' + index" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img :src="data.documentation" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -318,7 +234,7 @@
                             <td>[[ data.role ]]</td>
                             <td>[[ data.duration ]]</td>
                             <td>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <p>[[ data.desc ]]</p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
                                     :data-bs-target=" '#desc-development' + index">
@@ -347,35 +263,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    :data-bs-target=" '#doc-development' + index">
-                                    Lihat Dokumentasi
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" :id=" 'doc-development' + index" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img :src="data.documentation" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -401,7 +289,7 @@
                             <td>[[ data.employee_id.nip ]]</td>
                             <td>[[ data.category.category_name ]]</td>
                             <td>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <p>[[ data.desc ]]</p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
                                     :data-bs-target=" '#desc-inovative' + index">
@@ -430,35 +318,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    :data-bs-target=" '#doc-inovative' + index">
-                                    Lihat Dokumentasi
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" :id=" 'doc-inovative' + index" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img :src="data.documentation" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -484,7 +344,7 @@
                             <td>[[ data.employee_id.nip ]]</td>
                             <td>[[ data.category.category_name ]]</td>
                             <td>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.... </p>
+                                <p>[[ data.desc ]]</p>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn report" data-bs-toggle="modal"
                                     :data-bs-target=" '#desc-scientific' + index">
@@ -513,35 +373,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    :data-bs-target=" '#doc-scientific' + index">
-                                    Lihat Dokumentasi
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" :id=" 'doc-scientific' + index" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Dokumentasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img :src="data.documentation" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                         </tr>
                     </tbody>
                 </table>

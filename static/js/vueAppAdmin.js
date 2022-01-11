@@ -141,6 +141,10 @@ function showReportAdmin(){
 
                     value.hours = hourCreated
                     value.created_at = dateCreated
+                    
+                    if (value.desc.length > 1) {
+                        value.desc.substring(0, 1) + '...';
+                    }
                 });
 
                 return this.dataStudyReport
@@ -164,6 +168,10 @@ function showReportAdmin(){
 
                     value.hours = hourCreated
                     value.created_at = dateCreated
+
+                    if (value.desc.length > 60) {
+                        value.desc = value.desc.substring(0, 60) + '...';
+                    }
                 });
 
 
@@ -188,6 +196,10 @@ function showReportAdmin(){
 
                     value.hours = hourCreated
                     value.created_at = dateCreated
+
+                    if (value.desc.length > 60) {
+                        value.desc = value.desc.substring(0, 60) + '...';
+                    }
                 });
 
                 fetched =[]
@@ -231,6 +243,10 @@ function showReportAdmin(){
 
                     value.hours = hourCreated
                     value.created_at = dateCreated
+
+                    if (value.desc.length > 60) {
+                        value.desc = value.desc.substring(0, 60) + '...';
+                    }
                 });
 
                 fetched =[]
@@ -274,6 +290,10 @@ function showReportAdmin(){
 
                     value.hours = hourCreated
                     value.created_at = dateCreated
+
+                    if (value.desc.length > 60) {
+                        value.desc = value.desc.substring(0, 60) + '...';
+                    }
                 });
 
                 fetched =[]
@@ -317,6 +337,10 @@ function showReportAdmin(){
 
                     value.hours = hourCreated
                     value.created_at = dateCreated
+
+                    if (value.desc.length > 60) {
+                        value.desc = value.desc.substring(0, 60) + '...';
+                    }
                 });
 
                 fetched =[]
