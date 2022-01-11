@@ -11,9 +11,9 @@
 <div class="container" id="container">
     <h2>Tugas Lainnya</h2>
     <div id="table-pdf" v-cloak>
-        <div class="table-laporan">
-            <table class="table table-bordered table-striped table-responsive-sm" id="tableOne">
-                <thead class="thead-dark">
+        <div class="table-laporan table">
+            <table>
+                <thead>
                     <tr>
                         <th>Tanggal</th>
                         <th>Posisi Kerja</th>
@@ -28,8 +28,8 @@
 
                     <tr v-for="(data) in dataTugas">
                         <td>[[ data.created_at ]]</td>
+                        <td>[[ data.role.role_name ]]</td>
                         <td>[[ data.desc ]]</td>
-                        <td>[[ data.role ]]</td>
                         <td><a v-bind:href="data.documentation">Lihat Bukti</a></td>
                     </tr>
                 </tbody>

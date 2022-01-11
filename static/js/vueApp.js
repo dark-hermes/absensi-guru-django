@@ -54,6 +54,7 @@ function absen() {
                     $.each(data,function(index, value){
                         if (value.is_checked == true) {
                             $("#masuk").attr("disabled", "")
+                            $('#izin').attr("disabled", "")
                         }
                     });
             });
@@ -67,6 +68,7 @@ function absen() {
                     $.each(data,function(index, value){
                         if (value.is_checked == true) {
                             $("#keluar").attr("disabled", "")
+                            $('#izin').attr("disabled", "")
                         }
                     });
             });    
@@ -153,6 +155,7 @@ function studyReport(){
                 .then(data =>{this.dataKelas = data;  
 
                 $("#id_class_name").on("change",()=>{
+                    $("#jenis-mapel").removeAttr("disabled");
 
                     let selValue = $("#id_class_name").val();
                     let s = $("#jenis-mapel").val();
@@ -172,9 +175,7 @@ function studyReport(){
                         let mapelWajib = this.dataMapel.filter(x => x.category.id == 1);
                         this.dataMapel = mapelWajib;
                         console.log(mapelWajib)
-                    }
-
-                    $("#jenis-mapel").removeAttr("disabled");
+                    }    
 
                 });
 

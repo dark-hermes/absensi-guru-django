@@ -10,7 +10,7 @@
   .container * {
     transition: 0.5s;
 
-    #table-pdf{
+    .table{
         @include v.table;
     }
   }
