@@ -68,4 +68,14 @@ def add_user_bulk(request):
             
     return render(request, 'bulk-add-users-admin.html')
 
+@login_required
+@staff_member_required
+def undo_add_user_bulk(request):
+    # Bulk Delete for emergency
+    users = User.objects.filter(username__contains='smk')
+    for user in users:
+        user.delete()
+            
+    return render(request, 'undo-bulk-add-users-admin.html')
+
             

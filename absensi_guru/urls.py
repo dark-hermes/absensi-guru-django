@@ -69,6 +69,7 @@ urlpatterns = [
     path('admin/user-list', show_users_admin, name='show_users_admin'),
     path('admin/add-user', add_user, name='add_user_admin'),
     path('admin/add-user-bulk', add_user_bulk, name='add_user_bulk'),
+    path('admin/undo-add-user-bulk', undo_add_user_bulk, name='undo_add_user_bulk'),
 ]
 
 # path('admin/', admin.site.urls),
