@@ -204,6 +204,14 @@ CHECKOUT_TIME = 16
 
 IS_UPDATE = True
 
+# API Global Settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
 # Security Settings
 # CSRF_COOKIE_SECURE = True
 # SESSION_COOKIE_SECURE = True

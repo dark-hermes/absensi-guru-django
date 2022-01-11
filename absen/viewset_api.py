@@ -2,9 +2,16 @@ from absen.models import Presence, CheckoutRecord, CheckinRecord
 from absen.serializers import PresenceSerializer, CheckoutSerializer, CheckinSerializer, DaysSerializer, EmployeeSerializer
 from userauth.models import Days, Employee
 from rest_framework import viewsets
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class PresenceViewset(viewsets.ModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = PresenceSerializer
+    
+    def _allowed_methods(self):
+        return [m for m in super(PresenceViewset, self)._allowed_methods() if m not in ['DELETE', 'POST']]
     
     def get_queryset(self):
         """
@@ -18,8 +25,12 @@ class PresenceViewset(viewsets.ModelViewSet):
             return Presence.objects.all()
     
 class CheckinViewset(viewsets.ModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = CheckinSerializer
     
+    def _allowed_methods(self):
+        return [m for m in super(CheckinViewset, self)._allowed_methods() if m not in ['DELETE', 'POST']]
     
     def get_queryset(self):
         user = self.request.user
@@ -29,7 +40,12 @@ class CheckinViewset(viewsets.ModelViewSet):
             return CheckinRecord.objects.all()
     
 class CheckoutViewset(viewsets.ModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = CheckoutSerializer
+    
+    def _allowed_methods(self):
+        return [m for m in super(CheckoutViewset, self)._allowed_methods() if m not in ['DELETE', 'POST']]
     
     def get_queryset(self):
         user = self.request.user
@@ -39,7 +55,12 @@ class CheckoutViewset(viewsets.ModelViewSet):
             return CheckoutRecord.objects.all()
     
 class DaysViewset(viewsets.ModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = DaysSerializer
+    
+    def _allowed_methods(self):
+        return [m for m in super(DaysViewset, self)._allowed_methods() if m not in ['DELETE', 'POST']]
     
     def get_queryset(self):
         user = self.request.user
@@ -49,7 +70,13 @@ class DaysViewset(viewsets.ModelViewSet):
             return Days.objects.all()
     
 class EmployeeViewset(viewsets.ModelViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    
     serializer_class = EmployeeSerializer
+    
+    def _allowed_methods(self):
+        return [m for m in super(EmployeeViewset, self)._allowed_methods() if m not in ['DELETE','POST']]
     
     def get_queryset(self):
         user = self.request.user
