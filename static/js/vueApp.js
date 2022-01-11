@@ -174,7 +174,7 @@ function studyReport(){
                         console.log(mapelWajib)
                     }
 
-                    $("#jenis-mapel").removeAttribute("disabled");
+                    $("#jenis-mapel").removeAttr("disabled");
 
                 });
 
@@ -216,7 +216,7 @@ function studyReport(){
                     this.dataMapel = mapelWajib;
                 }
 
-                $("#select-mapel").removeAttribute("disabled");
+                $("#select-mapel").removeAttr("disabled");
               
             }
         },
