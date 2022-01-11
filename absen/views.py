@@ -52,7 +52,7 @@ INDONESIAN_FORMAT = {
 @csrf_exempt
 def absen(request):
     if request.user.is_staff:
-        return redirect('/admin/')
+        return redirect('/admin/dashboard')
     
     TODAY = datetime.datetime.now()
 
@@ -275,28 +275,46 @@ def absen(request):
         proof = request.FILES['proof'] 
         now_date = timezone.now()
         
-        excused_presence = Presence(
-                                    employee_id = request.user.employee,
-                                    presence_date = now_date.strftime("%Y-%m-%d"),
-                                    checkin_time = now_date.strftime("%X"),
-                                    checkout_time = now_date.strftime("%X"),
-                                    checkin_desc = excuse,
-                                    checkout_desc = excuse,
-                                    checkin_img = proof,
-                                    checkout_img = proof
-                                    )
+        today_presence = Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
+        today_presence.checkin_time = now_date.strftime("%X")
+        today_presence.checkout_time = now_date.strftime("%X")
+        today_presence.checkin_desc = excuse
+        today_presence.checkout_desc = excuse
+        today_presence.checkin_img = proof
+        today_presence.checkout_img = proof
+        today_presence.save()
         
-        excused_presence.save()
-        
-        excused_checkin = CheckinRecord(employee_id=request.user.employee,
-                                        time=now_date,
-                                        is_checked=True)
+        excused_checkin = CheckinRecord.objects.filter(employee_id=current_user)[0]
+        excused_checkin.is_checked = True
+        excused_checkin.time = now_date
         excused_checkin.save()
         
-        excused_checkout = CheckoutRecord(employee_id=request.user.employee,
-                                        time=now_date,
-                                        is_checked=True)
+        excused_checkout = CheckoutRecord.objects.filter(employee_id=current_user)[0]
+        excused_checkout.is_checked = True
+        excused_checkout.time = now_date
         excused_checkout.save()
+        # excused_presence = Presence(
+        #                             employee_id = request.user.employee,
+        #                             presence_date = now_date.strftime("%Y-%m-%d"),
+        #                             checkin_time = now_date.strftime("%X"),
+        #                             checkout_time = now_date.strftime("%X"),
+        #                             checkin_desc = excuse,
+        #                             checkout_desc = excuse,
+        #                             checkin_img = proof,
+        #                             checkout_img = proof
+        #                             )
+        
+        # excused_presence.save()
+        
+        # excused_checkin = CheckinRecord(employee_id=request.user.employee,
+        #                                 time=now_date,
+        #                                 is_checked=True)
+        # excused_checkin.save()
+        
+        # excused_checkout = CheckoutRecord(employee_id=request.user.employee,
+        #                                 time=now_date,
+        #                                 is_checked=True)
+        # excused_checkout.save()
         
         checkin_record, checkout_record = check_record()
         distance, dist_message = calculate_distance()
