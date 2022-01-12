@@ -1,6 +1,6 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
-let baseUrl = 'https://localhost:8000/';
+let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
 
 function absen() {
     var app = new Vue({
@@ -78,6 +78,8 @@ function absen() {
                 $('#keluar').attr("disabled","")
                 $('#masuk').attr("disabled","")
             }
+
+            
 
 
         },
