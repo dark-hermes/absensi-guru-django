@@ -149,53 +149,53 @@
 		width: 100%;
 		height: 100vh;
 		padding-bottom: 20%;
-	}
 
-	.box {
-		width: 80%;
-		height: auto;
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		margin-top: 50px;
-		align-items: center;
-		background-color: #fff;
-	}
-
-	.login-box {
-		width: 100%;
-		height: 100%;
-	}
-
-	.login-box .image {
-		height: 20%;
-		padding-top: 20px;
-	}
-
-	/*LOGIN Form login*/
-	.login-box .form {
-		height: 60%;
-		text-align: center;
-		padding: 30px 20px 20px;
-	}
-
-	.login-box .form input {
-		margin: 5px 0;
-		padding: 10px;
-		width: 100%;
-		font-size: 3.2vw;
-	}
-
-	.login-box .button .submit {
-		width: 100%;
-		padding: 10px;
-		margin: 5px 0 0;
-		font-size: 3.2vw;
-		font-weight: 700;
-	}
-
-	.box .image-banner {
-		display: none;
+		.box {
+			width: 80%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin-top: 50px;
+			align-items: center;
+			background-color: #fff;
+		}
+	
+		.login-box {
+			width: 100%;
+			height: 100%;
+		}
+	
+		.login-box .image {
+			height: 20%;
+			padding-top: 20px;
+		}
+	
+		/*LOGIN Form login*/
+		.login-box .form {
+			height: 60%;
+			text-align: center;
+			padding: 30px 20px 20px;
+		}
+	
+		.login-box .form input {
+			margin: 5px 0;
+			padding: 10px;
+			width: 100%;
+			font-size: 3.2vw;
+		}
+	
+		.login-box .button .submit {
+			width: 100%;
+			padding: 10px;
+			margin: 5px 0 0;
+			font-size: 3.2vw;
+			font-weight: 700;
+		}
+	
+		.box .image-banner {
+			display: none;
+		}
 	}
 }
 
@@ -206,36 +206,36 @@
 		align-items: center;
 		width: 100%;
 		height: 100vh;
-	}
 
-	.box {
-		width: 80%;
-		height: auto;
-	}
-
-	.image-banner {
-		height: unset;
-	}
-
-	.image-banner .bottom-text .head {
-		font-size: 1.5rem;
-	}
-
-	.image-banner .bottom-text .body p {
-		padding: 5px;
-		font-size: 1.5;
-	}
-
-	.image-banner .bottom-text {
-		height: 50%;
-		padding-top: 30px;
-	}
-
-	.image-banner .bottom-text .head {
-		font-size: 24px;
-	}
-
-	.image-banner .bottom-text .body p {
-		font-size: 24px;
+		.box {
+			width: 80%;
+			height: auto;
+		}
+	
+		.image-banner {
+			height: unset;
+		}
+	
+		.image-banner .bottom-text .head {
+			font-size: 1.5rem;
+		}
+	
+		.image-banner .bottom-text .body p {
+			padding: 5px;
+			font-size: 1.5;
+		}
+	
+		.image-banner .bottom-text {
+			height: 50%;
+			padding-top: 30px;
+		}
+	
+		.image-banner .bottom-text .head {
+			font-size: 24px;
+		}
+	
+		.image-banner .bottom-text .body p {
+			font-size: 24px;
+		}
 	}
 }
