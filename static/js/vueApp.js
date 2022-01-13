@@ -1,6 +1,6 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
-let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+let baseUrl = 'https://localhost:8000/';
 
 function absen() {
     var app = new Vue({
