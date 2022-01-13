@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_URL = 'https://absen.smkn1cibinong.sch.id'
 
 # Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env-dev'))
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['localhost', '10.5.0.4', '192.168.100.120', '0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '10.5.0.4', '192.168.100.120', '0.0.0.0', '127.0.0.1', 'absen.smkn1cibinong.sch.id']
 SECURE_SSL_REDIRECT = True
 
 # Application definition
@@ -91,30 +91,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'absensi_guru.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'absen_db',
-#         'USER': 'absen',
-#         'PASSWORD': 'root',
-#         'HOST': '10.5.0.2',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_absen',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': env('DB'),
+        'USER': env('USERDB'),
+        'PASSWORD': env('PASS'),
+        'HOST': env('HOST'),
         'PORT': '5432'
     }
 }
@@ -146,19 +129,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-#<<<<<<< HEAD
-# BASE_URL = absen.smkn1cibinong.sch.id
-
-#=======
-#>>>>>>> 744a3d5188ecc7f7af4a76ecc9fd28ed452e2fec
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static'
-STATICFILES_DIRS = [
-    Path(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     Path(BASE_DIR, 'static'),
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
