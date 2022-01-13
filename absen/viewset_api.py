@@ -20,9 +20,9 @@ class PresenceViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return Presence.objects.filter(employee_id__user=user)
+            return Presence.objects.filter(employee_id__user=user).order_by('-presence_date')
         else:
-            return Presence.objects.all()
+            return Presence.objects.all().order_by('-presence_date', '-checkin_time', '-checkout_time')
     
 class CheckinViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -83,6 +83,6 @@ class EmployeeViewset(viewsets.ModelViewSet):
         if user.is_staff != True:
             return Employee.objects.filter(user_id=user)
         else:
-            return Employee.objects.all()
+            return Employee.objects.all().order_by('-position', 'full_name')
     
     

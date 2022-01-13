@@ -39,9 +39,9 @@ class StudyReportViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return StudyReport.objects.filter(employee_id__user=user)
+            return StudyReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return StudyReport.objects.all()
+            return StudyReport.objects.all().order_by('-created_at')
 
 class GuidanceReportViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -58,9 +58,9 @@ class GuidanceReportViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return GuidanceReport.objects.filter(employee_id__user=user)
+            return GuidanceReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return GuidanceReport.objects.all()
+            return GuidanceReport.objects.all().order_by('-created_at')
     
 class ScientificWorkReportViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -77,9 +77,9 @@ class ScientificWorkReportViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return ScientificWorkReport.objects.filter(employee_id__user=user)
+            return ScientificWorkReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return ScientificWorkReport.objects.all()
+            return ScientificWorkReport.objects.all().order_by('-created_at')
     
 class InnovativeWorkReportViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -96,9 +96,9 @@ class InnovativeWorkReportViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return InnovativeWorkReport.objects.filter(employee_id__user=user)
+            return InnovativeWorkReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return InnovativeWorkReport.objects.all()
+            return InnovativeWorkReport.objects.all().order_by('-created_at')
     
 class HumanDevelopmentReportViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -115,9 +115,9 @@ class HumanDevelopmentReportViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return HumanDevelopmentReport.objects.filter(employee_id__user=user)
+            return HumanDevelopmentReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return HumanDevelopmentReport.objects.all()
+            return HumanDevelopmentReport.objects.all().order_by('-created_')
     
 class DutyReportViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -134,6 +134,6 @@ class DutyReportViewset(viewsets.ModelViewSet):
         """
         user = self.request.user
         if user.is_staff != True:
-            return DutyReport.objects.filter(employee_id__user=user)
+            return DutyReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return DutyReport.objects.all()
+            return DutyReport.objects.all().order_by('-created_at')
