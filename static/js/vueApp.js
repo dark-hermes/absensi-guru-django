@@ -156,31 +156,7 @@ function studyReport(){
                 .then(response => response.json() )
                 .then(data =>{this.dataKelas = data;  
 
-                $("#id_class_name").on("change",()=>{
-                    $("#jenis-mapel").removeAttr("disabled");
-
-                    let selValue = $("#id_class_name").val();
-                    let s = $("#jenis-mapel").val();
-
-                    let mapelKelas = this.dataKelas.filter(x => x.class_name.id == selValue);
-                    this.resetData = mapelKelas
-
-                    if (s == 2) {
-                        this.dataMapel = this.resetData
-                        let produktif = this.dataMapel.filter(x => x.category.id == 2);
-                        this.dataMapel = produktif;
-                        console.log(produktif)
-                    }
-
-                    else if (s == 1) {
-                        this.dataMapel = this.resetData
-                        let mapelWajib = this.dataMapel.filter(x => x.category.id == 1);
-                        this.dataMapel = mapelWajib;
-                        console.log(mapelWajib)
-                    }    
-
-                });
-
+                
                 $('.submit').click(function () {
                     checked = $(".form-check-input:checked").length;
 
@@ -200,6 +176,30 @@ function studyReport(){
 
         // filter mapel
         methods:{
+
+            onChangeMapel(event){
+                $("#jenis-mapel").removeAttr("disabled");
+
+                    let selValue = $("#id_class_name").val();
+                    let s = $("#jenis-mapel").val();
+
+                    let mapelKelas = this.dataKelas.filter(x => x.class_name.id == selValue);
+                    this.resetData = mapelKelas
+
+                    if (s == 2) {
+                        this.dataMapel = this.resetData
+                        let produktif = this.dataMapel.filter(x => x.category.id == 2);
+                        this.dataMapel = produktif;
+                        console.log(produktif)
+                    }
+
+                    else if (s == 1) {
+                        this.dataMapel = this.resetData
+                        let mapelWajib = this.dataMapel.filter(x => x.category.id == 1);
+                        this.dataMapel = mapelWajib;
+                        console.log(mapelWajib)
+                    } 
+            },
 
             onChange(event) {
                 value = event.target.value;

@@ -143,7 +143,7 @@ function showReportAdmin(){
                     value.created_at = dateCreated
                     
                     if (value.desc.length > 1) {
-                        value.desc.substring(0, 1) + '...';
+                        value.desc = value.desc.substring(0, 60) + '...';
                     }
                 });
 

@@ -17,7 +17,7 @@ class StudyForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super(StudyForm, self).__init__(*args, **kwargs)
-        self.fields['class_name'] = forms.ModelChoiceField(queryset=ClassName.objects.all().order_by('class_name'), empty_label="Pilih Kelas", to_field_name="id",  widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example"}))
+        self.fields['class_name'] = forms.ModelChoiceField(queryset=ClassName.objects.all().order_by('class_name'), empty_label="Pilih Kelas", to_field_name="id",  widget=forms.Select(attrs={'class':'form-select form-select-lg', "aria-label":".form-select-md example", "@change":"onChangeMapel"}))
         
         
 class GuidanceForm(forms.ModelForm):
