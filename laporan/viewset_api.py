@@ -117,7 +117,7 @@ class HumanDevelopmentReportViewset(viewsets.ModelViewSet):
         if user.is_staff != True:
             return HumanDevelopmentReport.objects.filter(employee_id__user=user).order_by('-created_at')
         else:
-            return HumanDevelopmentReport.objects.all().order_by('-created_')
+            return HumanDevelopmentReport.objects.all().order_by('-created_at')
     
 class DutyReportViewset(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
