@@ -48,13 +48,13 @@ then
 fi
 
 # restarting gunicorn and nginx
-/home/ubuntu/.local/bin/gunicornrestart
+sudo gunicornrestart
 if [ $? -ne 0 ];
 then
   echo "gunicorn restart failed please check it out!"
 fi
 
-/home/ubuntu/.local/bin/nginxrestart
+sudo nginxrestart
 if [ $? -ne 0 ];
 then
   echo "nginx restart failed please check it out!"
