@@ -22,5 +22,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
-            pwd
-            ls -a
+            cd prod/absensi-guru-django/
+            bash deploy.sh
