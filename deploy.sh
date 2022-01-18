@@ -33,6 +33,15 @@ fi
 
 # collectstatic
 source prod/bin/activate
+
+echo "Install depedencies.."
+pip install -r requirements.txt
+if [ $? -ne 0 ];
+then
+  echo "Problem when installing depedencies, check requirements.txt.."
+  exit 1
+fi
+
 python manage.py migrate --no-input
 if [ $? -ne 0 ];
 then
@@ -60,17 +69,19 @@ then
   echo "nginx restart failed please check it out!"
 fi
 
-echo """
-            ██   ██   ██
-           ██   ██    ██
-             ██  ██  ██
+CODE=$(curl -s -w "%{http_code}\n" https://absen.smkn1cibinong.sch.id/ -o /dev/null)
+SHA=$(git rev-parse HEAD | cut -c 1-7)
+NODE=$(hostname)
+NGINX=$(systemctl status nginx | awk '/Active/ {print $2" "$3}')
+GUNI=$(systemctl status gunicorn | awk '/Active/ {print $2" "$3}')
 
-        ████████████████████
-        ██                ██████
-        ██                ██  ██
-        ██                ██████
-          ██            ██
-           ██████████████
-"""
+echo "========================================="
+echo "deploy success!"
+echo "on node         -> $NODE"
+echo "on commit       -> $GIT_SHA"
+echo "curl status     -> $CODE"
+echo "nginx status    -> $NGINX"
+echo "gunicorn status -> $GUNI"
+echo "========================================="
 
 

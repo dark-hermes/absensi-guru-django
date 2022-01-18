@@ -1,4 +1,4 @@
-name: Django CI
+name: Django CI and Staging
 
 on:
   push:
@@ -9,11 +9,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.9]
+        python-version: [3.8.10]
 
     steps:
     - uses: actions/checkout@v2
@@ -28,3 +28,14 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: Staging test
+      uses: appleboy/ssh-action@v0.1.4
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        port: ${{ secrets.SSH_PORT_STAGING }}
+        key: ${{ secrets.SSH_KEY }}
+        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        script: |
+          cd prod/absensi-guru-django/
+          bash deploy.sh
