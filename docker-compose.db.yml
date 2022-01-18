@@ -12,7 +12,7 @@ services:
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
     volumes:
-      - postgresdb_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data/
     networks:
       vpcbr:
         ipv4_address: 10.5.0.2
