@@ -21,6 +21,14 @@ $primary-font: "Poppins",sans-serif;
     align-items: center;
 }
 
+@mixin gradient-text {
+    font-weight: 700;
+    background-image: linear-gradient(to right, #00b4db, #3b86ff);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
 @mixin table {
     max-height: 500px;
     overflow: auto;

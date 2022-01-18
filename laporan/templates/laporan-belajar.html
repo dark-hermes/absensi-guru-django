@@ -9,7 +9,11 @@
 
 	
 	<div class="container-laporan-guru">
-		<form action="" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak>
+		<div class="loader load">
+			<img src="{% static 'image/logokampak.png' %}">
+			<h1>Sedang Memuat</h1>
+		</div>
+		<form action="" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak class="loading">
 			{% csrf_token %}
 			{{form.employee_id.as_hidden}}
 			<h1 class="head">Laporan Belajar</h1>

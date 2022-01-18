@@ -12,7 +12,7 @@ function absen() {
             dataKeluar:'',
         },
 
-        mounted(){
+        created(){
             let urlMasuk = baseUrl + 'api/presence/checkin/';
             let urlKeluar = baseUrl + 'api/presence/checkout/';
             let urlKerja = baseUrl + 'api/presence/days/';
@@ -103,7 +103,7 @@ function showDataAbsen(){
             dataAbsen: '',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/showabsen/';
             fetch(url)
                 .then(response => response.json() )
@@ -148,41 +148,42 @@ function studyReport(){
             dataKelas:'',
             dataMapel:'',
             resetData:'',
+            loading: false,
         },
 
-        mounted(){
+        async created() {
             let url = baseUrl + 'api/subjects/';
-            fetch(url)
-                .then(response => response.json() )
-                .then(data =>{this.dataKelas = data;  
+            this.loading = true
 
-                
-                $('.submit').click(function () {
-                    checked = $(".form-check-input:checked").length;
+            try {
+                const res = await fetch(url)
+                this.dataKelas = await res.json()
+                this.loading = false
+                $('.load').removeClass('load')
+                $('.loading').removeClass('loading')
+            } catch (error) {
+                console.log(error)
+                this.loading = false
+            }
 
-                    if (!checked) {
-                        alertTemplate.alert("Error", "Harap pilih salah satu pilihan pada Media Pembelajaran", "error", "Tutup")
-                        return false;
-                    }
+            $('.submit').click(function () {
+                checked = $(".form-check-input:checked").length;
 
-                });
+                if (!checked) {
+                    alertTemplate.alert("Error", "Harap pilih salah satu pilihan pada Media Pembelajaran", "error", "Tutup")
+                    return false;
+                }
+
             });
-
-
-
-
-
         },
 
         // filter mapel
         methods:{
-
-            onChangeMapel(event){
+            onChangeClass(event){
                 $("#jenis-mapel").removeAttr("disabled");
 
                     let selValue = $("#id_class_name").val();
                     let s = $("#jenis-mapel").val();
-
                     let mapelKelas = this.dataKelas.filter(x => x.class_name.id == selValue);
                     this.resetData = mapelKelas
 
@@ -190,22 +191,18 @@ function studyReport(){
                         this.dataMapel = this.resetData
                         let produktif = this.dataMapel.filter(x => x.category.id == 2);
                         this.dataMapel = produktif;
-                        console.log(produktif)
                     }
 
                     else if (s == 1) {
                         this.dataMapel = this.resetData
                         let mapelWajib = this.dataMapel.filter(x => x.category.id == 1);
                         this.dataMapel = mapelWajib;
-                        console.log(mapelWajib)
                     } 
             },
 
             onChange(event) {
+                $("#select-mapel").removeAttr("disabled");
                 value = event.target.value;
-                // let selValue = $("#id_class_name").val();
-                // this.dataKelas.filter(x => x.class_name == selValue);
-
                 
                 if (value == 2) {
                     this.dataMapel = this.resetData
@@ -219,8 +216,6 @@ function studyReport(){
                     this.dataMapel = mapelWajib;
                 }
 
-                $("#select-mapel").removeAttr("disabled");
-              
             }
         },
     });
@@ -250,7 +245,7 @@ function showStudyReport(){
             dataBelajar:'',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/laporan/belajar/';
             fetch(url)
                 .then(response => response.json() )
@@ -288,7 +283,7 @@ function showGuidanceReport(){
             dataBimbingan:'',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/laporan/bimbingan/';
             fetch(url)
                 .then(response => response.json() )
@@ -322,7 +317,7 @@ function showDutyReport(){
             dataTugas:'',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/laporan/tugas-lainnya/';
             fetch(url)
                 .then(response => response.json() )
@@ -356,7 +351,7 @@ function showDevelopmentReport(){
             dataPengembangan:'',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/laporan/pengembangan/';
             fetch(url)
                 .then(response => response.json() )
@@ -390,7 +385,7 @@ function showScientificReport(){
             dataIlmiah:'',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/laporan/karya-ilmiah/';
             fetch(url)
                 .then(response => response.json() )
@@ -423,7 +418,7 @@ function showInnovativeReport(){
             dataInovatif:'',
         },
 
-        mounted(){
+        created(){
             let url = baseUrl + 'api/laporan/karya-inovatif/';
             fetch(url)
                 .then(response => response.json() )

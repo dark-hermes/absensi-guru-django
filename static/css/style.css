@@ -473,35 +473,28 @@ nav.navbar .navbar-collapse ul.dropdown-menu.show {
     width: 100%;
     height: 100vh;
   }
-
-  .box {
+  .container-login .box {
     width: 80%;
     height: auto;
   }
-
-  .image-banner {
+  .container-login .image-banner {
     height: unset;
   }
-
-  .image-banner .bottom-text .head {
+  .container-login .image-banner .bottom-text .head {
     font-size: 1.5rem;
   }
-
-  .image-banner .bottom-text .body p {
+  .container-login .image-banner .bottom-text .body p {
     padding: 5px;
     font-size: 1.5;
   }
-
-  .image-banner .bottom-text {
+  .container-login .image-banner .bottom-text {
     height: 50%;
     padding-top: 30px;
   }
-
-  .image-banner .bottom-text .head {
+  .container-login .image-banner .bottom-text .head {
     font-size: 24px;
   }
-
-  .image-banner .bottom-text .body p {
+  .container-login .image-banner .bottom-text .body p {
     font-size: 24px;
   }
 }
@@ -939,12 +932,56 @@ nav.navbar .navbar-collapse ul.dropdown-menu.show {
     height: 95%;
   }
 }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.loader {
+  display: none;
+}
+
+.load {
+  display: block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.load h1 {
+  font-weight: 700;
+  background-image: linear-gradient(to right, #00b4db, #3b86ff);
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-top: 1em;
+}
+
+.load img {
+  animation: blink 2s;
+  animation-iteration-count: infinite;
+}
+
+.loading {
+  display: none;
+}
+
 /*======================= Laporan Belajar Page =======================*/
 .container-laporan-guru {
   width: 80%;
   margin: 100px auto 0;
   transition: 0.3s;
   padding-bottom: 50px;
+  position: relative;
 }
 
 .container-laporan-guru * {
