@@ -69,6 +69,7 @@ then
   echo "nginx restart failed please check it out!"
 fi
 
+# check server status
 CODE=$(curl -s -w "%{http_code}\n" https://absen.smkn1cibinong.sch.id/ -o /dev/null)
 SHA=$(git rev-parse HEAD | cut -c 1-7)
 NODE=$(hostname)
