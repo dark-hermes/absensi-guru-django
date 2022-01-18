@@ -11,6 +11,60 @@
 <div class="container" id="container">
     <h2>Laporan Karya Ilmiah</h2>
     <div id="table-pdf" v-cloak>
+        <form action="" method="get">
+            <div class="button-filter">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
+                        <li><button>Hari Ini</button></li>
+                        <li><button>Bulan Ini</button></li>
+                        <li><button>Tahun Ini</button></li>
+                        <li><button class="button" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                id="">Custom <i class='bx bx-customize'></i></button>
+
+                            
+                        </li>
+                    </ul>
+                    <div class="modal fade " id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Kustomisasi Tanggal</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+
+
+                                        <div class="modal-body">
+                                            <div class="date">
+                                                <label for="from-date">Dari</label>
+                                                <input type="date" name="from-date" id="from-date">
+                                            </div>
+
+                                            <div class="date">
+                                                <label for="to-date">Sampai</label>
+                                                <input type="date" name="to-date" id="to-date">
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Kembali</button>
+                                            <button type="submit" name='custom-filter' value='custom' id='custom-filter'
+                                                class="btn btn-primary">Kirim</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </form>
         <div class="table-laporan table">
             <table>
                 <thead>
@@ -29,11 +83,70 @@
                     <tr v-for="(data) in dataIlmiah">
                         <td>[[ data.created_at ]]</td>
                         <td>[[ data.category.category_name ]]</td>
-                        <td>[[ data.desc ]]</td>
+                        <td>
+                            <p>[[ data.descSort ]]</p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn report" data-bs-toggle="modal"
+                                :data-bs-target=" '#desc-scientific' + index">
+                                Selengkapnya
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade report" :id=" 'desc-scientific' + index" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Keterangan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>[[ data.desc ]]</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                         <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="button-print">
+            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Print <i class='bx bxs-printer'></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Print Absensi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="pdf">
+                                <a class="pdf" href=""> PDF <i class='bx bxs-file-pdf' style='color:#ffffff'  ></i></a>
+                            </div>
+
+                            <div class="excel">
+                                <a  class="excel" href=""> Excel <i class='bx bxs-file' style='color:#ffffff'  ></i></a>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Selesai</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

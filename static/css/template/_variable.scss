@@ -95,3 +95,193 @@ p {
 .swal-modal .swal-text {
     text-align: center !important;
 }
+
+ul.dropdown-menu {
+    min-width: 0;
+    padding: 0;
+    right: auto;
+    transition: all 0.3s;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+
+ul.dropdown-menu.show {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.button-filter{
+    display: flex;
+    justify-content: flex-end;
+
+    .dropdown{
+        width: fit-content;
+
+        a{
+            padding: .5em 1em;
+            background-color: $primary-color;
+            font-weight: 700;
+            color: $secondary-color;
+        }
+
+        .dropdown-menu{
+            width: fit-content;
+
+            button{
+                width: 100%;
+                white-space: nowrap;
+                background: transparent;
+                border: none;
+                outline: none;
+                padding: .5em;
+                text-align: left;
+
+                &:hover{
+                    background-color: #e9ecef;
+                }
+            }
+        }
+    }
+}
+
+
+.button-filter .modal .modal-body{
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-filter .modal .modal-body .date label{
+    font-weight: 700;
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.button-filter .modal .modal-body .date input{
+    padding: 5px 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button-print{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.button-print button.button{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0d6efd;
+    color: #fff;
+    outline: none;
+    border: none;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    transition: unset;
+    align-items: center;
+}
+
+.button-print button.button:hover{
+    font-weight: 700;
+}
+
+.button-print button.button i{
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.button-print .modal .modal-body{
+    display: flex;
+}
+
+.button-print .modal .modal-body .pdf,
+.button-print .modal .modal-body .excel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.button-print .modal .modal-body  a{
+    text-align: center;
+    width: 100px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: #0d6efd;
+    transition: unset;
+}
+
+.button-print .modal .modal-body  a:hover{
+    font-weight: 900;
+}
+
+
+.button-print .modal .modal-body i{
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 995px){
+    .button-filter  button.button{
+        padding: 10px;
+        margin-top: 15px;
+        width: 120px;
+        font-size: 12px;
+    }
+
+    .button-filter  i{
+        font-size: 12px;
+    }
+
+    .button-filter  .modal .modal-body{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .button-filter .modal .modal-body .date{
+        width: 100%;
+        display: flex;
+        margin: 10px 0;
+    }
+
+    .button-filter .modal .modal-body .date label{
+        font-size: 14px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .button-filter .modal .modal-body .date input{
+        font-size: 14px;
+    }
+
+    .button-print button.button{
+        padding: 10px;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .button-print button.button i{
+        font-size: 12px;
+    }
+
+    .button-print .modal .modal-body a{
+        font-size: 12px;
+    }
+
+    .button-print .modal .modal-body i{
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+
+}

@@ -39,26 +39,6 @@ nav.navbar {
                 }
             }
         }    
-        
-        ul.dropdown-menu {
-            min-width: 0;
-            padding: 0;
-            right: auto;
-            left: 50%;
-            transform: translate(-50%, 0);
-            transition: all 0.3s;
-            max-height: 0;
-            display: block;
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        ul.dropdown-menu.show {
-            max-height: 500px;
-            opacity: 1;
-            visibility: visible;
-        }
     }
 }
 

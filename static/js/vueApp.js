@@ -267,6 +267,11 @@ function showStudyReport(){
 
                         value.created_at = dateCreated
                         value.hours = hourCreated
+                        value.descSort = value.desc
+
+                        if (value.desc.length > 60) {
+                            value.descSort = value.desc.substring(0, 60) + '...';
+                        }
 
                     });
             });
@@ -301,6 +306,11 @@ function showGuidanceReport(){
                         .format('DD-MM-YYYY');
 
                         value.created_at = dateCreated
+                        value.descSort = value.desc
+
+                        if (value.desc.length > 60) {
+                            value.descSort = value.desc.substring(0, 60) + '...';
+                        }
 
                     });
             });
@@ -335,6 +345,11 @@ function showDutyReport(){
                         .format('DD-MM-YYYY');
 
                         value.created_at = dateCreated
+                        value.descSort = value.desc
+
+                        if (value.desc.length > 60) {
+                            value.descSort = value.desc.substring(0, 60) + '...';
+                        }
 
                     });
             });
@@ -369,6 +384,11 @@ function showDevelopmentReport(){
                         .format('DD-MM-YYYY');
 
                         value.created_at = dateCreated
+                        value.descSort = value.desc
+
+                        if (value.desc.length > 60) {
+                            value.descSort = value.desc.substring(0, 60) + '...';
+                        }
 
                     });          
             });
@@ -403,6 +423,11 @@ function showScientificReport(){
                         .format('DD-MM-YYYY');
 
                         value.created_at = dateCreated
+                        value.descSort = value.desc
+
+                        if (value.desc.length > 60) {
+                            value.descSort = value.desc.substring(0, 60) + '...';
+                        }
 
                     });
             });
@@ -436,6 +461,11 @@ function showInnovativeReport(){
                         .format('DD-MM-YYYY');
 
                         value.created_at = dateCreated
+                        value.descSort = value.desc
+
+                        if (value.desc.length > 60) {
+                            value.descSort = value.desc.substring(0, 60) + '...';
+                        }
 
                     });
             });
