@@ -64,8 +64,7 @@ def absen(request):
     today = nowDate.strftime('%A').lower()
     current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
     work_days = Days.objects.get(employee_id=current_user)
-    exec("is_dayoff = work_days.{}".format(today))
-    
+    is_dayoff = getattr(work_days, today)
     
     try:
         Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
@@ -79,6 +78,8 @@ def absen(request):
                 presence_now.save()""")
         except:
             pass
+    
+        
 
     def check_record(request=request):
         try:
@@ -346,7 +347,6 @@ def absen(request):
         checkin_record, checkout_record = check_record()
         distance, dist_message = calculate_distance()
         
-        
             
         context = {
             'distance': distance,
@@ -357,7 +357,6 @@ def absen(request):
             'checkin_record': checkin_record,
             'checkout_record': checkout_record,
             'is_dayoff': is_dayoff,
-            
         }
         
         response = render(request, 'absen.html', context)
