@@ -1,3 +1,4 @@
+from wave import Wave_write
 from django.shortcuts import render, redirect
 from django.conf import settings
 from math import sin, cos, radians, acos, degrees
@@ -17,6 +18,8 @@ import subprocess
 from django.http import JsonResponse, HttpResponse
 from django.utils import timezone
 import requests
+
+logging.basicConfig(level=logging.NOTSET)
 
 # Get current date and time
 TODAY = datetime.datetime.now()
@@ -55,15 +58,20 @@ def absen(request):
         return redirect('/admin/dashboard')
     
     TODAY = datetime.datetime.now()
+    
 
     nowDate = datetime.datetime.now()
+    today = nowDate.strftime('%A').lower()
     current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
+    work_days = Days.objects.get(employee_id=current_user)
+    exec("is_dayoff = work_days.{}".format(today))
+    
+    
     try:
         Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
         
     except:
-        work_days = Days.objects.get(employee_id=current_user)
-        today = nowDate.strftime('%A').lower()
+        
         try:
             exec(f"""if work_days.{today} == True:
                 
@@ -326,6 +334,7 @@ def absen(request):
             'greetings': greetings(TODAY),
             'checkin_record': checkin_record,
             'checkout_record': checkout_record,
+            'is_dayoff': is_dayoff,
         }
         
         response = render(request, 'absen.html', context)
@@ -347,6 +356,8 @@ def absen(request):
             'greetings': greetings(TODAY),
             'checkin_record': checkin_record,
             'checkout_record': checkout_record,
+            'is_dayoff': is_dayoff,
+            
         }
         
         response = render(request, 'absen.html', context)
