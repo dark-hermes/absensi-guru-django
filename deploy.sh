@@ -71,7 +71,7 @@ fi
 
 # check server status
 CODE=$(curl -s -w "%{http_code}\n" https://absen.smkn1cibinong.sch.id/ -o /dev/null)
-SHA=$(git rev-parse HEAD | cut -c 1-7)
+GIT_SHA=$(git rev-parse HEAD | cut -c 1-7)
 NODE=$(hostname)
 NGINX=$(systemctl status nginx | awk '/Active/ {print $2" "$3}')
 GUNI=$(systemctl status gunicorn | awk '/Active/ {print $2" "$3}')
