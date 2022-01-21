@@ -25,6 +25,7 @@ $primary-font: "Poppins",sans-serif;
     font-weight: 700;
     background-image: linear-gradient(to right, #00b4db, #3b86ff);
     background-clip: text;
+    -webkit-background-clip: text;
     text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
 }

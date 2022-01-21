@@ -19,9 +19,9 @@
                         Filter
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
-                        <li><button>Hari Ini</button></li>
-                        <li><button>Bulan Ini</button></li>
-                        <li><button>Tahun Ini</button></li>
+                        <li><button name="filter" value="today" id="today">Hari Ini</button name="filter"></li>
+                        <li><button name="filter" value="this_month">Bulan Ini</button name="filter"></li>
+                        <li><button name="filter" value="this_year">Tahun Ini</button></li>
                         <li><button class="button" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 id="">Custom <i class='bx bx-customize'></i></button>
 
@@ -171,6 +171,9 @@
 
 <script type="text/javascript">
     showStudyReport()
+
+    url = window.location.href
+
 </script>
 
 {% endblock %}
