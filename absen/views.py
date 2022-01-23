@@ -64,7 +64,10 @@ def absen(request):
     today = nowDate.strftime('%A').lower()
     current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
     work_days = Days.objects.get(employee_id=current_user)
-    is_dayoff = getattr(work_days, today)
+    try:
+        is_dayoff = getattr(work_days, today)
+    except AttributeError:
+        is_dayoff = True
     
     try:
         Presence.objects.filter(employee_id=current_user, presence_date=nowDate.strftime("%Y-%m-%d"))[0]
