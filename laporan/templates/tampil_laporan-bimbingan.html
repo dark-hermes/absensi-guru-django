@@ -9,7 +9,7 @@
 <div class="container" id="container">
     <h2>Laporan Bimbingan </h2>
     <div id="table-pdf" v-cloak>
-        {% include 'button-print.html' %}
+        {% include 'button-filter.html' %}
         
         <div class="table-laporan table">
             <table>
@@ -62,36 +62,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="button-print">
-            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Print <i class='bx bxs-printer'></i>
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Print Absensi</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="pdf">
-                                <a class="pdf" href=""> PDF <i class='bx bxs-file-pdf' style='color:#ffffff'  ></i></a>
-                            </div>
-
-                            <div class="excel">
-                                <a  class="excel" href=""> Excel <i class='bx bxs-file' style='color:#ffffff'  ></i></a>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Selesai</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+        {% include 'button-print.html' %}
     </div>
 </div>
 {% endblock %}
