@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from laporan.forms import *
 import logging
 from django.views.decorators.csrf import csrf_exempt
 from laporan.models import Method, SubjectName, SubjectCategory, ClassName, SubjectCategory
 from django.contrib.auth.decorators import login_required
+from laporan.resource import *
+import logging
+
+logging.basicConfig(level=logging.NOTSET)
 
 @login_required
 def study_report(request):
@@ -21,18 +25,8 @@ def study_report(request):
             saved_form.method = ','.join(request.POST.getlist('method'))
             saved_form.save()
             
-            form = StudyForm(initial={'employee_id': request.user.employee})
-            method_list = Method.objects.all()
-            
-            message = "Laporan belajar berhasil dibuat!"
-            context = {
-                'form': form,
-                'msg': message,
-                'alert': True,
-                'method_list': method_list
-            }
     
-            return render(request, 'laporan-belajar.html', context)
+            return render(request, 'tampil_laporan-belajar.html')
         else:
             print(form.errors)
         
@@ -53,14 +47,9 @@ def guidance_report(request):
         form = GuidanceForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = GuidanceForm(initial={'employee_id': request.user.employee})
-            message = "Laporan berhasil dibuat"
-            context = {
-                'form': form,
-                'msg': message
-            }
+
     
-            return render(request, 'laporan-bimbingan.html', context)
+            return render(request, 'tampil_laporan-bimbingan.html')
         
         else:
             print(form.errors)
@@ -81,14 +70,8 @@ def scientific_work_report(request):
         form = ScientificWorkForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = ScientificWorkForm(initial={'employee_id': request.user.employee})
-            message = "Laporan berhasil dibuat"
-            context = {
-                'form': form,
-                'msg': message
-            }
         
-            return render(request, 'laporan-ilmiah.html', context)
+            return render(request, 'tampil_laporan-ilmiah.html')
         
         else:
             print(form.errors)
@@ -106,14 +89,8 @@ def innovative_work_report(request):
         form = InnovativeWorkForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = InnovativeWorkForm(initial={'employee_id': request.user.employee})
-            message = "Laporan berhasil dibuat"
-            context = {
-                'form': form,
-                'msg': message
-            }
         
-            return render(request, 'laporan-karya.html', context)
+            return render(request, 'tampil_laporan-karya.html')
         
         else:
             print(form.errors)
@@ -147,15 +124,8 @@ def human_development_report(request):
             saved_form.role = role
             
             saved_form.save()
-            
-            form = HumanDevelopmentForm(initial={'employee_id': request.user.employee})
-            message = "Laporan berhasil dibuat"
-            context = {
-                'form': form,
-                'msg': message
-            }
         
-            return render(request, 'laporan-pengembangan.html', context)
+            return render(request, 'tampil_laporan-pengembangan.html')
         
         else:
             print(form.errors)
@@ -176,14 +146,8 @@ def duty_report(request):
         form = DutyForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = DutyForm(initial={'employee_id': request.user.employee})
-            message = "Laporan berhasil dibuat"
-            context = {
-                'form': form,
-                'msg': message
-            }
         
-            return render(request, 'laporan-tugas.html', context)
+            return render(request, 'tampil_laporan-tugas.html')
         
         else:
             print(form.errors)
@@ -195,6 +159,7 @@ def duty_report(request):
 
 @login_required
 def show_study_report(request):
+    
     return render(request, 'tampil_laporan-belajar.html', { "id": request.user.id} )    
     
 @login_required
@@ -216,3 +181,15 @@ def show_human_development_report(request):
 @login_required
 def show_duty_report(request):
     return render(request, 'tampil_laporan-tugas.html', { "id": request.user.id} )
+
+@login_required
+def export_xls_study(request):
+    logging.info(request.GET.get('filter'))
+    data = StudyReportResource()
+    
+    current_user = Employee.objects.filter(user_id__id=request.user.id)[0]
+    queryset = StudyReport.objects.filter(employee_id=current_user)
+    dataset = data.export(queryset)
+    response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="study_report.xls"'
+    return response
