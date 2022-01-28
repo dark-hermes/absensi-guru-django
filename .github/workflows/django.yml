@@ -31,5 +31,5 @@ jobs:
     - name: check vulnerability
       run: |
         pip install safety
-        pip -m safety check -r requirements.txt
+        python -m safety check -r requirements.txt
 
