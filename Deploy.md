@@ -1,3 +1,6 @@
+
+[![Deployment](https://github.com/dark-hermes/absensi-guru-django/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/dark-hermes/absensi-guru-django/actions/workflows/deploy.yml)
+
 ## Deployment Documentation
 ### Preparing virtualenv
 
