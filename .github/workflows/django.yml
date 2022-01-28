@@ -1,4 +1,4 @@
-name: Django CI and Staging
+name: Django CI
 
 on:
   push:
@@ -28,14 +28,8 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
-    - name: Staging test
-      uses: appleboy/ssh-action@v0.1.4
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        port: ${{ secrets.SSH_PORT_STAGING }}
-        key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
-        script: |
-          cd prod/absensi-guru-django/
-          bash deploy.sh
+    - name: check vulnerability
+      run: |
+        pip install safety
+        pip -m safety check -r requirements.txt
+
