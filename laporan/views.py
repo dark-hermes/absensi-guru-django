@@ -4,7 +4,6 @@ import logging
 from django.views.decorators.csrf import csrf_exempt
 from laporan.models import Method, SubjectName, SubjectCategory, ClassName, SubjectCategory
 from django.contrib.auth.decorators import login_required
-from laporan.resource import *
 import logging
 
 logging.basicConfig(level=logging.NOTSET)
