@@ -1,7 +1,5 @@
-dayjs.extend(window.dayjs_plugin_customParseFormat);
-
-let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
-// let baseUrl = 'https://localhost:8000/';
+// let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+let baseUrl = 'https://localhost:8000/';
 
 function absen() {
     var app = new Vue({
@@ -529,7 +527,32 @@ function showStudyReport() {
                     const imageBlob = await response.blob()
                     const a = reader.readAsDataURL(imageBlob);
                 })()
-            }
+            },
+
+                exportExcels() {
+                    let dataExcel = []
+
+                    $.each(this.dataBelajar, function (index, value) {
+                        raw = {
+                            date: value.created_at,
+                            hours: value.hours,
+                            className: value.class_name,
+                            subjectName: value.subject_name,
+                            totalStudent: value.total_student,
+                            presenceStudent: value.presence_student,
+                            absenceStudent: value.absence_student,
+                            method: value.method,
+                            desc: value.desc
+                        }
+
+                        dataExcel.push(raw)
+                    })
+                    
+                    exportExcel(
+                        dataExcel,
+                        ['Tanggal', 'Jam Lapor', 'Kelas KBM', 'Mata Ajar', 'Jumlah Siswa', 'Jumlah Siswa Hadir','Jumlah Siswa Tidak Hadir','Media Pembelajaran','Keterangan'],
+                    )
+                },
         }
     });
 }
@@ -786,7 +809,24 @@ function showGuidanceReport() {
                     const imageBlob = await response.blob()
                     const a = reader.readAsDataURL(imageBlob);
                 })()
-            }
+            },
+            exportExcels() {
+                let dataExcel = []
+
+                $.each(this.dataBimbingan, function (index, value) {
+                    raw = {
+                        date: value.created_at,
+                        desc: value.desc
+                    }
+
+                    dataExcel.push(raw)
+                })
+                
+                exportExcel(
+                    dataExcel,
+                    ['Tanggal', 'Laporan'],
+                )
+            },
         }
     });
 }
@@ -1049,7 +1089,26 @@ function showDutyReport() {
                     const imageBlob = await response.blob()
                     const a = reader.readAsDataURL(imageBlob);
                 })()
-            }
+            },
+
+            exportExcels() {
+                let dataExcel = []
+
+                $.each(this.dataTugas, function (index, value) {
+                    raw = {
+                        date: value.created_at,
+                        position: value.role.role_name,
+                        desc: value.desc
+                    }
+
+                    dataExcel.push(raw)
+                })
+                
+                exportExcel(
+                    dataExcel,
+                    ['Tanggal', 'Posisi Kerja', 'Laporan']
+                )
+            },
         }
     });
 }
@@ -1317,7 +1376,28 @@ function showDevelopmentReport() {
                     const imageBlob = await response.blob()
                     const a = reader.readAsDataURL(imageBlob);
                 })()
-            }
+            },
+
+            exportExcels() {
+                let dataExcel = []
+
+                $.each(this.dataPengembangan, function (index, value) {
+                    raw = {
+                        date: value.created_at,
+                        category: value.category,
+                        role: value.role,
+                        duration: value.duration,
+                        desc: value.desc
+                    }
+
+                    dataExcel.push(raw)
+                })
+                
+                exportExcel(
+                    dataExcel,
+                    ['Tanggal', 'Kegiatan', 'Peran', 'Jumlah Jam', 'Laporan']
+                )
+            },
         }
     });
 }
@@ -1466,7 +1546,7 @@ function showScientificReport() {
                         startY: 50,
 
                         body: [
-                            ['Laporan Pengembangan Keseluruhan'],
+                            ['Laporan Ilmiah Keseluruhan'],
                         ],
 
                         pageBreak: 'avoid',
@@ -1579,7 +1659,26 @@ function showScientificReport() {
                     const imageBlob = await response.blob()
                     const a = reader.readAsDataURL(imageBlob);
                 })()
-            }
+            },
+
+            exportExcels() {
+                let dataExcel = []
+
+                $.each(this.dataIlmiah, function (index, value) {
+                    raw = {
+                        date: value.created_at,
+                        category: value.category.category_name,
+                        desc: value.desc
+                    }
+
+                    dataExcel.push(raw)
+                })
+                
+                exportExcel(
+                    dataExcel,
+                    ['Tanggal', 'Karya', 'Laporan']
+                )
+            },
         }
     });
 }
@@ -1841,7 +1940,26 @@ function showInnovativeReport() {
                     const imageBlob = await response.blob()
                     const a = reader.readAsDataURL(imageBlob);
                 })()
-            }
+            },
+
+            exportExcels() {
+                let dataExcel = []
+
+                $.each(this.dataInovatif, function (index, value) {
+                    raw = {
+                        date: value.created_at,
+                        category: value.category.category_name,
+                        desc: value.desc
+                    }
+
+                    dataExcel.push(raw)
+                })
+                
+                exportExcel(
+                    dataExcel,
+                    ['Tanggal', 'Karya', 'Laporan']
+                )
+            },
         }
     });
 }
