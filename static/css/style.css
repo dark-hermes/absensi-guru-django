@@ -211,6 +211,20 @@ ul.dropdown-menu.show {
     font-size: 12px;
   }
 }
+.pdf-header {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.pdf-header p {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 2em;
+  padding-right: 8em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /*  Navbar */
 nav.navbar .navbar-brand {
   margin: 0 20px;

@@ -1,6 +1,6 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
-let baseUrl = 'https://localhost:8000/';
+let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
 
 function absen() {
     var app = new Vue({
@@ -281,6 +281,8 @@ function showStudyReport() {
                         value.thisToday = thisToday
                         value.thisMonth = thisMonth
                         value.thisYear = thisYear
+                        value.class_name = value.class_name.class_name
+                        value.subject_name = value.subject_name.subject_name
 
                         if (value.desc.length > 60) {
                             value.descSort = value.desc.substring(0, 60) + '...';
@@ -323,6 +325,211 @@ function showStudyReport() {
                 let filtered = this.dataBelajar.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataBelajar = filtered
             },
+
+            exportPdf() {
+                const {jsPDF} = window.jspdf;
+
+                let fullName,nip,position
+
+                const date = new Date()
+                const month = date.toLocaleString('id-ID', { month: 'long' });
+                const year = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, "0");
+                const fullDate = (`${day} ${month} ${year}`)
+
+
+                $.each(this.dataBelajar, function(index, value) {
+                    fullName = value.employee_id.full_name
+                    nip = value.employee_id.nip
+                    position = value.employee_id.position
+                })
+
+                let columns = [{
+                        title: "Tanggal",
+                        dataKey: "created_at"
+                    },
+                    {
+                        title: "Jam",
+                        dataKey: "hours"
+                    },
+                    {
+                        title: "Kelas",
+                        dataKey: "class_name"
+                    },
+                    {
+                        title: "Mata Pelajaran",
+                        dataKey: "subject_name"
+                    },
+                    {
+                        title: "Total Murid",
+                        dataKey: "total_student"
+                    },
+                    {
+                        title: "Murid Hadir",
+                        dataKey: "presence_student"
+                    },
+                    {
+                        title: "Murid Tidak Hadir",
+                        dataKey: "absence_student"
+                    },
+                    {
+                        title: "Metode Pembelajaran",
+                        dataKey: "method"
+                    },
+                    {
+                        title: "Deskripsi",
+                        dataKey: "desc"
+                    },
+                ];
+
+                let doc = new jsPDF({
+                    orientation: "landscape",
+                });
+
+                pdfContent = this.dataBelajar
+
+
+                url = (baseUrl + 'static/image/pdf-header.jpeg')
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    doc.addImage(base64data, 'JPEG', 10, 10)
+
+                    doc.autoTable({
+                        startY: 100,
+
+                        body: [
+                            ['Laporan Belajar Keseluruhan'],
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 18,
+                        },
+                    })
+
+                    doc.autoTable({
+                        body: [
+                            ['Nama', ':', `${fullName}`],
+                            ['NIP', ':',`${nip}`],
+                            ['Posisi', ':', `${position}`],
+                        ],
+
+                        columnStyles: {
+                            0: {
+                                cellWidth: 20
+                            },
+
+                            1:{
+                                cellWidth: 5
+                            }
+                        },
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'left',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 20,
+                        },
+                    })
+
+                    doc.autoTable(columns, pdfContent, {
+
+                        columnStyles: {
+                            total_student: {
+                                cellWidth: 20
+                            },
+                            presence_student: {
+                                cellWidth: 20
+                            },
+                            absence_student: {
+                                cellWidth: 20
+                            },
+                            method: {
+                                cellWidth: 50
+                            },
+                            subject_name: {
+                                cellWidth: 50
+                            },
+                            desc: {
+                                cellWidth: 50
+                            },
+                        },
+
+                        showHead: 'firstPage',
+                        headStyles: {
+                            fillColor: [255, 255, 255],
+                            lineColor: [0, 0, 0],
+                            lineWidth: .1,
+                            fontSize: 10,
+                        },
+                        bodyStyles:{
+                            lineColor: [0, 0, 0],
+                        },
+
+                        theme: 'grid',
+
+                        styles: {
+                            textColor: [0,0,0],
+                            overflow: 'linebreak',
+                            fontSize: 8,
+                            cellWidth: 'wrap',
+                            cellPadding: {
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                bottom: 5
+                            },
+                        },
+                    });
+
+                    doc.autoTable({
+                        head: [
+                            [`${fullDate}`]
+                        ],
+                        body: [
+                            ['Kepala'],
+                            ['CUCU SALMAN, M.Ag.'],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['PEMBINA TINGKAT I'],
+                            ['NIP. 197103011998021002']
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 200,
+                        },
+                    })
+
+                    doc.save('table.pdf');
+                }
+
+                (async () => {
+                    const response = await fetch(url)
+                    const imageBlob = await response.blob()
+                    const a = reader.readAsDataURL(imageBlob);
+                })()
+            }
         }
     });
 }
@@ -416,6 +623,169 @@ function showGuidanceReport() {
                 let filtered = this.dataBimbingan.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataBimbingan = filtered
             },
+
+            exportPdf() {
+                const {jsPDF} = window.jspdf;
+
+                let fullName,nip,position
+
+                const date = new Date()
+                const month = date.toLocaleString('id-ID', { month: 'long' });
+                const year = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, "0");
+                const fullDate = (`${day} ${month} ${year}`)
+
+
+                $.each(this.dataBimbingan, function(index, value) {
+                    fullName = value.employee_id.full_name
+                    nip = value.employee_id.nip
+                    position = value.employee_id.position
+                })
+
+                let columns = [{
+                        title: "Tanggal",
+                        dataKey: "created_at"
+                    },
+                    {
+                        title: "Deskripsi",
+                        dataKey: "desc"
+                    },
+                ];
+
+                let doc = new jsPDF({
+                    orientation: "portrait",
+                });
+
+                pdfContent = this.dataBimbingan
+
+
+                url = (baseUrl + 'static/image/pdf-header.jpeg')
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    width = doc.internal.pageSize.getWidth()
+                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+
+                    doc.autoTable({
+                        startY: 80,
+
+                        body: [
+                            ['Laporan Bimbingan Keseluruhan'],
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 18,
+                        },
+                    })
+
+                    doc.autoTable({
+                        body: [
+                            ['Nama', ':', `${fullName}`],
+                            ['NIP', ':',`${nip}`],
+                            ['Posisi', ':', `${position}`],
+                        ],
+
+                        columnStyles: {
+                            0: {
+                                cellWidth: 20
+                            },
+
+                            1:{
+                                cellWidth: 5
+                            }
+                        },
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'left',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 20,
+                        },
+                    })
+
+                    doc.autoTable(columns, pdfContent, {
+
+                        columnStyles: {
+                            desc: {
+                                cellWidth: 50
+                            },
+                        },
+
+                        showHead: 'firstPage',
+                        headStyles: {
+                            fillColor: [255, 255, 255],
+                            lineColor: [0, 0, 0],
+                            lineWidth: .1,
+                            fontSize: 10,
+                        },
+                        bodyStyles:{
+                            lineColor: [0, 0, 0],
+                        },
+
+                        theme: 'grid',
+
+                        styles: {
+                            textColor: [0,0,0],
+                            overflow: 'linebreak',
+                            fontSize: 8,
+                            cellWidth: 'wrap',
+                            cellPadding: {
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                bottom: 5
+                            },
+                        },
+                    });
+
+                    doc.autoTable({
+                        head: [
+                            [`${fullDate}`]
+                        ],
+                        body: [
+                            ['Kepala'],
+                            ['CUCU SALMAN, M.Ag.'],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['PEMBINA TINGKAT I'],
+                            ['NIP. 197103011998021002']
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 12,
+                        },
+
+                        margin: {
+                            left: 120,
+                        },
+                    })
+
+                    doc.save('table.pdf');
+                }
+
+                (async () => {
+                    const response = await fetch(url)
+                    const imageBlob = await response.blob()
+                    const a = reader.readAsDataURL(imageBlob);
+                })()
+            }
         }
     });
 }
@@ -469,6 +839,7 @@ function showDutyReport() {
                         value.thisToday = thisToday
                         value.thisMonth = thisMonth
                         value.thisYear = thisYear
+                        value.roleName = value.role.role_name
 
                         if (value.desc.length > 60) {
                             value.descSort = value.desc.substring(0, 60) + '...';
@@ -511,6 +882,173 @@ function showDutyReport() {
                 let filtered = this.dataTugas.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataTugas = filtered
             },
+
+            exportPdf() {
+                const {jsPDF} = window.jspdf;
+
+                let fullName,nip,position
+
+                const date = new Date()
+                const month = date.toLocaleString('id-ID', { month: 'long' });
+                const year = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, "0");
+                const fullDate = (`${day} ${month} ${year}`)
+
+
+                $.each(this.dataTugas, function(index, value) {
+                    fullName = value.employee_id.full_name
+                    nip = value.employee_id.nip
+                    position = value.employee_id.position
+                })
+
+                let columns = [{
+                        title: "Tanggal",
+                        dataKey: "created_at"
+                    },
+                    {
+                        title: "Posisi",
+                        dataKey: "roleName"
+                    },
+                    {
+                        title: "Deskripsi",
+                        dataKey: "desc"
+                    },
+                ];
+
+                let doc = new jsPDF({
+                    orientation: "portrait",
+                });
+
+                pdfContent = this.dataTugas
+
+
+                url = (baseUrl + 'static/image/pdf-header.jpeg')
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    width = doc.internal.pageSize.getWidth()
+                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+
+                    doc.autoTable({
+                        startY: 80,
+
+                        body: [
+                            ['Laporan Tugas Keseluruhan'],
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 18,
+                        },
+                    })
+
+                    doc.autoTable({
+                        body: [
+                            ['Nama', ':', `${fullName}`],
+                            ['NIP', ':',`${nip}`],
+                            ['Posisi', ':', `${position}`],
+                        ],
+
+                        columnStyles: {
+                            0: {
+                                cellWidth: 20
+                            },
+
+                            1:{
+                                cellWidth: 5
+                            }
+                        },
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'left',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 20,
+                        },
+                    })
+
+                    doc.autoTable(columns, pdfContent, {
+
+                        columnStyles: {
+                            desc: {
+                                cellWidth: 50
+                            },
+                        },
+
+                        showHead: 'firstPage',
+                        headStyles: {
+                            fillColor: [255, 255, 255],
+                            lineColor: [0, 0, 0],
+                            lineWidth: .1,
+                            fontSize: 10,
+                        },
+                        bodyStyles:{
+                            lineColor: [0, 0, 0],
+                        },
+
+                        theme: 'grid',
+
+                        styles: {
+                            textColor: [0,0,0],
+                            overflow: 'linebreak',
+                            fontSize: 8,
+                            cellWidth: 'wrap',
+                            cellPadding: {
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                bottom: 5
+                            },
+                        },
+                    });
+
+                    doc.autoTable({
+                        head: [
+                            [`${fullDate}`]
+                        ],
+                        body: [
+                            ['Kepala'],
+                            ['CUCU SALMAN, M.Ag.'],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['PEMBINA TINGKAT I'],
+                            ['NIP. 197103011998021002']
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 12,
+                        },
+
+                        margin: {
+                            left: 120,
+                        },
+                    })
+
+                    doc.save('table.pdf');
+                }
+
+                (async () => {
+                    const response = await fetch(url)
+                    const imageBlob = await response.blob()
+                    const a = reader.readAsDataURL(imageBlob);
+                })()
+            }
         }
     });
 }
@@ -605,6 +1143,180 @@ function showDevelopmentReport() {
                 let filtered = this.dataPengembangan.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataPengembangan = filtered
             },
+            exportPdf() {
+                const {jsPDF} = window.jspdf;
+
+                let fullName,nip,position
+
+                const date = new Date()
+                const month = date.toLocaleString('id-ID', { month: 'long' });
+                const year = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, "0");
+                const fullDate = (`${day} ${month} ${year}`)
+
+
+                $.each(this.dataPengembangan, function(index, value) {
+                    fullName = value.employee_id.full_name
+                    nip = value.employee_id.nip
+                    position = value.employee_id.position
+                })
+
+                let columns = [{
+                        title: "Tanggal",
+                        dataKey: "created_at"
+                    },
+                    {
+                        title: "Kegiatan",
+                        dataKey: "category"
+                    },
+                    {
+                        title: "Peran",
+                        dataKey: "role"
+                    },
+                    {
+                        title: "Durasi",
+                        dataKey: "duration"
+                    },
+                    {
+                        title: "Deskripsi",
+                        dataKey: "desc"
+                    },
+                ];
+
+                let doc = new jsPDF({
+                    orientation: "portrait",
+                });
+
+                pdfContent = this.dataPengembangan
+
+
+                url = (baseUrl + 'static/image/pdf-header.jpeg')
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    width = doc.internal.pageSize.getWidth()
+                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+
+                    doc.autoTable({
+                        startY: 80,
+
+                        body: [
+                            ['Laporan Pengembangan Keseluruhan'],
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 18,
+                        },
+                    })
+
+                    doc.autoTable({
+                        body: [
+                            ['Nama', ':', `${fullName}`],
+                            ['NIP', ':',`${nip}`],
+                            ['Posisi', ':', `${position}`],
+                        ],
+
+                        columnStyles: {
+                            0: {
+                                cellWidth: 20
+                            },
+
+                            1:{
+                                cellWidth: 5
+                            }
+                        },
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'left',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 20,
+                        },
+                    })
+
+                    doc.autoTable(columns, pdfContent, {
+
+                        columnStyles: {
+                            desc: {
+                                cellWidth: 50
+                            },
+                        },
+
+                        showHead: 'firstPage',
+                        headStyles: {
+                            fillColor: [255, 255, 255],
+                            lineColor: [0, 0, 0],
+                            lineWidth: .1,
+                            fontSize: 10,
+                        },
+                        bodyStyles:{
+                            lineColor: [0, 0, 0],
+                        },
+
+                        theme: 'grid',
+
+                        styles: {
+                            textColor: [0,0,0],
+                            overflow: 'linebreak',
+                            fontSize: 8,
+                            cellWidth: 'wrap',
+                            cellPadding: {
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                bottom: 5
+                            },
+                        },
+                    });
+
+                    doc.autoTable({
+                        head: [
+                            [`${fullDate}`]
+                        ],
+                        body: [
+                            ['Kepala'],
+                            ['CUCU SALMAN, M.Ag.'],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['PEMBINA TINGKAT I'],
+                            ['NIP. 197103011998021002']
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 12,
+                        },
+
+                        margin: {
+                            left: 120,
+                        },
+                    })
+
+                    doc.save('table.pdf');
+                }
+
+                (async () => {
+                    const response = await fetch(url)
+                    const imageBlob = await response.blob()
+                    const a = reader.readAsDataURL(imageBlob);
+                })()
+            }
         }
     });
 }
@@ -658,6 +1370,7 @@ function showScientificReport() {
                         value.thisToday = thisToday
                         value.thisMonth = thisMonth
                         value.thisYear = thisYear
+                        value.categoryName = value.category.category_name
 
                         if (value.desc.length > 60) {
                             value.descSort = value.desc.substring(0, 60) + '...';
@@ -700,6 +1413,172 @@ function showScientificReport() {
                 let filtered = this.dataIlmiah.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataIlmiah = filtered
             },
+            exportPdf() {
+                const {jsPDF} = window.jspdf;
+
+                let fullName,nip,position
+
+                const date = new Date()
+                const month = date.toLocaleString('id-ID', { month: 'long' });
+                const year = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, "0");
+                const fullDate = (`${day} ${month} ${year}`)
+
+
+                $.each(this.dataIlmiah, function(index, value) {
+                    fullName = value.employee_id.full_name
+                    nip = value.employee_id.nip
+                    position = value.employee_id.position
+                })
+
+                let columns = [{
+                        title: "Tanggal",
+                        dataKey: "created_at"
+                    },
+                    {
+                        title: "Karya",
+                        dataKey: "categoryName"
+                    },
+                    {
+                        title: "Deskripsi",
+                        dataKey: "desc"
+                    },
+                ];
+
+                let doc = new jsPDF({
+                    orientation: "portrait",
+                });
+
+                pdfContent = this.dataIlmiah
+
+
+                url = (baseUrl + 'static/image/pdf-header.jpeg')
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    width = doc.internal.pageSize.getWidth()
+                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+
+                    doc.autoTable({
+                        startY: 80,
+
+                        body: [
+                            ['Laporan Pengembangan Keseluruhan'],
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 18,
+                        },
+                    })
+
+                    doc.autoTable({
+                        body: [
+                            ['Nama', ':', `${fullName}`],
+                            ['NIP', ':',`${nip}`],
+                            ['Posisi', ':', `${position}`],
+                        ],
+
+                        columnStyles: {
+                            0: {
+                                cellWidth: 20
+                            },
+
+                            1:{
+                                cellWidth: 5
+                            }
+                        },
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'left',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 20,
+                        },
+                    })
+
+                    doc.autoTable(columns, pdfContent, {
+
+                        columnStyles: {
+                            desc: {
+                                cellWidth: 50
+                            },
+                        },
+
+                        showHead: 'firstPage',
+                        headStyles: {
+                            fillColor: [255, 255, 255],
+                            lineColor: [0, 0, 0],
+                            lineWidth: .1,
+                            fontSize: 10,
+                        },
+                        bodyStyles:{
+                            lineColor: [0, 0, 0],
+                        },
+
+                        theme: 'grid',
+
+                        styles: {
+                            textColor: [0,0,0],
+                            overflow: 'linebreak',
+                            fontSize: 8,
+                            cellWidth: 'wrap',
+                            cellPadding: {
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                bottom: 5
+                            },
+                        },
+                    });
+
+                    doc.autoTable({
+                        head: [
+                            [`${fullDate}`]
+                        ],
+                        body: [
+                            ['Kepala'],
+                            ['CUCU SALMAN, M.Ag.'],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['PEMBINA TINGKAT I'],
+                            ['NIP. 197103011998021002']
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 12,
+                        },
+
+                        margin: {
+                            left: 120,
+                        },
+                    })
+
+                    doc.save('table.pdf');
+                }
+
+                (async () => {
+                    const response = await fetch(url)
+                    const imageBlob = await response.blob()
+                    const a = reader.readAsDataURL(imageBlob);
+                })()
+            }
         }
     });
 }
@@ -752,6 +1631,7 @@ function showInnovativeReport() {
                         value.thisToday = thisToday
                         value.thisMonth = thisMonth
                         value.thisYear = thisYear
+                        value.categoryName = value.category.category_name
 
                         if (value.desc.length > 60) {
                             value.descSort = value.desc.substring(0, 60) + '...';
@@ -794,6 +1674,173 @@ function showInnovativeReport() {
                 let filtered = this.dataInovatif.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataInovatif = filtered
             },
+
+            exportPdf() {
+                const {jsPDF} = window.jspdf;
+
+                let fullName,nip,position
+
+                const date = new Date()
+                const month = date.toLocaleString('id-ID', { month: 'long' });
+                const year = date.getFullYear();
+                const day = date.getDate().toString().padStart(2, "0");
+                const fullDate = (`${day} ${month} ${year}`)
+
+
+                $.each(this.dataInovatif, function(index, value) {
+                    fullName = value.employee_id.full_name
+                    nip = value.employee_id.nip
+                    position = value.employee_id.position
+                })
+
+                let columns = [{
+                        title: "Tanggal",
+                        dataKey: "created_at"
+                    },
+                    {
+                        title: "Karya",
+                        dataKey: "categoryName"
+                    },
+                    {
+                        title: "Deskripsi",
+                        dataKey: "desc"
+                    },
+                ];
+
+                let doc = new jsPDF({
+                    orientation: "portrait",
+                });
+
+                pdfContent = this.dataInovatif
+
+
+                url = (baseUrl + 'static/image/pdf-header.jpeg')
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+
+                    width = doc.internal.pageSize.getWidth()
+                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+
+                    doc.autoTable({
+                        startY: 80,
+
+                        body: [
+                            ['Laporan Pengembangan Keseluruhan'],
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 18,
+                        },
+                    })
+
+                    doc.autoTable({
+                        body: [
+                            ['Nama', ':', `${fullName}`],
+                            ['NIP', ':',`${nip}`],
+                            ['Posisi', ':', `${position}`],
+                        ],
+
+                        columnStyles: {
+                            0: {
+                                cellWidth: 20
+                            },
+
+                            1:{
+                                cellWidth: 5
+                            }
+                        },
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'left',
+                            fontSize: 15,
+                        },
+
+                        margin: {
+                            left: 20,
+                        },
+                    })
+
+                    doc.autoTable(columns, pdfContent, {
+
+                        columnStyles: {
+                            desc: {
+                                cellWidth: 50
+                            },
+                        },
+
+                        showHead: 'firstPage',
+                        headStyles: {
+                            fillColor: [255, 255, 255],
+                            lineColor: [0, 0, 0],
+                            lineWidth: .1,
+                            fontSize: 10,
+                        },
+                        bodyStyles:{
+                            lineColor: [0, 0, 0],
+                        },
+
+                        theme: 'grid',
+
+                        styles: {
+                            textColor: [0,0,0],
+                            overflow: 'linebreak',
+                            fontSize: 8,
+                            cellWidth: 'wrap',
+                            cellPadding: {
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                bottom: 5
+                            },
+                        },
+                    });
+
+                    doc.autoTable({
+                        head: [
+                            [`${fullDate}`]
+                        ],
+                        body: [
+                            ['Kepala'],
+                            ['CUCU SALMAN, M.Ag.'],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['                   '],
+                            ['PEMBINA TINGKAT I'],
+                            ['NIP. 197103011998021002']
+                        ],
+
+                        pageBreak: 'avoid',
+                        rowPageBreak: 'avoid',
+                        theme: 'plain',
+                        styles: {
+                            halign: 'center',
+                            fontSize: 12,
+                        },
+
+                        margin: {
+                            left: 120,
+                        },
+                    })
+
+                    doc.save('table.pdf');
+                }
+
+                (async () => {
+                    const response = await fetch(url)
+                    const imageBlob = await response.blob()
+                    const a = reader.readAsDataURL(imageBlob);
+                })()
+            }
         }
     });
 }

@@ -28,7 +28,7 @@
                         <td colspan="4" align="center">Data tidak tersedia.</td>
                     </tr>
 
-                    <tr v-for="(data) in dataTugas">
+                    <tr v-for="(data,index) in dataTugas">
                         <td>[[ data.created_at ]]</td>
                         <td>[[ data.role.role_name ]]</td>
                         <td>

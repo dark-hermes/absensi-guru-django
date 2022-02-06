@@ -1,5 +1,6 @@
-let img = document.getElementsByTagName("img");
 
+
+let img = document.getElementsByTagName("img");
 for (let i = 0; i < img.length; i++) {
   img[i].setAttribute("loading", "lazy")
 }

@@ -283,6 +283,24 @@ ul.dropdown-menu.show {
         margin-left: 5px;
         font-size: 12px;
     }
+}
 
 
+
+
+
+
+.pdf-header{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+
+    p{
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 2em;
+        padding-right: 8em;
+        text-align: center;
+        text-transform: uppercase;
+    }
 }

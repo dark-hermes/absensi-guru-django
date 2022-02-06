@@ -73,13 +73,16 @@
                                 </div>
                             </div>
                         </td>
-                        <td><a v-bind:href="data.documentation" target="_blank">Lihat Bukti</a></td>
+                        <td><a v-bind:href="data.documentation" target="_blank" id="documentation">Lihat Bukti</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
         {% include 'button-print.html' %}
+
+        <div class="pdf-header" id="p">
+            
+        </div>
     </div>
 </div>
 

@@ -26,7 +26,7 @@
                     <tr v-if="dataPengembangan.length === 0">
                         <td colspan="6" align="center">Data tidak tersedia.</td>
                     </tr>
-                    <tr v-for="(data) in dataPengembangan">
+                    <tr v-for="(data,index) in dataPengembangan">
                         <td>[[ data.created_at ]]</td>
                         <td>[[ data.category ]]</td>
                         <td>[[ data.role ]]</td>
