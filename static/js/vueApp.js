@@ -1,6 +1,7 @@
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
-let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+// let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+let baseUrl = 'https://localhost:8000/';
 
 function absen() {
     var app = new Vue({
@@ -389,16 +390,16 @@ function showStudyReport() {
                 pdfContent = this.dataBelajar
 
 
-                url = (baseUrl + 'static/image/pdf-header.jpeg')
+                url = (baseUrl + 'static/image/pdf-header-landscape.png')
 
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64data = reader.result;
 
-                    doc.addImage(base64data, 'JPEG', 10, 10)
+                    doc.addImage(base64data, 'PNG', 10, 5)
 
                     doc.autoTable({
-                        startY: 100,
+                        startY: 50,
 
                         body: [
                             ['Laporan Belajar Keseluruhan'],
@@ -409,7 +410,7 @@ function showStudyReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 18,
+                            fontSize: 14,
                         },
                     })
 
@@ -435,7 +436,7 @@ function showStudyReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'left',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
@@ -471,7 +472,7 @@ function showStudyReport() {
                             fillColor: [255, 255, 255],
                             lineColor: [0, 0, 0],
                             lineWidth: .1,
-                            fontSize: 10,
+                            fontSize: 11,
                         },
                         bodyStyles:{
                             lineColor: [0, 0, 0],
@@ -482,13 +483,13 @@ function showStudyReport() {
                         styles: {
                             textColor: [0,0,0],
                             overflow: 'linebreak',
-                            fontSize: 8,
+                            fontSize: 11,
                             cellWidth: 'wrap',
                             cellPadding: {
-                                top: 5,
-                                right: 5,
-                                left: 5,
-                                bottom: 5
+                                top: 2,
+                                right: 2,
+                                left: 2,
+                                bottom: 2
                             },
                         },
                     });
@@ -503,7 +504,6 @@ function showStudyReport() {
                             ['                   '],
                             ['                   '],
                             ['                   '],
-                            ['                   '],
                             ['PEMBINA TINGKAT I'],
                             ['NIP. 197103011998021002']
                         ],
@@ -513,7 +513,7 @@ function showStudyReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
@@ -659,17 +659,17 @@ function showGuidanceReport() {
                 pdfContent = this.dataBimbingan
 
 
-                url = (baseUrl + 'static/image/pdf-header.jpeg')
+                url = (baseUrl + 'static/image/pdf-header-potrait.png')
 
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64data = reader.result;
 
                     width = doc.internal.pageSize.getWidth()
-                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+                    doc.addImage(base64data, 'PNG', 14, 5)
 
                     doc.autoTable({
-                        startY: 80,
+                        startY: 50,
 
                         body: [
                             ['Laporan Bimbingan Keseluruhan'],
@@ -680,7 +680,7 @@ function showGuidanceReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 18,
+                            fontSize: 14,
                         },
                     })
 
@@ -706,10 +706,11 @@ function showGuidanceReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'left',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
+                            top: -10,
                             left: 20,
                         },
                     })
@@ -718,7 +719,7 @@ function showGuidanceReport() {
 
                         columnStyles: {
                             desc: {
-                                cellWidth: 50
+                                cellWidth: 156
                             },
                         },
 
@@ -727,7 +728,8 @@ function showGuidanceReport() {
                             fillColor: [255, 255, 255],
                             lineColor: [0, 0, 0],
                             lineWidth: .1,
-                            fontSize: 10,
+                            halign: 'center',
+                            fontSize: 11,
                         },
                         bodyStyles:{
                             lineColor: [0, 0, 0],
@@ -738,13 +740,13 @@ function showGuidanceReport() {
                         styles: {
                             textColor: [0,0,0],
                             overflow: 'linebreak',
-                            fontSize: 8,
+                            fontSize: 11,
                             cellWidth: 'wrap',
                             cellPadding: {
-                                top: 5,
-                                right: 5,
-                                left: 5,
-                                bottom: 5
+                                top: 2,
+                                right: 2,
+                                left: 2,
+                                bottom: 2
                             },
                         },
                     });
@@ -756,7 +758,6 @@ function showGuidanceReport() {
                         body: [
                             ['Kepala'],
                             ['CUCU SALMAN, M.Ag.'],
-                            ['                   '],
                             ['                   '],
                             ['                   '],
                             ['                   '],
@@ -922,17 +923,17 @@ function showDutyReport() {
                 pdfContent = this.dataTugas
 
 
-                url = (baseUrl + 'static/image/pdf-header.jpeg')
+                url = (baseUrl + 'static/image/pdf-header-potrait.png')
 
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64data = reader.result;
 
                     width = doc.internal.pageSize.getWidth()
-                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+                    doc.addImage(base64data, 'PNG', 14, 5)
 
                     doc.autoTable({
-                        startY: 80,
+                        startY: 50,
 
                         body: [
                             ['Laporan Tugas Keseluruhan'],
@@ -943,7 +944,7 @@ function showDutyReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 18,
+                            fontSize: 14,
                         },
                     })
 
@@ -969,7 +970,7 @@ function showDutyReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'left',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
@@ -981,7 +982,7 @@ function showDutyReport() {
 
                         columnStyles: {
                             desc: {
-                                cellWidth: 50
+                                cellWidth: 104
                             },
                         },
 
@@ -990,7 +991,8 @@ function showDutyReport() {
                             fillColor: [255, 255, 255],
                             lineColor: [0, 0, 0],
                             lineWidth: .1,
-                            fontSize: 10,
+                            fontSize: 11,
+                            halign: 'center'
                         },
                         bodyStyles:{
                             lineColor: [0, 0, 0],
@@ -1001,13 +1003,13 @@ function showDutyReport() {
                         styles: {
                             textColor: [0,0,0],
                             overflow: 'linebreak',
-                            fontSize: 8,
+                            fontSize: 11,
                             cellWidth: 'wrap',
                             cellPadding: {
-                                top: 5,
-                                right: 5,
-                                left: 5,
-                                bottom: 5
+                                top: 2,
+                                right: 2,
+                                left: 2,
+                                bottom: 2
                             },
                         },
                     });
@@ -1019,7 +1021,6 @@ function showDutyReport() {
                         body: [
                             ['Kepala'],
                             ['CUCU SALMAN, M.Ag.'],
-                            ['                   '],
                             ['                   '],
                             ['                   '],
                             ['                   '],
@@ -1190,17 +1191,17 @@ function showDevelopmentReport() {
                 pdfContent = this.dataPengembangan
 
 
-                url = (baseUrl + 'static/image/pdf-header.jpeg')
+                url = (baseUrl + 'static/image/pdf-header-potrait.png')
 
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64data = reader.result;
 
                     width = doc.internal.pageSize.getWidth()
-                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+                    doc.addImage(base64data, 'PNG', 14, 5)
 
                     doc.autoTable({
-                        startY: 80,
+                        startY: 50,
 
                         body: [
                             ['Laporan Pengembangan Keseluruhan'],
@@ -1211,7 +1212,7 @@ function showDevelopmentReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 18,
+                            fontSize: 14,
                         },
                     })
 
@@ -1237,7 +1238,7 @@ function showDevelopmentReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'left',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
@@ -1258,7 +1259,8 @@ function showDevelopmentReport() {
                             fillColor: [255, 255, 255],
                             lineColor: [0, 0, 0],
                             lineWidth: .1,
-                            fontSize: 10,
+                            fontSize: 11,
+                            halign: 'center',
                         },
                         bodyStyles:{
                             lineColor: [0, 0, 0],
@@ -1269,13 +1271,13 @@ function showDevelopmentReport() {
                         styles: {
                             textColor: [0,0,0],
                             overflow: 'linebreak',
-                            fontSize: 8,
+                            fontSize: 11,
                             cellWidth: 'wrap',
                             cellPadding: {
-                                top: 5,
-                                right: 5,
-                                left: 5,
-                                bottom: 5
+                                top: 2,
+                                right: 2,
+                                left: 2,
+                                bottom: 2
                             },
                         },
                     });
@@ -1287,7 +1289,6 @@ function showDevelopmentReport() {
                         body: [
                             ['Kepala'],
                             ['CUCU SALMAN, M.Ag.'],
-                            ['                   '],
                             ['                   '],
                             ['                   '],
                             ['                   '],
@@ -1452,17 +1453,17 @@ function showScientificReport() {
                 pdfContent = this.dataIlmiah
 
 
-                url = (baseUrl + 'static/image/pdf-header.jpeg')
+                url = (baseUrl + 'static/image/pdf-header-potrait.png')
 
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64data = reader.result;
 
                     width = doc.internal.pageSize.getWidth()
-                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+                    doc.addImage(base64data, 'JPEG', 14, 5)
 
                     doc.autoTable({
-                        startY: 80,
+                        startY: 50,
 
                         body: [
                             ['Laporan Pengembangan Keseluruhan'],
@@ -1473,7 +1474,7 @@ function showScientificReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 18,
+                            fontSize: 14,
                         },
                     })
 
@@ -1499,7 +1500,7 @@ function showScientificReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'left',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
@@ -1511,7 +1512,7 @@ function showScientificReport() {
 
                         columnStyles: {
                             desc: {
-                                cellWidth: 50
+                                cellWidth: 104
                             },
                         },
 
@@ -1520,7 +1521,8 @@ function showScientificReport() {
                             fillColor: [255, 255, 255],
                             lineColor: [0, 0, 0],
                             lineWidth: .1,
-                            fontSize: 10,
+                            fontSize: 11,
+                            halign: 'center',
                         },
                         bodyStyles:{
                             lineColor: [0, 0, 0],
@@ -1531,13 +1533,13 @@ function showScientificReport() {
                         styles: {
                             textColor: [0,0,0],
                             overflow: 'linebreak',
-                            fontSize: 8,
+                            fontSize: 11,
                             cellWidth: 'wrap',
                             cellPadding: {
-                                top: 5,
-                                right: 5,
-                                left: 5,
-                                bottom: 5
+                                top: 2,
+                                right: 2,
+                                left: 2,
+                                bottom: 2
                             },
                         },
                     });
@@ -1549,7 +1551,6 @@ function showScientificReport() {
                         body: [
                             ['Kepala'],
                             ['CUCU SALMAN, M.Ag.'],
-                            ['                   '],
                             ['                   '],
                             ['                   '],
                             ['                   '],
@@ -1714,17 +1715,17 @@ function showInnovativeReport() {
                 pdfContent = this.dataInovatif
 
 
-                url = (baseUrl + 'static/image/pdf-header.jpeg')
+                url = (baseUrl + 'static/image/pdf-header-potrait.png')
 
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     const base64data = reader.result;
 
                     width = doc.internal.pageSize.getWidth()
-                    doc.addImage(base64data, 'JPEG', 10, 10, 190, 50)
+                    doc.addImage(base64data, 'JPEG', 14, 5)
 
                     doc.autoTable({
-                        startY: 80,
+                        startY: 50,
 
                         body: [
                             ['Laporan Pengembangan Keseluruhan'],
@@ -1735,7 +1736,7 @@ function showInnovativeReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'center',
-                            fontSize: 18,
+                            fontSize: 14,
                         },
                     })
 
@@ -1761,7 +1762,7 @@ function showInnovativeReport() {
                         theme: 'plain',
                         styles: {
                             halign: 'left',
-                            fontSize: 15,
+                            fontSize: 12,
                         },
 
                         margin: {
@@ -1773,7 +1774,7 @@ function showInnovativeReport() {
 
                         columnStyles: {
                             desc: {
-                                cellWidth: 50
+                                cellWidth: 104
                             },
                         },
 
@@ -1782,7 +1783,8 @@ function showInnovativeReport() {
                             fillColor: [255, 255, 255],
                             lineColor: [0, 0, 0],
                             lineWidth: .1,
-                            fontSize: 10,
+                            fontSize: 11,
+                            halign: 'center',
                         },
                         bodyStyles:{
                             lineColor: [0, 0, 0],
@@ -1793,13 +1795,13 @@ function showInnovativeReport() {
                         styles: {
                             textColor: [0,0,0],
                             overflow: 'linebreak',
-                            fontSize: 8,
+                            fontSize: 11,
                             cellWidth: 'wrap',
                             cellPadding: {
-                                top: 5,
-                                right: 5,
-                                left: 5,
-                                bottom: 5
+                                top: 2,
+                                right: 2,
+                                left: 2,
+                                bottom: 2
                             },
                         },
                     });
@@ -1811,7 +1813,6 @@ function showInnovativeReport() {
                         body: [
                             ['Kepala'],
                             ['CUCU SALMAN, M.Ag.'],
-                            ['                   '],
                             ['                   '],
                             ['                   '],
                             ['                   '],

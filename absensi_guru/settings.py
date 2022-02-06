@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'sslserver',
     'rest_framework',
     'active_link',
-    'django_crontab'
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
