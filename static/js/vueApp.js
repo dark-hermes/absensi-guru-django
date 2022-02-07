@@ -16,13 +16,11 @@ function absen() {
             let urlKeluar = baseUrl + 'api/presence/checkout/';
             let urlKerja = baseUrl + 'api/presence/days/';
 
-
-
+            // Check Work Day
             fetch(urlKerja)
                 .then(response => response.json())
                 .then(data => {
                     this.dataHariKerja = data;
-
 
                     $.each(data, function (index, value) {
                         for (let key in value) {
@@ -32,15 +30,19 @@ function absen() {
                                     let day = new Date();
                                     let dayName = days[day.getDay()];
 
+                                    // If dayoff
                                     if (key == dayName) {
                                         $("#masuk").attr("disabled", "")
                                         $("#keluar").attr("disabled", "")
                                         $("#izin").attr("disabled", "")
+                                        $(".message").html("Anda sedang libur, selamat menikmati hari libur anda")
                                     }
-
+                                    
+                                    // If weekend
                                     else if (dayName == 'sunday' && dayName == 'saturday') {
                                         $("#masuk").attr("disabled", "")
                                         $("#keluar").attr("disabled", "")
+                                        $(".message").html("Selamat menikmati akhir pekan anda")
                                     }
 
                                 }
@@ -49,52 +51,72 @@ function absen() {
                     });
                 });
 
+            // If out of Distance
+            distance = $('.presence-desc').attr('distance');
+            distanceMessage = $(".presence-desc").attr("dist-message");
 
+            if (distance > 1000) {
+                $('#keluar').attr("disabled", "");
+                $('#masuk').attr("disabled", "");
+                $(".message").html(distanceMessage);
+            }
+
+            // Status of presence
+            checkinStatus = '';
+            checkoutStatus = '';
+
+            // if checkin
             fetch(urlMasuk)
                 .then(response => response.json())
                 .then(data => {
                     this.dataMasuk = data;
-
-                    // if checkin
+                    
                     $.each(data, function (index, value) {
+                        checkinStatus = value.is_checked;
+
                         if (value.is_checked == true) {
                             $("#masuk").attr("disabled", "")
                             $('#izin').attr("disabled", "")
+                        }else{ // If not checkin
+                            $("#keluar").attr("disabled", "")
+                            $(".message").html("Silahkan presensi masuk hari ini")
                         }
                     });
                 });
 
+            // if checkout    
             fetch(urlKeluar)
                 .then(response => response.json())
                 .then(data => {
                     this.dataKeluar = data;
 
-                    // if checkin
                     $.each(data, function (index, value) {
+                        checkoutStatus = value.is_checked;
+
                         if (value.is_checked == true) {
                             $("#keluar").attr("disabled", "")
-                            $('#izin').attr("disabled", "")
+                        }else{ // If not checkout
+                            $(".message").html("Silahkan presensi keluar hari ini")
                         }
                     });
                 });
 
-            distance = $('#distance-value').attr('distance');
-            if (distance > 1000) {
-                $('#keluar').attr("disabled", "")
-                $('#masuk').attr("disabled", "")
+            // If checkin and checkout 
+            if (checkinStatus == true && checkoutStatus == true) {
+                $("#izin").attr("disabled", "")
+                $("#masuk").attr("disabled", "")
+                $("#keluar").attr("disabled", "")
+                $(".message").html("Anda sudah melakukan presensi hari ini")
             }
-
-
-
-
         },
 
-        methods: {
-            message: function (event) {
-                $('#staticBackdropLabel1').innerHTML = "tunggu beberapa <span>detik</span>";
-                $('#staticBackdropLabel3').innerHTML = "tunggu beberapa <span>detik</span>";
-            }
-        }
+        // Under Work
+        // methods: {
+        //     message: function (event) {
+        //         $('#staticBackdropLabel1').innerHTML = "tunggu beberapa <span>detik</span>";
+        //         $('#staticBackdropLabel3').innerHTML = "tunggu beberapa <span>detik</span>";
+        //     }
+        // }
 
     });
 }
@@ -124,22 +146,11 @@ function showDataAbsen() {
                         day = splitDate.getDay();
 
                         dateCreated = year + '-' + month + '-' + date + '-' + day;
-                        // const dateString  = dayjs(dateCreated, "YYYY-MM-DD-dddd")
-                        // .format('dddd DD-MM-YYYY');
 
                         value.presence_date = dateCreated
                     });
                 });
         },
-
-        // methods:{
-        //     filterToday(){
-        //         let pastDates = this.dataAbsen.filter(x => Date.parse(x.presence_date) < this.dateNow);
-        //         console.log(pastDates.presence_date)
-        //         this.dataAbsen = pastDates
-        //     }
-        // },
-
     });
 };
 
@@ -298,16 +309,14 @@ function showStudyReport() {
 
         methods: {
             filterToday: function (event) {
-                event.preventDefault()
                 this.dataBelajar = this.dataTemp;
-                let filtered = this.dataBelajar.filter(x => x.thisToday == filterToday);
+                let filtered = today(this.dataBelajar,this.dataTemp)
                 this.dataBelajar = filtered
             },
 
             filterThisMonth: function (event) {
-                event.preventDefault()
                 this.dataBelajar = this.dataTemp;
-                let filtered = this.dataBelajar.filter(x => x.thisMonth == filterMonth);
+                let filtered = monthFilter(this.dataBelajar,this.dataTemp)
                 this.dataBelajar = filtered
             },
 
@@ -323,10 +332,6 @@ function showStudyReport() {
                 this.dataBelajar = this.dataTemp;
                 fromDate = $("#from-date").val().split("-").join("")
                 toDate = $("#to-date").val().split("-").join("")
-
-                console.log(fromDate)
-                console.log(toDate)
-
                 let filtered = this.dataBelajar.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
                 this.dataBelajar = filtered
             },
