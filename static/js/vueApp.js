@@ -35,6 +35,12 @@ function absen() {
                                     if (key == dayName) {
                                         $("#masuk").attr("disabled", "")
                                         $("#keluar").attr("disabled", "")
+                                        $("#izin").attr("disabled", "")
+                                    }
+
+                                    else if (dayName == 'sunday' && dayName == 'saturday') {
+                                        $("#masuk").attr("disabled", "")
+                                        $("#keluar").attr("disabled", "")
                                     }
 
                                 }
