@@ -7,15 +7,15 @@ services:
     image: postgres:13-alpine
     restart: always
     environment:
-      POSTGRES_USER: admindb
-      POSTGRES_PASSWORD: nEvt1kJu4ra
+      POSTGRES_USER: dbadmin
+      POSTGRES_PASSWORD: nEvt1kJu4ra_y8$2QLzt
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       vpcbr:
-        ipv4_address: 10.5.0.2
+        ipv4_address: 10.10.1.2
         
 volumes:
   postgres_data:
@@ -25,5 +25,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.5.0.0/24
-          gateway: 10.5.0.1
+        - subnet: 10.10.1.0/24
+          gateway: 10.10.1.1
