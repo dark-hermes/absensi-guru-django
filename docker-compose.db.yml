@@ -8,7 +8,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: dbadmin
-      POSTGRES_PASSWORD: nEvt1kJu4ra_y8$2QLzt
+      POSTGRES_PASSWORD: nEvt1kJu4ray82QLzt
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
     volumes:
