@@ -7,32 +7,16 @@ services:
     image: postgres:13-alpine
     restart: always
     environment:
-      POSTGRES_USER: admindb
-      POSTGRES_PASSWORD: nEvt1kJu4ra
+      POSTGRES_USER: dbadmin
+      POSTGRES_PASSWORD: nEvt1kJu4ray82QLzt
       POSTGRES_DB: absen_db
       TZ: Asia/Jakarta
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       vpcbr:
-        ipv4_address: 10.5.0.2
-
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4:latest
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admindb@example.com
-      PGADMIN_DEFAULT_PASSWORD: smkn1cbn_0541#absen
-      TZ: Asia/Jakarta
-    ports:
-      - "5050:80"
-    depends_on:
-      - db
-    networks:
-      vpcbr:
-        ipv4_address: 10.5.0.3
-
+        ipv4_address: 10.10.1.2
+        
 volumes:
   postgres_data:
 
@@ -41,5 +25,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.5.0.0/24
-          gateway: 10.5.0.1
+        - subnet: 10.10.1.0/24
+          gateway: 10.10.1.1

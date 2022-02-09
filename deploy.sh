@@ -1,7 +1,5 @@
 #!/bin/bash
 # deploy.sh uncontainerized ci/cd
-# set working directory
-cd /home/ubuntu/prod/absensi-guru-django/
 
 # stashing repository
 echo "git stashing repository..."

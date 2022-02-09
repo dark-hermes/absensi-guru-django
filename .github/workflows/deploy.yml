@@ -3,7 +3,7 @@ name: Deployment
 on:
   workflow_run:
     workflows:
-      - "Django CI and Staging"
+      - "Django CI"
     types:
       - completed
 
@@ -16,11 +16,11 @@ jobs:
       - name: Deploy to Production
         uses: appleboy/ssh-action@v0.1.4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          host: ${{ secrets.SSH_PROD_HOST }}
+          username: ${{ secrets.SSH_PROD_USER }}
+          port: ${{ secrets.SSH_PROD_PORT }}
+          key: ${{ secrets.SSH_PROD_KEY }}
+          passphrase: ${{ secrets.SSH_PROD_PASSPHRASE }}
           script: |
-            cd prod/absensi-guru-django/
+            cd absensi-guru-django/
             bash deploy.sh
