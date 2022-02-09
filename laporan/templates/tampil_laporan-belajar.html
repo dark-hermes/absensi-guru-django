@@ -14,7 +14,7 @@
         {% include 'button-filter.html' %}
 
         <div class="table-laporan table">
-            <table>
+            <table id="study-table">
                 <thead>
                     <tr>
                         <th>Tanggal</th>
@@ -37,8 +37,8 @@
                     <tr v-for="(data , index) in dataBelajar">
                         <td>[[ data.created_at ]]</td>
                         <td>[[ data.hours ]]</td>
-                        <td>[[ data.class_name.class_name ]]</td>
-                        <td>[[ data.subject_name.subject_name ]]</td>
+                        <td>[[ data.class_name ]]</td>
+                        <td>[[ data.subject_name ]]</td>
                         <td>[[ data.total_student ]]</td>
                         <td>[[ data.presence_student ]]</td>
                         <td>[[ data.absence_student ]]</td>
@@ -79,10 +79,6 @@
             </table>
         </div>
         {% include 'button-print.html' %}
-
-        <div class="pdf-header" id="p">
-            
-        </div>
     </div>
 </div>
 
@@ -92,8 +88,6 @@
 
 <script type="text/javascript">
     showStudyReport()
-
-    url = window.location.href
 </script>
 
 {% endblock %}
