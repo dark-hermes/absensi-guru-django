@@ -1,5 +1,5 @@
-// let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
-let baseUrl = 'https://localhost:8000/';
+let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+// let baseUrl = 'https://localhost:8000/';
 
 function absen() {
     var app = new Vue({
@@ -55,68 +55,77 @@ function absen() {
             distance = $('.presence-desc').attr('distance');
             distanceMessage = $(".presence-desc").attr("dist-message");
 
-            if (distance > 1000) {
+            if (distance < 1000) {
                 $('#keluar').attr("disabled", "");
                 $('#masuk').attr("disabled", "");
                 $(".message").html(distanceMessage);
             }
 
-            // Status of presence
-            checkinStatus = '';
-            checkoutStatus = '';
+            else {
+                checkinStatus = '';
+                checkoutStatus = '';
 
-            // if checkin
-            fetch(urlMasuk)
-                .then(response => response.json())
-                .then(data => {
-                    this.dataMasuk = data;
-                    
-                    $.each(data, function (index, value) {
-                        checkinStatus = value.is_checked;
+                let promise = new Promise (function (resolve, reject){
+                    // if checkin
+                    fetch(urlMasuk)
+                        .then(response => response.json())
+                        .then(data => {
+                            this.dataMasuk = data;
 
-                        if (value.is_checked == true) {
+                            $.each(data, function (index, value) {
+                                checkinStatus = value.is_checked
+
+                                if (value.is_checked == true) {
+                                    $("#masuk").attr("disabled", "")
+                                    $('#izin').attr("disabled", "")
+                                } else { // If not checkin
+                                    $("#keluar").attr("disabled", "")
+                                    $(".message").html("Silahkan presensi masuk hari ini")
+                                }
+                            });
+                        })
+                        .then(
+                            // if checkout    
+                            fetch(urlKeluar)
+                            .then(response => response.json())
+                            .then(data => {
+                                this.dataKeluar = data;
+
+                                $.each(data, function (index, value) {
+                                    checkoutStatus = value.is_checked
+
+                                    if (value.is_checked == true) {
+                                        $("#keluar").attr("disabled", "")
+                                    } else { // If not checkout
+                                        $(".message").html("Silahkan presensi keluar hari ini")
+                                    }
+                                });
+
+                                resolve("OK")
+                            })
+                        )
+                })
+
+                promise.then (
+                    function(value){
+                        // If checkin and checkout 
+                        if (checkinStatus == true && checkoutStatus == true) {
+                            $("#izin").attr("disabled", "")
                             $("#masuk").attr("disabled", "")
-                            $('#izin').attr("disabled", "")
-                        }else{ // If not checkin
                             $("#keluar").attr("disabled", "")
-                            $(".message").html("Silahkan presensi masuk hari ini")
+                            $(".message").html("Anda sudah melakukan presensi hari ini")
                         }
-                    });
-                });
-
-            // if checkout    
-            fetch(urlKeluar)
-                .then(response => response.json())
-                .then(data => {
-                    this.dataKeluar = data;
-
-                    $.each(data, function (index, value) {
-                        checkoutStatus = value.is_checked;
-
-                        if (value.is_checked == true) {
-                            $("#keluar").attr("disabled", "")
-                        }else{ // If not checkout
-                            $(".message").html("Silahkan presensi keluar hari ini")
-                        }
-                    });
-                });
-
-            // If checkin and checkout 
-            if (checkinStatus == true && checkoutStatus == true) {
-                $("#izin").attr("disabled", "")
-                $("#masuk").attr("disabled", "")
-                $("#keluar").attr("disabled", "")
-                $(".message").html("Anda sudah melakukan presensi hari ini")
-            }
+                    }
+                )
+            }            
         },
 
-        // Under Work
-        // methods: {
-        //     message: function (event) {
-        //         $('#staticBackdropLabel1').innerHTML = "tunggu beberapa <span>detik</span>";
-        //         $('#staticBackdropLabel3').innerHTML = "tunggu beberapa <span>detik</span>";
-        //     }
-        // }
+        methods: {
+            message: function (event) {
+                $('#staticBackdropLabel1').innerHTML = "tunggu beberapa <span>detik</span>";
+                $('#staticBackdropLabel3').innerHTML = "tunggu beberapa <span>detik</span>";
+            }
+        }
 
     });
 }
