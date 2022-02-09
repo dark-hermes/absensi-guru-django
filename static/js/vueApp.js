@@ -1,5 +1,5 @@
-let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
-// let baseUrl = 'https://localhost:8000/';
+// let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+let baseUrl = 'https://localhost:8000/';
 
 function absen() {
     var app = new Vue({
@@ -55,7 +55,7 @@ function absen() {
             distance = $('.presence-desc').attr('distance');
             distanceMessage = $(".presence-desc").attr("dist-message");
 
-            if (distance > 1000) {
+            if (distance < 1000) {
                 $('#keluar').attr("disabled", "");
                 $('#masuk').attr("disabled", "");
                 $(".message").html(distanceMessage);
@@ -96,7 +96,9 @@ function absen() {
 
                                     if (value.is_checked == true) {
                                         $("#keluar").attr("disabled", "")
-                                    } else { // If not checkout
+                                    }
+                                    // If not checkout and done checkin  
+                                    else if(checkinStatus == true) { 
                                         $(".message").html("Silahkan presensi keluar hari ini")
                                     }
                                 });
