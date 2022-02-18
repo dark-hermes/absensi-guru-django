@@ -9,9 +9,7 @@
 
 	
 	<div class="container-laporan-guru">
-		<div class="loader load">
-			<h1>Sedang Memuat</h1>
-		</div>
+		{% include 'loading.html' %}		
 		<form action="" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak class="loading">
 			{% csrf_token %}
 			{{form.employee_id.as_hidden}}

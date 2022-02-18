@@ -1,3 +1,7 @@
+// let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
+let baseUrl = 'https://localhost:8000/';
+
+
 let img = $("img");
 for (let i = 0; i < img.length; i++) {
   img[i].setAttribute("loading", "lazy")

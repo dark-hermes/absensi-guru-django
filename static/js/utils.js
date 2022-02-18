@@ -19,7 +19,7 @@ function excel(data, head,type) {
 
 
 // Create PDF
-function pdf(raw, data, costumColumns, type, size, image) {
+function pdf(raw, data, costumColumns, type, size, image, useCredential) {
     const {jsPDF} = window.jspdf;
     
     // Create a new date for pdf
@@ -68,34 +68,37 @@ function pdf(raw, data, costumColumns, type, size, image) {
             styles: {
                 halign: 'center',
                 fontSize: 14,
+                fontStyle: 'bold',
             },
         })
 
         // Employee Data initiate
-        doc.autoTable({
-            body: [
-                ['Nama', ':', `${fullName}`],
-                ['NIP', ':', `${nip}`],
-                ['Posisi', ':', `${position}`],
-            ],
-
-            columnStyles: {
-                0: {cellWidth: 20},
-                1: {cellWidth: 5}
-            },
-
-            pageBreak: 'avoid',
-            rowPageBreak: 'avoid',
-            theme: 'plain',
-            styles: {
-                halign: 'left',
-                fontSize: 12,
-            },
-
-            margin: {
-                left: 20,
-            },
-        })
+        if (useCredential == true) {
+            doc.autoTable({
+                body: [
+                    ['Nama', ':', `${fullName}`],
+                    ['NIP', ':', `${nip}`],
+                    ['Posisi', ':', `${position}`],
+                ],
+    
+                columnStyles: {
+                    0: {cellWidth: 20},
+                    1: {cellWidth: 5}
+                },
+    
+                pageBreak: 'avoid',
+                rowPageBreak: 'avoid',
+                theme: 'plain',
+                styles: {
+                    halign: 'left',
+                    fontSize: 12,
+                },
+    
+                margin: {
+                    left: 20,
+                },
+            })
+        }
 
         // PDF Data initiate
         doc.autoTable(columns, pdfContent, {

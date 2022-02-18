@@ -162,7 +162,7 @@ CORS_ORIGIN_WHITELIST = (
     BASE_URL,
 )
 
-SESSION_EXPIRE_SECONDS = 60 * 45
+SESSION_EXPIRE_SECONDS = 60 * 60 * 12
 
 CRONJOBS = [
     ('1 0 * * *', 'absen.cron.reset_records'),

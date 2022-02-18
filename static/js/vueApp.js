@@ -1,6 +1,3 @@
-// let baseUrl = 'https://absen.smkn1cibinong.sch.id/';
-let baseUrl = 'https://localhost:8000/';
-
 function absen() {
     var app = new Vue({
         el: '#absen',
@@ -321,13 +318,13 @@ function showStudyReport() {
         methods: {
             filterToday: function (event) {
                 this.dataBelajar = this.dataTemp;
-                let filtered = today(this.dataBelajar,this.dataTemp)
+                let filtered = this.dataBelajar.filter(x => x.thisToday == filterToday)
                 this.dataBelajar = filtered
             },
 
             filterThisMonth: function (event) {
                 this.dataBelajar = this.dataTemp;
-                let filtered = monthFilter(this.dataBelajar,this.dataTemp)
+                let filtered = this.dataBelajar.filter(x => x.thisMonth == filterMonth)
                 this.dataBelajar = filtered
             },
 
