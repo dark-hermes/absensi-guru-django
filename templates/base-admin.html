@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'image/logokampak.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'> 
+    <link rel="stylesheet" type="text/css" href="{% static 'modules/bootstrap/css/bootstrap.min.css'%}"></link>
+    <link rel="stylesheet" type="text/css" href="{% static 'modules/boxicons/css/boxicons.min.css'%}"></link>
     {% block title %}
     {% endblock %}
 
@@ -19,14 +19,13 @@
     {% endblock %}
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
-    <script type="module" src="https://unpkg.com/jspdf-autotable@3.5.23/dist/jspdf.plugin.autotable.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js"></script>
+    <script src="{% static 'modules/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'modules/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'modules/vue.js'%}"></script>
+    <script src="{% static 'modules/sweetalert.min.js'%}"></script>
+    <script src="{% static 'modules/jspdf.umd.min.js'%}"></script>
+    <script src="{% static 'modules/jspdf.plugin.autotable.js'%}"></script>
+    <script src="{% static 'modules/xlsx.full.min.js'%}"></script>
     <script type="text/javascript" src="{% static 'js/script.js'%}"></script>
     <script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
     <script type="text/javascript" src="{% static 'js/vueAppAdmin.js'%}"></script>
