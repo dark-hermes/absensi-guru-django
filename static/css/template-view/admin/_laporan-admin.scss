@@ -1,79 +1,69 @@
 @use '../../template/variable'as v;
 
 
+@mixin report {
+    .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
 
-.container-admin {
-    width: 100%;
-
-    .content {
-        width: 85%;
-        margin-left: auto;
-        padding: 3em;
-
-        .action {
+        .search {
+            border-bottom: 1px solid #CFD8DC;
+            width: 50%;
+            color: #707071;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
 
-            .search {
-                border-bottom: 1px solid #CFD8DC;
-                width: 50%;
-                color: #707071;
-                display: flex;
-                align-items: center;
+            i {
+                font-size: 2em;
+            }
 
-                i {
-                    font-size: 2em;
-                }
+            input {
+                border: none;
+                font-size: 1.2em;
+                padding: .5em;
+                width: 100%;
 
-                input {
-                    border: none;
-                    font-size: 1.2em;
-                    padding: .5em;
-                    width: 100%;
-
-                    &:focus {
-                        outline: none;
-                    }
+                &:focus {
+                    outline: none;
                 }
             }
         }
     }
 
-    .table{
+    .table {
         @include v.table;
-    
+
         // For Absen and Laporan Documentation
-        .modal{
-            .modal-body{
+        .modal {
+            .modal-body {
                 text-align: center;
             }
         }
-    
+
         // For Laporan Report Writted
-        button.report{
+        button.report {
             text-decoration: underline;
             color: #3b86ff;
             padding: 0;
-    
-            &:hover{
+
+            &:hover {
                 text-decoration: none;
             }
-    
-            &:focus{
+
+            &:focus {
                 box-shadow: none;
             }
         }
-    
-        .modal.report{
-            p{
+
+        .modal.report {
+            p {
                 text-align: left;
             }
         }
     }
 
-    .table-report{
+    .table-report {
         display: none;
     }
 }
-

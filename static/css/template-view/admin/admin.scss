@@ -1,0 +1,20 @@
+@use 'add-user' as admin-add;
+@use 'dashboard-admin' as admin-dashboard;
+@use 'laporan-admin' as admin-report;
+@use 'users' as admin-users;
+
+
+.container-admin{
+    width: 100%;
+
+    .content{
+        padding-top: max(100px, 8vw);
+        width: 90%;
+        margin: 0 auto;
+
+        @include admin-dashboard.dashboard;
+        @include admin-report.report;
+        @include admin-users.users;
+        @include admin-add.add-user;
+    }
+}

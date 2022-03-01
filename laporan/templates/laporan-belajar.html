@@ -6,10 +6,9 @@
 
 {% block content %}
 	{% include 'navbar.html' %}
-
+	{% include 'loading.html' %}	
 	
-	<div class="container-laporan-guru">
-		{% include 'loading.html' %}		
+	<div class="container-laporan-guru">	
 		<form action="" method="post" enctype="multipart/form-data" id="mapel-form" v-cloak class="loading">
 			{% csrf_token %}
 			{{form.employee_id.as_hidden}}

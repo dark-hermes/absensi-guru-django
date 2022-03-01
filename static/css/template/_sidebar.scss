@@ -1,70 +1,108 @@
 @use 'variable'as v;
 
-.sidebar {
-    width: 15%;
-    height: 100vh;
-    background-color: #3b86ff;
-    position: fixed;
-    top: 0;
-    left: 0;
+/*  Navbar */
+nav.navbar-admin {
+    .container-fluid {
+        padding: 0;
 
-    .brand {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        color: #fff;
-        font-size: 1.2em;
-        padding: 1em 0;
+        .navbar-brand {
+            margin: max(.5em, .7vw) max(.5em, 1vw);
 
-        span {
-            font-weight: bold;
+            img {
+                width: max(50px, 4vw);
+                height: auto;
+            }
         }
 
-        i {
-            font-size: 1.5em;
+        .offcanvas {
+            .offcanvas-header{
+                .offcanvas-title{
+                    @include v.gradient-text;
+                    font-weight: 700;
+                }
+            }
+
+            .offcanvas-body {
+                @include v.horizontal-centered;
+                justify-content: space-between;
+
+                .navbar-nav {
+                    text-align: center;
+
+                    li {
+                        margin: max(.5em, 1.2vw);
+
+                        a {
+                            text-decoration: none;
+                            color: v.$primary-text-color;
+                            font-size: max(1em, 1.2vw);
+                            font-weight: 500;
+                            transition: 0.3s;
+
+                            span{
+                                border-radius: 5px;
+                            }
+
+                            &:hover {
+                                color: v.$primary-color;
+                            }
+                        }
+
+                        a.active span {
+                            color: white !important;
+                            background-color: v.$primary-color;
+                            padding: .5em 1em;
+                        }
+                    }
+                }
+
+                .profile a,
+                .profile ul {
+                    font-size: max(1em, 1.2vw);
+                }
+            }
         }
     }
+}
 
-    nav {
-        color: #fff;
-        padding: 0 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
 
-        a {
-            margin-top: 2em;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
+@media screen and (max-width: 991px) {
+    nav.navbar-admin {
+        .container-fluid {
+            padding: 0 1em;
 
-            span {
-                padding: 0 .5em;
-            }
+            .offcanvas {
+                .offcanvas-body {
+                    display: block;
+                    text-align: left;
 
-            i {
-                font-size: 1.5em;
+                    .navbar-nav {
+                        text-align: left;
+
+                        li{
+                            a{
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .profile {
+                        text-align: left;
+
+                        a {
+                            padding: 0 !important;
+                            text-align: left;
+                            margin: max(0.5em, 1.2vw);
+                            font-size: max(1em, 1.2vw);
+                        }
+
+                        ul {
+                            font-size: max(1em, 1.2vw);
+                        }
+                    }
+                }
             }
         }
-
-        a.active {
-            background-color: #fff;
-            border-radius: 10px;
-            color: #3b86ff;
-            padding: 10px;
-            font-weight: bold;
-        }
-
-        .profile {
-            margin-bottom: 80px;
-
-            .bx-log-out-circle {
-                margin-left: auto;
-            }
-        }
-
     }
 }

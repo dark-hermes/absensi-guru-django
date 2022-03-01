@@ -1,0 +1,45 @@
+@use 'variable'as v;
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// Hide Loading When finish
+.loader {
+    display: none;
+}
+
+
+// Start Loading
+.load {
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    @include v.horizontal-centered;
+}
+
+.load h1 {
+    @include v.gradient-text;
+}
+
+
+// Hide all content when loading
+.loading {
+    display: none;
+}

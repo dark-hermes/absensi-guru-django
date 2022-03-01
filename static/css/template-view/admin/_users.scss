@@ -1,98 +1,85 @@
 @use '../../template/variable'as v;
 
-.container-admin {
-    width: 100%;
+@mixin users {
+    .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
 
-    .content {
-        width: 85%;
-        margin-left: auto;
-        padding: 3em;
-
-        .action {
+        .search {
+            border-bottom: 1px solid #CFD8DC;
+            width: 50%;
+            color: #707071;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
 
-            .search {
-                border-bottom: 1px solid #CFD8DC;
-                width: 50%;
-                color: #707071;
-                display: flex;
-                align-items: center;
-
-                i {
-                    font-size: 2em;
-                }
-
-                input {
-                    border: none;
-                    font-size: 1.2em;
-                    padding: .5em;
-                    width: 100%;
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
+            i {
+                font-size: 2em;
             }
 
-            .add-user {
-                .add {
-                    background-color: #3b86ff;
-                    text-decoration: none;
-                    padding: .5em .8em;
-                    color: #fff;
-                    border-radius: 5px;
-                    font-weight: bold;
+            input {
+                border: none;
+                font-size: 1.2em;
+                padding: .5em;
+                width: 100%;
 
-                    &:hover {
-                        background-color: transparent;
-                        color: #3b86ff;
-                        border: 1px solid #3b86ff;
-                    }
+                &:focus {
+                    outline: none;
                 }
             }
         }
-    }
 
-
-    .table{
-        @include v.table;
-    
-        // For user list
-        a {
-            text-decoration: none;
-            width: 100%;
-            display: inline-block;
-            margin-top: .5em;
-            padding: .2em;
-            text-align: center;
-            transition: .2s ease all;
-        }
-    
-        a.edit {
-            border: 1px solid #13CB6E;
-            color: #13CB6E;
-    
-            &:hover {
-                background-color: #13CB6E;
+        .add-user {
+            .add {
+                background-color: #3b86ff;
+                text-decoration: none;
+                padding: .5em .8em;
                 color: #fff;
-            }
-        }
-    
-        a.delete {
-            border: 1px solid #C6493B;
-            color: #C6493B;
-    
-            &:hover {
-                background-color: #C6493B;
-                color: #fff;
+                border-radius: 5px;
+                font-weight: bold;
+
+                &:hover {
+                    background-color: transparent;
+                    color: #3b86ff;
+                    border: 1px solid #3b86ff;
+                }
             }
         }
     }
 }
 
 
+.table {
+    @include v.table;
 
+    // For user list
+    a {
+        text-decoration: none;
+        width: 100%;
+        display: inline-block;
+        margin-top: .5em;
+        padding: .2em;
+        text-align: center;
+        transition: .2s ease all;
+    }
 
+    a.edit {
+        border: 1px solid #13CB6E;
+        color: #13CB6E;
 
+        &:hover {
+            background-color: #13CB6E;
+            color: #fff;
+        }
+    }
+
+    a.delete {
+        border: 1px solid #C6493B;
+        color: #C6493B;
+
+        &:hover {
+            background-color: #C6493B;
+            color: #fff;
+        }
+    }
+}

@@ -3,11 +3,10 @@
 
 
 // Color
-$primary-color: #3b86ff;
-$secondary-color: #ebebeb;
-
-$primary-text-color: #2B2024;
-$secondary-text-color: #8e8e8f;
+$primary-color: rgb(59, 134, 255);
+$secondary-color: rgb(235, 235, 235);
+$primary-text-color: rgba(0,0,0,.55);
+$secondary-text-color: rgb(142, 142, 143);
 
 
 // Font
@@ -15,7 +14,7 @@ $primary-font: "Poppins",sans-serif;
 
 
 // Mixin property
-@mixin centered {
+@mixin horizontal-centered {
     display: flex;
     justify-content: center;
     align-items: center;

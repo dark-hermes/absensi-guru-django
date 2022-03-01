@@ -6,10 +6,10 @@
 
 {% block content %}
 
-<section class="container-admin">
-    {% include 'sidebar-admin.html' %}
-    {% include 'loading.html' %}
+{% include 'sidebar-admin.html' %}
+{% include 'loading.html' %}
 
+<section class="container-admin">
     <section class="content loading">
         <div class="action">
             <div class="search">
@@ -60,8 +60,8 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                                <button id='custom-filter'
-                                    class="btn btn-primary" data-bs-dismiss="modal">Kirim</button>
+                                <button id='custom-filter' class="btn btn-primary"
+                                    data-bs-dismiss="modal">Kirim</button>
                             </div>
 
 
@@ -69,9 +69,11 @@
                     </div>
                 </div>
             </div>
+
+            {% include 'button-print.html' %}
         </div>
 
-        <div class="table table-report table-study">
+        <div class="table table-report table-study" style="display: block;">
             <table>
                 <thead>
                     <tr>
@@ -415,8 +417,6 @@
                 </tbody>
             </table>
         </div>
-
-        {% include 'button-print.html' %}
     </section>
 </section>
 {% endblock content%}

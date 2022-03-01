@@ -5,9 +5,11 @@
 {% endblock title %}
 
 {% block content %}
+
+{% include 'sidebar-admin.html' %}
+{% include 'loading.html' %}
     <section class="container-admin">
-        {% include 'sidebar-admin.html' %}
-        <section class="content">
+        <section class="content loading">
             <div class="action">
                 <div class="search">
                     <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" placeholder="Cari Disini">

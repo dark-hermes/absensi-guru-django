@@ -37,7 +37,7 @@
         }
 
         .button {
-            @include v.centered;
+            @include v.horizontal-centered;
             height: 10%;
 
             button {

@@ -1,35 +1,25 @@
 @use '../../template/variable'as v;
 
-.container-admin {
-    width: 100%;
+@mixin dashboard {
+    .image {
+        text-align: center;
 
-    .content {
-        width: 85%;
-        margin-left: auto;
-        padding: 3em;
+        p {
+            font-size: max(2em, 2vw);
+            font-weight: 600;
+            text-transform: capitalize;
 
-        .image{
-            text-align: center;
-
-            p{
-                font-size: 2em;
-                font-weight: 600;
-                text-transform: capitalize;
-                
-                span{
-                    font-weight: 700;
-                    background-image: linear-gradient(to right, #00b4db, #3b86ff);
-                    background-clip: text;
-                    text-fill-color: transparent;
-                    -webkit-text-fill-color: transparent;
-                }
-            }
-
-            img{
-                width: 60%;
+            span {
+                font-weight: 700;
+                background-image: linear-gradient(to right, #00b4db, #3b86ff);
+                background-clip: text;
+                text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;
             }
         }
 
-    }    
+        img {
+            width: 50%;
+        }
+    }
 }
-

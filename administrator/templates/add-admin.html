@@ -7,8 +7,9 @@
 
 {% block content %}
 
+{% include 'sidebar-admin.html' %}
+{% include 'loading.html' %}
     <section class="container-admin">
-        {% include 'sidebar-admin.html' %}
         <section class="content">
             <form action="{% url 'add_user_admin' %}" method="post">
                 {% csrf_token %}

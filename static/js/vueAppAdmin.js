@@ -6,14 +6,17 @@ function showUsers() {
             dataUsers: '',
         },
 
-        mounted() {
+        async mounted() {
             let url = baseUrl + 'api/users';
-            fetch(url)
+            await fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     this.dataUsers = data;
 
                 });
+
+            $('.load').removeClass('load')
+            $('.content').removeClass('loading')
         },
     });
 }
@@ -41,8 +44,6 @@ function showReportAdmin() {
         },
 
         async mounted() {
-            this.loading = true
-
             let url = baseUrl + 'api/users';
             await fetch(url)
                 .then(response => response.json())
@@ -56,6 +57,7 @@ function showReportAdmin() {
                 .then(data => {
                     this.dataStudyReport = data;
                     this.dataTempStudyReport = data;
+                    this.dataFilter = 'study';
                 });
 
             let url3 = baseUrl + 'api/laporan/bimbingan';
@@ -158,174 +160,346 @@ function showReportAdmin() {
                     case 'study':
                         pdf(
                             this.dataStudyReport,
-        
-                            [   {title: "Tanggal",dataKey: "created_at"},
-                                {title: "Nama",dataKey: "fullName"},
-                                {title: "NIP",dataKey: "nip"},
-                                {title: "Jam",dataKey: "hours"},
-                                {title: "Kelas",dataKey: "className"},
-                                {title: "Mata Pelajaran",dataKey: "subjectName"},
-                                {title: "Total Murid",dataKey: "total_student"},
-                                {title: "Murid Hadir",dataKey: "presence_student"},
-                                {title: "Metode Pembelajaran",dataKey: "method"},
-                                {title: "Deskripsi",dataKey: "desc"},
+
+                            [{
+                                    title: "Tanggal",
+                                    dataKey: "created_at"
+                                },
+                                {
+                                    title: "Nama",
+                                    dataKey: "fullName"
+                                },
+                                {
+                                    title: "NIP",
+                                    dataKey: "nip"
+                                },
+                                {
+                                    title: "Jam",
+                                    dataKey: "hours"
+                                },
+                                {
+                                    title: "Kelas",
+                                    dataKey: "className"
+                                },
+                                {
+                                    title: "Mata Pelajaran",
+                                    dataKey: "subjectName"
+                                },
+                                {
+                                    title: "Total Murid",
+                                    dataKey: "total_student"
+                                },
+                                {
+                                    title: "Murid Hadir",
+                                    dataKey: "presence_student"
+                                },
+                                {
+                                    title: "Metode Pembelajaran",
+                                    dataKey: "method"
+                                },
+                                {
+                                    title: "Deskripsi",
+                                    dataKey: "desc"
+                                },
                             ],
-        
+
                             {
-                                created_at:{cellWidth: 25},
-                                fullName: {cellWidth: 30},
-                                nip: {cellWidth: 35},
-                                hours:{ cellWidth: 15},
-                                className:{ cellWidth: 20},
-                                subjectName:{cellWidth: 25},
-                                total_student: {cellWidth: 20},
-                                presence_student: {cellWidth: 20},
-                                method: {cellWidth: 30},
-                                desc: {cellWidth: 50},
+                                created_at: {
+                                    cellWidth: 25
+                                },
+                                fullName: {
+                                    cellWidth: 30
+                                },
+                                nip: {
+                                    cellWidth: 35
+                                },
+                                hours: {
+                                    cellWidth: 15
+                                },
+                                className: {
+                                    cellWidth: 20
+                                },
+                                subjectName: {
+                                    cellWidth: 25
+                                },
+                                total_student: {
+                                    cellWidth: 20
+                                },
+                                presence_student: {
+                                    cellWidth: 20
+                                },
+                                method: {
+                                    cellWidth: 30
+                                },
+                                desc: {
+                                    cellWidth: 50
+                                },
                             },
-        
+
                             "Belajar",
                             "Landscape",
                             "pdf-header-landscape.png",
                             false
                         )
-                    break
+                        break
 
                     case 'guidance':
                         pdf(
                             this.dataGuidanceReport,
-        
-                            [   {title: "Tanggal",dataKey: "created_at"},
-                                {title: "Nama",dataKey: "fullName"},
-                                {title: "NIP",dataKey: "nip"},
-                                {title: "Deskripsi",dataKey: "desc"},
+
+                            [{
+                                    title: "Tanggal",
+                                    dataKey: "created_at"
+                                },
+                                {
+                                    title: "Nama",
+                                    dataKey: "fullName"
+                                },
+                                {
+                                    title: "NIP",
+                                    dataKey: "nip"
+                                },
+                                {
+                                    title: "Deskripsi",
+                                    dataKey: "desc"
+                                },
                             ],
-        
+
                             {
-                                created_at:{cellWidth: 25},
-                                fullName:{cellWidth: 40},
-                                nip:{cellWidth: 40},
-                                desc: {cellWidth: 80},
+                                created_at: {
+                                    cellWidth: 25
+                                },
+                                fullName: {
+                                    cellWidth: 40
+                                },
+                                nip: {
+                                    cellWidth: 40
+                                },
+                                desc: {
+                                    cellWidth: 80
+                                },
                             },
-        
+
                             "Bimbingan",
                             "Portrait",
                             "pdf-header-potrait.png",
                             false
-                        )               
-                    break
+                        )
+                        break
 
                     case 'development':
                         pdf(
                             this.dataDevelopmentReport,
-        
-                            [   {title: "Tanggal",dataKey: "created_at"},
-                                {title: "Nama",dataKey: "fullName"},
-                                {title: "NIP",dataKey: "nip"},
-                                {title: "Kegiatan",dataKey: "category"},
-                                {title: "Peran",dataKey: "role"},
-                                {title: "Durasi",dataKey: "duration"},
-                                {title: "Deskripsi",dataKey: "desc"},
+
+                            [{
+                                    title: "Tanggal",
+                                    dataKey: "created_at"
+                                },
+                                {
+                                    title: "Nama",
+                                    dataKey: "fullName"
+                                },
+                                {
+                                    title: "NIP",
+                                    dataKey: "nip"
+                                },
+                                {
+                                    title: "Kegiatan",
+                                    dataKey: "category"
+                                },
+                                {
+                                    title: "Peran",
+                                    dataKey: "role"
+                                },
+                                {
+                                    title: "Durasi",
+                                    dataKey: "duration"
+                                },
+                                {
+                                    title: "Deskripsi",
+                                    dataKey: "desc"
+                                },
                             ],
-        
+
                             {
-                                created_at:{cellWidth: 25},
-                                fullName:{cellWidth: 40},
-                                nip:{cellWidth: 40},
-                                desc: {cellWidth: 70},
+                                created_at: {
+                                    cellWidth: 25
+                                },
+                                fullName: {
+                                    cellWidth: 40
+                                },
+                                nip: {
+                                    cellWidth: 40
+                                },
+                                desc: {
+                                    cellWidth: 70
+                                },
                             },
-        
+
                             "Pengembangan",
                             "Landscape",
                             "pdf-header-landscape.png",
                             false
-                        )               
-                    break
+                        )
+                        break
 
                     case 'duty':
                         pdf(
                             this.dataDutyReport,
-        
-                            [   {title: "Tanggal",dataKey: "created_at"},
-                                {title: "Nama",dataKey: "fullName"},
-                                {title: "NIP",dataKey: "nip"},
-                                {title: "Posisi Kerja",dataKey: "roleName"},
-                                {title: "Deskripsi",dataKey: "desc"},
+
+                            [{
+                                    title: "Tanggal",
+                                    dataKey: "created_at"
+                                },
+                                {
+                                    title: "Nama",
+                                    dataKey: "fullName"
+                                },
+                                {
+                                    title: "NIP",
+                                    dataKey: "nip"
+                                },
+                                {
+                                    title: "Posisi Kerja",
+                                    dataKey: "roleName"
+                                },
+                                {
+                                    title: "Deskripsi",
+                                    dataKey: "desc"
+                                },
                             ],
-        
+
                             {
-                                created_at:{cellWidth: 25},
-                                fullName:{cellWidth: 40},
-                                nip:{cellWidth: 30},
-                                desc: {cellWidth: 50},
+                                created_at: {
+                                    cellWidth: 25
+                                },
+                                fullName: {
+                                    cellWidth: 40
+                                },
+                                nip: {
+                                    cellWidth: 30
+                                },
+                                desc: {
+                                    cellWidth: 50
+                                },
                             },
-        
+
                             "Tugas",
                             "Portrait",
                             "pdf-header-potrait.png",
                             false
-                        )               
-                    break
+                        )
+                        break
 
                     case 'inovative':
                         pdf(
                             this.dataInovativ,
-        
-                            [   {title: "Tanggal",dataKey: "created_at"},
-                                {title: "Nama",dataKey: "fullName"},
-                                {title: "NIP",dataKey: "nip"},
-                                {title: "Karya",dataKey: "creationCategory"},
-                                {title: "Deskripsi",dataKey: "desc"},
+
+                            [{
+                                    title: "Tanggal",
+                                    dataKey: "created_at"
+                                },
+                                {
+                                    title: "Nama",
+                                    dataKey: "fullName"
+                                },
+                                {
+                                    title: "NIP",
+                                    dataKey: "nip"
+                                },
+                                {
+                                    title: "Karya",
+                                    dataKey: "creationCategory"
+                                },
+                                {
+                                    title: "Deskripsi",
+                                    dataKey: "desc"
+                                },
                             ],
-        
+
                             {
-                                created_at:{cellWidth: 25},
-                                fullName:{cellWidth: 40},
-                                nip:{cellWidth: 30},
-                                creationCategory:{cellWidth: 30},
-                                desc: {cellWidth: 60},
+                                created_at: {
+                                    cellWidth: 25
+                                },
+                                fullName: {
+                                    cellWidth: 40
+                                },
+                                nip: {
+                                    cellWidth: 30
+                                },
+                                creationCategory: {
+                                    cellWidth: 30
+                                },
+                                desc: {
+                                    cellWidth: 60
+                                },
                             },
-        
+
                             "Karya Inovatif",
                             "Portrait",
                             "pdf-header-potrait.png",
                             false
-                        )               
-                    break
+                        )
+                        break
 
                     case 'scientific':
                         pdf(
                             this.dataScientific,
-        
-                            [   {title: "Tanggal",dataKey: "created_at"},
-                                {title: "Nama",dataKey: "fullName"},
-                                {title: "NIP",dataKey: "nip"},
-                                {title: "Karya",dataKey: "creationCategory"},
-                                {title: "Deskripsi",dataKey: "desc"},
+
+                            [{
+                                    title: "Tanggal",
+                                    dataKey: "created_at"
+                                },
+                                {
+                                    title: "Nama",
+                                    dataKey: "fullName"
+                                },
+                                {
+                                    title: "NIP",
+                                    dataKey: "nip"
+                                },
+                                {
+                                    title: "Karya",
+                                    dataKey: "creationCategory"
+                                },
+                                {
+                                    title: "Deskripsi",
+                                    dataKey: "desc"
+                                },
                             ],
-        
+
                             {
-                                created_at:{cellWidth: 25},
-                                fullName:{cellWidth: 40},
-                                nip:{cellWidth: 30},
-                                creationCategory:{cellWidth: 30},
-                                desc: {cellWidth: 60},
+                                created_at: {
+                                    cellWidth: 25
+                                },
+                                fullName: {
+                                    cellWidth: 40
+                                },
+                                nip: {
+                                    cellWidth: 30
+                                },
+                                creationCategory: {
+                                    cellWidth: 30
+                                },
+                                desc: {
+                                    cellWidth: 60
+                                },
                             },
-        
+
                             "Karya Ilmiah",
                             "Portrait",
                             "pdf-header-potrait.png",
                             false
-                        )               
-                    break
-                    
+                        )
+                        break
+
                 }
             },
 
             exportExcels() {
                 let dataExcel;
 
-                switch(this.dataFilter){
+                switch (this.dataFilter) {
                     case 'study':
                         dataExcel = []
 
@@ -350,11 +524,11 @@ function showReportAdmin() {
                         excel(
                             dataExcel,
 
-                            ['Tanggal', 'Nama' , 'NIP','Jam Lapor', 'Kelas KBM', 'Mata Ajar', 'Jumlah Siswa', 'Jumlah Siswa Hadir', 'Jumlah Siswa Tidak Hadir', 'Media Pembelajaran', 'Keterangan'],
+                            ['Tanggal', 'Nama', 'NIP', 'Jam Lapor', 'Kelas KBM', 'Mata Ajar', 'Jumlah Siswa', 'Jumlah Siswa Hadir', 'Jumlah Siswa Tidak Hadir', 'Media Pembelajaran', 'Keterangan'],
 
                             "Belajar"
                         )
-                    break
+                        break
 
                     case 'guidance':
                         dataExcel = []
@@ -373,11 +547,11 @@ function showReportAdmin() {
                         excel(
                             dataExcel,
 
-                            ['Tanggal', 'Nama' , 'NIP','Keterangan'],
+                            ['Tanggal', 'Nama', 'NIP', 'Keterangan'],
 
                             "Bimbingan"
                         )
-                    break
+                        break
 
                     case 'development':
                         dataExcel = []
@@ -399,11 +573,11 @@ function showReportAdmin() {
                         excel(
                             dataExcel,
 
-                            ['Tanggal', 'Nama' , 'NIP', 'Kegiatan', 'Peran', 'Druasi' ,'Keterangan'],
+                            ['Tanggal', 'Nama', 'NIP', 'Kegiatan', 'Peran', 'Druasi', 'Keterangan'],
 
                             "Pengembangan"
                         )
-                    break
+                        break
 
                     case 'duty':
                         dataExcel = []
@@ -423,11 +597,11 @@ function showReportAdmin() {
                         excel(
                             dataExcel,
 
-                            ['Tanggal', 'Nama' , 'NIP', 'Posisi Kerja','Keterangan'],
+                            ['Tanggal', 'Nama', 'NIP', 'Posisi Kerja', 'Keterangan'],
 
                             "Tugas"
                         )
-                    break
+                        break
 
                     case 'inovative':
                         dataExcel = []
@@ -447,11 +621,11 @@ function showReportAdmin() {
                         excel(
                             dataExcel,
 
-                            ['Tanggal', 'Nama' , 'NIP', 'Karya Inovatif','Keterangan'],
+                            ['Tanggal', 'Nama', 'NIP', 'Karya Inovatif', 'Keterangan'],
 
                             "Karya Inovatif"
                         )
-                    break
+                        break
 
                     case 'scientific':
                         dataExcel = []
@@ -471,11 +645,11 @@ function showReportAdmin() {
                         excel(
                             dataExcel,
 
-                            ['Tanggal', 'Nama' , 'NIP', 'Karya Inovatif','Keterangan'],
+                            ['Tanggal', 'Nama', 'NIP', 'Karya Inovatif', 'Keterangan'],
 
                             "Karya Ilmiah"
                         )
-                    break
+                        break
                 }
             },
 
@@ -505,7 +679,7 @@ function showReportAdmin() {
                                 this.dataScientific = this.dataTempScientific;
                                 break
                         };
-                    break
+                        break
 
 
                     case 'today':
@@ -543,7 +717,7 @@ function showReportAdmin() {
                                 this.dataScientific = filtered
                                 break
                         };
-                    break
+                        break
 
                     case 'month':
                         switch (this.dataFilter) {
@@ -737,7 +911,7 @@ function showReportAdmin() {
                     value.fullName = value.employee_id.full_name
                     value.nip = value.employee_id.nip
                     value.className = value.class_name.class_name
-                    value.subjectName = value.subject_name.subject_name 
+                    value.subjectName = value.subject_name.subject_name
 
                     if (value.desc.length > 1) {
                         value.descSort = value.desc.substring(0, 60) + '...';
@@ -972,13 +1146,16 @@ function showAttendAdmin() {
         data: {
             dataAttendUser: '',
         },
-        mounted() {
+        async mounted() {
             let url = baseUrl + 'api/showabsen';
-            fetch(url)
+            await fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     this.dataAttendUser = data;
                 });
+
+            $('.load').removeClass('load')
+            $('.content').removeClass('loading')
         },
 
     })

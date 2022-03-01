@@ -3,6 +3,7 @@
 @use 'template/sidebar';
 @use 'template/footer';
 @use 'template/error';
+@use 'template/loading';
 
 @use 'template-view/login';
 @use 'template-view/absen';
@@ -11,13 +12,13 @@
 @use 'template-view/laporan-tugas';
 @use 'template-view/laporan-pengembangan';
 @use 'template-view/laporan-karya';
-
 @use 'template-view/tampil_laporan_absen';
 
-@use 'template-view/admin/dashboard-admin';
-@use 'template-view/admin/add-user.scss';
-@use 'template-view/admin/laporan-admin';
-@use 'template-view/admin/users';
+// @use 'template-view/admin/dashboard-admin';
+// @use 'template-view/admin/add-user.scss';
+// @use 'template-view/admin/laporan-admin';
+// @use 'template-view/admin/users';
+@use 'template-view/admin/admin';
 
 
 
