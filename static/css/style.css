@@ -2036,28 +2036,25 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 .table table tbody tr {
   border-bottom: 1px solid #EDF3FB;
 }
-.table a {
-  text-decoration: none;
-  width: 100%;
+.table button {
   display: inline-block;
+  width: 100%;
   margin-top: 0.5em;
   padding: 0.2em;
-  text-align: center;
-  transition: 0.2s ease all;
 }
-.table a.edit {
+.table button.edit {
   border: 1px solid #13CB6E;
   color: #13CB6E;
 }
-.table a.edit:hover {
+.table button.edit:hover {
   background-color: #13CB6E;
   color: #fff;
 }
-.table a.delete {
+.table button.delete {
   border: 1px solid #C6493B;
   color: #C6493B;
 }
-.table a.delete:hover {
+.table button.delete:hover {
   background-color: #C6493B;
   color: #fff;
 }
