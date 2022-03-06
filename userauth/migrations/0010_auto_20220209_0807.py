@@ -9,7 +9,6 @@ def user_migration(apps, schema_editor):
         Group(name='supervisor'),
         Group(name='user')
     ])
-    
 
 class Migration(migrations.Migration):
 
@@ -18,5 +17,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(user_migration)
+        migrations.RunPython(user_migration),
     ]
