@@ -26,16 +26,18 @@ class CredentialForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'id':'floating-username', 'placeholder':'hermawan123', 'name':'username', 'required': True}))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', "placeholder":'***********', 'autocomplete':'new-password', 'required':True, 'id':'floating-password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', "placeholder":'***********', 'autocomplete':'new-password', 'required':True, 'id':'floating-password-confirm'}))
+    
+class EditCredentialForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["username"]
+        
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'id':'floating-username', 'placeholder':'hermawan123', 'name':'username', 'required': True}))
+
+        
 class EmployeeForm(forms.ModelForm):
     
-    CHOICES = [
-        ('admin', 'Admin'),
-        ('supervisor', 'Supervisor'),
-        ('user', 'User')
-    ]
-    
-    group = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect(attrs={'class': 'form-check-input'}), label='')
-    
+    group = forms.ModelChoiceField(queryset=Group.objects.all(), label='',empty_label='Pilih Role*', to_field_name="name", widget=forms.Select(attrs={'class':'form-control', 'id':'floating-group', 'name':'group', 'required': True}))
     class Meta:
         model = Employee
         fields = ["full_name", "nip", 'position', "group"]
@@ -44,6 +46,21 @@ class EmployeeForm(forms.ModelForm):
             "nip": "NIP",
             "position": "Posisi",
             "group": "Role",
+        }
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-name', 'placeholder':'Hermawan Fanreza', 'name':'fullname', 'required': True}),
+            'nip': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-nip', 'placeholder':'123456789', 'name':'nip'}),
+            'position': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-posisi', 'placeholder':'Guru Matematika', 'name':'position', 'required': True}),
+        }
+        
+class EditEmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = ["full_name", "nip", 'position']
+        labels = {
+            "full_name": "Nama Lengkap",
+            "nip": "NIP",
+            "position": "Posisi",
         }
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-name', 'placeholder':'Hermawan Fanreza', 'name':'fullname', 'required': True}),
@@ -64,9 +81,9 @@ class DaysForm(forms.ModelForm):
         }
         
         widgets = {
-            'monday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_monday', 'checked': True, 'name':'monday'}),
-            'tuesday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_tuesday', 'checked': True, 'name':'tuesday'}),
-            'wednesday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_wednesday', 'checked': True, 'name':'wednesday'}),
-            'thursday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_thursday', 'checked': True, 'name':'thursday'}),
-            'friday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_friday', 'checked': True, 'name':'friday'}),
+            'monday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_monday', 'name':'monday'}),
+            'tuesday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_tuesday', 'name':'tuesday'}),
+            'wednesday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_wednesday', 'name':'wednesday'}),
+            'thursday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_thursday', 'name':'thursday'}),
+            'friday': forms.CheckboxInput(attrs={'class': 'form-check-input', 'id': 'id_friday', 'name':'friday'}),
         }

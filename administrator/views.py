@@ -1,12 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import Group, User
 from userauth.models import Days, Employee
+from django.contrib import messages
 import csv
 from django.conf import settings
+import logging
+from absensi_guru import forms
 # Create your views here.
+logging.basicConfig(level=logging.NOTSET)
 @login_required
 @staff_member_required
 def show_absen_admin(request):
@@ -25,6 +29,74 @@ def show_laporan_admin(request):
 @login_required
 @staff_member_required
 def show_users_admin(request):
+    is_action = request.GET
+    user_id = is_action.get('edit') if is_action.get('edit') != None else is_action.get('delete')
+    
+    if is_action:
+        if is_action.get('delete') != None:
+            user = User.objects.get(employee__id=user_id)
+            user.delete()
+            return render(request, 'users-admin.html')
+        
+        elif is_action.get('edit') != None:
+            
+            
+            credential = User.objects.get(employee__id=user_id)
+            employee = Employee.objects.get(id=user_id)
+            days = Days.objects.get(employee_id=user_id)
+            
+            if request.POST:
+                credential_form = forms.EditCredentialForm(request.POST, instance=credential)
+                employee_form = forms.EditEmployeeForm(request.POST, instance=employee)
+                days_form = forms.DaysForm(request.POST, instance=days)
+                print(credential_form.errors)
+                
+                if credential_form.is_valid() and employee_form.is_valid() and days_form.is_valid():
+                    credential_form_f = credential_form.save(commit=False)
+                    first_name = request.POST.get('full_name').split(' ')
+                    first_name.pop()
+                    first_name = ' '.join(first_name)
+                    credential_form_f.first_name = first_name
+                    credential_form_f.last_name = request.POST.get('full_name').split()[-1]
+                    
+                    credential_form_f.save()
+                    
+                    employee_form.save()
+                    
+                    days_form.save()
+                    
+                    return redirect('show_users_admin')
+                
+                elif not credential_form.is_valid():
+                    context = {
+                        'credential_form': forms.EditCredentialForm(instance=credential),
+                        'employee_form': forms.EditEmployeeForm(instance=employee),
+                        'days_form': forms.DaysForm(instance=days),
+                        'message': "Gagal menyunting pengguna, username atau password tidak tersedia"
+                    }
+                
+                    return render(request, 'edit-user-admin.html', context)
+                
+                else:
+                    context = {
+                        'credential_form': forms.EditCredentialForm(instance=credential),
+                        'employee_form': forms.EditEmployeeForm(instance=employee),
+                        'days_form': forms.DaysForm(instance=days),
+                        'message': "Gagal menyunting pengguna, pastikan data terisi dengan benar"
+                    }
+                
+                    return render(request, 'edit-user-admin.html', context)
+                    
+                    
+            else:
+                context = {
+                        'credential_form': forms.EditCredentialForm(instance=credential),
+                        'employee_form': forms.EditEmployeeForm(instance=employee),
+                        'days_form': forms.DaysForm(instance=days),
+                    }
+                return render(request, 'edit-user-admin.html', context)
+            
+            
     return render(request, 'users-admin.html')
 
 @login_required
