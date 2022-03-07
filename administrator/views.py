@@ -102,7 +102,7 @@ def show_users_admin(request):
 @login_required
 @staff_member_required
 def add_user_bulk(request):
-    with open(settings.MEDIA_ABS_PATH + '/media/guidance_report/user_absen_sija.csv') as users:
+    with open(settings.MEDIA_ABS_PATH + '/foreign/user_absen_sija.csv') as users:
         users = csv.reader(users, delimiter=';')
         for user in users:
             name = user[2].split(' ')
