@@ -30,7 +30,7 @@ $primary-font: "Poppins",sans-serif;
 }
 
 @mixin table {
-    max-height: 500px;
+    max-height: max(500px,30vw);
     overflow: auto;
     margin-top: 1em;
 
@@ -41,6 +41,12 @@ $primary-font: "Poppins",sans-serif;
         td {
             padding: 1em;
             vertical-align: top;
+            font-size: max(1em,.8vw);
+        }
+
+        td{
+            max-width: 300px;
+            overflow-wrap: break-word;
         }
 
         thead {

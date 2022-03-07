@@ -35,12 +35,12 @@ nav.navbar-admin {
                         a {
                             text-decoration: none;
                             color: v.$primary-text-color;
-                            font-size: max(1em, 1.2vw);
+                            font-size: max(1em, 1vw);
                             font-weight: 500;
                             transition: 0.3s;
 
                             span{
-                                border-radius: 5px;
+                                border-radius: max(5px,.3vw);
                             }
 
                             &:hover {

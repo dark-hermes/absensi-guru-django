@@ -798,15 +798,16 @@ function showReportAdmin() {
 
                 if (isSelected == 'custom') {
                     $('#myModal').modal('show')
+                    let filtered
 
                     switch (this.dataFilter) {
                         case 'study':
                             $('#custom-filter').click(function () {
-                                app.dataStudyReport = filtered;
+                                app.dataStudyReport = app.dataTempStudyReport;
                                 let fromDate = $("#from-date").val().split("-").join("")
                                 let toDate = $("#to-date").val().split("-").join("")
 
-                                let filtered = app.dataStudyReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                                filtered = app.dataStudyReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
                                 app.dataStudyReport = filtered;
                             })
@@ -818,7 +819,7 @@ function showReportAdmin() {
                                 let fromDate = $("#from-date").val().split("-").join("")
                                 let toDate = $("#to-date").val().split("-").join("")
 
-                                let filtered = app.dataGuidanceReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                                filtered = app.dataGuidanceReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
                                 app.dataGuidanceReport = filtered;
                             })
@@ -829,7 +830,7 @@ function showReportAdmin() {
                                 let fromDate = $("#from-date").val().split("-").join("")
                                 let toDate = $("#to-date").val().split("-").join("")
 
-                                let filtered = app.dataDevelopmentReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                                filtered = app.dataDevelopmentReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
                                 app.dataDevelopmentReport = filtered;
                             })
@@ -841,7 +842,7 @@ function showReportAdmin() {
                                 let fromDate = $("#from-date").val().split("-").join("")
                                 let toDate = $("#to-date").val().split("-").join("")
 
-                                let filtered = app.dataDutyReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                                filtered = app.dataDutyReport.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
                                 app.dataDutyReport = filtered;
                             })
@@ -852,7 +853,7 @@ function showReportAdmin() {
                                 let fromDate = $("#from-date").val().split("-").join("")
                                 let toDate = $("#to-date").val().split("-").join("")
 
-                                let filtered = app.dataInovativ.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                                filtered = app.dataInovativ.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
                                 app.dataInovativ = filtered;
                             })
@@ -864,7 +865,7 @@ function showReportAdmin() {
                                 let fromDate = $("#from-date").val().split("-").join("")
                                 let toDate = $("#to-date").val().split("-").join("")
 
-                                let filtered = app.dataScientific.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                                filtered = app.dataScientific.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
                                 app.dataScientific = filtered;
                             })
@@ -1136,27 +1137,4 @@ function showReportAdmin() {
             }
         },
     });
-}
-
-
-function showAttendAdmin() {
-    var app = new Vue({
-        el: '.content',
-        delimiters: ['[[', ']]'],
-        data: {
-            dataAttendUser: '',
-        },
-        async mounted() {
-            let url = baseUrl + 'api/showabsen';
-            await fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    this.dataAttendUser = data;
-                });
-
-            $('.load').removeClass('load')
-            $('.content').removeClass('loading')
-        },
-
-    })
 }

@@ -322,12 +322,12 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav li {
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.55);
-  font-size: max(1em, 1.2vw);
+  font-size: max(1em, 1vw);
   font-weight: 500;
   transition: 0.3s;
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav li a span {
-  border-radius: 5px;
+  border-radius: max(5px, 0.3vw);
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav li a:hover {
   color: #3b86ff;
@@ -1986,7 +1986,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   transition: 0.5s;
 }
 .container * .table {
-  max-height: 500px;
+  max-height: max(500px, 30vw);
   overflow: auto;
   margin-top: 1em;
 }
@@ -1997,6 +1997,11 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 .container * .table table td {
   padding: 1em;
   vertical-align: top;
+  font-size: max(1em, 0.8vw);
+}
+.container * .table table td {
+  max-width: 300px;
+  overflow-wrap: break-word;
 }
 .container * .table table thead tr {
   background-color: #f8f8f8;
@@ -2012,7 +2017,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 }
 
 .table {
-  max-height: 500px;
+  max-height: max(500px, 30vw);
   overflow: auto;
   margin-top: 1em;
 }
@@ -2023,6 +2028,11 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 .table table td {
   padding: 1em;
   vertical-align: top;
+  font-size: max(1em, 0.8vw);
+}
+.table table td {
+  max-width: 300px;
+  overflow-wrap: break-word;
 }
 .table table thead tr {
   background-color: #f8f8f8;
@@ -2110,7 +2120,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   outline: none;
 }
 .container-admin .content .table {
-  max-height: 500px;
+  max-height: max(500px, 30vw);
   overflow: auto;
   margin-top: 1em;
 }
@@ -2121,6 +2131,11 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 .container-admin .content .table table td {
   padding: 1em;
   vertical-align: top;
+  font-size: max(1em, 0.8vw);
+}
+.container-admin .content .table table td {
+  max-width: 300px;
+  overflow-wrap: break-word;
 }
 .container-admin .content .table table thead tr {
   background-color: #f8f8f8;
@@ -2194,7 +2209,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 .container-admin .content form {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #fff;
-  padding: 1em;
+  padding: 3em;
   border-radius: 5px;
 }
 .container-admin .content form .form-floating {
@@ -2222,6 +2237,19 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
 .container-admin .content form .day-work .input .form-check input,
 .container-admin .content form .day-work .input .form-check label {
   cursor: pointer;
+}
+.container-admin .content form .edit-group-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container-admin .content form .edit-group-link a {
+  font-size: max(1em, 1vw);
+  font-weight: 700;
+}
+.container-admin .content form .edit-group-link a:hover {
+  text-decoration: none;
 }
 .container-admin .content form .submit {
   width: 100%;
