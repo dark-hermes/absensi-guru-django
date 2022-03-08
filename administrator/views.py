@@ -148,9 +148,9 @@ def undo_add_user_bulk(request):
 @login_required
 @staff_member_required
 def edit_password_admin(request):
-    return render(request, 'edit-password-admin.html', context)
+    return render(request, 'edit-password-user-admin.html',)
     
 @login_required
 @staff_member_required
 def edit_role_admin(request):
-    return render(request, 'edit-role-admin.html', context)
+    return render(request, 'edit-role-user-admin.html',)

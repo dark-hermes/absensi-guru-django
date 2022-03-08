@@ -70,8 +70,8 @@ urlpatterns = [
     path('admin/add-user', add_user, name='add_user_admin'),
     path('admin/add-user-bulk', add_user_bulk, name='add_user_bulk'),
     path('admin/undo-add-user-bulk', undo_add_user_bulk, name='undo_add_user_bulk'),
-    path('admin/edit-password/<int:id_user>', edit_password_admin, name='edit_password'),
-    path('admin/edit-role/<int:id_user>', edit_role_admin, name='edit_role'),
+    path('admin/edit-password', edit_password_admin, name='edit_password'),
+    path('admin/edit-role', edit_role_admin, name='edit_role'),
 ]
 
 # path('admin/', admin.site.urls),
