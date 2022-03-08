@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Employee(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     nip = models.CharField(max_length=18, null=True, blank=True)
     full_name = models.CharField(max_length=255,null=True)
@@ -12,7 +11,6 @@ class Employee(models.Model):
 
 class Days(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     monday = models.BooleanField(default=False)
     tuesday = models.BooleanField(default=False)
     wednesday = models.BooleanField(default=False)
