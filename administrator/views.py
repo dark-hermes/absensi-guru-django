@@ -9,6 +9,10 @@ import csv
 from django.conf import settings
 import logging
 from absensi_guru import forms
+import time
+
+
+
 # Create your views here.
 logging.basicConfig(level=logging.NOTSET)
 @login_required
@@ -104,7 +108,9 @@ def show_users_admin(request):
 def add_user_bulk(request):
     with open(settings.MEDIA_ABS_PATH + '/foreign/user_absen_sija.csv') as users:
         users = csv.reader(users, delimiter=';')
-        for user in users:
+        for i, user in enumerate(users):
+            if i % 10 == 0:
+                time.sleep(2)
             name = user[2].split(' ')
             name.pop()
             name = ' '.join(name)

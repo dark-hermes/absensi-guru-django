@@ -1,5 +1,6 @@
 {% load static %}
 {% load active_link_tags %}
+{% load custom_tags %}
 
 <nav class="navbar-admin navbar navbar-light bg-light fixed-top navbar-expand-lg">
     <div class="container-fluid">
@@ -25,8 +26,12 @@
                             class="{% active_link 'show_laporan_admin' 'active' %}"><span>Lihat Laporan</span></a></li>
                     <li><a href="{% url 'show_absen_admin' %}"
                             class="{% active_link 'show_absen_admin' 'active' %}"><span>Lihat Absensi</span></a></li>
+                    {% if request.user|has_group:"supervisor" %}
+                        
+                    {% else %}
                     <li><a href="{% url 'show_users_admin' %}"
-                            class="{% active_link 'show_users_admin || add_user_admin' 'active' %}"><span>Lihat User</span></a></li>
+                        class="{% active_link 'show_users_admin || add_user_admin' 'active' %}"><span>Lihat User</span></a></li>
+                    {% endif %}
                 </ul>
                 <div class="nav-item dropdown profile">
                     <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button"
