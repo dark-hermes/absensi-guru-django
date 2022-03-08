@@ -42,7 +42,7 @@ def add_user(request):
             first_name = ' '.join(first_name)
             credential_form_f.first_name = first_name
             credential_form_f.last_name = request.POST.get('full_name').split()[-1]
-            if request.POST.get('group') == "admin":
+            if request.POST.get('group') == "admin" or request.POST.get('group') == "supervisor":
                 credential_form_f.is_staff = True
                 credential_form.is_superuser = True
             credential_form_f.save()
