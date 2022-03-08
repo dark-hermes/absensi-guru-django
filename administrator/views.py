@@ -117,7 +117,7 @@ def add_user_bulk(request):
             
             Employee.objects.create(
                 user_id=User.objects.latest('id').id,
-                full_name=user[2],
+                full_name=user[2] + ' ' + user[3],
                 position=user[4]
             )
             
