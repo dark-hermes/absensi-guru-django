@@ -5,7 +5,7 @@
     form {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         background-color: #fff;
-        padding: 1em;
+        padding: 3em;
         border-radius: 5px;
 
         .form-floating {
@@ -32,6 +32,20 @@
                     label {
                         cursor: pointer;
                     }
+                }
+            }
+        }
+
+        .edit-group-link{
+            @include v.horizontal-centered;
+            justify-content: space-evenly;
+
+            a{
+                font-size: max(1em,1vw);
+                font-weight: 700;
+
+                &:hover{
+                    text-decoration: none;
                 }
             }
         }

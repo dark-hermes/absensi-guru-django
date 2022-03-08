@@ -4,79 +4,42 @@ let baseUrl = 'https://localhost:8000/';
 
 let img = $("img");
 for (let i = 0; i < img.length; i++) {
-  img[i].setAttribute("loading", "lazy")
+    img[i].setAttribute("loading", "lazy")
 }
 
-var serverClock = jQuery("#jamServer");
-if (serverClock.length > 0) {
-    showServerTime(serverClock, serverClock.text());
-}
-
-function showServerTime(obj, time) {
-    var parts   = time.split(":"),
-        newTime = new Date();
-
-    newTime.setHours(parseInt(parts[0], 10));
-    newTime.setMinutes(parseInt(parts[1], 10));
-    newTime.setSeconds(parseInt(parts[2], 10));
-
-    var timeDifference  = new Date().getTime() - newTime.getTime();
-
-    var methods = { 
-        displayTime: function () {
-            var now = new Date(new Date().getTime() - timeDifference);
-            obj.text([
-                methods.leadZeros(now.getHours(), 2),
-                methods.leadZeros(now.getMinutes(), 2),
-                methods.leadZeros(now.getSeconds(), 2)
-            ].join(":"));
-            setTimeout(methods.displayTime, 500);
-        },
-
-        leadZeros: function (time, width) {
-            while (String(time).length < width) {
-                time = "0" + time;
-            }
-            return time;
-        }
-    }
-    methods.displayTime();
-}
-
-
-function inputCheck(){ // For laporan pengembangan page
+function inputCheck() { // For laporan pengembangan page
     var checked = $('input[type=radio]:checked')
     $('input[type=radio]')
-        .click(function() {
-        checked.filter(':not(:checked)').trigger('deselect');
-        checked = $('input[type=radio]:checked')
-    })
+        .click(function () {
+            checked.filter(':not(:checked)').trigger('deselect');
+            checked = $('input[type=radio]:checked')
+        })
 
 
-    document.getElementById('inlineRadio4').addEventListener('click', function() {
+    document.getElementById('inlineRadio4').addEventListener('click', function () {
         document.getElementById('text').removeAttribute("disabled");
     });
 
     $('#inlineRadio4').bind('deselect', function () {
-        document.getElementById('text').setAttribute("disabled","");
-    })  
+        document.getElementById('text').setAttribute("disabled", "");
+    })
 
-    document.getElementById('inlineRadio8').addEventListener('click', function() {
+    document.getElementById('inlineRadio8').addEventListener('click', function () {
         document.getElementById('text2').removeAttribute("disabled");
     });
 
     $('#inlineRadio8').bind('deselect', function () {
-        document.getElementById('text2').setAttribute("disabled","");
+        document.getElementById('text2').setAttribute("disabled", "");
     });
 }
 
 
-function responsiveSlider(){ // for Absen Page
+function responsiveSlider() { // for Absen Page
     width = screen.width;
     height = screen.height;
     slider = document.getElementsByClassName("slider");
 
-    (function($) {
+    (function ($) {
         let $window = $(window)
 
         function resize() {
@@ -87,8 +50,7 @@ function responsiveSlider(){ // for Absen Page
 
                 slider[0].parentElement.parentElement.classList.add("mobile")
                 slider[0].parentElement.parentElement.classList.remove("dekstop")
-            }
-            else{
+            } else {
                 for (let i = 0; i < slider.length; i++) {
                     slider[i].classList.remove("carousel-item")
                 }
@@ -100,8 +62,6 @@ function responsiveSlider(){ // for Absen Page
         $window.resize(resize).trigger('resize');
     })(jQuery);
 }
-
-
 
 
 
@@ -142,9 +102,4 @@ alertTemplate = {
                 }
             });
     }
-
 }
-
-
-
-

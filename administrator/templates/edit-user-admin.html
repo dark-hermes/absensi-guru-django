@@ -2,190 +2,213 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block title %}
-    <title>Edit User</title>
+<title>Edit User</title>
 {% endblock title %}
 
 {% block content %}
 
 {% include 'sidebar-admin.html' %}
-    <section class="container-admin">
-        <section class="content">
-            <form action="" method="post">
-                {% csrf_token %}
-                {% comment %} <div class="form-floating">
-                    <input type="text" class="form-control" id="floating-username" placeholder="Hermawan123" name="username" required>
-                    <label for="floating-username">Username</label>
-                    <div class="info">
-                        <p>Wajib diisi. 150 karakter atau kurang. huruf, angka dan @/./+/-/_ saja.</p>
+<section class="container-admin">
+    <section class="content">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% comment %} <div class="form-floating">
+                <input type="text" class="form-control" id="floating-username" placeholder="Hermawan123" name="username"
+                    required>
+                <label for="floating-username">Username</label>
+                <div class="info">
+                    <p>Wajib diisi. 150 karakter atau kurang. huruf, angka dan @/./+/-/_ saja.</p>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floating-name" placeholder="Hermawan Fanreza"
+                    name="fullname" required>
+                <label for="floating-name">Nama Lengkap</label>
+            </div>
+            <div class="form-floating">
+                <input type="tel" class="form-control" id="floating-nip" placeholder="21831298" name="nip">
+                <label for="floating-nip">NIP</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floating-posisi"
+                    placeholder="Wakil Kepala Sekolah Bidang Kurikulum" name="position" required>
+                <label for="floating-posisi">Posisi</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floating-password" placeholder="Hermawan Fanreza"
+                    name="password" required>
+                <label for="floating-password">Password</label>
+                <div class="info">
+                    <ul>
+                        <li>Password harus mengandung setidaknya 8 karakter</li>
+                        <li>Password tidak boleh sepenuhnya menggunakan angka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floating-password-confirm"
+                    placeholder="Hermawan Fanreza" name="password-confirm" required>
+                <label for="floating-password-confirm">Konfirmasi Password</label>
+                <div class="info">
+                    <p>Masukan password yang sama seperti sebelumnya</p>
+                </div>
+            </div>
+            <div class="role">
+                <header>Pilih Role</header>
+                <div class="input">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault1" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Admin
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Supervisor
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault3" checked>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            User
+                        </label>
                     </div>
                 </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="floating-name" placeholder="Hermawan Fanreza" name="fullname" required>
-                    <label for="floating-name">Nama Lengkap</label>
-                </div>
-                <div class="form-floating">
-                    <input type="tel" class="form-control" id="floating-nip" placeholder="21831298" name="nip">
-                    <label for="floating-nip">NIP</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="floating-posisi" placeholder="Wakil Kepala Sekolah Bidang Kurikulum" name="position" required>
-                    <label for="floating-posisi">Posisi</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floating-password" placeholder="Hermawan Fanreza" name="password" required>
-                    <label for="floating-password">Password</label>
-                    <div class="info">
-                        <ul>
-                            <li>Password harus mengandung setidaknya 8 karakter</li>    
-                            <li>Password tidak boleh sepenuhnya menggunakan angka</li>
-                        </ul>
+            </div>
+            <div class="day-work">
+                <header>Piih Hari Kerja</header>
+                <div class="input">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" name="days"
+                            checked>
+                        <label class="form-check-label" for="flexCheckChecked1">
+                            Senin
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" name="fays"
+                            checked>
+                        <label class="form-check-label" for="flexCheckChecked2">
+                            Selasa
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" name="days"
+                            checked>
+                        <label class="form-check-label" for="flexCheckChecked3">
+                            Rabu
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" name="days"
+                            checked>
+                        <label class="form-check-label" for="flexCheckChecked4">
+                            Kamis
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5" name="days"
+                            checked>
+                        <label class="form-check-label" for="flexCheckChecked5">
+                            Jumat
+                        </label>
                     </div>
                 </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floating-password-confirm"
-                        placeholder="Hermawan Fanreza" name="password-confirm" required>
-                    <label for="floating-password-confirm">Konfirmasi Password</label>
-                    <div class="info">
-                        <p>Masukan password yang sama seperti sebelumnya</p>
+            </div>
+            <button type="submit" class="submit">Submit</button> {% endcomment %}
+            {% if message %}
+            {% if message == "Berhasil menambahkan pengguna" %}
+            <div class="alert alert-success">{{ message }}</div>
+            {% else %}
+            <div class="alert alert-danger">{{ message }}</div>
+            {% endif %}
+            {% endif %}
+
+            <div class="form-floating username">
+                {% comment %} <input type="text" class="form-control" id="floating-username" placeholder="Hermawan123"
+                    name="username" required> {% endcomment %}
+                {{credential_form.username}}
+                <label for="floating-username">Username*</label>
+                <div class="info">
+                    <p>Wajib diisi. 150 karakter atau kurang. huruf, angka dan @/./+/-/_ saja.</p>
+                </div>
+            </div>
+            <div class="form-floating name">
+                {% comment %} <input type="text" class="form-control" id="floating-name" placeholder="Hermawan Fanreza"
+                    name="fullname" required> {% endcomment %}
+                {{employee_form.full_name}}
+                <label for="floating-name">Nama Lengkap*</label>
+            </div>
+            <div class="form-floating nip">
+                {% comment %} <input type="tel" class="form-control" id="floating-nip" placeholder="21831298"
+                    name="nip"> {% endcomment %}
+                {{employee_form.nip}}
+                <label for="floating-nip">NIP</label>
+            </div>
+            <div class="form-floating position">
+                {% comment %} <input type="text" class="form-control" id="floating-posisi"
+                    placeholder="Wakil Kepala Sekolah Bidang Kurikulum" name="position" required> {% endcomment %}
+                {{employee_form.position}}
+                <label for="floating-posisi">Posisi*</label>
+            </div>
+
+            <div class="edit-group-link">
+                <div class="edit-password">
+                    <a href="">Edit Password</a>
+                </div>
+                <div class="edit-role">
+                    <a href="">Edit Role</a>
+                </div>
+            </div>
+
+            <div class="day-work">
+                <header>Piih Hari Kerja*</header>
+                <div class="input">
+                    <div class="form-check">
+                        {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1"
+                            name="days" checked> {% endcomment %}
+                        {{days_form.monday}}
+                        <label class="form-check-label" for="id_monday">
+                            Senin
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2"
+                            name="days" checked> {% endcomment %}
+                        {{days_form.tuesday}}
+                        <label class="form-check-label" for="id_tuesday">
+                            Selasa
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3"
+                            name="days" checked> {% endcomment %}
+                        {{days_form.wednesday}}
+                        <label class="form-check-label" for="id_wednesday">
+                            Rabu
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4"
+                            name="days" checked> {% endcomment %}
+                        {{days_form.thursday}}
+                        <label class="form-check-label" for="id_thursday">
+                            Kamis
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5"
+                            name="days" checked> {% endcomment %}
+                        {{days_form.friday}}
+                        <label class="form-check-label" for="id_friday">
+                            Jumat
+                        </label>
                     </div>
                 </div>
-                <div class="role">
-                    <header>Pilih Role</header>
-                    <div class="input">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="flexRadioDefault1" required>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Admin
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Supervisor
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="flexRadioDefault3"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                User
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="day-work">
-                    <header>Piih Hari Kerja</header>
-                    <div class="input">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" name="days" checked>
-                            <label class="form-check-label" for="flexCheckChecked1">
-                                Senin
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" name="fays" checked>
-                            <label class="form-check-label" for="flexCheckChecked2">
-                                Selasa
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" name="days" checked>
-                            <label class="form-check-label" for="flexCheckChecked3">
-                                Rabu
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" name="days" checked>
-                            <label class="form-check-label" for="flexCheckChecked4">
-                                Kamis
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5" name="days" checked>
-                            <label class="form-check-label" for="flexCheckChecked5">
-                                Jumat
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="submit">Submit</button> {% endcomment %}
-                {% if message %}
-                    {% if message == "Berhasil menambahkan pengguna" %}
-                        <div class="alert alert-success">{{ message }}</div> 
-                    {% else %}
-                        <div class="alert alert-danger">{{ message }}</div>
-                    {% endif %}                    
-                {% endif %}
-        
-                <div class="form-floating">
-                    {% comment %} <input type="text" class="form-control" id="floating-username" placeholder="Hermawan123" name="username" required> {% endcomment %}
-                    {{credential_form.username}}
-                    <label for="floating-username">Username*</label>
-                    <div class="info">
-                        <p>Wajib diisi. 150 karakter atau kurang. huruf, angka dan @/./+/-/_ saja.</p>
-                    </div>
-                </div>
-                <div class="form-floating">
-                    {% comment %} <input type="text" class="form-control" id="floating-name" placeholder="Hermawan Fanreza" name="fullname" required> {% endcomment %}
-                    {{employee_form.full_name}}
-                    <label for="floating-name">Nama Lengkap*</label>
-                </div>
-                <div class="form-floating">
-                    {% comment %} <input type="tel" class="form-control" id="floating-nip" placeholder="21831298" name="nip"> {% endcomment %}
-                    {{employee_form.nip}}
-                    <label for="floating-nip">NIP</label>
-                </div>
-                <div class="form-floating">
-                    {% comment %} <input type="text" class="form-control" id="floating-posisi" placeholder="Wakil Kepala Sekolah Bidang Kurikulum" name="position" required> {% endcomment %}
-                    {{employee_form.position}}
-                    <label for="floating-posisi">Posisi*</label>
-                </div>
-                
-                
-                <div class="day-work">
-                    <header>Piih Hari Kerja*</header>
-                    <div class="input">
-                        <div class="form-check">
-                            {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" name="days" checked> {% endcomment %}
-                            {{days_form.monday}}
-                            <label class="form-check-label" for="id_monday">
-                                Senin
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" name="days" checked> {% endcomment %}
-                            {{days_form.tuesday}}
-                            <label class="form-check-label" for="id_tuesday">
-                                Selasa
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" name="days" checked> {% endcomment %}
-                            {{days_form.wednesday}}
-                            <label class="form-check-label" for="id_wednesday">
-                                Rabu
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" name="days" checked> {% endcomment %}
-                            {{days_form.thursday}}
-                            <label class="form-check-label" for="id_thursday">
-                                Kamis
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            {% comment %} <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5" name="days" checked> {% endcomment %}
-                            {{days_form.friday}}
-                            <label class="form-check-label" for="id_friday">
-                                Jumat
-                            </label>
-                        </div>
-                        
-                    </div>
-                </div>
-                <button type="submit" class="submit">Submit</button>
-            </form>
-        </section>
+            </div>
+            <button type="submit" class="submit">Submit</button>
+        </form>
     </section>
+</section>
 {% endblock content %}
