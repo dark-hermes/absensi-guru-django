@@ -14,14 +14,48 @@
                 <div class="search">
                     <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" placeholder="Cari Disini">
                 </div>
-                <div class="filter">
-                    <select class="form-select" aria-label="Default select example">
+                <div class="filter button-filter">
+                    <select @change="filter($event)" class="form-select filter-select" aria-label="Default select example">
                         <option selected hidden>Filter</option>
-                        <option value="1">Hari Ini</option>
-                        <option value="2">Bulan Ini</option>
-                        <option value="3">Tahun Ini</option>
-                        <option value="4">Custom Tanggal</option>
+                        <option value="reset">Hapus Filter</option>
+                        <option value="today">Hari Ini</option>
+                        <option value="month">Bulan Ini</option>
+                        <option value="year">Tahun Ini</option>
+                        <option value="custom">Custom Tanggal</option>
                     </select>
+    
+                    <div class="modal fade" id="myModal" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Kustomisasi Tanggal</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+    
+                                <div class="modal-body">
+                                    <div class="date">
+                                        <label for="from-date">Dari</label>
+                                        <input type="date" name="from-date" id="from-date">
+                                    </div>
+    
+                                    <div class="date">
+                                        <label for="to-date">Sampai</label>
+                                        <input type="date" name="to-date" id="to-date">
+                                    </div>
+                                </div>
+    
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                                    <button id='custom-filter' class="btn btn-primary"
+                                        data-bs-dismiss="modal">Kirim</button>
+                                </div>
+    
+    
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% include 'button-print.html' %}
             </div>
@@ -103,7 +137,6 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Understood</button>
                                             </div>
                                         </div>
                                     </div>

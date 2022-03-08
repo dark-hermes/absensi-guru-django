@@ -19,7 +19,7 @@ function showAttendAdmin() {
             $('.content').removeClass('loading')
 
             $.each(this.dataAttendUser, function (index, value) {
-                splitDate = (new Date(value.created_at));
+                splitDate = (new Date(value.presence_date));
                 month = (splitDate.getMonth() + 1).toString().padStart(2, "0");
                 year = splitDate.getFullYear();
                 hour = splitDate.getHours();
@@ -63,6 +63,7 @@ function showAttendAdmin() {
                         this.dataAttendUser = this.dataTempAttendUser;
                         filtered = this.dataAttendUser.filter(x => x.thisToday == filterToday);
                         this.dataAttendUser = filtered
+                        console.log("today")
                         break
                     case 'month':
                         this.dataAttendUser = this.dataTempAttendUser;

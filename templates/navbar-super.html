@@ -1,0 +1,40 @@
+{% load static %}
+{% load active_link_tags %}
+
+<nav class="navbar-admin navbar navbar-light bg-light fixed-top navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'image/logokampak.png'%}" alt="" width="50" height="51">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SEKAR</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-start pe-3">
+                    <li><a class="{% active_link 'show_dashboard_admin' 'active' %}"
+                            href="{% url 'show_dashboard_admin' %}">
+                            <span>Dashboard</span></a></li>
+                    <li><a href="{% url 'show_laporan_admin' %}"
+                            class="{% active_link 'show_laporan_admin' 'active' %}"><span>Lihat Laporan</span></a></li>
+                    <li><a href="{% url 'show_absen_admin' %}"
+                            class="{% active_link 'show_absen_admin' 'active' %}"><span>Lihat Absensi</span></a></li>
+                </ul>
+                <div class="nav-item dropdown profile">
+                    <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">{{ user.first_name }} {{ user.last_name }}</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
+                        <li><a class="dropdown-item" href="change_password">Ganti Password</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
