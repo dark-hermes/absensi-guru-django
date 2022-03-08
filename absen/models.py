@@ -2,7 +2,6 @@ from django.db import models
 from userauth.models import Employee
     
 class Presence(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
     presence_date = models.DateField(blank=True)
     checkin_time = models.TimeField(blank=True, null=True)

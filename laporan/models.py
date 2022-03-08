@@ -6,19 +6,16 @@ from userauth.models import Employee
 This block is part of study report and its foreign key
 """
 class ClassName(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     class_name = models.CharField(max_length=50)
     def __str__(self):
         return self.class_name
     
 class SubjectCategory(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     category = models.CharField(max_length=16)
     def __str__(self):
         return self.category
         
 class SubjectName(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     class_name = models.ForeignKey(ClassName, on_delete=models.CASCADE)
     category = models.ForeignKey(SubjectCategory, on_delete=models.CASCADE)
     subject_name = models.CharField(max_length=100)
@@ -26,7 +23,6 @@ class SubjectName(models.Model):
         return self.subject_name
     
 class Method(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     method_name = models.CharField(max_length=100)
     def __str__(self):
         return self.method_name
@@ -59,7 +55,6 @@ class GuidanceReport(models.Model):
 This block is part of scientific report and its foreign key
 """
 class ScientificWorkCategory(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     category_name = models.CharField(max_length=100)
     def __str__(self):
         return self.category_name
@@ -76,7 +71,6 @@ class ScientificWorkReport(models.Model):
 This block is part of innovation report and its foreign key
 """
 class InnovativeWorkCategory(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     category_name = models.CharField(max_length=100)
     def __str__(self):
         return self.category_name
@@ -107,7 +101,6 @@ class HumanDevelopmentReport(models.Model):
 This block is part of duty report and its foreign key
 """
 class MajorRole(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
     role_name = models.CharField(max_length=100)
     def __str__(self):
         return self.role_name

@@ -49,10 +49,12 @@ function absen() {
                 });
 
             // If out of Distance
-            distance = $('.presence-desc').attr('distance');
+            distance = parseInt($('.presence-desc').attr('distance'));
             distanceMessage = $(".presence-desc").attr("dist-message");
 
-            if (distance < 1000) {
+            console.log(typeof(distance))
+
+            if (distance > 1000) {
                 $('#keluar').attr("disabled", "");
                 $('#masuk').attr("disabled", "");
                 $(".message").html(distanceMessage);
