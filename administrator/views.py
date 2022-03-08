@@ -9,7 +9,6 @@ import csv
 from django.conf import settings
 import logging
 from absensi_guru import forms
-import time
 
 
 
@@ -108,15 +107,10 @@ def show_users_admin(request):
 def add_user_bulk(request):
     with open(settings.MEDIA_ABS_PATH + '/foreign/user_absen_sija.csv') as users:
         users = csv.reader(users, delimiter=';')
-        for i, user in enumerate(users):
-            if i % 10 == 0:
-                time.sleep(2)
-            name = user[2].split(' ')
-            name.pop()
-            name = ' '.join(name)
+        for user in users:
             User.objects.create(
                 username=user[0],
-                first_name=name,
+                first_name=user[2],
                 last_name=user[3],
                 password=make_password(user[1])
             )
@@ -138,11 +132,6 @@ def add_user_bulk(request):
             
             group = Group.objects.get(name=user[5])
             group.user_set.add(User.objects.latest('id'))
-    
-    # Bulk Delete for emergency
-    # users = User.objects.filter(username__contains='smk')
-    # for user in users:
-    #     user.delete()
             
     return render(request, 'bulk-add-users-admin.html')
 
