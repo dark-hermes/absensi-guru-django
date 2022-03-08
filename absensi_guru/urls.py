@@ -45,6 +45,7 @@ router.register('users', EmployeeViewset, basename='Users')
 urlpatterns = [
     path('api/', include(router.urls)),
     path('', LoginView.as_view(), name='index'),
+    path('pureadmin/', admin.site.urls),
     path('absen/', absen, name='absen'),
     path('face_detection/detect/', detect),
     path('login/', LoginView.as_view(), name='login' ),
