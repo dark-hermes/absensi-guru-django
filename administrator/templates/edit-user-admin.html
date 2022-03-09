@@ -155,10 +155,10 @@
 
             <div class="edit-group-link">
                 <div class="edit-password">
-                    <a href="{% url 'edit_password'%}">Edit Password</a>
+                    <a href="{% url 'edit_password' id_user=user_id%}">Edit Password</a>
                 </div>
                 <div class="edit-role">
-                    <a href="{% url 'edit_role'%}">Edit Role</a>
+                    <a href="{% url 'edit_role' id_user=user_id%}">Edit Role</a>
                 </div>
             </div>
 
@@ -208,7 +208,7 @@
                 </div>
             </div>
             <div class="button-group-form">
-                <a href="" class="cancel"> Batal</a>
+                <a href="{% url 'show_users_admin' %}" class="cancel"> Batal</a>
                 <button type="submit" class="submit">Submit</button>
             </div>
         </form>

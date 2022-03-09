@@ -68,6 +68,14 @@ class EditEmployeeForm(forms.ModelForm):
             'position': forms.TextInput(attrs={'class': 'form-control', 'id':'floating-posisi', 'placeholder':'Guru Matematika', 'name':'position', 'required': True}),
         }
         
+class RoleForm(forms.ModelForm):
+    group = forms.ModelChoiceField(required=False, queryset=Group.objects.all(), label='',empty_label='Pilih Role*', to_field_name="name", widget=forms.Select(attrs={'class':'form-control', 'id':'floating-group', 'name':'group', 'required': True}))
+    class Meta:
+        model = Employee
+        fields = ["group"]
+        
+        labels = {"group": "Role"}
+
 class DaysForm(forms.ModelForm):
     class Meta:
         model = Days

@@ -9,6 +9,8 @@ import csv
 from django.conf import settings
 import logging
 from absensi_guru import forms
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 
@@ -42,8 +44,6 @@ def show_users_admin(request):
             return render(request, 'users-admin.html')
         
         elif is_action.get('edit') != None:
-            
-            
             credential = User.objects.get(employee__id=user_id)
             employee = Employee.objects.get(id=user_id)
             days = Days.objects.get(employee_id=user_id)
@@ -75,7 +75,8 @@ def show_users_admin(request):
                         'credential_form': forms.EditCredentialForm(instance=credential),
                         'employee_form': forms.EditEmployeeForm(instance=employee),
                         'days_form': forms.DaysForm(instance=days),
-                        'message': "Gagal menyunting pengguna, username atau password tidak tersedia"
+                        'message': "Gagal menyunting pengguna, username atau password tidak tersedia",
+                        "user_id": user_id
                     }
                 
                     return render(request, 'edit-user-admin.html', context)
@@ -85,7 +86,8 @@ def show_users_admin(request):
                         'credential_form': forms.EditCredentialForm(instance=credential),
                         'employee_form': forms.EditEmployeeForm(instance=employee),
                         'days_form': forms.DaysForm(instance=days),
-                        'message': "Gagal menyunting pengguna, pastikan data terisi dengan benar"
+                        'message': "Gagal menyunting pengguna, pastikan data terisi dengan benar",
+                        "user_id": user_id
                     }
                 
                     return render(request, 'edit-user-admin.html', context)
@@ -96,6 +98,7 @@ def show_users_admin(request):
                         'credential_form': forms.EditCredentialForm(instance=credential),
                         'employee_form': forms.EditEmployeeForm(instance=employee),
                         'days_form': forms.DaysForm(instance=days),
+                        'user_id': user_id
                     }
                 return render(request, 'edit-user-admin.html', context)
             
@@ -147,10 +150,29 @@ def undo_add_user_bulk(request):
 
 @login_required
 @staff_member_required
-def edit_password_admin(request):
-    return render(request, 'edit-password-user-admin.html',)
+def edit_password_admin(request, id_user):
+    user = User.objects.get(employee__id=id_user)
+    
+    if request.POST:
+        print(request.POST.get('password'))
+        user.password = make_password(request.POST.get('password'))
+        user.save()
+        return redirect('show_users_admin')
+        
+    else:
+        return render(request, 'edit-password-user-admin.html')
     
 @login_required
 @staff_member_required
-def edit_role_admin(request):
-    return render(request, 'edit-role-user-admin.html',)
+def edit_role_admin(request, id_user):
+    user = User.objects.get(employee__id=id_user)
+    
+    if request.POST:
+        user.groups.clear()
+        group = Group.objects.get(name=request.POST.get('group'))
+        group.user_set.add(user)
+        return redirect('show_users_admin')
+    
+    else:
+        return render(request, 'edit-role-user-admin.html', {"form": forms.RoleForm(request.POST)})
+    
