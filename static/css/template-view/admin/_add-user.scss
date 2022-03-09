@@ -2,10 +2,12 @@
 
 
 @mixin add-user {
-    form {
+    form.add-user {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         background-color: #fff;
         padding: 3em;
+        width: 50%;
+        margin: 3em auto 0;
         border-radius: 5px;
 
         .form-floating {
@@ -31,6 +33,7 @@
                     input,
                     label {
                         cursor: pointer;
+                        user-select: none;
                     }
                 }
             }
@@ -50,15 +53,32 @@
             }
         }
 
-        .submit {
-            width: 100%;
-            background-color: #3b86ff;
-            border: none;
-            outline: none;
-            color: #fff;
-            font-weight: bold;
-            padding: .8em 0;
-            border-radius: 5px;
+        .button-group-form{
+            @include v.horizontal-centered;
+            justify-content: space-between;
+            font-size: max(1em,1vw);
+
+            .submit {
+                width: 45%;
+                background-color: v.$primary-color;
+                border: none;
+                outline: none;
+                color: v.$secondary-color;
+                font-weight: v.$text-bold;
+                padding: .8em 0;
+                border-radius: max(5px,.3vw);
+            }
+
+            .cancel{
+                width: 45%;
+                background-color: red;
+                color: v.$secondary-color;
+                text-decoration: none;
+                padding: .8em 0;
+                font-weight: v.$text-bold;
+                border-radius: max(5px,.3vw);
+                text-align: center;
+            }
         }
     }
 }

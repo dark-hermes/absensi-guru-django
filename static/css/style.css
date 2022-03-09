@@ -2206,60 +2206,80 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   color: #3b86ff;
   border: 1px solid #3b86ff;
 }
-.container-admin .content form {
+.container-admin .content form.add-user {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #fff;
   padding: 3em;
+  width: 50%;
+  margin: 3em auto 0;
   border-radius: 5px;
 }
-.container-admin .content form .form-floating {
+.container-admin .content form.add-user .form-floating {
   margin-bottom: 1em;
 }
-.container-admin .content form .form-floating .info {
+.container-admin .content form.add-user .form-floating .info {
   font-size: 0.8em;
   margin-top: 0.5em;
 }
-.container-admin .content form .role,
-.container-admin .content form .day-work {
+.container-admin .content form.add-user .role,
+.container-admin .content form.add-user .day-work {
   margin-bottom: 1em;
 }
-.container-admin .content form .role .input,
-.container-admin .content form .day-work .input {
+.container-admin .content form.add-user .role .input,
+.container-admin .content form.add-user .day-work .input {
   display: flex;
   margin-top: 1em;
 }
-.container-admin .content form .role .input .form-check,
-.container-admin .content form .day-work .input .form-check {
+.container-admin .content form.add-user .role .input .form-check,
+.container-admin .content form.add-user .day-work .input .form-check {
   margin-left: 1em;
 }
-.container-admin .content form .role .input .form-check input,
-.container-admin .content form .role .input .form-check label,
-.container-admin .content form .day-work .input .form-check input,
-.container-admin .content form .day-work .input .form-check label {
+.container-admin .content form.add-user .role .input .form-check input,
+.container-admin .content form.add-user .role .input .form-check label,
+.container-admin .content form.add-user .day-work .input .form-check input,
+.container-admin .content form.add-user .day-work .input .form-check label {
   cursor: pointer;
+  user-select: none;
 }
-.container-admin .content form .edit-group-link {
+.container-admin .content form.add-user .edit-group-link {
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
 }
-.container-admin .content form .edit-group-link a {
+.container-admin .content form.add-user .edit-group-link a {
   font-size: max(1em, 1vw);
   font-weight: 700;
 }
-.container-admin .content form .edit-group-link a:hover {
+.container-admin .content form.add-user .edit-group-link a:hover {
   text-decoration: none;
 }
-.container-admin .content form .submit {
-  width: 100%;
+.container-admin .content form.add-user .button-group-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  font-size: max(1em, 1vw);
+}
+.container-admin .content form.add-user .button-group-form .submit {
+  width: 45%;
   background-color: #3b86ff;
   border: none;
   outline: none;
-  color: #fff;
-  font-weight: bold;
+  color: #ebebeb;
+  font-weight: 800;
   padding: 0.8em 0;
-  border-radius: 5px;
+  border-radius: max(5px, 0.3vw);
+}
+.container-admin .content form.add-user .button-group-form .cancel {
+  width: 45%;
+  background-color: red;
+  color: #ebebeb;
+  text-decoration: none;
+  padding: 0.8em 0;
+  font-weight: 800;
+  border-radius: max(5px, 0.3vw);
+  text-align: center;
 }
 
 /*======================= Edit,Change Password,Add Page =======================*/

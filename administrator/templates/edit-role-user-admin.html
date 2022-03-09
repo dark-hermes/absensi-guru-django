@@ -2,43 +2,29 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block title %}
-    <title>Add User</title>
+<title>Add User</title>
 {% endblock title %}
 
 {% block content %}
 
 {% include 'sidebar-admin.html' %}
-    <section class="container-admin">
-        <section class="content">
-            <form action="{% url 'add_user_admin' %}" method="post">
-                {% csrf_token %}
-                <div class="role">
-                    {% comment %} <div class="input">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="flexRadioDefault1" required>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Admin
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Supervisor
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="flexRadioDefault3"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                User
-                            </label>
-                        </div>
-                    </div> {% endcomment %}
-                    {{employee_form.group}}
-                </div>
+<section class="container-admin">
+    <section class="content">
+        <form action="{% url 'add_user_admin' %}" method="post" class="add-user">
+            {% csrf_token %}
+            <div class="role">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Pilih Role</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
 
-            <button type="submit" class="submit">Submit</button>
+            <div class="button-group-form">
+                <a href="" class="cancel"> Batal</a>
+                <button type="submit" class="submit">Submit</button>
+            </div>
         </form>
     </section>
 </section>

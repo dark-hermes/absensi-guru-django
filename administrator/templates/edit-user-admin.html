@@ -10,7 +10,7 @@
 {% include 'sidebar-admin.html' %}
 <section class="container-admin">
     <section class="content">
-        <form action="" method="post">
+        <form action="" method="post" class="add-user">
             {% csrf_token %}
             {% comment %} <div class="form-floating">
                 <input type="text" class="form-control" id="floating-username" placeholder="Hermawan123" name="username"
@@ -207,7 +207,10 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="submit">Submit</button>
+            <div class="button-group-form">
+                <a href="" class="cancel"> Batal</a>
+                <button type="submit" class="submit">Submit</button>
+            </div>
         </form>
     </section>
 </section>
