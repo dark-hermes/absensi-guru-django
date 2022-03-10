@@ -15,8 +15,8 @@ nav.navbar-admin {
         }
 
         .offcanvas {
-            .offcanvas-header{
-                .offcanvas-title{
+            .offcanvas-header {
+                .offcanvas-title {
                     @include v.gradient-text;
                     font-weight: 700;
                 }
@@ -29,7 +29,7 @@ nav.navbar-admin {
                 .navbar-nav {
                     text-align: center;
 
-                    li {
+                    .nav-item {
                         margin: max(.5em, 1.2vw);
 
                         a {
@@ -39,8 +39,8 @@ nav.navbar-admin {
                             font-weight: 500;
                             transition: 0.3s;
 
-                            span{
-                                border-radius: max(5px,.3vw);
+                            span {
+                                border-radius: max(5px, .3vw);
                             }
 
                             &:hover {
@@ -54,17 +54,32 @@ nav.navbar-admin {
                             padding: .5em 1em;
                         }
                     }
-                }
 
-                .profile a,
-                .profile ul {
-                    font-size: max(1em, 1.2vw);
+                    .nav-item.profile {
+                        a.nav-link {
+                            font-size: max(1em, 1.2vw);
+                            font-weight: v.$text-medium;
+                            color: v.$primary-color;
+                            padding: 0;
+                        }
+
+                        ul {
+                            font-size: max(1em, 1.2vw);
+
+                            a {
+                                color: v.$primary-text-color;
+
+                                &:hover {
+                                    color: v.$primary-color;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
-
 
 @media screen and (max-width: 991px) {
     nav.navbar-admin {
@@ -79,26 +94,32 @@ nav.navbar-admin {
                     .navbar-nav {
                         text-align: left;
 
-                        li{
-                            a{
+                        .nav-item {
+                            a {
                                 display: block;
                                 width: 100%;
                             }
                         }
-                    }
 
-                    .profile {
-                        text-align: left;
+                        .nav-item.profile {
+                            a.nav-link {
+                                font-size: max(1em, 1.2vw);
+                                font-weight: v.$text-medium;
+                                color: v.$primary-color;
+                                text-align: left;
+                            }
 
-                        a {
-                            padding: 0 !important;
-                            text-align: left;
-                            margin: max(0.5em, 1.2vw);
-                            font-size: max(1em, 1.2vw);
-                        }
+                            ul {
+                                font-size: max(1em, 1.2vw);
 
-                        ul {
-                            font-size: max(1em, 1.2vw);
+                                a {
+                                    color: v.$primary-text-color;
+
+                                    &:hover {
+                                        color: v.$primary-color;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

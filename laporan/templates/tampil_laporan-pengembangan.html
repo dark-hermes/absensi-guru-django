@@ -6,9 +6,11 @@
 {% block content %}
 {% include 'navbar.html' %}
 <div class="container">
-    <h2>Laporan Pengembangan</h2>
+    <h2>Rekap Laporan Pengembangan</h2>
     <div id="table-pdf" v-cloak>
-        {% include 'button-filter.html' %} 
+        <div class="action">
+            {% include 'button-filter-user.html' %} 
+        </div>
 
         <div class="table-laporan table">
             <table>

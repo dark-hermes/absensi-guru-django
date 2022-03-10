@@ -12,6 +12,7 @@
 <section class="container-admin">
     <section class="content loading">
         <div class="action">
+            {% include 'button-search.html' %}
             {% include 'button-filter.html' %}
             <div class="select-laporan">
                 <select @change="selectReport($event)" class="form-select" aria-label="Default select example">

@@ -7,9 +7,11 @@
 {% include 'navbar.html' %}
 
 <div class="container" id="container">
-    <h2>Laporan Bimbingan </h2>
+    <h2>Rekap Laporan Bimbingan </h2>
     <div id="table-pdf" v-cloak>
-        {% include 'button-filter.html' %}
+        <div class="action">
+            {% include 'button-filter-user.html' %}
+        </div>
         
         <div class="table-laporan table">
             <table>

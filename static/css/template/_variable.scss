@@ -3,7 +3,7 @@
 // Color
 $primary-color: rgb(59, 134, 255);
 $secondary-color: rgb(235, 235, 235);
-$primary-text-color: rgba(0,0,0,.55);
+$primary-text-color: rgba(0, 0, 0, .55);
 $secondary-text-color: rgb(142, 142, 143);
 
 // Font Bold
@@ -12,13 +12,14 @@ $text-medium: 700;
 $text-bold: 900;
 
 // Font
-$primary-font: "Poppins",sans-serif;
+$primary-font: "Poppins",
+sans-serif;
 
 // Rounded
-$rounded: max(5px,.3vw);
+$rounded: max(5px, .3vw);
 
 // Font Size
-$dekstop-font-size: max(1em,1vw);
+$dekstop-font-size: max(1em, 1vw);
 
 // Mixin property
 @mixin horizontal-centered {
@@ -37,7 +38,7 @@ $dekstop-font-size: max(1em,1vw);
 }
 
 @mixin table {
-    max-height: max(500px,30vw);
+    max-height: max(500px, 30vw);
     overflow: auto;
     margin-top: 1em;
 
@@ -48,10 +49,10 @@ $dekstop-font-size: max(1em,1vw);
         td {
             padding: 1em;
             vertical-align: top;
-            font-size: max(1em,.8vw);
+            font-size: max(1em, .8vw);
         }
 
-        td{
+        td {
             max-width: 300px;
             overflow-wrap: break-word;
         }
@@ -63,7 +64,7 @@ $dekstop-font-size: max(1em,1vw);
                 position: sticky;
                 top: 0;
 
-                th{
+                th {
                     white-space: nowrap;
                 }
             }
@@ -127,163 +128,199 @@ ul.dropdown-menu.show {
     visibility: visible;
 }
 
-.button-filter{
+.button-filter-user{
     display: flex;
     justify-content: flex-end;
+
+    .dropdown{
+        width: fit-content;
+
+        a{
+            padding: .5em 1em;
+            background-color: $primary-color;
+            font-weight: 700;
+            color: $secondary-color;
+        }
+
+        .dropdown-menu{
+            width: fit-content;
+
+            button{
+                width: 100%;
+                white-space: nowrap;
+                background: transparent;
+                border: none;
+                outline: none;
+                padding: .5em;
+                text-align: left;
+
+                &:hover{
+                    background-color: #e9ecef;
+                }
+            }
+        }
+    }
+
+    .modal .modal-body {
+        display: flex;
+        justify-content: space-around;
+
+        .date {
+            label {
+                font-weight: 700;
+                background-color: #0d6efd;
+                color: #fff;
+                padding: 5px 10px;
+            }
+
+            input {
+                padding: 5px 10px;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
+.button-filter {
+    .modal .modal-body {
+        display: flex;
+        justify-content: space-around;
 
-.button-filter .modal .modal-body{
-    display: flex;
-    justify-content: space-around;
+        .date {
+            label {
+                font-weight: 700;
+                background-color: #0d6efd;
+                color: #fff;
+                padding: 5px 10px;
+            }
+
+            input {
+                padding: 5px 10px;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
-.button-filter .modal .modal-body .date label{
-    font-weight: 700;
-    background-color: #0d6efd;
-    color: #fff;
-    padding: 5px 10px;
-}
-
-.button-filter .modal .modal-body .date input{
-    padding: 5px 10px;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.button-print{
+.button-print {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
+
+    button.button {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #0d6efd;
+        color: #fff;
+        outline: none;
+        border: none;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        transition: unset;
+        align-items: center;
+
+        &:hover {
+            font-weight: 700;
+        }
+
+        i {
+            font-size: 25px;
+            margin-left: 10px;
+        }
+    }
+
+    .modal {
+        .modal-body {
+            display: flex;
+
+            .pdf,
+            .excel {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+            }
+
+            a {
+                text-align: center;
+                width: 100px;
+                padding: 10px 0px;
+                border-radius: 5px;
+                display: inline-block;
+                color: white;
+                text-decoration: none;
+                background-color: #0d6efd;
+                transition: unset;
+
+                &:hover {
+                    font-weight: 900;
+                }
+            }
+
+            i {
+                margin-left: 10px;
+                font-size: 24px;
+            }
+        }
+    }
 }
 
-.button-print button.button{
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #0d6efd;
-    color: #fff;
-    outline: none;
-    border: none;
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    transition: unset;
-    align-items: center;
-}
-
-.button-print button.button:hover{
-    font-weight: 700;
-}
-
-.button-print button.button i{
-    font-size: 25px;
-    margin-left: 10px;
-}
-
-.button-print .modal .modal-body{
-    display: flex;
-}
-
-.button-print .modal .modal-body .pdf,
-.button-print .modal .modal-body .excel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-}
-
-.button-print .modal .modal-body  a{
-    text-align: center;
-    width: 100px;
-    padding: 10px 0px;
-    border-radius: 5px;
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    background-color: #0d6efd;
-    transition: unset;
-}
-
-.button-print .modal .modal-body  a:hover{
-    font-weight: 900;
-}
 
 
-.button-print .modal .modal-body i{
-    margin-left: 10px;
-    font-size: 24px;
-}
-
-@media screen and (min-width: 300px) and (max-width: 995px){
-    .button-filter  button.button{
+@media screen and (min-width: 300px) and (max-width: 995px) {
+    .button-filter button.button {
         padding: 10px;
         margin-top: 15px;
         width: 120px;
         font-size: 12px;
     }
 
-    .button-filter  i{
+    .button-filter i {
         font-size: 12px;
     }
 
-    .button-filter  .modal .modal-body{
+    .button-filter .modal .modal-body {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
 
-    .button-filter .modal .modal-body .date{
+    .button-filter .modal .modal-body .date {
         width: 100%;
         display: flex;
         margin: 10px 0;
     }
 
-    .button-filter .modal .modal-body .date label{
+    .button-filter .modal .modal-body .date label {
         font-size: 14px;
         width: 100px;
         text-align: center;
     }
 
-    .button-filter .modal .modal-body .date input{
+    .button-filter .modal .modal-body .date input {
         font-size: 14px;
     }
 
-    .button-print button.button{
+    .button-print button.button {
         padding: 10px;
         font-size: 12px;
         width: 100px;
     }
 
-    .button-print button.button i{
+    .button-print button.button i {
         font-size: 12px;
     }
 
-    .button-print .modal .modal-body a{
+    .button-print .modal .modal-body a {
         font-size: 12px;
     }
 
-    .button-print .modal .modal-body i{
+    .button-print .modal .modal-body i {
         margin-left: 5px;
         font-size: 12px;
     }
 }
 
-
-
-
-
-
-.pdf-header{
-    display: flex;
-    margin-bottom: 10px;
-    align-items: center;
-
-    p{
-        font-size: 20px;
-        font-weight: bold;
-        padding-left: 2em;
-        padding-right: 8em;
-        text-align: center;
-        text-transform: uppercase;
-    }
-}

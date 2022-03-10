@@ -16,8 +16,8 @@
 		width: 60%;
 		height: 80%;
 		background-color: rgba(v.$secondary-color, 0.1);
-		border-radius: max(20px,1vw);
-		box-shadow: 0 max(5px,.5vw) max(10px,1vw) 0 rgba(0, 0, 0, 0.1);
+		border-radius: max(20px, 1vw);
+		box-shadow: 0 max(5px, .5vw) max(10px, 1vw) 0 rgba(0, 0, 0, 0.1);
 		display: flex;
 
 		.login-box {
@@ -43,8 +43,8 @@
 				padding-top: 50px;
 
 				input {
-					margin: max(.6em,1vw);
-					padding: max(.6em,1vw);
+					margin: max(.6em, 1vw);
+					padding: max(.6em, 1vw);
 					width: 80%;
 					border-radius: v.$rounded;
 					border: none;
@@ -67,8 +67,8 @@
 
 					.submit {
 						width: 80%;
-						padding: max(.6em,1vw);
-						margin: max(.5em,1vw) max(.8em,1vw) 0;
+						padding: max(.6em, 1vw);
+						margin: max(.5em, 1vw) max(.8em, 1vw) 0;
 						border-radius: v.$rounded;
 						cursor: pointer;
 						background-color: v.$primary-color;
@@ -76,7 +76,7 @@
 						border: none;
 						font-weight: v.$text-medium;
 						transition: unset;
-						font-size: max(1em,1.2vw);
+						font-size: max(1em, 1.2vw);
 
 						&:hover {
 							color: lightblue;
@@ -103,39 +103,39 @@
 
 				img {
 					width: 100%;
-					padding: max(10px,1vw);
+					padding: max(10px, 1vw);
 				}
 			}
 
 			.bottom-text {
 				height: 50%;
-				padding-top: max(30px,2vw);
+				padding-top: max(30px, 2vw);
 
 				.head {
 					text-align: center;
 					font-weight: v.$text-bold;
 					color: v.$secondary-color;
-					font-size: max(30px,2vw);
+					font-size: max(30px, 2vw);
 				}
-	
+
 				.body {
 					text-align: center;
 
 					p {
 						background-color: v.$secondary-color;
 						display: inline-block;
-						padding: max(10px,1vw);
-						margin-top: max(10px,1vw);
-						font-size: max(30px,2vw);
+						padding: max(10px, 1vw);
+						margin-top: max(10px, 1vw);
+						font-size: max(30px, 2vw);
 						border-radius: v.$rounded;
 						word-spacing: 10px;
 
-						span{
+						span {
 							@include v.gradient-text;
 							font-weight: v.$text-bold;
 						}
 					}
-				}	
+				}
 			}
 		}
 	}
@@ -160,44 +160,45 @@
 			margin-top: 50px;
 			align-items: center;
 			background-color: #fff;
-		}
 
-		.login-box {
-			width: 100%;
-			height: 100%;
-		}
+			.login-box {
+				width: 100%;
+				height: 100%;
 
-		.login-box .image {
-			height: 20%;
-			padding-top: 20px;
-		}
+				.image {
+					height: 20%;
+					padding-top: 20px;
+				}
 
-		/*LOGIN Form login*/
-		.login-box .form {
-			height: 60%;
-			text-align: center;
-			padding: 30px 20px 20px;
-		}
+				/*LOGIN Form login*/
+				.form {
+					height: 60%;
+					text-align: center;
+					padding: 30px 20px 20px;
 
-		.login-box .form input {
-			margin: 5px 0;
-			padding: 10px;
-			width: 100%;
-			font-size: 3.2vw;
-		}
+					input {
+						margin: 5px 0;
+						padding: 10px;
+						width: 100%;
+						font-size: 3.2vw;
+					}
 
-		.login-box .button .submit {
-			width: 100%;
-			padding: 10px;
-			margin: 5px 0 0;
-			font-size: 3.2vw;
-			font-weight: 700;
-		}
+					.button .submit {
+						width: 100%;
+						padding: 10px;
+						margin: 5px 0 0;
+						font-size: 3.2vw;
+						font-weight: 700;
+					}
+				}
+			}
 
-		.box .image-banner {
-			display: none;
+			.image-banner {
+				display: none;
+			}
 		}
 	}
+
 }
 
 @media screen and (min-width: 576px) and (max-width: 1300px) {
