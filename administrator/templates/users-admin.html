@@ -12,7 +12,7 @@
     <section class="content loading">
         <div class="action">
             <div class="search">
-                <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" placeholder="Cari Disini">
+                <i class='bx bx-search-alt-2'></i><input type="text" name="" id="" v-model="search" placeholder="Cari Disini">
             </div>
             <div class="add-user">
                 <a href="{% url 'add_user_admin' %}" class="add">Tambah User</a>
@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(data,index) in dataUsers">
+                    <tr v-for="(data,index) in dataFetchedUsers">
                         <td>[[ index + 1]]</td>
                         <td>[[ data.full_name]]</td>
                         <td>[[ data.nip ]]</td>

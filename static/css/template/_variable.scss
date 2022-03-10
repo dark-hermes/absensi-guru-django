@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 // Color
 $primary-color: rgb(59, 134, 255);
@@ -11,12 +9,16 @@ $secondary-text-color: rgb(142, 142, 143);
 // Font Bold
 $text-regular: 600;
 $text-medium: 700;
-$text-bold: 800;
-
+$text-bold: 900;
 
 // Font
 $primary-font: "Poppins",sans-serif;
 
+// Rounded
+$rounded: max(5px,.3vw);
+
+// Font Size
+$dekstop-font-size: max(1em,1vw);
 
 // Mixin property
 @mixin horizontal-centered {
@@ -128,35 +130,6 @@ ul.dropdown-menu.show {
 .button-filter{
     display: flex;
     justify-content: flex-end;
-
-    .dropdown{
-        width: fit-content;
-
-        a{
-            padding: .5em 1em;
-            background-color: $primary-color;
-            font-weight: 700;
-            color: $secondary-color;
-        }
-
-        .dropdown-menu{
-            width: fit-content;
-
-            button{
-                width: 100%;
-                white-space: nowrap;
-                background: transparent;
-                border: none;
-                outline: none;
-                padding: .5em;
-                text-align: left;
-
-                &:hover{
-                    background-color: #e9ecef;
-                }
-            }
-        }
-    }
 }
 
 

@@ -1,26 +1,3 @@
-function showUsers() {
-    var app = new Vue({
-        el: '.table',
-        delimiters: ['[[', ']]'],
-        data: {
-            dataUsers: '',
-        },
-
-        async mounted() {
-            let url = baseUrl + 'api/users';
-            await fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    this.dataUsers = data;
-
-                });
-
-            $('.load').removeClass('load')
-            $('.content').removeClass('loading')
-        },
-    });
-}
-
 function showReportAdmin() {
     var app = new Vue({
         el: '.content',
@@ -41,6 +18,8 @@ function showReportAdmin() {
             dataTempInovativ: '',
             dataTempScientific: '',
             dataFilter: '',
+            search: '',
+            successLoad: false,
         },
 
         async mounted() {
@@ -101,6 +80,7 @@ function showReportAdmin() {
                 });
 
             this.loading = false
+            this.successLoad = true
             $('.load').removeClass('load')
             $('.content').removeClass('loading')
         },
@@ -919,7 +899,11 @@ function showReportAdmin() {
                     }
                 });
 
-                return this.dataStudyReport
+                if (this.successLoad == true) {
+                    return app.dataStudyReport.filter(keyName => {
+                        return keyName.fullName.toLowerCase().includes(app.search.toLowerCase())
+                    })
+                }
             },
 
             dataFetchedGuidance: function () {
@@ -962,7 +946,11 @@ function showReportAdmin() {
                 });
 
 
-                return this.dataGuidanceReport
+                if (this.successLoad == true) {
+                    return app.dataGuidanceReport.filter(keyName => {
+                        return keyName.fullName.toLowerCase().includes(app.search.toLowerCase())
+                    })
+                }
             },
 
             dataFetchedDevelopment: function () {
@@ -1004,7 +992,11 @@ function showReportAdmin() {
                     }
                 });
 
-                return this.dataDevelopmentReport
+                if (this.successLoad == true) {
+                    return app.dataDevelopmentReport.filter(keyName => {
+                        return keyName.fullName.toLowerCase().includes(app.search.toLowerCase())
+                    })
+                }
             },
 
             dataFetchedDuty: function () {
@@ -1047,7 +1039,11 @@ function showReportAdmin() {
                     }
                 });
 
-                return this.dataDutyReport
+                if (this.successLoad == true) {
+                    return app.dataDutyReport.filter(keyName => {
+                        return keyName.fullName.toLowerCase().includes(app.search.toLowerCase())
+                    })
+                }
             },
 
             dataFetchedInovative: function () {
@@ -1090,7 +1086,11 @@ function showReportAdmin() {
                     }
                 });
 
-                return this.dataInovativ
+                if (this.successLoad == true) {
+                    return app.dataInovativ.filter(keyName => {
+                        return keyName.fullName.toLowerCase().includes(app.search.toLowerCase())
+                    })
+                }
             },
 
             dataFetchedScientific: function () {
@@ -1133,7 +1133,11 @@ function showReportAdmin() {
                     }
                 });
 
-                return this.dataScientific
+                if (this.successLoad == true) {
+                    return app.dataScientific.filter(keyName => {
+                        return keyName.fullName.toLowerCase().includes(app.search.toLowerCase())
+                    })
+                }
             }
         },
     });

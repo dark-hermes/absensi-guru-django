@@ -5,50 +5,24 @@ function showAttendAdmin() {
         data: {
             dataAttendUser: '',
             dataTempAttendUser: '',
+            search:'',
+            successLoad: false,
         },
         async created() {
             let url = baseUrl + 'api/showabsen';
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    
+
                     this.dataAttendUser = data;
                     this.dataTempAttendUser = data;
+                    
                 });
 
             $('.load').removeClass('load')
             $('.content').removeClass('loading')
-
-            $.each(this.dataAttendUser, function (index, value) {
-                splitDate = (new Date(value.presence_date));
-                month = (splitDate.getMonth() + 1).toString().padStart(2, "0");
-                year = splitDate.getFullYear();
-                hour = splitDate.getHours();
-                minute = splitDate.getMinutes();
-                day = splitDate.getDate().toString().padStart(2, "0");
-                hour = hour.toString().padStart(2, "0");
-                minute = minute.toString().padStart(2, "0");
-                timeStamp = splitDate.getTime();
-                dateCreated = `${year}-${month}-${day}`;
-                hourCreated = `${hour}:${minute}`;
-
-                filterDate = new Date()
-                filterDay = filterDate.getDate().toString().padStart(2, "0");
-                filterMonth = (filterDate.getMonth() + 1).toString().padStart(2, "0");
-                filterYear = filterDate.getFullYear();
-
-                thisToday = `${year}${month}${day}`
-                thisMonth = `${month}${year}`
-                thisYear = `${year}`
-
-                filterToday = `${filterYear}${filterMonth}${filterDay}`
-                filterMonth = `${filterMonth}${filterYear}`
-
-                value.thisToday = thisToday
-                value.thisMonth = thisMonth
-                value.thisYear = thisYear
-                value.fullName = value.employee_id.full_name
-                value.nip = value.employee_id.nip
-            });
+            this.successLoad = true
         },
 
         methods: {
@@ -63,7 +37,6 @@ function showAttendAdmin() {
                         this.dataAttendUser = this.dataTempAttendUser;
                         filtered = this.dataAttendUser.filter(x => x.thisToday == filterToday);
                         this.dataAttendUser = filtered
-                        console.log("today")
                         break
                     case 'month':
                         this.dataAttendUser = this.dataTempAttendUser;
@@ -79,13 +52,13 @@ function showAttendAdmin() {
                         $('#myModal').modal('show')
 
                         $('#custom-filter').click(function () {
-                            this.dataAttendUser = this.dataTempAttendUser;
+                            app.dataAttendUser = app.dataTempAttendUser;
                             let fromDate = $("#from-date").val().split("-").join("")
                             let toDate = $("#to-date").val().split("-").join("")
 
-                            filtered = this.dataAttendUser.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
+                            filtered = app.dataAttendUser.filter(x => x.thisToday >= fromDate && x.thisToday <= toDate);
 
-                            this.dataAttendUser = filtered;
+                            app.dataAttendUser = filtered;
                         })
                         break
                 }
@@ -182,6 +155,48 @@ function showAttendAdmin() {
                     "Absensi"
                 )
             },
+        },
+
+        computed:{
+            dataFetchedAttendance(){
+                $.each(this.dataAttendUser, function (index, value) {
+                    splitDate = (new Date(value.presence_date));
+                    month = (splitDate.getMonth() + 1).toString().padStart(2, "0");
+                    year = splitDate.getFullYear();
+                    hour = splitDate.getHours();
+                    minute = splitDate.getMinutes();
+                    day = splitDate.getDate().toString().padStart(2, "0");
+                    hour = hour.toString().padStart(2, "0");
+                    minute = minute.toString().padStart(2, "0");
+                    timeStamp = splitDate.getTime();
+                    dateCreated = `${year}-${month}-${day}`;
+                    hourCreated = `${hour}:${minute}`;
+    
+                    filterDate = new Date()
+                    filterDay = filterDate.getDate().toString().padStart(2, "0");
+                    filterMonth = (filterDate.getMonth() + 1).toString().padStart(2, "0");
+                    filterYear = filterDate.getFullYear();
+    
+                    thisToday = `${year}${month}${day}`
+                    thisMonth = `${month}${year}`
+                    thisYear = `${year}`
+    
+                    filterToday = `${filterYear}${filterMonth}${filterDay}`
+                    filterMonth = `${filterMonth}${filterYear}`
+    
+                    value.thisToday = thisToday
+                    value.thisMonth = thisMonth
+                    value.thisYear = thisYear
+                    value.fullName = value.employee_id.full_name
+                    value.nip = value.employee_id.nip
+                });
+
+                if (this.successLoad == true) {
+                    return this.dataAttendUser.filter(post => {
+                        return post.fullName.toLowerCase().includes(this.search.toLowerCase())
+                    })
+                }    
+            }
         }
     })
 }

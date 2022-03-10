@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -52,30 +51,6 @@ ul.dropdown-menu.show {
 .button-filter {
   display: flex;
   justify-content: flex-end;
-}
-.button-filter .dropdown {
-  width: fit-content;
-}
-.button-filter .dropdown a {
-  padding: 0.5em 1em;
-  background-color: #3b86ff;
-  font-weight: 700;
-  color: #ebebeb;
-}
-.button-filter .dropdown .dropdown-menu {
-  width: fit-content;
-}
-.button-filter .dropdown .dropdown-menu button {
-  width: 100%;
-  white-space: nowrap;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 0.5em;
-  text-align: left;
-}
-.button-filter .dropdown .dropdown-menu button:hover {
-  background-color: #e9ecef;
 }
 
 .button-filter .modal .modal-body {
@@ -546,77 +521,77 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   align-items: center;
   width: 100%;
   height: 100vh;
-  /*LOGIN Form login*/
-  /*LOGIN Button Form*/
 }
-.container-login .container-login * {
+.container-login * {
   transition: 0.3s;
 }
 .container-login .box {
   width: 60%;
   height: 80%;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: rgba(235, 235, 235, 0.1);
+  border-radius: max(20px, 1vw);
+  box-shadow: 0 max(5px, 0.5vw) max(10px, 1vw) 0 rgba(0, 0, 0, 0.1);
   display: flex;
 }
-.container-login .login-box {
+.container-login .box .login-box {
   width: 50%;
   height: 100%;
+  /*LOGIN Form login*/
 }
-.container-login .login-box .image {
+.container-login .box .login-box .image {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 40%;
 }
-.container-login .login-box .image img {
-  margin-top: 20px;
+.container-login .box .login-box .image img {
   width: 40%;
   height: 80%;
 }
-.container-login .login-box .form {
+.container-login .box .login-box .form {
   height: 60%;
   text-align: center;
   padding-top: 50px;
+  /*LOGIN Button Form*/
 }
-.container-login .login-box .form input {
-  margin: 10px;
-  padding: 10px;
+.container-login .box .login-box .form input {
+  margin: max(0.6em, 1vw);
+  padding: max(0.6em, 1vw);
   width: 80%;
-  border-radius: 5px;
+  border-radius: max(5px, 0.3vw);
   border: none;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(235, 235, 235, 0.1);
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+  font-size: max(1em, 1vw);
 }
-.container-login .login-box .form input:focus {
+.container-login .box .login-box .form input:focus {
   box-shadow: 0 0 3px 2px #478dff;
 }
-.container-login .login-box .button {
+.container-login .box .login-box .form .button {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
 }
-.container-login .login-box .button .submit {
+.container-login .box .login-box .form .button .submit {
   width: 80%;
-  padding: 8px;
-  margin: 5px 10px 0;
-  border-radius: 5px;
+  padding: max(0.6em, 1vw);
+  margin: max(0.5em, 1vw) max(0.8em, 1vw) 0;
+  border-radius: max(5px, 0.3vw);
   cursor: pointer;
   background-color: #3b86ff;
-  color: white;
-  font-size: 15px;
+  color: #ebebeb;
   border: none;
-  font-weight: 500;
-  transition: unset;
-}
-.container-login .login-box .button .submit:hover {
-  color: lightblue;
   font-weight: 700;
+  transition: unset;
+  font-size: max(1em, 1.2vw);
 }
-.container-login .image-banner {
+.container-login .box .login-box .form .button .submit:hover {
+  color: lightblue;
+  font-weight: 900;
+}
+.container-login .box .image-banner {
   width: 50%;
   height: 100%;
   background-color: #3b86ff;
@@ -624,42 +599,49 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   border-bottom-right-radius: inherit;
   border-top-right-radius: inherit;
 }
-.container-login .image-banner .image {
+.container-login .box .image-banner .image {
   width: 100%;
   height: 50%;
   display: flex;
   justify-content: center;
 }
-.container-login .image-banner .image img {
+.container-login .box .image-banner .image img {
   width: 100%;
-  padding: 10px;
+  padding: max(10px, 1vw);
 }
-.container-login .image-banner .bottom-text {
+.container-login .box .image-banner .bottom-text {
   height: 50%;
-  padding-top: 30px;
+  padding-top: max(30px, 2vw);
 }
-.container-login .image-banner .bottom-text .head {
+.container-login .box .image-banner .bottom-text .head {
   text-align: center;
   font-weight: 900;
-  color: white;
-  font-size: 30px;
+  color: #ebebeb;
+  font-size: max(30px, 2vw);
 }
-.container-login .image-banner .bottom-text .body {
+.container-login .box .image-banner .bottom-text .body {
   text-align: center;
 }
-.container-login .image-banner .bottom-text .body p {
-  background-color: white;
-  color: #3b86ff;
+.container-login .box .image-banner .bottom-text .body p {
+  background-color: #ebebeb;
   display: inline-block;
-  padding: 10px;
-  margin-top: 10px;
-  font-weight: 900;
-  font-size: 30px;
-  border-radius: 5px;
+  padding: max(10px, 1vw);
+  margin-top: max(10px, 1vw);
+  font-size: max(30px, 2vw);
+  border-radius: max(5px, 0.3vw);
   word-spacing: 10px;
 }
+.container-login .box .image-banner .bottom-text .body p span {
+  font-weight: 700;
+  background-image: linear-gradient(to right, #00b4db, #3b86ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
 
-@media screen and (min-width: 300px) and (max-width: 575px) {
+@media screen and (max-width: 575px) {
   .container-login {
     display: flex;
     justify-content: center;
@@ -2267,7 +2249,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   border: none;
   outline: none;
   color: #ebebeb;
-  font-weight: 800;
+  font-weight: 900;
   padding: 0.8em 0;
   border-radius: max(5px, 0.3vw);
 }
@@ -2277,286 +2259,9 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .profile ul {
   color: #ebebeb;
   text-decoration: none;
   padding: 0.8em 0;
-  font-weight: 800;
+  font-weight: 900;
   border-radius: max(5px, 0.3vw);
   text-align: center;
-}
-
-/*======================= Edit,Change Password,Add Page =======================*/
-.container-edit {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-top: 10%;
-  padding-bottom: 10%;
-  transition: 0.5s;
-}
-
-.container-edit * {
-  transition: 0.5s;
-}
-
-.container-edit .input-box {
-  height: auto;
-  width: 60%;
-  margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 30px 0;
-}
-
-.container-edit .input-box .head {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-edit .input-box .head h2 {
-  font-weight: 500;
-}
-
-.container-edit .input-box .head span {
-  font-weight: 700;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
-  background-size: 200% auto;
-}
-
-.container-edit .input-box .form {
-  width: 80%;
-}
-
-.container-edit .input-box .form .input-data label {
-  margin-top: 50px;
-}
-
-.container-edit .input-box .form .input-data input {
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid black;
-  box-sizing: border-box;
-  filter: none;
-}
-
-.container-edit .input-box .form .input-data input:focus {
-  outline: none;
-}
-
-/* Change the white to any color for chrome*/
-.container-edit .input-box .form .input-data input:-webkit-autofill,
-.container-edit .input-box .form .input-data input:-webkit-autofill:hover,
-.container-edit .input-box .form .input-data input:-webkit-autofill:focus,
-.container-edit .input-box .form .input-data input:-webkit-autofill:active {
-  box-shadow: 0 0 0 30px white inset !important;
-}
-
-.container-edit .input-box .form .role {
-  text-align: center;
-  margin-top: 50px;
-  transition: unset;
-}
-
-.container-edit .input-box .form .role h1 {
-  text-align: left;
-  font-size: 1rem;
-}
-
-.container-edit .input-box .form .role label {
-  cursor: pointer;
-  margin: 30px 20px 0;
-  padding: 10px 10px;
-  width: 20%;
-  border-radius: 5px;
-  transition: 0.3s all ease;
-  text-transform: capitalize;
-  border: 1px solid black;
-  text-align: center;
-}
-
-.container-edit .input-box .form .role input {
-  display: none;
-}
-
-.container-edit .input-box .form .role input:checked + label {
-  background-color: #3b86ff;
-  color: white;
-  border-color: #3b86ff;
-  font-weight: 700;
-}
-
-.container-edit .input-box .form .day-check {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.container-edit .input-box .form .day-check h1 {
-  text-align: left;
-  font-size: 1rem;
-}
-
-.container-edit .input-box .form .day-check .form-check {
-  margin-top: 20px;
-}
-
-.container-edit .input-box .form .day-check .form-check input {
-  transition: unset;
-}
-
-.container-edit .input-box .form .day-check .form-check label {
-  text-transform: capitalize;
-}
-
-.container-edit .input-box .form .button {
-  text-align: center;
-  display: flex;
-  margin-top: 10px;
-  justify-content: space-between;
-}
-
-.container-edit .input-box .form .button button {
-  width: 45%;
-  padding: 10px;
-  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  transition: 0.5s;
-  color: white;
-  font-weight: 900;
-  background-size: 200% auto;
-  text-decoration: none;
-  margin-top: 30px;
-}
-
-.container-edit .input-box .form .button a {
-  width: 45%;
-  padding: 10px;
-  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  transition: 0.5s;
-  color: white;
-  font-weight: 900;
-  background-size: 200% auto;
-  text-decoration: none;
-  margin-top: 30px;
-}
-
-.container-edit .input-box .form .button button:hover,
-.container-edit .input-box .form .button a:hover {
-  background-position: right center;
-  /* change the direction of the change here */
-  color: #fff;
-}
-
-/* Responsive */
-@media screen and (min-width: 300px) and (max-width: 575px) {
-  .container-edit .input-box {
-    height: auto;
-    width: 90%;
-  }
-
-  .container-edit .input-box .form * {
-    font-size: 12px !important;
-  }
-
-  .container-edit .input-box .head h2 {
-    font-size: 18px;
-  }
-
-  .container-edit .input-box .form {
-    width: 80%;
-  }
-
-  .container-edit .input-box .form .input-data label {
-    margin-top: 30px;
-  }
-
-  .container-edit .input-box .form .input-data input {
-    margin: 10px 0;
-    padding: 5px;
-  }
-
-  .container-edit .input-box .form .role label {
-    margin: 20px 0 0;
-    width: 30%;
-  }
-
-  .container-edit .input-box .form .day-check .form-check {
-    margin-top: 20px;
-  }
-}
-@media screen and (min-width: 576px) and (max-width: 800px) {
-  .container-edit .input-box {
-    height: auto;
-    width: 90%;
-  }
-
-  .container-edit .input-box .form * {
-    font-size: 16px !important;
-  }
-
-  .container-edit .input-box .head h2 {
-    font-size: 18px;
-  }
-
-  .container-edit .input-box .form {
-    width: 80%;
-  }
-
-  .container-edit .input-box .form .input-data label {
-    margin-top: 30px;
-  }
-
-  .container-edit .input-box .form .input-data input {
-    margin: 10px 0;
-    padding: 5px;
-  }
-
-  .container-edit .input-box .form .day-check .form-check {
-    margin-top: 20px;
-  }
-}
-@media screen and (min-width: 801px) and (max-width: 1100px) {
-  .container-edit .input-box {
-    height: auto;
-    width: 80%;
-  }
-
-  .container-edit .input-box .form * {
-    font-size: 18px !important;
-  }
-
-  .container-edit .input-box .head h2 {
-    font-size: 24px;
-  }
-
-  .container-edit .input-box .form {
-    width: 80%;
-  }
-
-  .container-edit .input-box .form .input-data label {
-    margin-top: 30px;
-  }
-
-  .container-edit .input-box .form .input-data input {
-    margin: 10px 0;
-    padding: 5px;
-  }
-
-  .container-edit .input-box .form .day-check .form-check {
-    margin-top: 20px;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
