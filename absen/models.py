@@ -6,8 +6,8 @@ class Presence(models.Model):
     presence_date = models.DateField(blank=True)
     checkin_time = models.TimeField(blank=True, null=True)
     checkout_time = models.TimeField(blank=True, null=True)
-    checkin_desc = models.CharField(max_length=10, blank=True, null=True)
-    checkout_desc = models.CharField(max_length=10, blank=True, null=True)
+    checkin_desc = models.CharField(max_length=64, blank=True, null=True)
+    checkout_desc = models.CharField(max_length=64, blank=True, null=True)
     checkin_img = models.ImageField(upload_to='checkin/', blank=True, null=True)
     checkout_img = models.ImageField(upload_to='checkout/', blank=True, null=True)
     
