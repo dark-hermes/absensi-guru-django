@@ -17,14 +17,6 @@ def classes_migration(apps, schema_editor):
             class_name.objects.create(id=row[0],
                                         class_name=row[1])
             
-def major_role_migration(apps, schema_editor):
-    major_role = apps.get_model('laporan', 'MajorRole')
-    with open(settings.MEDIA_ABS_PATH, '/foreign/majorrole.csv', 'r') as mrole_file:
-        mrole_read = csv.reader(mrole_file, delimiter=',')
-        for row in mrole_read:
-            major_role.objects.create(id=row[0],
-                                    role_name=row[1])
-            
 def subject_category_migration(apps, schema_editor):
     subject_category = apps.get_model('laporan', 'SubjectCategory')
     with open(settings.MEDIA_ABS_PATH + '/foreign/subjectcat.csv', 'r') as subcat_file:

@@ -52,8 +52,6 @@ function absen() {
             distance = parseInt($('.presence-desc').attr('distance'));
             distanceMessage = $(".presence-desc").attr("dist-message");
 
-            console.log(typeof(distance))
-
             if (distance > 1000) {
                 $('#keluar').attr("disabled", "");
                 $('#masuk').attr("disabled", "");
