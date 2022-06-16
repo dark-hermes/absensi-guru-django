@@ -430,6 +430,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 }
 .copyright p {
   font-size: 14px;
+  margin-bottom: 0;
 }
 .copyright span {
   font-weight: 700;
@@ -581,23 +582,20 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 
 /*======================= Login Page =======================*/
 .container-login {
-  transition: 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
 }
-.container-login * {
-  transition: 0.3s;
-}
 .container-login .box {
   width: 60%;
-  height: 80%;
+  height: 70%;
+  display: flex;
+  align-items: center;
   background-color: rgba(235, 235, 235, 0.1);
   border-radius: max(20px, 1vw);
   box-shadow: 0 max(5px, 0.5vw) max(10px, 1vw) 0 rgba(0, 0, 0, 0.1);
-  display: flex;
 }
 .container-login .box .login-box {
   width: 50%;
@@ -620,30 +618,46 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   padding-top: 50px;
   /*LOGIN Button Form*/
 }
-.container-login .box .login-box .form input {
-  margin: max(0.6em, 1vw);
-  padding: max(0.6em, 1vw);
+.container-login .box .login-box .form .input-form {
+  margin: auto;
   width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container-login .box .login-box .form .input-form input {
   border-radius: max(5px, 0.3vw);
   border: none;
+  margin: max(0.6em, 0.5vw) 0;
+  padding: max(0.6em, 0.5vw);
   background-color: rgba(235, 235, 235, 0.1);
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   font-size: max(1em, 1vw);
+  width: 100%;
 }
-.container-login .box .login-box .form input:focus {
+.container-login .box .login-box .form .input-form input:focus {
   box-shadow: 0 0 3px 2px #478dff;
 }
-.container-login .box .login-box .form .button {
+.container-login .box .login-box .form .input-form i {
+  position: absolute;
+  right: 0;
+  margin-right: max(1em, 1vw);
+  font-size: max(1.2em, 1.2vw);
+  color: #8e8e8f;
+}
+.container-login .box .login-box .form .button-form {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-.container-login .box .login-box .form .button .submit {
+.container-login .box .login-box .form .button-form .submit {
   width: 80%;
-  padding: max(0.6em, 1vw);
-  margin: max(0.5em, 1vw) max(0.8em, 1vw) 0;
+  padding: max(0.6em, 0.5vw);
+  margin: max(0.5em, 0.5vw) max(0.8em, 0.5vw) 0;
   border-radius: max(5px, 0.3vw);
   cursor: pointer;
   background-color: #3b86ff;
@@ -651,9 +665,9 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   border: none;
   font-weight: 700;
   transition: unset;
-  font-size: max(1em, 1.2vw);
+  font-size: max(1em, 1vw);
 }
-.container-login .box .login-box .form .button .submit:hover {
+.container-login .box .login-box .form .button-form .submit:hover {
   color: lightblue;
   font-weight: 900;
 }
@@ -673,7 +687,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 }
 .container-login .box .image-banner .image img {
   width: 100%;
-  padding: max(10px, 1vw);
+  padding: max(10px, 0.5vw);
 }
 .container-login .box .image-banner .bottom-text {
   height: 50%;
@@ -772,22 +786,16 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-login .image-banner {
     height: unset;
   }
+  .container-login .image-banner .bottom-text {
+    height: 50%;
+    padding-top: 30px;
+  }
   .container-login .image-banner .bottom-text .head {
     font-size: 1.5rem;
   }
   .container-login .image-banner .bottom-text .body p {
     padding: 5px;
     font-size: 1.5;
-  }
-  .container-login .image-banner .bottom-text {
-    height: 50%;
-    padding-top: 30px;
-  }
-  .container-login .image-banner .bottom-text .head {
-    font-size: 24px;
-  }
-  .container-login .image-banner .bottom-text .body p {
-    font-size: 24px;
   }
 }
 /*======================= Absen Page =======================*/
@@ -898,7 +906,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
+  margin-top: 0.5em;
 }
 .absen .button-absen .masuk .modal .modal-body .button button {
   background-color: #297ffd;
@@ -970,7 +978,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
+  margin-top: 0.5em;
 }
 .absen .button-absen .keluar .modal .modal-body .button button {
   background-color: #297ffd;
@@ -1107,7 +1115,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   display: unset;
 }
 
-/* Responsive Table Absen | Absen Page */
+/* Responsive  Absen Page */
 @media screen and (min-width: 300px) and (max-width: 570px) {
   .absen .head h1 {
     padding: 0 20px 5px;
@@ -1480,20 +1488,17 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   padding-top: 100px;
   padding-bottom: 10%;
 }
-
-.container-laporan .input-box {
-  width: 100%;
-  height: 80%;
-  text-align: center;
-}
-
 .container-laporan h1.head {
   font-size: 1.5rem;
   text-align: center;
   padding: 20px 0;
   text-transform: uppercase;
 }
-
+.container-laporan .input-box {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+}
 .container-laporan .input-box textarea {
   width: 80%;
   height: 50vh;
@@ -1504,23 +1509,19 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   box-shadow: none;
   border-style: solid;
 }
-
 .container-laporan .file-button {
   width: 80%;
   margin: 20px auto;
   text-align: left;
 }
-
 .container-laporan .file-button label {
   font-weight: bold;
 }
-
 .container-laporan .button {
   width: 80%;
   margin: 0 auto;
   text-align: right;
 }
-
 .container-laporan .button button {
   padding: 5px 10px;
   border-radius: 5px;
@@ -1532,7 +1533,6 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   transition: unset;
   width: 150px;
 }
-
 .container-laporan .button button:hover {
   font-weight: 800;
 }
@@ -1541,17 +1541,14 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-laporan .input-box textarea {
     height: 70vh;
   }
-
   .container-laporan .button {
     width: 80%;
     text-align: center;
   }
-
   .container-laporan .button button {
     padding: 10px;
     width: 100%;
   }
-
   .container-laporan .file-button * {
     font-size: 14px;
   }
@@ -1563,24 +1560,20 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   padding-top: 100px;
   padding-bottom: 10%;
 }
-
 .container-laporan-tugas * {
   transition: 0.5s;
 }
-
 .container-laporan-tugas h1.head {
   text-align: center;
   padding: 20px 0;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-
 .container-laporan-tugas .input-box {
   width: 80%;
   margin: 0 auto;
   height: 80%;
 }
-
 .container-laporan-tugas .input-box textarea {
   width: 100%;
   height: 50vh;
@@ -1592,27 +1585,22 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   border-style: solid;
   margin-top: 20px;
 }
-
 .container-laporan-tugas .input-box .file {
   width: 100%;
   margin-top: 20px;
   padding-bottom: 50px;
 }
-
 .container-laporan-tugas .input-box .file label {
   font-weight: bold;
 }
-
 .container-laporan-tugas .input-box .file .file-button {
   width: 100%;
 }
-
 .container-laporan-tugas .input-box .file .button {
   width: 100%;
   margin: 0 auto;
   text-align: right;
 }
-
 .container-laporan-tugas .input-box .file .button button {
   padding: 5px 10px;
   border-radius: 5px;
@@ -1624,7 +1612,6 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   transition: unset;
   width: 150px;
 }
-
 .container-laporan-tugas .input-box .file .button button:hover {
   font-weight: 800;
 }

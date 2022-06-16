@@ -1,23 +1,22 @@
+// Global CSS
 @use 'template/variable' as v;
 @use 'template/navbar';
 @use 'template/sidebar';
 @use 'template/footer';
 @use 'template/error';
 @use 'template/loading';
+@use 'template/login';
 
-@use 'template-view/login';
-@use 'template-view/absen';
-@use 'template-view/laporan-belajar';
-@use 'template-view/laporan-bimbingan';
-@use 'template-view/laporan-tugas';
-@use 'template-view/laporan-pengembangan';
-@use 'template-view/laporan-karya';
-@use 'template-view/tampil_laporan_absen';
+// Users CSS
+@use 'template-view/user/absen';
+@use 'template-view/user/laporan-belajar';
+@use 'template-view/user/laporan-bimbingan';
+@use 'template-view/user/laporan-tugas';
+@use 'template-view/user/laporan-pengembangan';
+@use 'template-view/user/laporan-karya';
+@use 'template-view/user/tampil-laporan-absen';
 
-// @use 'template-view/admin/dashboard-admin';
-// @use 'template-view/admin/add-user.scss';
-// @use 'template-view/admin/laporan-admin';
-// @use 'template-view/admin/users';
+// Admin CSS
 @use 'template-view/admin/admin';
 
 
