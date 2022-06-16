@@ -77,8 +77,16 @@ alertTemplate = {
 // Show Password
 function showPassword() {
 	const seePassword = document.getElementById("password");
-	seePassword.addEventListener('click' , function(){
-       const inputPassword = this.previousElementSibling
-        inputPassword.type == "password" ? (inputPassword.type = "text") : (inputPassword.type = "password");
-    })
+	seePassword.addEventListener("click", function () {
+		const inputPassword = this.previousElementSibling;
+		if (inputPassword.type == "password") {
+			inputPassword.type = "text";
+			seePassword.classList.remove("bi-eye-slash-fill")
+			seePassword.classList.add("bi-eye-fill");
+		} else {
+			inputPassword.type = "password";
+			seePassword.classList.remove("bi-eye-fill");
+			seePassword.classList.add("bi-eye-slash-fill");
+		}
+	});
 }

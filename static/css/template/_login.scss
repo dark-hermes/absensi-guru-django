@@ -61,10 +61,14 @@
 						}
 					}
 
+					input[name='password']{
+						padding-right: 3vw;
+					}
+
 					i {
 						position: absolute;
 						right: 0;
-						margin-right: max(1em, 1vw);
+						margin-right: max(.8em, .8vw);
 						font-size: max(1.2em, 1.2vw);
 						color: v.$secondary-text-color;
 					}
