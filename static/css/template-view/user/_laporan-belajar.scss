@@ -1,4 +1,4 @@
-@use '../template/variable'as v;
+@use '../../template/variable'as v;
 
 /*======================= Laporan Belajar Page =======================*/
 .container-laporan-guru {
@@ -218,7 +218,6 @@
 
 @media screen and (min-width: 571px) and (max-width: 900px) {
 	.container-laporan-guru {
-
 		.top-input-group {
 			display: flex;
 			flex-wrap: wrap;

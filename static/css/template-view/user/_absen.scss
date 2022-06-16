@@ -1,4 +1,4 @@
-@use '../template/variable'as v;
+@use '../../template/variable'as v;
 
 
 @mixin disable-button {
@@ -38,7 +38,7 @@
 
         .button {
             @include v.horizontal-centered;
-            height: 10%;
+            margin-top: .5em;
 
             button {
                 background-color: #297ffd;
@@ -360,7 +360,7 @@
 
 
 
-/* Responsive Table Absen | Absen Page */
+/* Responsive  Absen Page */
 @media screen and (min-width: 300px) and (max-width: 570px) {
     .absen {
         .head h1 {

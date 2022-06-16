@@ -1,0 +1,103 @@
+@use '../../template/variable'as v;
+
+
+
+/*======================= Laporan Tugas Page =======================*/
+.container-laporan-tugas {
+	min-height: 100vh;
+	transition: 0.5s;
+	padding-top: 100px;
+	padding-bottom: 10%;
+
+	* {
+		transition: 0.5s;
+	}
+
+	h1.head {
+		text-align: center;
+		padding: 20px 0;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+	}
+
+	.input-box {
+		width: 80%;
+		margin: 0 auto;
+		height: 80%;
+
+		textarea {
+			width: 100%;
+			height: 50vh;
+			resize: none;
+			padding: 10px;
+			border-radius: 10px;
+			outline: none;
+			box-shadow: none;
+			border-style: solid;
+			margin-top: 20px;
+		}
+
+		.file {
+			width: 100%;
+			margin-top: 20px;
+			padding-bottom: 50px;
+		}
+
+		.file label {
+			font-weight: bold;
+		}
+
+		.file .file-button {
+			width: 100%;
+		}
+
+		.file .button {
+			width: 100%;
+			margin: 0 auto;
+			text-align: right;
+		}
+
+		.file .button button {
+			padding: 5px 10px;
+			border-radius: 5px;
+			outline: none;
+			border: none;
+			background-color: #3b86ff;
+			color: white;
+			font-weight: 600;
+			transition: unset;
+			width: 150px;
+		}
+
+		.file .button button:hover {
+			font-weight: 800;
+		}
+	}
+
+
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 570px) {
+	.container-laporan-tugas .input-box * {
+		font-size: 12px;
+	}
+
+	.container-laporan-tugas .input-box textarea {
+		height: 70vh;
+	}
+
+	.container-laporan-tugas .input-box .file .button {
+		width: 100%;
+		text-align: center;
+	}
+
+	.container-laporan-tugas .input-box .file .button button {
+		padding: 10px;
+		width: 100%;
+	}
+
+	.container-laporan-tugas .input-box .file .file-button * {
+		font-size: 12px;
+	}
+}

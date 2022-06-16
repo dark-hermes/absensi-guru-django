@@ -3,27 +3,24 @@
 
 /*======================= Login Page =======================*/
 .container-login {
-	transition: 0.3s;
 	@include v.horizontal-centered;
 	width: 100%;
 	height: 100vh;
 
-	* {
-		transition: 0.3s;
-	}
-
 	.box {
 		width: 60%;
-		height: 80%;
+		height: 70%;
+		display: flex;
+		align-items: center;
 		background-color: rgba(v.$secondary-color, 0.1);
 		border-radius: max(20px, 1vw);
 		box-shadow: 0 max(5px, .5vw) max(10px, 1vw) 0 rgba(0, 0, 0, 0.1);
-		display: flex;
 
 		.login-box {
 			width: 50%;
 			height: 100%;
 
+			// Logo
 			.image {
 				@include v.horizontal-centered;
 				height: 40%;
@@ -42,33 +39,51 @@
 				text-align: center;
 				padding-top: 50px;
 
-				input {
-					margin: max(.6em, 1vw);
-					padding: max(.6em, 1vw);
+				.input-form {
+					margin: auto;
 					width: 80%;
-					border-radius: v.$rounded;
-					border: none;
-					background-color: rgba(v.$secondary-color, 0.1);
-					box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
-					box-sizing: border-box;
-					font-size: v.$dekstop-font-size;
+					@include v.horizontal-centered;
+					position: relative;
 
-					&:focus {
-						box-shadow: 0 0 3px 2px #478dff;
+					input {
+						border-radius: v.$rounded;
+						border: none;
+						margin: max(.6em, .5vw) 0;
+						padding: max(.6em, .5vw);
+						background-color: rgba(v.$secondary-color, 0.1);
+						box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+						box-sizing: border-box;
+						font-size: v.$dekstop-font-size;
+						width: 100%;
+
+						&:focus {
+							box-shadow: 0 0 3px 2px #478dff;
+						}
+					}
+
+					input[name='password']{
+						padding-right: 3vw;
+					}
+
+					i {
+						position: absolute;
+						right: 0;
+						margin-right: max(.8em, .8vw);
+						font-size: max(1.2em, 1.2vw);
+						color: v.$secondary-text-color;
 					}
 				}
 
 				/*LOGIN Button Form*/
-				.button {
+				.button-form {
 					width: 100%;
 					height: auto;
-					display: flex;
-					justify-content: center;
+					@include v.horizontal-centered;
 
 					.submit {
 						width: 80%;
-						padding: max(.6em, 1vw);
-						margin: max(.5em, 1vw) max(.8em, 1vw) 0;
+						padding: max(.6em, .5vw);
+						margin: max(.5em, .5vw) max(.8em, .5vw) 0;
 						border-radius: v.$rounded;
 						cursor: pointer;
 						background-color: v.$primary-color;
@@ -76,7 +91,7 @@
 						border: none;
 						font-weight: v.$text-medium;
 						transition: unset;
-						font-size: max(1em, 1.2vw);
+						font-size: max(1em, 1vw);
 
 						&:hover {
 							color: lightblue;
@@ -87,6 +102,7 @@
 			}
 		}
 
+		// Image Banner Illustration
 		.image-banner {
 			width: 50%;
 			height: 100%;
@@ -103,7 +119,7 @@
 
 				img {
 					width: 100%;
-					padding: max(10px, 1vw);
+					padding: max(10px, .5vw);
 				}
 			}
 
@@ -216,28 +232,20 @@
 
 		.image-banner {
 			height: unset;
-		}
 
-		.image-banner .bottom-text .head {
-			font-size: 1.5rem;
-		}
+			.bottom-text {
+				height: 50%;
+				padding-top: 30px;
 
-		.image-banner .bottom-text .body p {
-			padding: 5px;
-			font-size: 1.5;
-		}
+				.head {
+					font-size: 1.5rem;
+				}
 
-		.image-banner .bottom-text {
-			height: 50%;
-			padding-top: 30px;
-		}
-
-		.image-banner .bottom-text .head {
-			font-size: 24px;
-		}
-
-		.image-banner .bottom-text .body p {
-			font-size: 24px;
+				.body p {
+					padding: 5px;
+					font-size: 1.5;
+				}
+			}
 		}
 	}
 }

@@ -57,9 +57,9 @@ ul.dropdown-menu.show {
 }
 .button-filter-user .dropdown a {
   padding: 0.5em 1em;
-  background-color: #3b86ff;
+  background-color: rgb(59, 134, 255);
   font-weight: 700;
-  color: #ebebeb;
+  color: rgb(235, 235, 235);
 }
 .button-filter-user .dropdown .dropdown-menu {
   width: fit-content;
@@ -169,47 +169,38 @@ ul.dropdown-menu.show {
     width: 120px;
     font-size: 12px;
   }
-
   .button-filter i {
     font-size: 12px;
   }
-
   .button-filter .modal .modal-body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
-
   .button-filter .modal .modal-body .date {
     width: 100%;
     display: flex;
     margin: 10px 0;
   }
-
   .button-filter .modal .modal-body .date label {
     font-size: 14px;
     width: 100px;
     text-align: center;
   }
-
   .button-filter .modal .modal-body .date input {
     font-size: 14px;
   }
-
   .button-print button.button {
     padding: 10px;
     font-size: 12px;
     width: 100px;
   }
-
   .button-print button.button i {
     font-size: 12px;
   }
-
   .button-print .modal .modal-body a {
     font-size: 12px;
   }
-
   .button-print .modal .modal-body i {
     margin-left: 5px;
     font-size: 12px;
@@ -258,20 +249,20 @@ nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-ite
   border-radius: max(5px, 0.3vw);
 }
 nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item a:hover {
-  color: #3b86ff;
+  color: rgb(59, 134, 255);
 }
 nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item a:focus {
   box-shadow: none;
 }
 nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item a.active {
   color: white !important;
-  background-color: #3b86ff;
+  background-color: rgb(59, 134, 255);
   padding: 0.5em 1em;
 }
 nav.navbar-user .container-fluid .offcanvas .offcanvas-body .nav-item.profile a.nav-link {
   font-size: max(1em, 1.2vw);
   font-weight: 700;
-  color: #3b86ff;
+  color: rgb(59, 134, 255);
 }
 nav.navbar-user .container-fluid .offcanvas .offcanvas-body .nav-item.profile ul {
   font-size: max(1em, 1.2vw);
@@ -280,7 +271,7 @@ nav.navbar-user .container-fluid .offcanvas .offcanvas-body .nav-item.profile ul
   color: rgba(0, 0, 0, 0.55);
 }
 nav.navbar-user .container-fluid .offcanvas .offcanvas-body .nav-item.profile ul a:hover {
-  color: #3b86ff;
+  color: rgb(59, 134, 255);
 }
 
 @media screen and (max-width: 991px) {
@@ -302,7 +293,7 @@ nav.navbar-user .container-fluid .offcanvas .offcanvas-body .nav-item.profile ul
   nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile a.nav-link {
     font-size: max(1em, 1.2vw);
     font-weight: 700;
-    color: #3b86ff;
+    color: rgb(59, 134, 255);
   }
   nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile ul {
     font-size: max(1em, 1.2vw);
@@ -311,7 +302,7 @@ nav.navbar-user .container-fluid .offcanvas .offcanvas-body .nav-item.profile ul
     color: rgba(0, 0, 0, 0.55);
   }
   nav.navbar-user .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile ul a:hover {
-    color: #3b86ff;
+    color: rgb(59, 134, 255);
   }
 }
 /*  Navbar */
@@ -357,17 +348,17 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   border-radius: max(5px, 0.3vw);
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item a:hover {
-  color: #3b86ff;
+  color: rgb(59, 134, 255);
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item a.active span {
   color: white !important;
-  background-color: #3b86ff;
+  background-color: rgb(59, 134, 255);
   padding: 0.5em 1em;
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile a.nav-link {
   font-size: max(1em, 1.2vw);
   font-weight: 700;
-  color: #3b86ff;
+  color: rgb(59, 134, 255);
   padding: 0;
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile ul {
@@ -377,7 +368,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   color: rgba(0, 0, 0, 0.55);
 }
 nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile ul a:hover {
-  color: #3b86ff;
+  color: rgb(59, 134, 255);
 }
 
 @media screen and (max-width: 991px) {
@@ -398,7 +389,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile a.nav-link {
     font-size: max(1em, 1.2vw);
     font-weight: 700;
-    color: #3b86ff;
+    color: rgb(59, 134, 255);
     text-align: left;
   }
   nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile ul {
@@ -408,7 +399,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
     color: rgba(0, 0, 0, 0.55);
   }
   nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-item.profile ul a:hover {
-    color: #3b86ff;
+    color: rgb(59, 134, 255);
   }
 }
 /* Footer */
@@ -417,8 +408,8 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #ebebeb;
-  color: #8e8e8f;
+  background-color: rgb(235, 235, 235);
+  color: rgb(142, 142, 143);
   text-align: center;
   height: 30px;
   display: flex;
@@ -430,13 +421,14 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 }
 .copyright p {
   font-size: 14px;
+  margin-bottom: 0;
 }
 .copyright span {
   font-weight: 700;
 }
 .copyright span a {
   text-decoration: none;
-  color: #8e8e8f;
+  color: rgb(142, 142, 143);
   transition: unset;
 }
 .copyright span a:hover {
@@ -517,21 +509,17 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-error .banner {
     width: 80%;
   }
-
   .container-error .banner img {
     width: 80%;
     height: 100%;
   }
-
   .container-error .banner .text-group {
     width: 80%;
     text-align: center;
   }
-
   .container-error .banner .text-group h1 {
     font-size: 18px;
   }
-
   .container-error .banner .text-group p {
     font-size: 12px;
   }
@@ -581,23 +569,20 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 
 /*======================= Login Page =======================*/
 .container-login {
-  transition: 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
 }
-.container-login * {
-  transition: 0.3s;
-}
 .container-login .box {
   width: 60%;
-  height: 80%;
+  height: 70%;
+  display: flex;
+  align-items: center;
   background-color: rgba(235, 235, 235, 0.1);
   border-radius: max(20px, 1vw);
   box-shadow: 0 max(5px, 0.5vw) max(10px, 1vw) 0 rgba(0, 0, 0, 0.1);
-  display: flex;
 }
 .container-login .box .login-box {
   width: 50%;
@@ -620,48 +605,67 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   padding-top: 50px;
   /*LOGIN Button Form*/
 }
-.container-login .box .login-box .form input {
-  margin: max(0.6em, 1vw);
-  padding: max(0.6em, 1vw);
+.container-login .box .login-box .form .input-form {
+  margin: auto;
   width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container-login .box .login-box .form .input-form input {
   border-radius: max(5px, 0.3vw);
   border: none;
+  margin: max(0.6em, 0.5vw) 0;
+  padding: max(0.6em, 0.5vw);
   background-color: rgba(235, 235, 235, 0.1);
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   font-size: max(1em, 1vw);
+  width: 100%;
 }
-.container-login .box .login-box .form input:focus {
+.container-login .box .login-box .form .input-form input:focus {
   box-shadow: 0 0 3px 2px #478dff;
 }
-.container-login .box .login-box .form .button {
+.container-login .box .login-box .form .input-form input[name=password] {
+  padding-right: 3vw;
+}
+.container-login .box .login-box .form .input-form i {
+  position: absolute;
+  right: 0;
+  margin-right: max(0.8em, 0.8vw);
+  font-size: max(1.2em, 1.2vw);
+  color: rgb(142, 142, 143);
+}
+.container-login .box .login-box .form .button-form {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-.container-login .box .login-box .form .button .submit {
+.container-login .box .login-box .form .button-form .submit {
   width: 80%;
-  padding: max(0.6em, 1vw);
-  margin: max(0.5em, 1vw) max(0.8em, 1vw) 0;
+  padding: max(0.6em, 0.5vw);
+  margin: max(0.5em, 0.5vw) max(0.8em, 0.5vw) 0;
   border-radius: max(5px, 0.3vw);
   cursor: pointer;
-  background-color: #3b86ff;
-  color: #ebebeb;
+  background-color: rgb(59, 134, 255);
+  color: rgb(235, 235, 235);
   border: none;
   font-weight: 700;
   transition: unset;
-  font-size: max(1em, 1.2vw);
+  font-size: max(1em, 1vw);
 }
-.container-login .box .login-box .form .button .submit:hover {
+.container-login .box .login-box .form .button-form .submit:hover {
   color: lightblue;
   font-weight: 900;
 }
 .container-login .box .image-banner {
   width: 50%;
   height: 100%;
-  background-color: #3b86ff;
-  background-image: linear-gradient(155deg, #3b86ff 53%, #0071fd 99%);
+  background-color: rgb(59, 134, 255);
+  background-image: linear-gradient(155deg, rgb(59, 134, 255) 53%, #0071fd 99%);
   border-bottom-right-radius: inherit;
   border-top-right-radius: inherit;
 }
@@ -673,7 +677,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 }
 .container-login .box .image-banner .image img {
   width: 100%;
-  padding: max(10px, 1vw);
+  padding: max(10px, 0.5vw);
 }
 .container-login .box .image-banner .bottom-text {
   height: 50%;
@@ -682,14 +686,14 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 .container-login .box .image-banner .bottom-text .head {
   text-align: center;
   font-weight: 900;
-  color: #ebebeb;
+  color: rgb(235, 235, 235);
   font-size: max(30px, 2vw);
 }
 .container-login .box .image-banner .bottom-text .body {
   text-align: center;
 }
 .container-login .box .image-banner .bottom-text .body p {
-  background-color: #ebebeb;
+  background-color: rgb(235, 235, 235);
   display: inline-block;
   padding: max(10px, 1vw);
   margin-top: max(10px, 1vw);
@@ -772,22 +776,16 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-login .image-banner {
     height: unset;
   }
+  .container-login .image-banner .bottom-text {
+    height: 50%;
+    padding-top: 30px;
+  }
   .container-login .image-banner .bottom-text .head {
     font-size: 1.5rem;
   }
   .container-login .image-banner .bottom-text .body p {
     padding: 5px;
     font-size: 1.5;
-  }
-  .container-login .image-banner .bottom-text {
-    height: 50%;
-    padding-top: 30px;
-  }
-  .container-login .image-banner .bottom-text .head {
-    font-size: 24px;
-  }
-  .container-login .image-banner .bottom-text .body p {
-    font-size: 24px;
   }
 }
 /*======================= Absen Page =======================*/
@@ -898,7 +896,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
+  margin-top: 0.5em;
 }
 .absen .button-absen .masuk .modal .modal-body .button button {
   background-color: #297ffd;
@@ -970,7 +968,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
+  margin-top: 0.5em;
 }
 .absen .button-absen .keluar .modal .modal-body .button button {
   background-color: #297ffd;
@@ -1107,7 +1105,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   display: unset;
 }
 
-/* Responsive Table Absen | Absen Page */
+/* Responsive  Absen Page */
 @media screen and (min-width: 300px) and (max-width: 570px) {
   .absen .head h1 {
     padding: 0 20px 5px;
@@ -1480,20 +1478,17 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   padding-top: 100px;
   padding-bottom: 10%;
 }
-
-.container-laporan .input-box {
-  width: 100%;
-  height: 80%;
-  text-align: center;
-}
-
 .container-laporan h1.head {
   font-size: 1.5rem;
   text-align: center;
   padding: 20px 0;
   text-transform: uppercase;
 }
-
+.container-laporan .input-box {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+}
 .container-laporan .input-box textarea {
   width: 80%;
   height: 50vh;
@@ -1504,23 +1499,19 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   box-shadow: none;
   border-style: solid;
 }
-
 .container-laporan .file-button {
   width: 80%;
   margin: 20px auto;
   text-align: left;
 }
-
 .container-laporan .file-button label {
   font-weight: bold;
 }
-
 .container-laporan .button {
   width: 80%;
   margin: 0 auto;
   text-align: right;
 }
-
 .container-laporan .button button {
   padding: 5px 10px;
   border-radius: 5px;
@@ -1532,7 +1523,6 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   transition: unset;
   width: 150px;
 }
-
 .container-laporan .button button:hover {
   font-weight: 800;
 }
@@ -1541,17 +1531,14 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-laporan .input-box textarea {
     height: 70vh;
   }
-
   .container-laporan .button {
     width: 80%;
     text-align: center;
   }
-
   .container-laporan .button button {
     padding: 10px;
     width: 100%;
   }
-
   .container-laporan .file-button * {
     font-size: 14px;
   }
@@ -1563,24 +1550,20 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   padding-top: 100px;
   padding-bottom: 10%;
 }
-
 .container-laporan-tugas * {
   transition: 0.5s;
 }
-
 .container-laporan-tugas h1.head {
   text-align: center;
   padding: 20px 0;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-
 .container-laporan-tugas .input-box {
   width: 80%;
   margin: 0 auto;
   height: 80%;
 }
-
 .container-laporan-tugas .input-box textarea {
   width: 100%;
   height: 50vh;
@@ -1592,27 +1575,22 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   border-style: solid;
   margin-top: 20px;
 }
-
 .container-laporan-tugas .input-box .file {
   width: 100%;
   margin-top: 20px;
   padding-bottom: 50px;
 }
-
 .container-laporan-tugas .input-box .file label {
   font-weight: bold;
 }
-
 .container-laporan-tugas .input-box .file .file-button {
   width: 100%;
 }
-
 .container-laporan-tugas .input-box .file .button {
   width: 100%;
   margin: 0 auto;
   text-align: right;
 }
-
 .container-laporan-tugas .input-box .file .button button {
   padding: 5px 10px;
   border-radius: 5px;
@@ -1624,7 +1602,6 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   transition: unset;
   width: 150px;
 }
-
 .container-laporan-tugas .input-box .file .button button:hover {
   font-weight: 800;
 }
@@ -1633,21 +1610,17 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-laporan-tugas .input-box * {
     font-size: 12px;
   }
-
   .container-laporan-tugas .input-box textarea {
     height: 70vh;
   }
-
   .container-laporan-tugas .input-box .file .button {
     width: 100%;
     text-align: center;
   }
-
   .container-laporan-tugas .input-box .file .button button {
     padding: 10px;
     width: 100%;
   }
-
   .container-laporan-tugas .input-box .file .file-button * {
     font-size: 12px;
   }
@@ -1809,53 +1782,42 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-laporan-pengembangan .input-box .input .input-group .form-check {
     width: 100%;
   }
-
   .container-laporan-pengembangan .input-box .input .input-group .input-group-text {
     padding: 0 !important;
   }
-
   .container-laporan-pengembangan .input-box .input .input-group .input-group-text,
 .container-laporan-pengembangan .input-box .input .input-group .form-control {
     margin-top: 10px !important;
   }
-
   .container-laporan-pengembangan .input-box .input .input-group .input-group-text .form-check-input {
     margin-right: 10px;
   }
-
   .container-laporan-pengembangan .input-box * {
     font-size: 12px;
   }
-
   .container-laporan-pengembangan .input-box .bottom-input {
     flex-wrap: wrap;
     padding: 20px 0;
   }
-
   .container-laporan-pengembangan .input-box .bottom-input .input-group,
 .container-laporan-pengembangan .input-box .bottom-input .input-date {
     width: 100%;
     margin: 10px 0;
   }
-
   .container-laporan-pengembangan .input-box .bottom-input .input-date {
     margin-left: 0;
   }
-
   .container-laporan-pengembangan .input-box textarea {
     height: 150%;
   }
-
   .container-laporan-pengembangan .input-box .file .button {
     width: 100%;
     text-align: center;
   }
-
   .container-laporan-pengembangan .input-box .file .button button {
     padding: 10px;
     width: 100%;
   }
-
   .container-laporan-pengembangan .input-box .file .file-button * {
     font-size: 12px;
   }
@@ -1865,50 +1827,40 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
     width: 100%;
     margin: 10px 0;
   }
-
   .container-laporan-pengembangan .input-box .input .input-group .input-group-text {
     padding: 0 !important;
     margin-top: 10px !important;
   }
-
   .container-laporan-pengembangan .input-box .input .input-group .input-group-text,
 .container-laporan-pengembangan .input-box .input .input-group .form-control {
     margin-top: 10px !important;
   }
-
   .container-laporan-pengembangan .input-box .input .input-group .input-group-text .form-check-input {
     margin-right: 10px;
   }
-
   .container-laporan-pengembangan .input-box * {
     font-size: 16px;
   }
-
   .container-laporan-pengembangan .input-box .bottom-input {
     flex-wrap: wrap;
     padding: 20px 0;
   }
-
   .container-laporan-pengembangan .input-box .bottom-input .input-group,
 .container-laporan-pengembangan .input-box .bottom-input .input-date {
     width: 100%;
     margin: 10px 0;
   }
-
   .container-laporan-pengembangan .input-box textarea {
     height: 150%;
   }
-
   .container-laporan-pengembangan .input-box .file .button {
     width: 100%;
     text-align: center;
   }
-
   .container-laporan-pengembangan .input-box .file .button button {
     padding: 10px;
     width: 100%;
   }
-
   .container-laporan-pengembangan .input-box .file .file-button * {
     font-size: 12px;
   }
@@ -1999,26 +1951,21 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
   .container-laporan-karya .input-box * {
     font-size: 12px;
   }
-
   .container-laporan-karya .input-box textarea {
     height: 150%;
   }
-
   .container-laporan-karya .input-box .file {
     padding-bottom: 20%;
   }
-
   .container-laporan-karya .input-box .file .button {
     width: 100%;
     padding: 0;
     text-align: center;
   }
-
   .container-laporan-karya .input-box .file .button button {
     padding: 10px;
     width: 100%;
   }
-
   .container-laporan-karya .input-box .file .file-button * {
     font-size: 12px;
   }
@@ -2311,10 +2258,10 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 }
 .container-admin .content form.add-user .button-group-form .submit {
   width: 45%;
-  background-color: #3b86ff;
+  background-color: rgb(59, 134, 255);
   border: none;
   outline: none;
-  color: #ebebeb;
+  color: rgb(235, 235, 235);
   font-weight: 900;
   padding: 0.8em 0;
   border-radius: max(5px, 0.3vw);
@@ -2322,7 +2269,7 @@ nav.navbar-admin .container-fluid .offcanvas .offcanvas-body .navbar-nav .nav-it
 .container-admin .content form.add-user .button-group-form .cancel {
   width: 45%;
   background-color: red;
-  color: #ebebeb;
+  color: rgb(235, 235, 235);
   text-decoration: none;
   padding: 0.8em 0;
   font-weight: 900;
